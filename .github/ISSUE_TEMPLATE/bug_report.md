@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: 버그 이슈 템플릿
-title: "[BUG]"
-labels: bug
+title: ''
+labels: ''
 assignees: ''
 
 ---
