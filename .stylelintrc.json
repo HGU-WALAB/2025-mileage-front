@@ -1,0 +1,8 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "customSyntax": "postcss-styled-syntax",
+  "plugins": ["stylelint-order", "stylelint-scss"],
+  "rules": {
+    "order/properties-alphabetical-order": true
+  }
+}
