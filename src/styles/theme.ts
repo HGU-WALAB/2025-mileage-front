@@ -1,8 +1,10 @@
+import { createTheme } from '@mui/material';
+
 const palette = {};
 
-const theme = {
+const theme = createTheme({
   palette,
-};
+});
 
 export default theme;
 
