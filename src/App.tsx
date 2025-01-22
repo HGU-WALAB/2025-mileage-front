@@ -2,15 +2,20 @@ import router from '@/router';
 import { globalStyle } from '@/styles/global';
 import theme from '@/theme';
 import { Global, ThemeProvider } from '@emotion/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from 'react-router-dom';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Global styles={globalStyle} />
-        <RouterProvider router={router} />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={theme}>
+          <Global styles={globalStyle} />
+          <RouterProvider router={router} />
+        </ThemeProvider>
+      </QueryClientProvider>
     </>
   );
 }
