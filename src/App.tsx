@@ -1,6 +1,6 @@
 import router from '@/router';
 import { globalStyle } from '@/styles/global';
-import theme from '@/theme';
+import theme from '@/styles/theme';
 import { Global, ThemeProvider } from '@emotion/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from 'react-router-dom';
