@@ -1,5 +1,9 @@
 function App() {
-  return <>2025 mileage front</>;
+  return (
+    <>
+        <RouterProvider router={router} />
+    </>
+  );
 }
 
 export default App;
