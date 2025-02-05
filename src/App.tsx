@@ -1,6 +1,7 @@
 import router from '@/router';
+import { useThemeStore } from '@/stores/themeStore';
 import { globalStyle } from '@/styles/global';
-import theme from '@/styles/theme';
+import { darkTheme, lightTheme } from '@/styles/theme';
 import { Global } from '@emotion/react';
 import { ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -8,17 +9,17 @@ import { RouterProvider } from 'react-router-dom';
 
 const queryClient = new QueryClient();
 
-function App() {
+const App = () => {
+  const themeMode = useThemeStore(state => state.themeMode);
+
   return (
-    <>
-      <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={theme}>
-          <Global styles={globalStyle} />
-          <RouterProvider router={router} />
-        </ThemeProvider>
-      </QueryClientProvider>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
+        <Global styles={globalStyle} />
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </QueryClientProvider>
   );
-}
+};
 
 export default App;
