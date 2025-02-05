@@ -1,3 +1,5 @@
+import '@mui/material/styles/createPalette';
+
 declare module '@mui/material/styles' {
   interface Palette {
     blue300: string;
@@ -52,4 +54,6 @@ declare module '@mui/material/styles' {
     black?: string;
     white?: string;
   }
+
+  export function createTheme(options: ThemeOptions): Theme;
 }
