@@ -1,9 +1,9 @@
-import { css } from '@emotion/react';
+import { Flex } from '@/components';
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from './Button';
 
 const meta: Meta<typeof Button> = {
-  title: 'Button',
+  title: 'Components/Button',
   component: Button,
   args: {},
 };
@@ -11,6 +11,12 @@ const meta: Meta<typeof Button> = {
 export default meta;
 
 type Story = StoryObj<typeof Button>;
+
+export const Default: Story = {
+  args: {
+    label: '버튼',
+  },
+};
 
 export const Contained: Story = {
   render: () => <ButtonGroup variant={'contained'} disabled={false} />,
@@ -32,14 +38,6 @@ export const Colored: Story = {
   render: () => <ButtonColor />,
 };
 
-const colStyle = css({ display: 'flex', flexDirection: 'column', gap: '1rem' });
-
-const buttonWrapper = css({
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-});
-
 const ButtonGroup = ({
   variant,
   isRound = false,
@@ -50,41 +48,41 @@ const ButtonGroup = ({
   disabled: boolean;
 }) => {
   return (
-    <div css={colStyle}>
-      <div css={buttonWrapper}>
+    <Flex.Column gap="1rem">
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant={variant} size="small" disabled={disabled} isRound={isRound} />
-      </div>
-      <div css={buttonWrapper}>
+      </Flex.Row>
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant={variant} size="medium" disabled={disabled} isRound={isRound} />
-      </div>
-      <div css={buttonWrapper}>
+      </Flex.Row>
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant={variant} size="large" disabled={disabled} isRound={isRound} />
-      </div>
-      <div css={buttonWrapper}>
+      </Flex.Row>
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant={variant} size="full" disabled={disabled} isRound={isRound} />
-      </div>
-    </div>
+      </Flex.Row>
+    </Flex.Column>
   );
 };
 
 const ButtonColor = () => {
   return (
-    <div css={colStyle}>
-      <div css={buttonWrapper}>
+    <Flex.Column gap="1rem">
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant="contained" size="small" color="blue" />
-      </div>
-      <div css={buttonWrapper}>
+      </Flex.Row>
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant="contained" size="small" color="pink" />
-      </div>
-      <div css={buttonWrapper}>
+      </Flex.Row>
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant="contained" size="small" color="purple" />
-      </div>
-      <div css={buttonWrapper}>
+      </Flex.Row>
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant="contained" size="small" color="green" />
-      </div>
-      <div css={buttonWrapper}>
+      </Flex.Row>
+      <Flex.Row align="center" justify="center">
         <Button label="버튼" variant="contained" size="small" color="yellow" />
-      </div>
-    </div>
+      </Flex.Row>
+    </Flex.Column>
   );
 };
