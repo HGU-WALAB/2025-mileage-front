@@ -1,4 +1,5 @@
 export const ROUTE_PATH = {
   root: '/',
-  landing: '/login',
+  landing: '/landing',
+  mileageList: '/mileage/my',
 };
