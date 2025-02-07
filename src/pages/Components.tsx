@@ -1,4 +1,4 @@
-import { useThemeStore } from '@/stores/themeStore';
+import { useThemeStore } from '@/stores';
 import { Box, Button } from '@mui/material';
 
 const Components = () => {
