@@ -1,19 +1,22 @@
-import { Drawer, Header } from '@/components';
-import styled from '@emotion/styled';
+import { Drawer, Flex, Header, Main } from '@/components';
+import { useDrawerStore } from '@/stores';
+
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const DrawerLayout = () => {
+  const { isDrawerOpen } = useDrawerStore();
+
   return (
-    <S.LayoutContainer>
+    <Flex.Column margin="0 0 2rem 0">
       <Drawer />
       <Header />
-      <S.Wrapper>
+      <Main open={isDrawerOpen}>
         <GlobalSuspense>
           <Outlet />
         </GlobalSuspense>
-      </S.Wrapper>
-    </S.LayoutContainer>
+      </Main>
+    </Flex.Column>
   );
 };
 
@@ -22,16 +25,3 @@ export default DrawerLayout;
 const GlobalSuspense = ({ children }: { children: JSX.Element }) => (
   <Suspense fallback={<div style={{ height: '100vh' }}></div>}>{children}</Suspense>
 );
-
-const S = {
-  LayoutContainer: styled.div`
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    margin-bottom: 2rem;
-  `,
-  Wrapper: styled.div`
-    background-color: green;
-    flex: 1;
-  `,
-};

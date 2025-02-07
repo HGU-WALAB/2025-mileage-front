@@ -1,5 +1,6 @@
 import { Flex } from '@/components';
-import useDrawerStore from '@/stores/useDrawerStore';
+import { headerHeight } from '@/constants/layoutSize';
+import { useDrawerStore } from '@/stores';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { IconButton } from '@mui/material';
 
@@ -7,7 +8,7 @@ const Header = () => {
   const { isDrawerOpen, toggleDrawer } = useDrawerStore();
 
   return (
-    <Flex.Row height="64px" backgroundColor="yellow">
+    <Flex.Row height={`${headerHeight}px`} backgroundColor="yellow">
       <Flex.Row backgroundColor="red" padding="1rem" align="center" justify="center">
         <IconButton
           color="inherit"
