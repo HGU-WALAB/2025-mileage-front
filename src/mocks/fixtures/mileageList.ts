@@ -1,0 +1,45 @@
+import { MileageResponse } from '@/types/mileage';
+
+export const mileageList: { data: MileageResponse[] } = {
+  data: [
+    {
+      subitemId: 1,
+      subitemName: 'Subitem 1',
+      categoryId: 101,
+      categoryName: 'Category A',
+      capabilityId: 1001,
+      capabilityName: 'Capability 1',
+      capabilityPoint: 5,
+      semester: '2025 Spring',
+      done: true,
+      description: 'This is the description for Subitem 1.',
+      isEtcActioned: false,
+    },
+    {
+      subitemId: 2,
+      subitemName: 'Subitem 2',
+      categoryId: 102,
+      categoryName: 'Category B',
+      capabilityId: 1002,
+      capabilityName: 'Capability 2',
+      capabilityPoint: 3,
+      semester: '2025 Fall',
+      done: false,
+      description: 'This is the description for Subitem 2.',
+      isEtcActioned: true,
+    },
+    {
+      subitemId: 3,
+      subitemName: 'Subitem 3',
+      categoryId: 103,
+      categoryName: 'Category C',
+      capabilityId: 1003,
+      capabilityName: 'Capability 3',
+      capabilityPoint: 8,
+      semester: '2025 Summer',
+      done: true,
+      description: 'This is the description for Subitem 3.',
+      isEtcActioned: false,
+    },
+  ],
+};
