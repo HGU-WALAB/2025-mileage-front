@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@mswjs/storage": "^0.1.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react-swc": "^3.5.0",
@@ -30,6 +31,7 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-plugin-unused-imports": "^4.1.4",
     "globals": "^15.14.0",
+    "msw": "^2.7.0",
     "postcss-styled-syntax": "^0.7.1",
     "prettier": "^3.4.2",
     "stylelint": "^16.13.2",
