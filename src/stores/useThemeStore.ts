@@ -9,7 +9,7 @@ interface ThemeState {
   toggleTheme: () => void;
 }
 
-export const useThemeStore = create<ThemeState>()(
+const useThemeStore = create<ThemeState>()(
   persist(
     set => ({
       themeMode: 'system',
@@ -24,3 +24,5 @@ export const useThemeStore = create<ThemeState>()(
     },
   ),
 );
+
+export default useThemeStore;

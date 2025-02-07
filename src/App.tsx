@@ -1,5 +1,5 @@
 import router from '@/router';
-import { useThemeStore } from '@/stores/themeStore';
+import useThemeStore from '@/stores/useThemeStore';
 import { globalStyle } from '@/styles/global';
 import { darkTheme, lightTheme } from '@/styles/theme';
 import { Global } from '@emotion/react';
