@@ -25,7 +25,7 @@ export const lightTheme = createTheme({
     },
     ...palette,
   },
-  font: typography,
+  typography: typography,
 });
 
 export const darkTheme = createTheme({
@@ -51,7 +51,7 @@ export const darkTheme = createTheme({
     },
     ...palette,
   },
-  font: typography,
+  typography: typography,
 });
 
 export type ThemeType = typeof lightTheme;
