@@ -41,6 +41,7 @@ const Flex = ({
         padding,
         margin,
         backgroundColor,
+        boxSizing: 'border-box',
         ...props.style,
       }}
       {...props}
