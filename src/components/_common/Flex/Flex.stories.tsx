@@ -26,24 +26,52 @@ export const Default: Story = {
 };
 
 export const FlexRow: Story = {
-  render: () => <FlexWrapper direction="row" justify="space-between" align="center" />,
+  render: () => (
+    <FlexWrapper direction="row" justify="space-between" align="center" />
+  ),
 };
 
 export const FlexColumn: Story = {
-  render: () => <FlexWrapper direction="column" justify="center" align="stretch" />,
+  render: () => (
+    <FlexWrapper direction="column" justify="center" align="stretch" />
+  ),
 };
 
 export const FlexWrap: Story = {
-  render: () => <FlexWrapper direction="row" justify="center" align="center" wrap="wrap" gap="20px" />,
+  render: () => (
+    <FlexWrapper
+      direction="row"
+      justify="center"
+      align="center"
+      wrap="wrap"
+      gap="20px"
+    />
+  ),
 };
 
 export const FlexWithGap: Story = {
-  render: () => <FlexWrapper direction="row" justify="center" align="center" gap="30px" />,
+  render: () => (
+    <FlexWrapper direction="row" justify="center" align="center" gap="30px" />
+  ),
 };
 
-const FlexWrapper = ({ direction, justify, align, gap, width, height }: Props) => {
+const FlexWrapper = ({
+  direction,
+  justify,
+  align,
+  gap,
+  width,
+  height,
+}: Props) => {
   return (
-    <Flex direction={direction} justify={justify} align={align} gap={gap} width={width} height={height}>
+    <Flex
+      direction={direction}
+      justify={justify}
+      align={align}
+      gap={gap}
+      width={width}
+      height={height}
+    >
       <Flex.Row backgroundColor="pink" padding="10px">
         Item 1
       </Flex.Row>
@@ -60,8 +88,18 @@ const FlexWrapper = ({ direction, justify, align, gap, width, height }: Props) =
 export const CustomLayout: Story = {
   render: () => (
     <Flex.Column gap="1rem" padding="20px" backgroundColor="lightgray">
-      <FlexWrapper direction="row" justify="flex-start" align="center" gap="20px" />
-      <FlexWrapper direction="row" justify="space-around" align="flex-end" gap="15px" />
+      <FlexWrapper
+        direction="row"
+        justify="flex-start"
+        align="center"
+        gap="20px"
+      />
+      <FlexWrapper
+        direction="row"
+        justify="space-around"
+        align="flex-end"
+        gap="15px"
+      />
     </Flex.Column>
   ),
 };

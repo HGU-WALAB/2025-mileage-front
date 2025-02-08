@@ -16,7 +16,12 @@ const useThemeStore = create<ThemeState>()(
       setThemeMode: themeMode => set({ themeMode }),
       toggleTheme: () =>
         set(state => ({
-          themeMode: state.themeMode === 'light' ? 'dark' : state.themeMode === 'dark' ? 'light' : 'light',
+          themeMode:
+            state.themeMode === 'light'
+              ? 'dark'
+              : state.themeMode === 'dark'
+                ? 'light'
+                : 'light',
         })),
     }),
     {

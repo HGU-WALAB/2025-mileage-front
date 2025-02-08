@@ -9,8 +9,17 @@ const Header = () => {
   const { isDrawerOpen, toggleDrawer } = useDrawerStore();
 
   return (
-    <Flex.Row height={`${headerHeight}px`} backgroundColor="yellow" justify="space-between">
-      <Flex.Row backgroundColor="red" padding="1rem" align="center" justify="center">
+    <Flex.Row
+      height={`${headerHeight}px`}
+      backgroundColor="yellow"
+      justify="space-between"
+    >
+      <Flex.Row
+        backgroundColor="red"
+        padding="1rem"
+        align="center"
+        justify="center"
+      >
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -27,7 +36,12 @@ const Header = () => {
         </IconButton>
       </Flex.Row>
 
-      <Button variant="contained" color="primary" size="medium" onClick={toggleTheme}>
+      <Button
+        variant="contained"
+        color="primary"
+        size="medium"
+        onClick={toggleTheme}
+      >
         테마 변경
       </Button>
     </Flex.Row>

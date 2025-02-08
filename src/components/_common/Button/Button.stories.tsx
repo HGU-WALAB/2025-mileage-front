@@ -27,7 +27,9 @@ export const Outlined: Story = {
 };
 
 export const Round: Story = {
-  render: () => <ButtonGroup variant={'contained'} isRound={true} disabled={false} />,
+  render: () => (
+    <ButtonGroup variant={'contained'} isRound={true} disabled={false} />
+  ),
 };
 
 export const Disabled: Story = {
@@ -50,16 +52,40 @@ const ButtonGroup = ({
   return (
     <Flex.Column gap="1rem">
       <Flex.Row align="center" justify="center">
-        <Button label="버튼" variant={variant} size="small" disabled={disabled} isRound={isRound} />
+        <Button
+          label="버튼"
+          variant={variant}
+          size="small"
+          disabled={disabled}
+          isRound={isRound}
+        />
       </Flex.Row>
       <Flex.Row align="center" justify="center">
-        <Button label="버튼" variant={variant} size="medium" disabled={disabled} isRound={isRound} />
+        <Button
+          label="버튼"
+          variant={variant}
+          size="medium"
+          disabled={disabled}
+          isRound={isRound}
+        />
       </Flex.Row>
       <Flex.Row align="center" justify="center">
-        <Button label="버튼" variant={variant} size="large" disabled={disabled} isRound={isRound} />
+        <Button
+          label="버튼"
+          variant={variant}
+          size="large"
+          disabled={disabled}
+          isRound={isRound}
+        />
       </Flex.Row>
       <Flex.Row align="center" justify="center">
-        <Button label="버튼" variant={variant} size="full" disabled={disabled} isRound={isRound} />
+        <Button
+          label="버튼"
+          variant={variant}
+          size="full"
+          disabled={disabled}
+          isRound={isRound}
+        />
       </Flex.Row>
     </Flex.Column>
   );

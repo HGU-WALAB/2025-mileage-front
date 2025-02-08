@@ -23,5 +23,7 @@ const DrawerLayout = () => {
 export default DrawerLayout;
 
 const GlobalSuspense = ({ children }: { children: JSX.Element }) => (
-  <Suspense fallback={<div style={{ height: '100vh' }}></div>}>{children}</Suspense>
+  <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
+    {children}
+  </Suspense>
 );

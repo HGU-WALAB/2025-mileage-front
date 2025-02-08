@@ -9,7 +9,8 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Heading = ({ children, padding, margin, as: Tag = 'div' }: Props) => {
-  const typographyStyles = (typography[Tag as keyof typeof typography] || typography.body1) as object;
+  const typographyStyles = (typography[Tag as keyof typeof typography] ||
+    typography.body1) as object;
 
   return (
     <Tag

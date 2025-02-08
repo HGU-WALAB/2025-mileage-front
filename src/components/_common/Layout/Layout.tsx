@@ -5,7 +5,6 @@ import { Outlet } from 'react-router-dom';
 const Layout = () => {
   return (
     <S.Wrapper>
-      {/* <Header /> */}
       <GlobalSuspense>
         <Outlet />
       </GlobalSuspense>
@@ -16,14 +15,14 @@ const Layout = () => {
 export default Layout;
 
 const GlobalSuspense = ({ children }: { children: JSX.Element }) => (
-  <Suspense fallback={<div style={{ height: '100vh' }}></div>}>{children}</Suspense>
+  <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
+    {children}
+  </Suspense>
 );
 
 const S = {
   Wrapper: styled.div`
     flex: 1;
     min-height: 100dvh;
-
-    /* padding-top: var(--header-height); */
   `,
 };
