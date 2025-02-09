@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  direction?: 'row' | 'column';
+  direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   justify?:
     | 'flex-start'
     | 'flex-end'
