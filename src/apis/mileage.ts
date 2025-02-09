@@ -4,7 +4,7 @@ import { MileageRequest, MileageResponse } from '@/types/mileage';
 
 export const getMileageList = async ({
   studentId,
-  searchExample = 'all',
+  searchExample = '',
   categoryName = 'all',
   semester = 'all',
   done = 'all',
@@ -17,7 +17,8 @@ export const getMileageList = async ({
   });
 
   const response = await http.get<{ data: MileageResponse[] }>(
-    `${ENDPOINT.MILEAGE}/${studentId}/search?${queryParams.toString()}`,
+    `${ENDPOINT.MILEAGE}/${studentId}/search`,
+    { params: queryParams },
   );
 
   return response.data;
