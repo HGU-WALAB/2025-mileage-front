@@ -1,4 +1,4 @@
-import { drawerWidth } from '@/constants/layoutSize';
+import { drawerWidth, headerHeight } from '@/constants/layoutSize';
 import { styled } from '@mui/material/styles';
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
@@ -11,6 +11,7 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
     duration: theme.transitions.duration.leavingScreen,
   }),
   maxWidth: '80rem',
+  marginTop: `${headerHeight}px`,
   marginLeft: 0,
   variants: [
     {

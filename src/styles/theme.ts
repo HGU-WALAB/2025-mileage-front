@@ -18,10 +18,15 @@ export const lightTheme = createTheme({
     },
     background: {
       default: palette.grey100,
+      header: palette.white,
     },
     text: {
       primary: palette.black,
       secondary: palette.grey500,
+    },
+    variant: {
+      default: palette.white,
+      grey: palette.grey200,
     },
     ...palette,
   },
@@ -48,6 +53,10 @@ export const darkTheme = createTheme({
     text: {
       primary: palette.white,
       secondary: palette.grey300,
+    },
+    variant: {
+      default: palette.nearBlack,
+      grey: palette.black,
     },
     ...palette,
   },

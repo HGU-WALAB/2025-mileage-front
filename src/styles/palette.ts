@@ -30,5 +30,5 @@ export const palette = {
   // etc
   nearBlack: '#1E1E1E',
   black: '#333333',
-  white: '#F9F9F9',
+  white: '#FAFAFA',
 };

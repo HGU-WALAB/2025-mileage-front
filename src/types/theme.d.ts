@@ -27,6 +27,10 @@ declare module '@mui/material/styles' {
     nearBlack: string;
     black: string;
     white: string;
+    variant: {
+      default: string;
+      grey?: string;
+    };
   }
 
   interface PaletteOptions {
@@ -55,6 +59,10 @@ declare module '@mui/material/styles' {
     nearBlack?: string;
     black?: string;
     white?: string;
+    variant?: {
+      default?: string;
+      grey?: string;
+    };
   }
 
   export function createTheme(options: ThemeOptions): Theme;
