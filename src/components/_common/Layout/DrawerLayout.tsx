@@ -11,11 +11,13 @@ const DrawerLayout = () => {
     <Flex.Column margin="0 0 2rem 0">
       <Drawer />
       <Header />
-      <Main open={isDrawerOpen}>
-        <GlobalSuspense>
-          <Outlet />
-        </GlobalSuspense>
-      </Main>
+      <Flex.Row justify="center">
+        <Main open={isDrawerOpen}>
+          <GlobalSuspense>
+            <Outlet />
+          </GlobalSuspense>
+        </Main>
+      </Flex.Row>
     </Flex.Column>
   );
 };
