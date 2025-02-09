@@ -6,3 +6,4 @@ export { default as Heading } from './_common/Heading/Heading';
 export { default as DrawerLayout } from './_common/Layout/DrawerLayout';
 export { default as Layout } from './_common/Layout/Layout';
 export { default as Main } from './_common/Main/Main';
+export { default as ToggleButton } from './_common/ToggleButton/ToggleButton';

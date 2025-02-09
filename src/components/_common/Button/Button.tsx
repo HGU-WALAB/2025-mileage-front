@@ -12,7 +12,6 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
   isRound?: boolean;
   iconPosition?: 'start' | 'end';
   icon?: FunctionComponent<SVGProps<SVGSVGElement>>;
-  onClick?: () => void;
 }
 
 const Button = ({
@@ -24,7 +23,7 @@ const Button = ({
   isRound = false,
   iconPosition,
   icon: Icon,
-  onClick = () => {},
+  ...props
 }: Props) => {
   const { baseColor, hoverColor } = getColor(color);
   return (
@@ -44,7 +43,7 @@ const Button = ({
       }}
       startIcon={iconPosition === 'start' && Icon ? <Icon /> : null}
       endIcon={iconPosition === 'end' && Icon ? <Icon /> : null}
-      onClick={onClick}
+      {...props}
     >
       {label}
     </MuiButton>
