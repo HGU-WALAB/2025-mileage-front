@@ -24,6 +24,7 @@ declare module '@mui/material/styles' {
     grey300: string;
     grey400: string;
     grey500: string;
+    nearBlack: string;
     black: string;
     white: string;
   }
@@ -51,6 +52,7 @@ declare module '@mui/material/styles' {
     grey300?: string;
     grey400?: string;
     grey500?: string;
+    nearBlack?: string;
     black?: string;
     white?: string;
   }

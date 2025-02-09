@@ -11,4 +11,8 @@ export const globalStyle = css`
   body {
     line-height: normal;
   }
+
+  div {
+    box-sizing: border-box;
+  }
 `;

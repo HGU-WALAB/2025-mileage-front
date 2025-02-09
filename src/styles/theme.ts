@@ -17,7 +17,7 @@ export const lightTheme = createTheme({
       dark: palette.pink600,
     },
     background: {
-      default: palette.white,
+      default: palette.grey100,
     },
     text: {
       primary: palette.black,
