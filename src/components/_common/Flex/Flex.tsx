@@ -31,6 +31,7 @@ const Flex = ({
   padding,
   margin,
   backgroundColor,
+  style,
   ...props
 }: Props) => {
   return (
@@ -48,7 +49,7 @@ const Flex = ({
         margin,
         backgroundColor,
         boxSizing: 'border-box',
-        ...props.style,
+        ...style,
       }}
       {...props}
     >
