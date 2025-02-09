@@ -28,25 +28,13 @@ const useQueryParams = () => {
 
       const cleanParams = new URLSearchParams();
 
-      if (newParams.studentId) {
-        cleanParams.append('studentId', newParams.studentId.toString());
-      }
-
-      if (newParams.searchExample) {
-        cleanParams.append('searchExample', newParams.searchExample);
-      }
-
-      if (newParams.categoryName) {
-        cleanParams.append('categoryName', newParams.categoryName);
-      }
-
-      if (newParams.semester) {
-        cleanParams.append('semester', newParams.semester);
-      }
-
-      if (newParams.done) {
-        cleanParams.append('done', newParams.done);
-      }
+      Object.entries(newParams).forEach(([key, value]) => {
+        if (value) {
+          cleanParams.set(key, value.toString());
+        } else {
+          cleanParams.delete(key);
+        }
+      });
 
       setSearchParams(cleanParams);
     },
