@@ -1,8 +1,8 @@
-import { Flex } from '@/components';
+import { Button, Flex } from '@/components';
 import { headerHeight } from '@/constants/layoutSize';
 import { useDrawerStore, useThemeStore } from '@/stores';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { Button, IconButton, useTheme } from '@mui/material';
+import { IconButton, useTheme } from '@mui/material';
 
 const Header = () => {
   const theme = useTheme();
@@ -13,6 +13,7 @@ const Header = () => {
     <Flex.Row
       height={`${headerHeight}px`}
       backgroundColor={theme.palette.variant.default}
+      align="center"
       justify="space-between"
       style={{
         position: 'fixed',
@@ -40,13 +41,12 @@ const Header = () => {
       </Flex.Row>
 
       <Button
+        label="테마 변경"
         variant="contained"
-        color="primary"
+        color="blue"
         size="medium"
         onClick={toggleTheme}
-      >
-        테마 변경
-      </Button>
+      />
     </Flex.Row>
   );
 };

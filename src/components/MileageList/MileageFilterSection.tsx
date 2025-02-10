@@ -7,7 +7,12 @@ import {
 
 const MileageFilterSection = () => {
   return (
-    <Flex.Row height="40px" margin="1rem 0" justify="space-between">
+    <Flex.Row
+      height="40px"
+      margin="1rem 0"
+      align="center"
+      justify="space-between"
+    >
       <Flex.Row gap="0 1rem">
         <SemesterDropdown />
         <JoinedToggleButtonGroup />
