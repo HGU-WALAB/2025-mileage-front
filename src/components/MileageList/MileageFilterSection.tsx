@@ -1,6 +1,7 @@
 import { Flex } from '@/components';
 import {
   JoinedToggleButtonGroup,
+  SearchMileageInput,
   SemesterDropdown,
 } from '@/components/MileageList';
 
@@ -9,6 +10,7 @@ const MileageFilterSection = () => {
     <Flex.Row height="40px" backgroundColor="red">
       <SemesterDropdown />
       <JoinedToggleButtonGroup />
+      <SearchMileageInput />
     </Flex.Row>
   );
 };
