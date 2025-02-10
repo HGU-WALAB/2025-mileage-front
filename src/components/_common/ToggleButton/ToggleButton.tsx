@@ -46,6 +46,7 @@ const ToggleButton = ({
 
         borderColor: variant === 'outlined' ? baseColor : 'transparent',
         borderRadius: isRound ? '2.4rem' : '.2rem',
+        height: size === 'small' ? '30px' : size === 'medium' ? '36px' : '42px',
       }}
       {...props}
     >

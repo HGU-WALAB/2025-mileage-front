@@ -40,6 +40,7 @@ const Button = ({
         },
         borderRadius: isRound ? '2.4rem' : '.2rem',
         width: size === 'full' ? '100%' : 'auto',
+        height: size === 'small' ? '30px' : size === 'medium' ? '36px' : '42px',
       }}
       startIcon={iconPosition === 'start' && Icon ? <Icon /> : null}
       endIcon={iconPosition === 'end' && Icon ? <Icon /> : null}
