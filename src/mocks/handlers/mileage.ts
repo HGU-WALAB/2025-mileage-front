@@ -10,7 +10,7 @@ export const MileageHandlers = [
     const url = new URL(req.request.url);
 
     const keyword = url.searchParams.get('keyword');
-    const categoryName = url.searchParams.get('categoryName');
+    const category = url.searchParams.get('category');
     const semester = url.searchParams.get('semester');
     const done = url.searchParams.get('done');
 
@@ -24,9 +24,9 @@ export const MileageHandlers = [
       );
     }
 
-    if (categoryName) {
+    if (category) {
       filteredMileageList = filteredMileageList.filter(mileageList => {
-        mileageList.categoryName.includes(categoryName);
+        mileageList.categoryName.includes(category);
       });
     }
 

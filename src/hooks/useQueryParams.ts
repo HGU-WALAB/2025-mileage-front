@@ -8,14 +8,14 @@ const useQueryParams = () => {
   const getQueryParams = useCallback((): MileageRequest => {
     const studentId = searchParams.get('studentId');
     const keyword = searchParams.get('keyword');
-    const categoryName = searchParams.get('categoryName');
+    const category = searchParams.get('category');
     const semester = searchParams.get('semester');
     const done = searchParams.get('done');
 
     return {
       studentId: Number(studentId) || 0,
       keyword: keyword || '',
-      categoryName: categoryName || '',
+      category: category || '',
       semester: semester || '',
       done: done || '',
     };
