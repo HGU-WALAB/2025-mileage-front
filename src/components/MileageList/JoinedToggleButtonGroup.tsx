@@ -1,11 +1,11 @@
-import { ToggleButton } from '@/components';
+import { Flex, ToggleButton } from '@/components';
 import { useFilteredByJoined } from '@/hooks';
 
 const JoinedToggleButtonGroup = () => {
   const { selectedJoined, setSelectedJoined } = useFilteredByJoined();
 
   return (
-    <>
+    <Flex.Row gap="0 .5rem">
       <ToggleButton
         label="참여항목"
         value="Y"
@@ -20,7 +20,7 @@ const JoinedToggleButtonGroup = () => {
         onClick={() => setSelectedJoined('N')}
         isRound
       />
-    </>
+    </Flex.Row>
   );
 };
 

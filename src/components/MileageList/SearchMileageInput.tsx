@@ -9,6 +9,9 @@ const SearchMileageInput = () => {
       label="검색"
       value={searchKeyword}
       onChange={e => setSearchKeyword(e.target.value)}
+      style={{
+        width: '300px',
+      }}
     />
   );
 };
