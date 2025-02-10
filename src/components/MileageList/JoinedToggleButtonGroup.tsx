@@ -1,8 +1,8 @@
 import { ToggleButton } from '@/components';
-import { useFilteredJoined } from '@/hooks';
+import { useFilteredByJoined } from '@/hooks';
 
 const JoinedToggleButtonGroup = () => {
-  const { selectedJoined, setSelectedJoined } = useFilteredJoined();
+  const { selectedJoined, setSelectedJoined } = useFilteredByJoined();
 
   return (
     <>

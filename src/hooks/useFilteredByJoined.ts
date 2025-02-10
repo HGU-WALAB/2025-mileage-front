@@ -1,6 +1,6 @@
 import useQueryParams from '@/hooks/useQueryParams';
 
-const useFilteredJoined = () => {
+const useFilteredByJoined = () => {
   const { queryParams, updateQueryParams } = useQueryParams();
   const selectedJoined = queryParams.done;
 
@@ -21,4 +21,4 @@ const useFilteredJoined = () => {
   return { selectedJoined, setSelectedJoined };
 };
 
-export default useFilteredJoined;
+export default useFilteredByJoined;

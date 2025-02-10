@@ -1,9 +1,9 @@
 import { Dropdown } from '@/components';
-import { useFilteredSemester } from '@/hooks';
+import { useFilteredBySemester } from '@/hooks';
 
 const SemesterDropdown = () => {
   const { semesterList, selectedSemester, setSelectedSemester } =
-    useFilteredSemester();
+    useFilteredBySemester();
 
   return (
     <Dropdown

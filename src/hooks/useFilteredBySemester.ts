@@ -1,7 +1,7 @@
 import { useGetMileageQuery } from '@/hooks/queries';
 import useQueryParams from '@/hooks/useQueryParams';
 
-const useFilteredSemester = () => {
+const useFilteredBySemester = () => {
   const { queryParams, updateQueryParams } = useQueryParams();
   const selectedSemester = queryParams.semester;
 
@@ -27,4 +27,4 @@ const useFilteredSemester = () => {
   return { semesterList, selectedSemester, setSelectedSemester };
 };
 
-export default useFilteredSemester;
+export default useFilteredBySemester;
