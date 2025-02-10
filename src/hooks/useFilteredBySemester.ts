@@ -1,5 +1,5 @@
+import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
-import useQueryParams from '@/hooks/useQueryParams';
 
 const useFilteredBySemester = () => {
   const { queryParams, updateQueryParams } = useQueryParams();

@@ -1,4 +1,4 @@
-import useQueryParams from '@/hooks/useQueryParams';
+import { useQueryParams } from '@/hooks';
 
 const useFilteredByJoined = () => {
   const { queryParams, updateQueryParams } = useQueryParams();

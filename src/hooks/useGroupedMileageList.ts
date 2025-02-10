@@ -1,5 +1,5 @@
+import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
-import useQueryParams from '@/hooks/useQueryParams';
 import { MileageResponse } from '@/types/mileage';
 
 const useGroupedMileageList = () => {
