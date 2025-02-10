@@ -11,6 +11,7 @@ const SemesterDropdown = () => {
       items={semesterList || []}
       selectedItem={selectedSemester || '전체'}
       setSelectedItem={setSelectedSemester}
+      width="200px"
     />
   );
 };
