@@ -1,6 +1,7 @@
 import { DrawerLayout, Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import {
+  AddMileagePage,
   Components,
   ErrorPage,
   LandingPage,
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATH.mileageList,
         element: <MileageListPage />,
+      },
+      {
+        path: ROUTE_PATH.newMileage,
+        element: <AddMileagePage />,
       },
       {
         path: '*',

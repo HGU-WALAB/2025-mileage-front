@@ -19,7 +19,7 @@ const drawerItems = [
   },
   {
     id: 3,
-    text: '새로운 마일리지 등록',
+    text: '마일리지 등록',
     icon: ImportContactsIcon,
     route: ROUTE_PATH.newMileage,
   },
