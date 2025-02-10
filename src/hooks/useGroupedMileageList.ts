@@ -13,6 +13,7 @@ const useGroupedMileageList = () => {
     done: queryParams.done,
   });
 
+  // TODO: 모든 카테고리 픽스 이후 카테고리 순서 픽스 필요 ((필터링 이후 카테고리 없어지지 않게 작업 필요))
   const groupByCategoryId = (mileageList: MileageResponse[]) => {
     return Object.values(
       mileageList.reduce(
