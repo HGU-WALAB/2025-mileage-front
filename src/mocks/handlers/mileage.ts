@@ -17,6 +17,7 @@ export const MileageHandlers = [
     if (keyword) {
       filteredMileageList = filteredMileageList.filter(
         mileageList =>
+          mileageList.subitemName.includes(keyword) ||
           mileageList.categoryName.includes(keyword) ||
           mileageList.capabilityName.includes(keyword) ||
           mileageList.description.includes(keyword),
