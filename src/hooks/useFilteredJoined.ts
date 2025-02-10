@@ -1,11 +1,11 @@
 import useQueryParams from '@/hooks/useQueryParams';
 
-const useFilteredJoinMileage = () => {
+const useFilteredJoined = () => {
   const { queryParams, updateQueryParams } = useQueryParams();
-  const selectedIsJoined = queryParams.done;
+  const selectedJoined = queryParams.done;
 
-  const setSelectedIsJoin = (isJoined: string) => {
-    if (isJoined === selectedIsJoined) {
+  const setSelectedJoined = (isJoined: string) => {
+    if (isJoined === selectedJoined) {
       resetSelected();
 
       return;
@@ -18,7 +18,7 @@ const useFilteredJoinMileage = () => {
     updateQueryParams({ done: 'all' });
   };
 
-  return { selectedIsJoined, setSelectedIsJoin };
+  return { selectedJoined, setSelectedJoined };
 };
 
-export default useFilteredJoinMileage;
+export default useFilteredJoined;

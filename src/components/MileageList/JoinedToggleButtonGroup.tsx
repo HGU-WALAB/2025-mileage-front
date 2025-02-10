@@ -1,23 +1,23 @@
 import { ToggleButton } from '@/components';
-import { useFilteredJoinMileage } from '@/hooks';
+import { useFilteredJoined } from '@/hooks';
 
 const JoinedToggleButtonGroup = () => {
-  const { selectedIsJoined, setSelectedIsJoin } = useFilteredJoinMileage();
+  const { selectedJoined, setSelectedJoined } = useFilteredJoined();
 
   return (
     <>
       <ToggleButton
         label="참여항목"
         value="Y"
-        selected={selectedIsJoined === 'Y'}
-        onClick={() => setSelectedIsJoin('Y')}
+        selected={selectedJoined === 'Y'}
+        onClick={() => setSelectedJoined('Y')}
         isRound
       />
       <ToggleButton
         label="미참여항목"
         value="N"
-        selected={selectedIsJoined === 'N'}
-        onClick={() => setSelectedIsJoin('N')}
+        selected={selectedJoined === 'N'}
+        onClick={() => setSelectedJoined('N')}
         isRound
       />
     </>
