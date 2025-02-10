@@ -7,18 +7,19 @@ import {
   ListItemIcon,
   ListItemText,
   Drawer as MuiDrawer,
+  useTheme,
 } from '@mui/material';
 
 import { Flex } from '@/components';
+import drawerItems from '@/constants/drawerItems';
 import { drawerWidth, headerHeight } from '@/constants/layoutSize';
-import { ROUTE_PATH } from '@/constants/routePath';
 import { useDrawerStore } from '@/stores';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import MailIcon from '@mui/icons-material/Mail';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Drawer = () => {
+  const query = useLocation();
+  const theme = useTheme();
   const { isDrawerOpen, toggleDrawer } = useDrawerStore();
 
   return (
@@ -30,44 +31,42 @@ const Drawer = () => {
           '& .MuiDrawer-paper': {
             width: drawerWidth,
             boxSizing: 'border-box',
+            backgroundColor: theme.palette.variant.default,
+            boxShadow:
+              theme.palette.mode === 'light'
+                ? '0px 4px 6px rgba(0, 0, 0, 0.1)'
+                : '0px 4px 10px rgba(0, 0, 0, 0.5)',
           },
         }}
         variant="persistent"
         anchor="left"
         open={isDrawerOpen}
       >
-        <Flex.Row height={`${headerHeight}px`} padding="1rem">
+        <Flex
+          direction="row-reverse"
+          height={`${headerHeight}px`}
+          padding="1rem"
+        >
           <IconButton onClick={toggleDrawer}>
             <ChevronLeftIcon />
           </IconButton>
-        </Flex.Row>
+        </Flex>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <Link to={ROUTE_PATH.mileageList}>
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
+          {drawerItems.map(item => (
+            <Link to={item.route}>
+              <ListItem key={item.text} disablePadding>
+                <ListItemButton selected={query.pathname === item.route}>
                   <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    <item.icon />
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemText
+                    primary={item.text}
+                    sx={{ fontSize: theme.typography.body1 }}
+                  />
                 </ListItemButton>
               </ListItem>
-            </Link>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <Link to={ROUTE_PATH.landing}>
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
+              <Divider />
             </Link>
           ))}
         </List>
