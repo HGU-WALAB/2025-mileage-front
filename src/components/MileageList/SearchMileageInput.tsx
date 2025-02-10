@@ -1,14 +1,14 @@
 import { Input } from '@/components';
-import { useFilteredBySearchKeyword } from '@/hooks';
+import { useFilteredByKeyword } from '@/hooks';
 
 const SearchMileageInput = () => {
-  const { searchKeyword, setSearchKeyword } = useFilteredBySearchKeyword();
+  const { keyword, setKeyword } = useFilteredByKeyword();
 
   return (
     <Input
       label="검색"
-      value={searchKeyword}
-      onChange={e => setSearchKeyword(e.target.value)}
+      value={keyword}
+      onChange={e => setKeyword(e.target.value)}
       style={{
         width: '300px',
       }}

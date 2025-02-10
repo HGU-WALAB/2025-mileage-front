@@ -4,24 +4,17 @@ import { useQuery } from '@tanstack/react-query';
 
 const useGetMileageQuery = ({
   studentId,
-  searchKeyword,
+  keyword,
   categoryName,
   semester,
   done,
 }: MileageRequest) => {
   return useQuery<MileageResponse[]>({
-    queryKey: [
-      'mileageList',
-      studentId,
-      searchKeyword,
-      categoryName,
-      semester,
-      done,
-    ],
+    queryKey: ['mileageList', studentId, keyword, categoryName, semester, done],
     queryFn: () =>
       getMileageList({
         studentId,
-        searchKeyword,
+        keyword,
         categoryName,
         semester,
         done,

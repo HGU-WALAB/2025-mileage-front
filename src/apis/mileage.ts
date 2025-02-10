@@ -4,13 +4,13 @@ import { MileageRequest, MileageResponse } from '@/types/mileage';
 
 export const getMileageList = async ({
   studentId,
-  searchKeyword = '',
+  keyword = '',
   categoryName = 'all',
   semester = 'all',
   done = 'all',
 }: MileageRequest) => {
   const queryParams = new URLSearchParams({
-    searchKeyword,
+    keyword,
     categoryName,
     semester,
     done: done.toString(),
