@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 
 const useGetMileageQuery = ({
   studentId,
-  searchExample,
+  searchKeyword,
   categoryName,
   semester,
   done,
@@ -13,7 +13,7 @@ const useGetMileageQuery = ({
     queryKey: [
       'mileageList',
       studentId,
-      searchExample,
+      searchKeyword,
       categoryName,
       semester,
       done,
@@ -21,7 +21,7 @@ const useGetMileageQuery = ({
     queryFn: () =>
       getMileageList({
         studentId,
-        searchExample,
+        searchKeyword,
         categoryName,
         semester,
         done,

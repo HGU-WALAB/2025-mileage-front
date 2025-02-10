@@ -7,7 +7,7 @@ const useGroupedMileageList = () => {
 
   const { data: mileageList } = useGetMileageQuery({
     studentId: queryParams.studentId,
-    searchExample: queryParams.searchExample,
+    searchKeyword: queryParams.searchKeyword,
     categoryName: queryParams.categoryName,
     semester: queryParams.semester,
     done: queryParams.done,
