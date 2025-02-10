@@ -1,12 +1,19 @@
 import { DrawerLayout, Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { Components, LandingPage } from '@/pages';
-import MileageListPage from '@/pages/MileageListPage';
+import {
+  Components,
+  ErrorPage,
+  LandingPage,
+  MileageListPage,
+  NotFoundPage,
+} from '@/pages';
+
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
     element: <DrawerLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: ROUTE_PATH.landing,
@@ -15,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATH.mileageList,
         element: <MileageListPage />,
+      },
+      {
+        path: '*',
+        element: <NotFoundPage />,
       },
     ],
   },
