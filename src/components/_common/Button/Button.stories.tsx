@@ -1,4 +1,5 @@
 import { Flex } from '@/components';
+import { ButtonVariant } from '@/types/style';
 import type { Meta, StoryObj } from '@storybook/react';
 import Button from './Button';
 
@@ -45,7 +46,7 @@ const ButtonGroup = ({
   isRound = false,
   disabled,
 }: {
-  variant: 'text' | 'outlined' | 'contained';
+  variant: ButtonVariant;
   isRound?: boolean;
   disabled: boolean;
 }) => {

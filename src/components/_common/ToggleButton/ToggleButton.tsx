@@ -1,4 +1,4 @@
-import { Color } from '@/types/style';
+import { ButtonVariant, Color, Size } from '@/types/style';
 import { getColor } from '@/utils/getColor';
 import { Button as MuiButton, useTheme } from '@mui/material';
 import { HTMLAttributes } from 'react';
@@ -7,10 +7,10 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
   label: string;
   value?: string;
   selected?: boolean;
-  variant?: 'text' | 'outlined' | 'contained';
+  variant?: ButtonVariant;
   disabled?: boolean;
   color?: Color;
-  size?: 'small' | 'medium' | 'large';
+  size?: Size;
   isRound?: boolean;
 }
 
