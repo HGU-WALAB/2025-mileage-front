@@ -6,7 +6,7 @@ const SearchMileageInput = () => {
 
   return (
     <Input
-      label="검색"
+      placeholder="검색"
       value={keyword}
       onChange={e => setKeyword(e.target.value)}
       style={{
