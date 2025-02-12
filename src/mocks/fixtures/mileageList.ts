@@ -1,6 +1,6 @@
 import { MileageResponse } from '@/types/mileage';
 
-export const mileageList: { data: MileageResponse[] } = {
+export const mockMileageList: { data: MileageResponse[] } = {
   data: [
     {
       subitemId: 1,

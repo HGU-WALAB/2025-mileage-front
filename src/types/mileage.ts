@@ -27,3 +27,15 @@ export interface MileageRequest {
   semester?: string;
   done?: string;
 }
+
+export interface EtcMileageResponse {
+  // 카테고리
+  categoryId: number;
+  categoryName: string;
+
+  // 항목명
+  subitemId: number;
+  subitemName: string;
+
+  semester: string;
+}

@@ -2,11 +2,12 @@ import { http, HttpResponse } from 'msw';
 
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
-import { mileageList } from '@/mocks/fixtures/mileageList';
+import { mockEtcMileageList } from '@/mocks/fixtures/etcMileageList';
+import { mockMileageList } from '@/mocks/fixtures/mileageList';
 
 export const MileageHandlers = [
   http.get(BASE_URL + `${ENDPOINT.MILEAGE}/:studentId/search`, req => {
-    let filteredMileageList = mileageList.data;
+    let filteredMileageList = mockMileageList.data;
     const url = new URL(req.request.url);
 
     const keyword = url.searchParams.get('keyword');
@@ -47,5 +48,9 @@ export const MileageHandlers = [
     }
 
     return HttpResponse.json({ data: filteredMileageList }, { status: 200 });
+  }),
+
+  http.get(BASE_URL + `${ENDPOINT.NEW_MILEAGE}`, () => {
+    return HttpResponse.json({ data: mockEtcMileageList }, { status: 200 });
   }),
 ];
