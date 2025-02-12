@@ -32,6 +32,16 @@ const AddMileageModal = () => {
             <FormField.ErrorMessage value={titleErrorMessage} />
           </FormField>
 
+          <FormField>
+            <FormField.Label label={'추가 설명'} />
+            <FormField.Input
+              placeholder="활동을 자세히 설명해주세요"
+              fullWidth
+              value={desc}
+              onChange={handleDesc}
+            />
+            <FormField.Box />
+          </FormField>
         </form>
       </Modal.Body>
       <Modal.Footer position="center">
