@@ -23,3 +23,16 @@ export const getMileageList = async ({
 
   return response.data;
 };
+
+export const getEtcMileageList = async ({ semester = 'all' }) => {
+  const queryParams = new URLSearchParams({
+    semester,
+  });
+
+  const response = await http.get<{ data: MileageResponse[] }>(
+    `${ENDPOINT.NEW_MILEAGE}`,
+    { params: queryParams },
+  );
+
+  return response.data;
+};
