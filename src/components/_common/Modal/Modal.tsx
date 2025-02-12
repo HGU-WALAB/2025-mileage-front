@@ -4,6 +4,7 @@ import ModalHeader from '@/components/_common/Modal/ModalHeader';
 import { Size } from '@/types/style';
 import { Dialog, DialogContent } from '@mui/material';
 import { HTMLAttributes } from 'react';
+import { createPortal } from 'react-dom';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   open: boolean;
@@ -23,14 +24,18 @@ const Modal = ({
   return (
     <>
       <div onClick={toggleModal}>{trigger}</div>
-      <Dialog
-        open={open}
-        onClose={toggleModal}
-        fullWidth
-        maxWidth={size === 'large' ? 'md' : size === 'medium' ? 'sm' : 'xs'}
-      >
-        <DialogContent {...props}>{children}</DialogContent>
-      </Dialog>
+      {open &&
+        createPortal(
+          <Dialog
+            open={open}
+            onClose={toggleModal}
+            fullWidth
+            maxWidth={size === 'large' ? 'md' : size === 'medium' ? 'sm' : 'xs'}
+          >
+            <DialogContent {...props}>{children}</DialogContent>
+          </Dialog>,
+          document.body,
+        )}
     </>
   );
 };
