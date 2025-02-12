@@ -11,7 +11,7 @@ const Text = ({
   children,
   padding,
   margin,
-  as: Tag = 'span',
+  as: Tag = 'p',
   ...props
 }: Props) => {
   return (
