@@ -17,10 +17,16 @@ const useInputWithValidate = (
     [validate],
   );
 
+  const reset = () => {
+    setValue('');
+    setErrorMessage('');
+  };
+
   return {
     value,
     errorMessage,
     handleChange,
+    reset,
   };
 };
 

@@ -7,9 +7,14 @@ const useInput = (initialValue: string = '') => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => setValue(e.target.value);
 
+  const reset = () => {
+    setValue('');
+  };
+
   return {
     value,
     handleChange,
+    reset,
   };
 };
 
