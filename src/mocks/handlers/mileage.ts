@@ -53,4 +53,8 @@ export const MileageHandlers = [
   http.get(BASE_URL + `${ENDPOINT.NEW_MILEAGE}`, () => {
     return HttpResponse.json({ data: mockEtcMileageList }, { status: 200 });
   }),
+
+  http.post(BASE_URL + `${ENDPOINT.NEW_MILEAGE}`, () => {
+    return HttpResponse.json({}, { status: 200 });
+  }),
 ];
