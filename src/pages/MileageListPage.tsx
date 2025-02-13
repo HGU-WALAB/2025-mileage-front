@@ -6,11 +6,11 @@ import {
 
 const MileageListPage = () => {
   return (
-    <div>
+    <>
       <Heading as={'h1'}>마일리지 조회</Heading>
       <MileageFilterSection />
       <MileageTableListSection />
-    </div>
+    </>
   );
 };
 

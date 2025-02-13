@@ -13,15 +13,16 @@ export const http = {
   post: async function post<Request = any, Response = unknown>(
     url: string,
     data?: Request,
+    config?: AxiosRequestConfig,
   ) {
-    const res = await axiosInstance.post<Response>(url, { data });
+    const res = await axiosInstance.post<Response>(url, data, config);
     return res.data;
   },
   put: async function put<Request = any, Response = unknown>(
     url: string,
     data?: Request,
   ) {
-    const res = await axiosInstance.put<Response>(url, { data });
+    const res = await axiosInstance.put<Response>(url, data);
     return res.data;
   },
 };

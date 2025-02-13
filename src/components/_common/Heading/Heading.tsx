@@ -8,7 +8,13 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   as?: ElementType;
 }
 
-const Heading = ({ children, padding, margin, as: Tag = 'div' }: Props) => {
+const Heading = ({
+  children,
+  padding,
+  margin,
+  as: Tag = 'div',
+  ...props
+}: Props) => {
   const typographyStyles = (typography[Tag as keyof typeof typography] ||
     typography.body1) as object;
 
@@ -18,6 +24,7 @@ const Heading = ({ children, padding, margin, as: Tag = 'div' }: Props) => {
       css={css({
         ...typographyStyles,
       })}
+      {...props}
     >
       {children}
     </Tag>

@@ -2,18 +2,26 @@ import { InputVariant, Size } from '@/types/style';
 import TextField, { TextFieldProps } from '@mui/material/TextField';
 
 interface Props extends Omit<TextFieldProps, 'variant'> {
-  label: string;
   size?: Exclude<Size, 'large'>;
   variant?: InputVariant;
 }
 
 const Input = ({
-  label,
+  placeholder = '',
   size = 'small',
   variant = 'outlined',
+  fullWidth = false,
   ...props
 }: Props) => {
-  return <TextField label={label} size={size} variant={variant} {...props} />;
+  return (
+    <TextField
+      label={placeholder}
+      size={size}
+      variant={variant}
+      fullWidth={fullWidth}
+      {...props}
+    />
+  );
 };
 
 export default Input;
