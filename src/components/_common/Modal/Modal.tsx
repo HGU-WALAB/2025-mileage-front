@@ -1,10 +1,11 @@
-import ModalBody from '@/components/_common/Modal/ModalBody';
-import ModalFooter from '@/components/_common/Modal/ModalFooter';
-import ModalHeader from '@/components/_common/Modal/ModalHeader';
 import { Size } from '@/types/style';
 import { Dialog, DialogContent } from '@mui/material';
 import { HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
+
+import ModalBody from './ModalBody';
+import ModalFooter from './ModalFooter';
+import ModalHeader from './ModalHeader';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   open: boolean;

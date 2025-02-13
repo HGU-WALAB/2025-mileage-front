@@ -1,5 +1,4 @@
-import Flex from '@/components/_common/Flex/Flex';
-import Heading from '@/components/_common/Heading/Heading';
+import { Flex, Heading } from '@/components';
 import { Position } from '@/types/style';
 import { HTMLAttributes } from 'react';
 

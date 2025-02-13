@@ -1,4 +1,4 @@
-import Flex from '@/components/_common/Flex/Flex';
+import { Flex } from '@/components';
 import { Position } from '@/types/style';
 import { HTMLAttributes } from 'react';
 
