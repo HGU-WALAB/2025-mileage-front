@@ -17,15 +17,20 @@ export const lightTheme = createTheme({
       dark: palette.pink600,
     },
     background: {
-      default: palette.white,
+      default: palette.grey100,
+      header: palette.white,
     },
     text: {
       primary: palette.black,
       secondary: palette.grey500,
     },
+    variant: {
+      default: palette.white,
+      grey: palette.grey200,
+    },
     ...palette,
   },
-  font: typography,
+  typography: typography,
 });
 
 export const darkTheme = createTheme({
@@ -49,9 +54,13 @@ export const darkTheme = createTheme({
       primary: palette.white,
       secondary: palette.grey300,
     },
+    variant: {
+      default: palette.nearBlack,
+      grey: palette.black,
+    },
     ...palette,
   },
-  font: typography,
+  typography: typography,
 });
 
 export type ThemeType = typeof lightTheme;

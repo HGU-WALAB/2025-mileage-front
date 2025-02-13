@@ -9,14 +9,19 @@ interface ThemeState {
   toggleTheme: () => void;
 }
 
-export const useThemeStore = create<ThemeState>()(
+const useThemeStore = create<ThemeState>()(
   persist(
     set => ({
       themeMode: 'system',
       setThemeMode: themeMode => set({ themeMode }),
       toggleTheme: () =>
         set(state => ({
-          themeMode: state.themeMode === 'light' ? 'dark' : state.themeMode === 'dark' ? 'light' : 'light',
+          themeMode:
+            state.themeMode === 'light'
+              ? 'dark'
+              : state.themeMode === 'dark'
+                ? 'light'
+                : 'light',
         })),
     }),
     {
@@ -24,3 +29,5 @@ export const useThemeStore = create<ThemeState>()(
     },
   ),
 );
+
+export default useThemeStore;

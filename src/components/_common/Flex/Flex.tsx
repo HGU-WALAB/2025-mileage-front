@@ -1,8 +1,14 @@
 import { HTMLAttributes } from 'react';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  direction?: 'row' | 'column';
-  justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between' | 'space-around' | 'space-evenly';
+  direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  justify?:
+    | 'flex-start'
+    | 'flex-end'
+    | 'center'
+    | 'space-between'
+    | 'space-around'
+    | 'space-evenly';
   align?: 'stretch' | 'flex-start' | 'flex-end' | 'center' | 'baseline';
   wrap?: 'nowrap' | 'wrap' | 'wrap-reverse';
   gap?: string;
@@ -25,6 +31,7 @@ const Flex = ({
   padding,
   margin,
   backgroundColor,
+  style,
   ...props
 }: Props) => {
   return (
@@ -42,7 +49,7 @@ const Flex = ({
         margin,
         backgroundColor,
         boxSizing: 'border-box',
-        ...props.style,
+        ...style,
       }}
       {...props}
     >

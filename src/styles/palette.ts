@@ -22,12 +22,13 @@ export const palette = {
   yellow500: '#FFDD00',
   yellow600: '#CCB000',
   // grey
-  grey100: '#F2F2F2',
+  grey100: '#F4F4F4',
   grey200: '#E0E0E0',
   grey300: '#BDBDBD',
   grey400: '#828282',
   grey500: '#4F4F4F',
   // etc
+  nearBlack: '#1E1E1E',
   black: '#333333',
-  white: '#F9F9F9',
+  white: '#FAFAFA',
 };

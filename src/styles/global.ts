@@ -5,10 +5,14 @@ export const globalStyle = css`
   ${restCss}
 
   html {
-    font-size: 62.5%;
+    font-size: 100%;
   }
 
   body {
     line-height: normal;
+  }
+
+  div {
+    box-sizing: border-box;
   }
 `;
