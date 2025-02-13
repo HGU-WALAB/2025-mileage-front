@@ -1,9 +1,9 @@
 import { ButtonVariant, Color, Size } from '@/types/style';
 import { getColor } from '@/utils/getColor';
 import { Button as MuiButton } from '@mui/material';
-import { FunctionComponent, HTMLAttributes, SVGProps } from 'react';
+import { ButtonHTMLAttributes, FunctionComponent, SVGProps } from 'react';
 
-interface Props extends HTMLAttributes<HTMLButtonElement> {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: ButtonVariant;
   disabled?: boolean;
@@ -23,6 +23,7 @@ const Button = ({
   isRound = false,
   iconPosition,
   icon: Icon,
+  children,
   ...props
 }: Props) => {
   const { baseColor, hoverColor } = getColor(color);
@@ -47,6 +48,7 @@ const Button = ({
       {...props}
     >
       {label}
+      {children}
     </MuiButton>
   );
 };
