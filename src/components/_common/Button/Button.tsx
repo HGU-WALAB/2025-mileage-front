@@ -1,9 +1,9 @@
 import { Color } from '@/types/style';
 import { getColor } from '@/utils/getColor';
 import { Button as MuiButton } from '@mui/material';
-import { ComponentProps, FunctionComponent, SVGProps } from 'react';
+import { FunctionComponent, HTMLAttributes, SVGProps } from 'react';
 
-interface Props extends ComponentProps<'button'> {
+interface Props extends HTMLAttributes<HTMLButtonElement> {
   label: string;
   variant?: 'text' | 'outlined' | 'contained';
   disabled?: boolean;

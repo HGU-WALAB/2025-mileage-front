@@ -1,11 +1,21 @@
+import { Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import Components from '@/pages/Components';
+import { Components, LandingPage } from '@/pages';
 import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    path: ROUTE_PATH.root,
-    element: <Components />,
+    element: <Layout />,
+    children: [
+      {
+        path: ROUTE_PATH.root,
+        element: <Components />,
+      },
+      {
+        path: ROUTE_PATH.landing,
+        element: <LandingPage />,
+      },
+    ],
   },
 ]);
 
