@@ -39,3 +39,10 @@ export interface EtcMileageResponse {
 
   semester: string;
 }
+
+export interface NewMileageResponse {
+  semester: string;
+  description1: string;
+  description2: string | null;
+  file: File | null;
+}
