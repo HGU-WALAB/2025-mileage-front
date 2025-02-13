@@ -1,14 +1,9 @@
-import Table from '@/components/_common/Table/Table';
+import { Table } from '@/components';
 import { AddMileageModal } from '@/components/AddMileage';
-import useGetEtcMileageQuery from '@/hooks/queries/useGetEtcMileageQuery';
-import { useSearchParams } from 'react-router-dom';
+import { useGetEtcMileageQuery } from '@/hooks/queries';
 
 const EtcMileageTable = () => {
-  const [searchParams] = useSearchParams();
-
-  const { data: etcMileageList } = useGetEtcMileageQuery({
-    semester: searchParams.get('semester') ?? '',
-  });
+  const { data: etcMileageList } = useGetEtcMileageQuery();
 
   const bodyItems =
     etcMileageList?.map((item, index) => ({
@@ -16,7 +11,7 @@ const EtcMileageTable = () => {
       semester: item.semester,
       categoryName: item.categoryName,
       subitemName: item.subitemName,
-      addModal: <AddMileageModal />,
+      addModal: <AddMileageModal semester={item.semester} />,
     })) ?? [];
 
   return (

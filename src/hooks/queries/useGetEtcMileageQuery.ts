@@ -2,13 +2,10 @@ import { getEtcMileageList } from '@/apis/mileage';
 import { EtcMileageResponse } from '@/types/mileage';
 import { useQuery } from '@tanstack/react-query';
 
-const useGetEtcMileageQuery = ({ semester }: { semester: string }) => {
+const useGetEtcMileageQuery = () => {
   return useQuery<EtcMileageResponse[]>({
-    queryKey: ['etcMileageList', semester],
-    queryFn: () =>
-      getEtcMileageList({
-        semester,
-      }),
+    queryKey: ['etcMileageList'],
+    queryFn: () => getEtcMileageList(),
   });
 };
 
