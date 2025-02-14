@@ -7,6 +7,7 @@ import {
   LandingPage,
   MileageListPage,
   NotFoundPage,
+  ScholarshipApplyPage,
 } from '@/pages';
 
 import { createBrowserRouter } from 'react-router-dom';
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         element: <AddMileagePage />,
       },
       {
+        path: ROUTE_PATH.scholarship,
+        element: <ScholarshipApplyPage />,
+      },
+      {
         path: '*',
         element: <NotFoundPage />,
       },
@@ -40,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATH.root,
         element: <Components />,
+      },
+      {
+        path: ROUTE_PATH.landing,
+        element: <LandingPage />,
       },
     ],
   },
