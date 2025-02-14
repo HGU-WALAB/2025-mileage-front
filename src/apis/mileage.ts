@@ -14,6 +14,8 @@ export const getMileageList = async ({
   semester = 'all',
   done = 'all',
 }: MileageRequest) => {
+  if (semester === '전체') semester = 'all';
+
   const queryParams = new URLSearchParams({
     keyword,
     category,

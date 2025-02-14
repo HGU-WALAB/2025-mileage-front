@@ -27,13 +27,14 @@ export const MileageHandlers = [
 
     if (category) {
       filteredMileageList = filteredMileageList.filter(mileageList => {
-        mileageList.categoryName.includes(category);
+        if (category === 'all') return true;
+        return mileageList.categoryName.includes(category);
       });
     }
 
     if (semester) {
       filteredMileageList = filteredMileageList.filter(mileageList => {
-        if (semester === '전체') return true;
+        if (semester === 'all') return true;
         return mileageList.semester.includes(semester);
       });
     }
