@@ -1,10 +1,12 @@
-import styled from '@emotion/styled';
+import { Header } from '@/components';
+import { styled } from '@mui/material';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
     <S.Wrapper>
+      <Header />
       <GlobalSuspense>
         <Outlet />
       </GlobalSuspense>
@@ -21,7 +23,7 @@ const GlobalSuspense = ({ children }: { children: JSX.Element }) => (
 );
 
 const S = {
-  Wrapper: styled.div`
+  Wrapper: styled('div')`
     flex: 1;
     min-height: 100dvh;
   `,

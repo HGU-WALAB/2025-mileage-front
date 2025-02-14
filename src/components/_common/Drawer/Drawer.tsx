@@ -10,11 +10,11 @@ import {
   useTheme,
 } from '@mui/material';
 
+import { LeftArrowIcon } from '@/assets';
 import { Flex } from '@/components';
 import drawerItems from '@/constants/drawerItems';
 import { drawerWidth, headerHeight } from '@/constants/layoutSize';
 import { useDrawerStore } from '@/stores';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import { Link, useLocation } from 'react-router-dom';
 
 const Drawer = () => {
@@ -48,7 +48,7 @@ const Drawer = () => {
           padding="1rem"
         >
           <IconButton onClick={toggleDrawer}>
-            <ChevronLeftIcon />
+            <LeftArrowIcon />
           </IconButton>
         </Flex>
         <Divider />

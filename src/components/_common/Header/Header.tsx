@@ -1,7 +1,7 @@
+import { RightArrowIcon } from '@/assets';
 import { Button, Flex } from '@/components';
 import { headerHeight } from '@/constants/layoutSize';
 import { useDrawerStore, useThemeStore } from '@/stores';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { IconButton, useTheme } from '@mui/material';
 
 const Header = () => {
@@ -36,7 +36,7 @@ const Header = () => {
             isDrawerOpen && { display: 'none' },
           ]}
         >
-          <ChevronRightIcon />
+          <RightArrowIcon />
         </IconButton>
       </Flex.Row>
 

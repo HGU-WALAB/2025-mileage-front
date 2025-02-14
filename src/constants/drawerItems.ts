@@ -1,8 +1,11 @@
+import {
+  AccountBalanceIcon,
+  AccountCircleIcon,
+  EmojiEventsIcon,
+  ImportContactsIcon,
+  SpaceDashboardIcon,
+} from '@/assets';
 import { ROUTE_PATH } from '@/constants/routePath';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import ImportContactsIcon from '@mui/icons-material/ImportContacts';
-import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 
 const drawerItems = [
   {
@@ -25,6 +28,12 @@ const drawerItems = [
   },
   {
     id: 4,
+    text: '장학금 신청',
+    icon: AccountBalanceIcon,
+    route: ROUTE_PATH.scholarship,
+  },
+  {
+    id: 5,
     text: '마이페이지',
     icon: AccountCircleIcon,
     route: ROUTE_PATH.myPage,
