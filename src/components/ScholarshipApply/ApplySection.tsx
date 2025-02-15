@@ -1,13 +1,13 @@
 import { CheckCircleIcon, CheckCircleOutlineIcon } from '@/assets';
 import { Flex } from '@/components';
 import { usePostScholarshipApply } from '@/hooks/queries';
+import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
 import { useState } from 'react';
 
 const ApplySection = () => {
   // TODO: 이후 유저 데이터 처리 로직 추가 예정
-  const studentId = '22000770';
-
+  const { student } = useAuthStore();
   const [isAgree, setIsAgree] = useState(false);
   const { mutateAsync: postScholarship } = usePostScholarshipApply();
 
@@ -17,10 +17,12 @@ const ApplySection = () => {
       return;
     }
 
-    postScholarship({
-      studentId,
-      isAgree,
-    });
+    if (student) {
+      postScholarship({
+        studentId: student.studentId,
+        isAgree,
+      });
+    }
   };
 
   return (
