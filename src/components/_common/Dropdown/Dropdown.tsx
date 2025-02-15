@@ -31,8 +31,10 @@ const Dropdown = ({
         label={label}
         onChange={e => setSelectedItem(e.target.value)}
       >
-        {items.map(item => (
-          <MenuItem value={item}>{item}</MenuItem>
+        {items.map((item, index) => (
+          <MenuItem value={item} key={index}>
+            {item}
+          </MenuItem>
         ))}
       </Select>
     </FormControl>
