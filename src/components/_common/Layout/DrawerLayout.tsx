@@ -1,8 +1,6 @@
 import { Drawer, Flex, Header, Main } from '@/components';
+import ErrorResetBoundary from '@/components/_common/Error/ErrorResetBoundary';
 import { useDrawerStore } from '@/stores';
-
-import { Suspense } from 'react';
-import { Outlet } from 'react-router-dom';
 
 const DrawerLayout = () => {
   const { isDrawerOpen } = useDrawerStore();
@@ -13,9 +11,7 @@ const DrawerLayout = () => {
       <Header />
       <Flex.Row justify="center">
         <Main open={isDrawerOpen}>
-          <GlobalSuspense>
-            <Outlet />
-          </GlobalSuspense>
+          <ErrorResetBoundary />
         </Main>
       </Flex.Row>
     </Flex.Column>
@@ -23,9 +19,3 @@ const DrawerLayout = () => {
 };
 
 export default DrawerLayout;
-
-const GlobalSuspense = ({ children }: { children: JSX.Element }) => (
-  <Suspense fallback={<div style={{ height: '100vh' }}></div>}>
-    {children}
-  </Suspense>
-);

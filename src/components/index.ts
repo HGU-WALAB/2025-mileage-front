@@ -1,6 +1,7 @@
 export { default as Button } from './_common/Button/Button';
 export { default as Drawer } from './_common/Drawer/Drawer';
 export { default as Dropdown } from './_common/Dropdown/Dropdown';
+export { default as GlobalErrorBoundary } from './_common/Error/GlobalErrorBoundary';
 export { default as Flex } from './_common/Flex/Flex';
 export { default as FormField } from './_common/FormField/FormField';
 export { default as Header } from './_common/Header/Header';
