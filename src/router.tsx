@@ -14,7 +14,11 @@ import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    element: <DrawerLayout />,
+    element: (
+      <AuthGuard>
+        <DrawerLayout />
+      </AuthGuard>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -40,7 +44,11 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element: <Layout />,
+    element: (
+      <AuthGuard>
+        <Layout />
+      </AuthGuard>
+    ),
     children: [
       {
         path: ROUTE_PATH.root,
