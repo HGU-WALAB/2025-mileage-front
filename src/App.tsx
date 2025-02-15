@@ -7,10 +7,14 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from 'react-router-dom';
 
-const queryClient = new QueryClient();
-
 const App = () => {
   const themeMode = useThemeStore(state => state.themeMode);
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      mutations: { throwOnError: true },
+      queries: { throwOnError: true },
+    },
+  });
 
   return (
     <QueryClientProvider client={queryClient}>
