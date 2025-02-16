@@ -10,6 +10,7 @@ export const globalStyle = css`
 
   body {
     line-height: normal;
+    overflow-y: hidden;
   }
 
   div {

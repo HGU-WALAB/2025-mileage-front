@@ -1,5 +1,4 @@
-import { Header } from '@/components';
-import ErrorResetBoundary from '@/components/_common/Error/ErrorResetBoundary';
+import { ErrorResetBoundary, Header } from '@/components';
 import { styled } from '@mui/material';
 
 const Layout = () => {
