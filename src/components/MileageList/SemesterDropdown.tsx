@@ -1,4 +1,4 @@
-import { Dropdown } from '@/components';
+import { Dropdown, Flex, Text } from '@/components';
 import { useFilteredBySemester } from '@/hooks';
 
 const SemesterDropdown = () => {
@@ -7,13 +7,15 @@ const SemesterDropdown = () => {
     useFilteredBySemester();
 
   return (
-    <Dropdown
-      label="학기"
-      items={semesterList || []}
-      selectedItem={selectedSemester || '전체'}
-      setSelectedItem={setSelectedSemester}
-      width="200px"
-    />
+    <Flex.Row gap=".5rem" align="center">
+      <Text>학기 선택</Text>
+      <Dropdown
+        items={semesterList || []}
+        selectedItem={selectedSemester || '전체'}
+        setSelectedItem={setSelectedSemester}
+        width="200px"
+      />
+    </Flex.Row>
   );
 };
 

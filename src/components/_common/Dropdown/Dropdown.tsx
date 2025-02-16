@@ -3,7 +3,7 @@ import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  label: string;
+  label?: string;
   // TODO: 제너릭으로 확장 가능
   items: string[];
   selectedItem: string;
