@@ -8,12 +8,10 @@ const MileageTableListSection = () => {
 
   return (
     <>
-      {groupedMileageList.map((list, index) => (
+      {groupedMileageList.map(list => (
         <Flex.Column padding="1rem 0" key={list.categoryId}>
           <S.CategoryTitle>
-            <Heading as={'h3'}>
-              {index + 1}. {list.categoryName}
-            </Heading>
+            <Heading as={'h3'}>{list.categoryName}</Heading>
           </S.CategoryTitle>
           <MileageTable key={list.categoryId} mileageList={list.items} />
         </Flex.Column>
@@ -30,7 +28,7 @@ const S = {
     border-radius: 4px;
     color: ${({ theme }) => theme.palette.white};
     margin: 0.5rem 0;
-    padding: 0.25rem 0.75rem;
+    padding: 0.25rem 1.5rem;
     width: fit-content;
   `,
 };

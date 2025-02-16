@@ -17,11 +17,10 @@ const MileageTable = ({ mileageList }: Props) => {
   return (
     <Table
       headItems={[
-        { id: 1, text: '번호', value: 'id' },
-        { id: 2, text: '학기', value: 'semester' },
-        { id: 3, text: '항목명', value: 'categoryName' },
-        { id: 4, text: '비고', value: 'description' },
-        { id: 5, text: '참여여부', value: 'done' },
+        { id: 1, text: '학기', value: 'semester' },
+        { id: 2, text: '항목명', value: 'categoryName' },
+        { id: 3, text: '내용', value: 'description' },
+        { id: 4, text: '참여여부', value: 'done' },
       ]}
       bodyItems={bodyItems}
     />

@@ -3,6 +3,7 @@ import { THeader } from '@/types/table';
 import {
   Table as MuiTable,
   Paper,
+  styled,
   TableBody,
   TableCell,
   TableContainer,
@@ -22,13 +23,13 @@ const Table = <T extends { [key: string]: any }>({
   return (
     <TableContainer component={Paper}>
       <MuiTable sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
+        <S.TableHead>
           <TableRow>
             {headItems.map(item => (
-              <TableCell key={item.text}>{item.text}</TableCell>
+              <S.HeadCell key={item.text}>{item.text}</S.HeadCell>
             ))}
           </TableRow>
-        </TableHead>
+        </S.TableHead>
         <TableBody>
           {bodyItems.map((row, index) => (
             <TableRow
@@ -52,3 +53,15 @@ const Table = <T extends { [key: string]: any }>({
 };
 
 export default Table;
+
+const S = {
+  TableHead: styled(TableHead)`
+    // TODO: 컬러 상수로 변경 필요
+    background-color: #f1f4fb;
+    height: 40px;
+  `,
+  HeadCell: styled(TableCell)`
+    border-bottom: none;
+    padding: 0 1rem;
+  `,
+};
