@@ -21,7 +21,7 @@ const Button = ({
   color = 'blue',
   size = 'small',
   isRound = false,
-  iconPosition,
+  iconPosition = 'start',
   icon: Icon,
   children,
   ...props
