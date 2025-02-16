@@ -15,7 +15,7 @@ const SearchMileageInput = () => {
         onChange={e => setKeyword(e.target.value)}
         style={{
           width: '300px',
-          backgroundColor: theme.palette.white,
+          backgroundColor: theme.palette.variant.default,
         }}
       />
       <S.SearchButton onClick={() => setKeyword(keyword ?? '')}>
