@@ -13,7 +13,7 @@ const Header = () => {
     <Flex.Row
       height={`${headerHeight}px`}
       width="100%"
-      backgroundColor={theme.palette.background.default}
+      backgroundColor={theme.palette.variant.default}
       align="center"
       justify="space-between"
       padding="1rem"

@@ -18,7 +18,6 @@ export const lightTheme = createTheme({
     },
     background: {
       default: palette.grey100,
-      header: palette.white,
     },
     text: {
       primary: palette.black,
