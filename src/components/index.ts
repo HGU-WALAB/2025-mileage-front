@@ -16,6 +16,7 @@ export { default as Layout } from './_common/Layout/Layout';
 export { default as Main } from './_common/Main/Main';
 export { default as Modal } from './_common/Modal/Modal';
 export { default as Table } from './_common/Table/Table';
+export { default as Tabs } from './_common/Tabs/Tabs';
 export { default as Text } from './_common/Text/Text';
 export { default as ToggleButton } from './_common/ToggleButton/ToggleButton';
 export { default as UploadButton } from './_common/UploadButton/UploadButton';

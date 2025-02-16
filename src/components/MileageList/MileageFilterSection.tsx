@@ -1,6 +1,9 @@
 import { Flex } from '@/components';
-import { SearchMileageInput, SemesterDropdown } from '@/components/MileageList';
-import JoinedTabs from '@/components/MileageList/JoinedTabs';
+import {
+  JoinedTabs,
+  SearchMileageInput,
+  SemesterDropdown,
+} from '@/components/MileageList';
 
 const MileageFilterSection = () => {
   return (

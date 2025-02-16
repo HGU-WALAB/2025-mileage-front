@@ -1,4 +1,4 @@
-import Tabs from '@/components/_common/Tabs/Tabs';
+import { Tabs } from '@/components';
 import { filterJoinedItems } from '@/constants/filterItems';
 import { useFilteredByJoined } from '@/hooks';
 import { TabItem } from '@/types/tab';
