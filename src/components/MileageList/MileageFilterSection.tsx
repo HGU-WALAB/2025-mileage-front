@@ -1,24 +1,16 @@
 import { Flex } from '@/components';
-import {
-  JoinedToggleButtonGroup,
-  SearchMileageInput,
-  SemesterDropdown,
-} from '@/components/MileageList';
+import { SearchMileageInput, SemesterDropdown } from '@/components/MileageList';
+import JoinedTabs from '@/components/MileageList/JoinedTabs';
 
 const MileageFilterSection = () => {
   return (
-    <Flex.Row
-      height="40px"
-      margin="1rem 0"
-      align="center"
-      justify="space-between"
-    >
-      <Flex.Row gap="0 1rem">
+    <Flex.Column>
+      <Flex.Row height="40px" margin="1rem 0" align="center" gap="1rem">
+        <SearchMileageInput />
         <SemesterDropdown />
-        <JoinedToggleButtonGroup />
       </Flex.Row>
-      <SearchMileageInput />
-    </Flex.Row>
+      <JoinedTabs />
+    </Flex.Column>
   );
 };
 
