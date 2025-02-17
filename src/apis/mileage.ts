@@ -41,20 +41,23 @@ export const getEtcMileageList = async () => {
 };
 
 export const postNewMileage = async ({
+  studentId,
+  subitemId,
   semester,
   description1,
   description2,
   file,
-}: NewMileageResponse) => {
+}: NewMileageRequest) => {
   const data = axios.toFormData({
     semester,
     description1,
     description2,
     file,
+    subitemId,
   });
 
   const response = await http.post<GenericFormData>(
-    `${ENDPOINT.NEW_MILEAGE}`,
+    `${ENDPOINT.ETC_MILEAGE}/${studentId}`,
     data,
     {
       headers: {

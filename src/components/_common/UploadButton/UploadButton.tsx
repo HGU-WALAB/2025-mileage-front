@@ -33,10 +33,11 @@ const S = {
     border-radius: 0.5rem;
     color: ${({ theme }) => theme.palette.white};
     display: flex;
+    flex-shrink: 0;
     gap: 1.5rem;
     justify-content: center;
-    padding: 1rem 2rem;
-    ${({ theme }) => theme.typography.h4}
+    padding: 0.5rem 1rem;
+    ${({ theme }) => theme.typography.body1}
   `,
   HiddenInput: styled('input')`
     bottom: 0;
