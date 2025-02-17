@@ -68,3 +68,15 @@ export const postNewMileage = async ({
 
   return response;
 };
+
+export const getSubmittedMileageList = async ({
+  studentId,
+}: {
+  studentId: string;
+}) => {
+  const response = await http.get<{ data: SubmittedMileageResponse[] }>(
+    `${ENDPOINT.ETC_MILEAGE}/${studentId}`,
+  );
+
+  return response.data;
+};
