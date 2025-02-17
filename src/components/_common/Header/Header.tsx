@@ -1,10 +1,14 @@
 import { Button, Flex, Heading } from '@/components';
+import headerItems from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
 import { useThemeStore } from '@/stores';
 import { useTheme } from '@mui/material';
+import { useLocation } from 'react-router-dom';
 
 const Header = () => {
-  const title = '마일리지 조회';
+  const query = useLocation();
+  const title = headerItems[query.pathname];
+
   const theme = useTheme();
   const toggleTheme = useThemeStore(state => state.toggleTheme);
   // const { isDrawerOpen, toggleDrawer } = useDrawerStore();
