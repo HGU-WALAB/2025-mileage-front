@@ -3,7 +3,8 @@ import { http } from '@/apis/http';
 import {
   MileageRequest,
   MileageResponse,
-  NewMileageResponse,
+  NewMileageRequest,
+  SubmittedMileageResponse,
 } from '@/types/mileage';
 import axios, { GenericFormData } from 'axios';
 
@@ -33,7 +34,7 @@ export const getMileageList = async ({
 
 export const getEtcMileageList = async () => {
   const response = await http.get<{ data: MileageResponse[] }>(
-    `${ENDPOINT.NEW_MILEAGE}`,
+    `${ENDPOINT.ETC_MILEAGE}`,
   );
 
   return response.data;
