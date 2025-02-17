@@ -1,6 +1,7 @@
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
 import SearchIcon from '@/assets/icons/search.svg?react';
+import BackgroundImg from '@/assets/imgs/background.png';
 import MoneyImg from '@/assets/imgs/money.svg?react';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -18,6 +19,7 @@ export {
   AccountBalanceIcon,
   AccountCircleIcon,
   AsteriskIcon,
+  BackgroundImg,
   CheckCircleIcon,
   CheckCircleOutlineIcon,
   CheckIcon,
