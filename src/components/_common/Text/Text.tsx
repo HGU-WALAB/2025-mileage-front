@@ -14,7 +14,7 @@ const Text = ({
   padding,
   margin,
   color,
-  bold,
+  bold = false,
   as: Tag = 'p',
   ...props
 }: Props) => {
