@@ -1,8 +1,10 @@
 import { useFile, useInput, useInputWithValidate } from '@/hooks';
 import { usePostNewMileageMutation } from '@/hooks/queries';
+import { useAuthStore } from '@/stores';
 import { validateRequired } from '@/utils/validate';
 
-const useNewMileageForm = (semester: string) => {
+const useNewMileageForm = (semester: string, subitemId: number) => {
+  const { student } = useAuthStore();
   const {
     value: description1,
     handleChange: handleDesc1,
@@ -16,7 +18,8 @@ const useNewMileageForm = (semester: string) => {
   } = useInput();
   const { value: file, handleChange: handleFile, reset: resetFile } = useFile();
 
-  const { mutateAsync: postNewMileage, isError } = usePostNewMileageMutation();
+  const { mutateAsync: postNewMileage, isSuccess } =
+    usePostNewMileageMutation();
 
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
@@ -48,11 +51,14 @@ const useNewMileageForm = (semester: string) => {
   const submitForm = async () => {
     try {
       await postNewMileage({
+        studentId: student?.studentId ?? '',
+        subitemId,
         semester,
         description1,
         description2,
         file,
       });
+
       resetForm();
       alert('post 성공');
     } catch (error) {
@@ -84,7 +90,7 @@ const useNewMileageForm = (semester: string) => {
       reset: resetFile,
     },
     handleSubmit,
-    isError,
+    isSuccess,
   };
 };
 

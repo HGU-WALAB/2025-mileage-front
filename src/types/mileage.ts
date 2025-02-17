@@ -40,7 +40,20 @@ export interface EtcMileageResponse {
   semester: string;
 }
 
-export interface NewMileageResponse {
+export interface SubmittedMileageResponse {
+  subitemId: number;
+  subitemName: string;
+  semester: string;
+  description1: string;
+  description2: string | null;
+  file: File | null;
+  modDate: string;
+  recordId: number;
+}
+
+export interface NewMileageRequest {
+  studentId: string;
+  subitemId: number;
   semester: string;
   description1: string;
   description2: string | null;
