@@ -6,7 +6,7 @@ import {
 
 const AddMileagePage = () => {
   return (
-    <Flex.Column margin="1rem 2rem">
+    <Flex.Column margin="1rem 2rem" height="100%">
       <EtcMileageSection />
       <SubmittedMileageSection />
     </Flex.Column>
