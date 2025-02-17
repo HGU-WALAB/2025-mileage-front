@@ -15,18 +15,4 @@ export const mockEtcMileageList: EtcMileageResponse[] = [
     subitemName: 'Public Speaking',
     semester: '2024-2',
   },
-  {
-    categoryId: 3,
-    categoryName: 'Problem Solving',
-    subitemId: 103,
-    subitemName: 'Critical Thinking',
-    semester: '2023-2',
-  },
-  {
-    categoryId: 4,
-    categoryName: 'Project Management',
-    subitemId: 104,
-    subitemName: 'Agile Methodology',
-    semester: '2022-1',
-  },
 ];
