@@ -1,6 +1,5 @@
 export const ROUTE_PATH = {
-  root: '/',
-  landing: '/landing',
+  login: '/',
   dashboard: '/dashboard',
   mileageList: '/mileage',
   newMileage: '/mileage/add',

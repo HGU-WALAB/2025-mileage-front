@@ -6,8 +6,8 @@ import { useTheme } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
 const Header = () => {
-  const query = useLocation();
-  const title = headerItems[query.pathname];
+  const location = useLocation();
+  const title = headerItems[location.pathname];
 
   const theme = useTheme();
   const toggleTheme = useThemeStore(state => state.toggleTheme);

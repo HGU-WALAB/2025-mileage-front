@@ -15,7 +15,7 @@ const ErrorFallbackSection = ({ error, resetErrorBoundary }: Props) => {
   const handleLoginRedirect = () => {
     logout();
     resetErrorBoundary();
-    navigate(ROUTE_PATH.landing);
+    navigate(ROUTE_PATH.login);
   };
 
   if (error.response?.status === 401) {
