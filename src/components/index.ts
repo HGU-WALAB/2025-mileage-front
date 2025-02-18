@@ -5,6 +5,7 @@ export { default as ErrorResetBoundary } from './_common/Error/ErrorResetBoundar
 export { default as GlobalErrorBoundary } from './_common/Error/GlobalErrorBoundary';
 export { default as GlobalErrorFallbackSection } from './_common/Error/GlobalErrorFallbackSection';
 export { default as GlobalSuspense } from './_common/Error/GlobalSuspense';
+export { default as TableErrorFallback } from './_common/Error/TableErrorFallback';
 export { default as Flex } from './_common/Flex/Flex';
 export { default as FormField } from './_common/FormField/FormField';
 export { default as Header } from './_common/Header/Header';

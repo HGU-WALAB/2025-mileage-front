@@ -4,13 +4,16 @@ import {
   SearchMileageInput,
   SemesterDropdown,
 } from '@/components/MileageList';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const MileageFilterSection = () => {
   return (
     <Flex.Column>
       <Flex.Row height="40px" margin="1rem 0" align="center" gap="1rem">
         <SearchMileageInput />
-        <SemesterDropdown />
+        <ErrorBoundary fallback={<div />}>
+          <SemesterDropdown />
+        </ErrorBoundary>
       </Flex.Row>
       <JoinedTabs />
     </Flex.Column>
