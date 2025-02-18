@@ -1,8 +1,4 @@
-import {
-  drawerWidth,
-  globalHeight,
-  headerHeight,
-} from '@/constants/layoutSize';
+import { drawerWidth, globalHeight } from '@/constants/layoutSize';
 import { styled } from '@mui/material/styles';
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
@@ -16,7 +12,6 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
   height: globalHeight,
   maxWidth: `calc(100% - ${drawerWidth + 48}px)`,
   margin: `1rem 0 0`,
-  paddingTop: headerHeight,
   backgroundColor: theme.palette.background.default,
   overflowY: 'scroll',
   position: 'relative',

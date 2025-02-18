@@ -44,14 +44,15 @@ const S = {
     flex-direction: row;
     gap: 1rem;
     justify-content: space-between;
-    margin: 3rem;
-    padding: 2rem;
+    margin: 0 3rem;
+    padding: 1.5rem;
   `,
   AgreeButton: styled(Flex.Row)<{ isAgree: boolean }>`
     background-color: ${({ theme, isAgree }) =>
       isAgree ? theme.palette.white : 'none'};
     border: 1px solid ${({ theme }) => theme.palette.grey400};
     border-radius: 1rem;
+    flex-shrink: 0;
     height: fit-content;
     padding: 0.5rem 1rem;
     width: fit-content;

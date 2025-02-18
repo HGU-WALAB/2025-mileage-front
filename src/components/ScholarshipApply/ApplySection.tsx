@@ -45,7 +45,7 @@ const S = {
     color: ${({ theme }) => theme.palette.white};
     font-size: 20px;
     font-weight: bold;
-    padding: 1.5rem 2.5rem;
+    padding: 1rem 2rem;
 
     &:hover,
     :active {

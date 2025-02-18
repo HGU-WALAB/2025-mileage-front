@@ -22,7 +22,7 @@ const Header = () => {
       justify="space-between"
       padding="1rem"
       style={{
-        position: 'absolute',
+        position: 'sticky',
         top: 0,
         left: 0,
         zIndex: 10,
