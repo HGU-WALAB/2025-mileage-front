@@ -25,8 +25,8 @@ const ConsentSection = ({ isAgree, handleAgree }: Props) => {
         align="center"
         gap="1rem"
       >
-        {isAgree ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
         네, 동의합니다.
+        {isAgree ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
       </S.AgreeButton>
     </S.Section>
   );
