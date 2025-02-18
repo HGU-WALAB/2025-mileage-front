@@ -1,17 +1,12 @@
-import { Flex, Text } from '@/components';
-import { useGetMileageQuery } from '@/hooks/queries';
+import { CountBoxFallback, Flex, Text } from '@/components';
+import MileageCountBox from '@/components/ScholarshipApply/MileageCountBox';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
+import { ErrorBoundary } from 'react-error-boundary';
 
-const MileageCountSection = () => {
+const MileageBannerSection = () => {
   const { student, currentSemester } = useAuthStore();
-
-  const { data: mileageList } = useGetMileageQuery({
-    studentId: student?.studentId ?? '',
-    semester: currentSemester ?? '',
-    done: 'Y',
-  });
 
   return (
     <S.Wrapper justify="center" align="center">
@@ -23,20 +18,15 @@ const MileageCountSection = () => {
           <span style={{ fontWeight: 'bold' }}>{currentSemester} 학기 </span>
           등록하신 마일리지입니다
         </Text>
-        <S.CountContainer>
-          <Flex.Column align="center">
-            <Flex.Row style={{ fontSize: '1rem' }}>마일리지 개수</Flex.Row>
-            <Flex.Row align="baseline" gap=".5rem">
-              <S.CountNumber>{mileageList?.length}</S.CountNumber>개
-            </Flex.Row>
-          </Flex.Column>
-        </S.CountContainer>
+        <ErrorBoundary FallbackComponent={CountBoxFallback}>
+          <MileageCountBox />
+        </ErrorBoundary>
       </S.Container>
     </S.Wrapper>
   );
 };
 
-export default MileageCountSection;
+export default MileageBannerSection;
 
 const S = {
   Wrapper: styled(Flex.Row)`

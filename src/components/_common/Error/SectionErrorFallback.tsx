@@ -14,7 +14,7 @@ const SectionErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
       justify="center"
       align="center"
     >
-      <EmptyBoxImg width={'75px'} height={'75px'} />
+      <EmptyBoxImg width={75} height={75} />
       <Heading
         as="h2"
         style={{ fontSize: '1.5rem', color: theme.palette.grey300 }}
