@@ -28,8 +28,8 @@ const Drawer = () => {
           width: drawerWidth,
           flexShrink: 0,
           '& .MuiDrawer-paper': {
-            top: '1rem',
-            left: '1rem',
+            top: '.5rem',
+            left: '.5rem',
             height: globalHeight,
             width: drawerWidth,
             boxSizing: 'border-box',
