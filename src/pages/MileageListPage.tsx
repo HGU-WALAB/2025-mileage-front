@@ -1,4 +1,4 @@
-import { Flex, TableErrorFallback } from '@/components';
+import { Flex, PageErrorFallback } from '@/components';
 import {
   MileageFilterSection,
   MileageTableListSection,
@@ -12,7 +12,7 @@ const MileageListPage = () => {
       <MileageFilterSection />
       <QueryErrorResetBoundary>
         {({ reset }) => (
-          <ErrorBoundary FallbackComponent={TableErrorFallback} onReset={reset}>
+          <ErrorBoundary FallbackComponent={PageErrorFallback} onReset={reset}>
             <MileageTableListSection />
           </ErrorBoundary>
         )}

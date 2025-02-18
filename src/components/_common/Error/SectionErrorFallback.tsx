@@ -3,21 +3,21 @@ import { Button, Flex, Heading } from '@/components';
 import { useTheme } from '@mui/material';
 import { FallbackProps } from 'react-error-boundary';
 
-const TableErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
+const SectionErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const theme = useTheme();
 
   return (
     <Flex.Column
       width="100%"
-      height="400px"
+      height="200px"
       gap="1rem"
       justify="center"
       align="center"
     >
-      <EmptyBoxImg />
+      <EmptyBoxImg width={'75px'} height={'75px'} />
       <Heading
         as="h2"
-        style={{ fontSize: '2rem', color: theme.palette.grey300 }}
+        style={{ fontSize: '1.5rem', color: theme.palette.grey300 }}
       >
         헉 {error.status} 에러 발생 .. !
       </Heading>
@@ -26,4 +26,4 @@ const TableErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   );
 };
 
-export default TableErrorFallback;
+export default SectionErrorFallback;
