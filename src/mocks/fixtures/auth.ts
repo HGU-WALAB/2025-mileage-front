@@ -9,4 +9,5 @@ export const mockUserData: UserResponse = {
   grade: 3,
   term: 1,
   department: '공과대학',
+  currentSemester: '2025-1',
 };

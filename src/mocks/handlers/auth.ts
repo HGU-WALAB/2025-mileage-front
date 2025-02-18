@@ -10,6 +10,6 @@ export const AuthHandlers = [
     const { is500Error } = randomMswError();
     if (is500Error) return Error500();
 
-    return HttpResponse.json({ data: mockUserData }, { status: 200 });
+    return HttpResponse.json(mockUserData, { status: 200 });
   }),
 ];
