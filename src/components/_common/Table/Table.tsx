@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { THeader } from '@/types/table';
+import { getOpacityColor } from '@/utils/getOpacityColor';
 import {
   Table as MuiTable,
   Paper,
@@ -21,8 +22,8 @@ const Table = <T extends { [key: string]: any }>({
   bodyItems,
 }: Props<T>) => {
   return (
-    <TableContainer component={Paper}>
-      <MuiTable sx={{ minWidth: 650 }} aria-label="simple table">
+    <TableContainer component={Paper} sx={{ boxShadow: 'none' }}>
+      <MuiTable sx={{ minWidth: 650 }} aria-label="table">
         <S.TableHead>
           <TableRow>
             {headItems.map(item => (
@@ -39,9 +40,9 @@ const Table = <T extends { [key: string]: any }>({
               {headItems.map((header, cellIndex) => {
                 const value = row[header.value];
                 return (
-                  <TableCell key={cellIndex} component="th" scope="row">
+                  <S.BodyCell key={cellIndex} component="th" scope="row">
                     {value}
-                  </TableCell>
+                  </S.BodyCell>
                 );
               })}
             </TableRow>
@@ -62,5 +63,9 @@ const S = {
   HeadCell: styled(TableCell)`
     border-bottom: none;
     padding: 0 1rem;
+  `,
+  BodyCell: styled(TableCell)`
+    border-bottom: 1px solid
+      ${({ theme }) => getOpacityColor(theme.palette.grey200, 0.4)};
   `,
 };
