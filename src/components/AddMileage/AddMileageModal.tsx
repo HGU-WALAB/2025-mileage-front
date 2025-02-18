@@ -51,7 +51,7 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
       <Modal.Header>마일리지 활동 등록하기</Modal.Header>
       <Modal.Body
         position="center"
-        style={{ width: '85%', margin: '1rem auto' }}
+        style={{ width: '85%', margin: '2rem auto' }}
       >
         <GuideDescSection />
 

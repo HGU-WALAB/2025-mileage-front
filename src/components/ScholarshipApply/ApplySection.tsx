@@ -1,4 +1,5 @@
 import { Flex } from '@/components';
+import ApplySucceedModal from '@/components/ScholarshipApply/ApplySucceedModal';
 import { usePostScholarshipApply } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
@@ -6,7 +7,7 @@ import { styled } from '@mui/material';
 const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
   // TODO: 이후 유저 데이터 처리 로직 추가 예정
   const { student } = useAuthStore();
-  const { mutateAsync: postScholarship } = usePostScholarshipApply();
+  const { mutateAsync: postScholarship, isSuccess } = usePostScholarshipApply();
 
   const handleApply = () => {
     if (!isAgree) {
@@ -32,6 +33,7 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
       >
         마일리지 장학금 신청하기
       </S.ApplyButton>
+      <ApplySucceedModal isSucceed={isSuccess} />
     </Flex.Row>
   );
 };
@@ -43,9 +45,8 @@ const S = {
     background-color: ${({ theme }) => theme.palette.primary.main};
     border-radius: 1rem;
     color: ${({ theme }) => theme.palette.white};
-    font-size: 20px;
-    font-weight: bold;
-    padding: 1rem 2rem;
+    ${({ theme }) => theme.typography.h2};
+    padding: 1.5rem 2.5rem;
 
     &:hover,
     :active {
