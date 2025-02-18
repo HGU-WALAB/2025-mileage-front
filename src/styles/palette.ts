@@ -1,8 +1,8 @@
 export const palette = {
   // blue
-  blue300: '#66BFFF',
-  blue400: '#339FFF',
-  blue500: '#2196f3',
+  blue300: '#E8EEFC',
+  blue400: '#496EF1',
+  blue500: '#537FF1',
   blue600: '#005FCC',
   blue700: '#003F7F',
   // pink
@@ -22,11 +22,12 @@ export const palette = {
   yellow500: '#FFDD00',
   yellow600: '#CCB000',
   // grey
-  grey100: '#F4F4F4',
-  grey200: '#E0E0E0',
-  grey300: '#BDBDBD',
-  grey400: '#828282',
-  grey500: '#4F4F4F',
+  grey100: '#FAFAFC',
+  grey200: '#D5D7DA',
+  grey300: '#CECECE',
+  grey400: '#979797',
+  grey500: '#D9D9D9',
+  grey600: '#687182',
   // etc
   nearBlack: '#1E1E1E',
   black: '#333333',
