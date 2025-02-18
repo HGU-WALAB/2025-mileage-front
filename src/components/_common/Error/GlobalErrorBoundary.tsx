@@ -1,4 +1,4 @@
-import { ErrorFallbackSection } from '@/components';
+import { GlobalErrorFallbackSection } from '@/components';
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
@@ -9,7 +9,7 @@ const GlobalErrorBoundary = ({ children }: { children: JSX.Element }) => {
     <ErrorBoundary
       onReset={reset}
       FallbackComponent={({ error, resetErrorBoundary }) => (
-        <ErrorFallbackSection
+        <GlobalErrorFallbackSection
           error={error}
           resetErrorBoundary={resetErrorBoundary}
         />

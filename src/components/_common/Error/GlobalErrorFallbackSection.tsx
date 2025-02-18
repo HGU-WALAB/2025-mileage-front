@@ -8,7 +8,7 @@ interface Props {
   resetErrorBoundary: () => void;
 }
 
-const ErrorFallbackSection = ({ error, resetErrorBoundary }: Props) => {
+const GlobalErrorFallbackSection = ({ error, resetErrorBoundary }: Props) => {
   const { logout } = useAuthStore();
   const navigate = useNavigate();
 
@@ -42,4 +42,4 @@ const ErrorFallbackSection = ({ error, resetErrorBoundary }: Props) => {
   );
 };
 
-export default ErrorFallbackSection;
+export default GlobalErrorFallbackSection;
