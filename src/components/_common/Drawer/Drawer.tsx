@@ -1,23 +1,15 @@
-import {
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-  Drawer as MuiDrawer,
-  useTheme,
-} from '@mui/material';
+import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 
-import { Flex, Heading } from '@/components';
-import { UserBox } from '@/components/User';
-import drawerItems from '@/constants/drawerItems';
+import { Flex } from '@/components';
 import { drawerWidth, globalHeight } from '@/constants/layoutSize';
 import { useDrawerStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
-import { Link, useLocation } from 'react-router-dom';
+import LogoSection from './LogoSection';
+import LogoutSection from './LogoutSection';
+import MenuSection from './MenuSection';
+import UserSection from './UserSection';
 
 const Drawer = () => {
-  const query = useLocation();
   const theme = useTheme();
   const { isDrawerOpen } = useDrawerStore();
 
@@ -47,61 +39,14 @@ const Drawer = () => {
         anchor="left"
         open={isDrawerOpen}
       >
-        <Flex.Column align="center" padding="1rem" gap="1rem">
-          <Heading as="h2" color={theme.palette.white}>
-            CSEE MILEAGE
-          </Heading>
+        <Flex.Column align="center" padding="1rem" gap="1rem" height="100%">
+          <LogoSection />
 
-          <UserBox />
+          <UserSection />
 
-          <List
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '.5rem',
-              width: '100%',
-            }}
-          >
-            {drawerItems.map(item => (
-              <Link to={item.route} key={item.text}>
-                <ListItem disablePadding style={{ color: theme.palette.white }}>
-                  <ListItemButton
-                    selected={query.pathname === item.route}
-                    sx={{
-                      borderRadius: '.5rem',
-                      '&:hover': {
-                        backgroundColor: getOpacityColor(
-                          theme.palette.white,
-                          0.2,
-                        ),
-                      },
-                      '&.Mui-selected': {
-                        fontWeight: 'bold',
-                        backgroundColor: getOpacityColor(
-                          theme.palette.white,
-                          0.2,
-                        ),
-                        '&:hover': {
-                          backgroundColor: getOpacityColor(
-                            theme.palette.white,
-                            0.4,
-                          ),
-                        },
-                      },
-                    }}
-                  >
-                    <ListItemIcon style={{ minWidth: '2.5rem' }}>
-                      <item.icon style={{ color: theme.palette.white }} />
-                    </ListItemIcon>
-                    <ListItemText
-                      primary={item.text}
-                      sx={{ fontSize: theme.typography.body1 }}
-                    />
-                  </ListItemButton>
-                </ListItem>
-              </Link>
-            ))}
-          </List>
+          <MenuSection />
+
+          <LogoutSection />
         </Flex.Column>
       </MuiDrawer>
     </>
