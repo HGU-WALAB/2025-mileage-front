@@ -1,5 +1,6 @@
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
+import CheckCircleIcon from '@/assets/icons/checkCircle.svg?react';
 import CheckCircleOutlineIcon from '@/assets/icons/checkCircleOutline.svg?react';
 import LogoIcon from '@/assets/icons/logo.svg?react';
 import LogoutIcon from '@/assets/icons/logout.svg?react';
@@ -10,7 +11,6 @@ import SearchIcon from '@/assets/icons/search.svg?react';
 import BackgroundImg from '@/assets/imgs/background.png';
 import EmptyBoxImg from '@/assets/imgs/emptyBox.svg?react';
 import MoneyImg from '@/assets/imgs/money.svg?react';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloseIcon from '@mui/icons-material/Close';
