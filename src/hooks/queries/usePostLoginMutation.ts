@@ -11,6 +11,7 @@ const usePostLoginMutation = () => {
   return useMutation({
     mutationFn: postLogin,
     onSuccess: res => {
+      alert('로그인 성공');
       login(
         {
           studentId: res.studentId,
