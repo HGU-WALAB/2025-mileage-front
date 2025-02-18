@@ -1,10 +1,10 @@
 export const palette = {
   // blue
   blue300: '#E8EEFC',
-  blue400: '#496EF1',
+  blue400: '#5B8CF1',
   blue500: '#537FF1',
-  blue600: '#005FCC',
-  blue700: '#003F7F',
+  blue600: '#3E6AD1',
+  blue700: '#2C4FA1',
   // pink
   pink300: '#F1A5B5',
   pink500: '#E3879E',
@@ -31,5 +31,5 @@ export const palette = {
   // etc
   nearBlack: '#1E1E1E',
   black: '#333333',
-  white: '#FAFAFA',
+  white: '#FFFFFF',
 };

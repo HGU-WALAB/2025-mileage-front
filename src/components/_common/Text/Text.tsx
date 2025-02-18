@@ -1,4 +1,3 @@
-import { typography } from '@/styles/typography';
 import { ElementType, HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLSpanElement> {
@@ -24,7 +23,6 @@ const Text = ({
         padding,
         margin,
         color,
-        ...typography.body1,
         fontWeight: bold ? 'bold' : 'normal',
       }}
       {...props}

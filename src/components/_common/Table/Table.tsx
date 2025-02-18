@@ -56,8 +56,7 @@ export default Table;
 
 const S = {
   TableHead: styled(TableHead)`
-    // TODO: 컬러 상수로 변경 필요
-    background-color: #f1f4fb;
+    background-color: ${({ theme }) => theme.palette.primary.light};
     height: 40px;
   `,
   HeadCell: styled(TableCell)`
