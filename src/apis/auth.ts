@@ -14,3 +14,12 @@ export const postLogin = async ({ token }: Omit<AuthRequest, 'accessKey'>) => {
 
   return response;
 };
+
+export const getUserInfo = async ({ studentId }: { studentId: string }) => {
+  const response = await http.get<UserResponse>(
+    `${ENDPOINT.USER}/${studentId}`,
+  );
+
+  return response;
+};
+

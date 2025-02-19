@@ -2,7 +2,7 @@ import { http, HttpResponse } from 'msw';
 
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
-import { mockUserData } from '@/mocks/fixtures/auth';
+import { mockUserData, mockUserDataNew } from '@/mocks/fixtures/auth';
 import { Error500, randomMswError } from '@/utils/mswError';
 
 export const AuthHandlers = [
@@ -12,4 +12,10 @@ export const AuthHandlers = [
 
     return HttpResponse.json(mockUserData, { status: 200 });
   }),
+
+  http.get(BASE_URL + `${ENDPOINT.USER}/:studentId`, () => {
+
+    return HttpResponse.json(mockUserData, { status: 200 });
+  }),
+
 ];
