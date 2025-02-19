@@ -26,7 +26,7 @@ const ToggleButton = ({
   ...props
 }: Props) => {
   const theme = useTheme();
-  const { baseColor, hoverColor } = getColor(color);
+  const { lightColor, baseColor, hoverColor } = getColor(color);
 
   return (
     <MuiButton
@@ -39,14 +39,17 @@ const ToggleButton = ({
           variant === 'contained'
             ? selected
               ? hoverColor
-              : baseColor
+              : lightColor
             : selected
-              ? theme.palette.white
+              ? baseColor
               : 'transparent',
-
-        borderColor: variant === 'outlined' ? baseColor : 'transparent',
+        color:
+          variant === 'outlined' && selected ? theme.palette.white : 'none',
+        borderColor: variant === 'outlined' ? lightColor : 'transparent',
         borderRadius: isRound ? '2.4rem' : '.2rem',
         height: size === 'small' ? '30px' : size === 'medium' ? '36px' : '42px',
+        boxShadow: 'none',
+        transition: 'none',
       }}
       {...props}
     >
