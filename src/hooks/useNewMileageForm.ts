@@ -61,8 +61,8 @@ const useNewMileageForm = (semester: string, subitemId: number) => {
       });
 
       resetForm();
-    } catch (error) {
-      console.error(error);
+    } catch {
+      toast.error('마일리지 추가에 실패했습니다. 다시 시도해주세요');
     }
   };
 

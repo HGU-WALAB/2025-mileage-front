@@ -10,7 +10,6 @@ import {
 import GuideDescSection from '@/components/AddMileage/GuideDescSection';
 import { useNewMileageForm, useOpenModal } from '@/hooks';
 import { styled, useTheme } from '@mui/material';
-import { toast } from 'react-toastify';
 
 interface Props {
   semester: string;
@@ -33,8 +32,6 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
 
     if (isSuccess) {
       toggleModal();
-    } else {
-      toast.error('마일리지 추가에 실패했습니다. 다시 시도해주세요');
     }
   };
 
@@ -72,13 +69,16 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
                 ...theme.typography.body2,
               }}
             />
-            <Dropdown
-              label="년도 및 학기"
-              items={[semester]}
-              selectedItem={semester}
-              setSelectedItem={() => {}}
-              width="100%"
-            />
+            <Flex.Column width="100%">
+              <Dropdown
+                label="년도 및 학기"
+                items={[semester]}
+                selectedItem={semester}
+                setSelectedItem={() => {}}
+                width="100%"
+              />
+              <FormField.Box />
+            </Flex.Column>
           </FormField>
 
           <FormField direction="row">
@@ -91,13 +91,15 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
                 ...theme.typography.body2,
               }}
             />
-            <FormField.Input
-              placeholder={'활동 항목에 대해 작성 해주세요'}
-              fullWidth
-              value={desc1.value}
-              onChange={desc1.handleChange}
-            />
-            <FormField.ErrorMessage value={desc1.errorMessage} />
+            <Flex.Column width="100%">
+              <FormField.Input
+                placeholder={'활동 항목에 대해 작성 해주세요'}
+                fullWidth
+                value={desc1.value}
+                onChange={desc1.handleChange}
+              />
+              <FormField.ErrorMessage value={desc1.errorMessage} />
+            </Flex.Column>
           </FormField>
 
           <FormField direction="row">
@@ -109,13 +111,18 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
                 ...theme.typography.body2,
               }}
             />
-            <FormField.Input
-              placeholder="활동을 자세히 설명해주세요"
-              fullWidth
-              value={desc2.value}
-              onChange={desc2.handleChange}
-            />
-            <FormField.Box />
+            <Flex.Column width="100%">
+              <FormField.Input
+                placeholder="활동을 자세히 설명해주세요"
+                fullWidth
+                value={desc2.value}
+                onChange={desc2.handleChange}
+                minRows={4}
+                maxRows={4}
+                multiline
+              />
+              <FormField.Box />
+            </Flex.Column>
           </FormField>
 
           <FormField direction="row">
