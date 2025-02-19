@@ -1,3 +1,4 @@
+import BoxSkeleton from '@/components/_common/Skeleton/BoxSkeleton';
 import { InfoField } from '@/components/My';
 import { useGetUserInfoQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
@@ -5,7 +6,9 @@ import { styled } from '@mui/material';
 
 const UserInfoSection = () => {
   const { student } = useAuthStore();
-  const { data: userInfo } = useGetUserInfoQuery(student?.studentId ?? '');
+  const { data: userInfo, isLoading } = useGetUserInfoQuery(
+    student?.studentId ?? '',
+  );
 
   const customOrder = [
     'studentName',
@@ -17,6 +20,8 @@ const UserInfoSection = () => {
     'grade',
     'term',
   ];
+
+  if (isLoading) return <BoxSkeleton height={400} />;
 
   return (
     <S.Grid>

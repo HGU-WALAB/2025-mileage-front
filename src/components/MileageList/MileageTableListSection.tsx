@@ -1,9 +1,11 @@
-import { Flex, Title } from '@/components';
+import { Flex, TableListSkeleton, Title } from '@/components';
 import { MileageTable } from '@/components/MileageList';
 import { useGroupedMileageList } from '@/hooks';
 
 const MileageTableListSection = () => {
-  const groupedMileageList = useGroupedMileageList();
+  const { groupedMileageList, isLoading } = useGroupedMileageList();
+
+  if (isLoading) return <TableListSkeleton />;
 
   return (
     <>
