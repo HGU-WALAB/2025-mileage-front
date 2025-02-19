@@ -8,6 +8,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { RouterProvider } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 const App = () => {
   const themeMode = useThemeStore(state => state.themeMode);
@@ -20,7 +21,7 @@ const App = () => {
             const errorData = axiosError.response?.data as ErrorResponse;
 
             if (errorData) {
-              alert(errorData.message);
+              toast.error(errorData.message);
             }
           }
         },
@@ -36,6 +37,7 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
         <Global styles={globalStyle} />
+        <ToastContainer autoClose={2000} position="top-center" />
         <CssBaseline />
         <RouterProvider router={router} />
       </ThemeProvider>
