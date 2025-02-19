@@ -5,8 +5,6 @@ import { MileageResponse } from '@/types/mileage';
 const useGroupedMileageList = () => {
   const { queryParams } = useQueryParams();
 
-  console.log(queryParams);
-
   const { data: mileageList } = useGetMileageQuery({
     studentId: queryParams.studentId,
     keyword: queryParams.keyword,

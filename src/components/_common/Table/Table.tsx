@@ -25,7 +25,7 @@ const Table = <T extends { [key: string]: any }>({
         <TableHead>
           <TableRow>
             {headItems.map(item => (
-              <TableCell>{item.text}</TableCell>
+              <TableCell key={item.text}>{item.text}</TableCell>
             ))}
           </TableRow>
         </TableHead>

@@ -1,8 +1,10 @@
 import { DrawerLayout, Layout } from '@/components';
+import AuthGuard from '@/components/_common/Layout/AuthGuard';
 import { ROUTE_PATH } from '@/constants/routePath';
 import {
   AddMileagePage,
   Components,
+  DashboardPage,
   ErrorPage,
   LandingPage,
   MileageListPage,
@@ -14,12 +16,16 @@ import { createBrowserRouter } from 'react-router-dom';
 
 const router = createBrowserRouter([
   {
-    element: <DrawerLayout />,
+    element: (
+      <AuthGuard>
+        <DrawerLayout />
+      </AuthGuard>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
-        path: ROUTE_PATH.landing,
-        element: <LandingPage />,
+        path: ROUTE_PATH.dashboard,
+        element: <DashboardPage />,
       },
       {
         path: ROUTE_PATH.mileageList,
@@ -40,7 +46,11 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element: <Layout />,
+    element: (
+      <AuthGuard>
+        <Layout />
+      </AuthGuard>
+    ),
     children: [
       {
         path: ROUTE_PATH.root,

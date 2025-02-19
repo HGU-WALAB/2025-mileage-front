@@ -54,8 +54,8 @@ const Drawer = () => {
         <Divider />
         <List>
           {drawerItems.map(item => (
-            <Link to={item.route}>
-              <ListItem key={item.text} disablePadding>
+            <Link to={item.route} key={item.text}>
+              <ListItem disablePadding>
                 <ListItemButton selected={query.pathname === item.route}>
                   <ListItemIcon>
                     <item.icon />

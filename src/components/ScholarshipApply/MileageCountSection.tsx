@@ -1,24 +1,29 @@
 import { Flex, Heading } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useGetMileageQuery } from '@/hooks/queries';
+import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const MileageCountSection = () => {
-  const studentId = '22000770';
-  const semester = '2024-1';
+  const { student, currentSemester } = useAuthStore();
 
   const { data: mileageList } = useGetMileageQuery({
-    studentId: studentId,
-    semester: semester,
+    studentId: student?.studentId ?? '',
+    semester: currentSemester ?? '',
     done: 'Y',
   });
 
   return (
     <S.Container justify="center" align="center">
       <Heading as="h2">
-        <S.AccentText> 최혜림 (22000770) </S.AccentText>학생의{'  '}
-        <S.AccentText>{semester}</S.AccentText> 학기 등록된 마일리지는 총{'  '}
+        <S.AccentText>
+          {' '}
+          {student?.studentName}({student?.studentId}){' '}
+        </S.AccentText>
+        학생의{'  '}
+        <S.AccentText>{currentSemester}</S.AccentText> 학기 등록된 마일리지는 총
+        {'  '}
         <Link to={ROUTE_PATH.mileageList}>
           <S.AccentText canHover>{mileageList?.length}개</S.AccentText>
         </Link>
