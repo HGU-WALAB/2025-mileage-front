@@ -1,6 +1,6 @@
 import { Button } from '@/components';
 import { HISNET_AUTH_URL } from '@/constants/auth';
-import usePostLoginMutation from '@/hooks/queries/usePostLoginMutation';
+import { usePostLoginMutation } from '@/hooks/queries';
 import { styled } from '@mui/material';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';

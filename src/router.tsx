@@ -6,6 +6,7 @@ import {
   ErrorPage,
   LoginPage,
   MileageListPage,
+  MyPage,
   NotFoundPage,
   ScholarshipApplyPage,
 } from '@/pages';
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: ROUTE_PATH.scholarship,
         element: <ScholarshipApplyPage />,
+      },
+      {
+        path: ROUTE_PATH.myPage,
+        element: <MyPage />,
       },
       {
         path: '*',
