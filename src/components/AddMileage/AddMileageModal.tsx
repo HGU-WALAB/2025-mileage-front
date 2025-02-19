@@ -10,6 +10,7 @@ import {
 import GuideDescSection from '@/components/AddMileage/GuideDescSection';
 import { useNewMileageForm, useOpenModal } from '@/hooks';
 import { styled, useTheme } from '@mui/material';
+import { toast } from 'react-toastify';
 
 interface Props {
   semester: string;
@@ -33,7 +34,7 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
     if (isSuccess) {
       toggleModal();
     } else {
-      alert('post 실패');
+      toast.error('마일리지 추가에 실패했습니다. 다시 시도해주세요');
     }
   };
 

@@ -14,7 +14,6 @@ const LogoutSection = () => {
 
   const handleLogout = () => {
     logout();
-    alert('logout');
     navigate(ROUTE_PATH.login);
   };
 
