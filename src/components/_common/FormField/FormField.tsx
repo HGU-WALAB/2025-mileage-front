@@ -1,4 +1,4 @@
-import { Asterisk } from '@/assets';
+import { AsteriskIcon } from '@/assets';
 import { Flex, Heading, Input, Text } from '@/components';
 import { GetProps } from '@/utils/getProps';
 import { styled } from '@mui/material';
@@ -23,7 +23,7 @@ const FormField = Object.assign(FormFieldWrapper, {
         <Heading as="h3" {...rest}>
           {label}
         </Heading>
-        {required && <Asterisk />}
+        {required && <AsteriskIcon />}
       </Flex.Row>
     );
   },

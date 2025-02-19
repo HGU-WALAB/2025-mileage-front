@@ -1,4 +1,4 @@
-import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import { CloudUploadIcon } from '@/assets';
 import { styled } from '@mui/material';
 import React from 'react';
 

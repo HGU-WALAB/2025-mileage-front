@@ -5,6 +5,7 @@ import { ElementType, HTMLAttributes } from 'react';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   padding?: string;
   margin?: string;
+  color?: string;
   as?: ElementType;
 }
 
@@ -12,6 +13,7 @@ const Heading = ({
   children,
   padding,
   margin,
+  color,
   as: Tag = 'div',
   ...props
 }: Props) => {
@@ -20,7 +22,7 @@ const Heading = ({
 
   return (
     <Tag
-      style={{ padding, margin }}
+      style={{ padding, margin, color }}
       css={css({
         ...typographyStyles,
       })}

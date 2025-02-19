@@ -10,7 +10,7 @@ const LoginSection = () => {
       align="center"
       padding="3rem"
     >
-      로고나 넣겠지
+      CSEE 로고
       <HisnetLoginButton />
     </Flex.Column>
   );

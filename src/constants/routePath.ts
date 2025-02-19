@@ -4,5 +4,6 @@ export const ROUTE_PATH = {
   dashboard: '/dashboard',
   mileageList: '/mileage',
   newMileage: '/mileage/add',
+  scholarship: '/scholarship/apply',
   myPage: '/my',
 };
