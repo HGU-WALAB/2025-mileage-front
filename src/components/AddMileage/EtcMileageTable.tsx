@@ -1,19 +1,27 @@
 import { Table } from '@/components';
 import { AddMileageModal } from '@/components/AddMileage';
 import { useGetEtcMileageQuery } from '@/hooks/queries';
+import { useMemo } from 'react';
 
 const EtcMileageTable = () => {
   const { data: etcMileageList } = useGetEtcMileageQuery();
 
-  const bodyItems =
-    etcMileageList?.map(item => ({
-      semester: item.semester,
-      categoryName: item.categoryName,
-      subitemName: item.subitemName,
-      addModal: (
-        <AddMileageModal semester={item.semester} subitemId={item.subitemId} />
-      ),
-    })) ?? [];
+  const bodyItems = useMemo(
+    () =>
+      etcMileageList?.map((item, index) => ({
+        id: index + 1,
+        semester: item.semester,
+        categoryName: item.categoryName,
+        subitemName: item.subitemName,
+        addModal: (
+          <AddMileageModal
+            semester={item.semester}
+            subitemId={item.subitemId}
+          />
+        ),
+      })) ?? [],
+    [etcMileageList],
+  );
 
   return (
     <Table

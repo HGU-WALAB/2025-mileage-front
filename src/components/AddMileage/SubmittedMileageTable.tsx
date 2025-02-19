@@ -1,6 +1,7 @@
 import { Table } from '@/components';
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
+import { useMemo } from 'react';
 
 const SubmittedMileageTable = () => {
   const { student } = useAuthStore();
@@ -8,14 +9,17 @@ const SubmittedMileageTable = () => {
     student?.studentId ?? '',
   );
 
-  const bodyItems =
-    submittedMileageList?.map(item => ({
-      semester: item.semester,
-      subitemName: item.subitemName,
-      description1: item.description1,
-      modDate: item.modDate,
-      addModal: <></>,
-    })) ?? [];
+  const bodyItems = useMemo(
+    () =>
+      submittedMileageList?.map(item => ({
+        semester: item.semester,
+        subitemName: item.subitemName,
+        description1: item.description1,
+        modDate: item.modDate,
+        addModal: <></>,
+      })) ?? [],
+    [submittedMileageList],
+  );
 
   return (
     <Table
