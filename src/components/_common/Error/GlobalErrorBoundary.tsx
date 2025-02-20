@@ -1,4 +1,4 @@
-import ErrorFallbackSection from '@/components/_common/Error/ErrorFallbackSection';
+import { ErrorFallbackSection } from '@/components';
 import { useQueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 

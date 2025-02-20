@@ -1,29 +1,30 @@
-import { RightArrowIcon } from '@/assets';
-import { Button, Flex } from '@/components';
+import { Button, Flex, Heading } from '@/components';
 import { headerHeight } from '@/constants/layoutSize';
-import { useDrawerStore, useThemeStore } from '@/stores';
-import { IconButton, useTheme } from '@mui/material';
+import { useThemeStore } from '@/stores';
+import { useTheme } from '@mui/material';
 
 const Header = () => {
+  const title = '마일리지 조회';
   const theme = useTheme();
   const toggleTheme = useThemeStore(state => state.toggleTheme);
-  const { isDrawerOpen, toggleDrawer } = useDrawerStore();
+  // const { isDrawerOpen, toggleDrawer } = useDrawerStore();
 
   return (
     <Flex.Row
       height={`${headerHeight}px`}
+      width="100%"
       backgroundColor={theme.palette.variant.default}
       align="center"
       justify="space-between"
+      padding="1rem"
       style={{
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
-        width: '100vw',
+        left: 0,
         zIndex: 10,
-        borderBottom: `1px solid ${theme.palette.variant.grey}`,
       }}
     >
-      <Flex.Row padding="1rem" align="center" justify="center">
+      {/* <Flex.Row padding="1rem" align="center" justify="center">
         <IconButton
           color="inherit"
           aria-label="open drawer"
@@ -38,8 +39,10 @@ const Header = () => {
         >
           <RightArrowIcon />
         </IconButton>
+      </Flex.Row> */}
+      <Flex.Row padding="1rem">
+        <Heading as="h1">{title}</Heading>
       </Flex.Row>
-
       <Button
         label="테마 변경"
         variant="contained"

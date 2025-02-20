@@ -1,4 +1,5 @@
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
+import SearchIcon from '@/assets/icons/search.svg?react';
 import MoneyImg from '@/assets/imgs/money.svg?react';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -23,5 +24,6 @@ export {
   ChevronLeftIcon as LeftArrowIcon,
   MoneyImg,
   ChevronRightIcon as RightArrowIcon,
+  SearchIcon,
   SpaceDashboardIcon,
 };
