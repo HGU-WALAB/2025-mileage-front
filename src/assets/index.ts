@@ -1,4 +1,5 @@
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
+import CheckIcon from '@/assets/icons/check.svg?react';
 import SearchIcon from '@/assets/icons/search.svg?react';
 import MoneyImg from '@/assets/imgs/money.svg?react';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
@@ -7,6 +8,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import CloseIcon from '@mui/icons-material/Close';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import ImportContactsIcon from '@mui/icons-material/ImportContacts';
@@ -18,6 +20,8 @@ export {
   AsteriskIcon,
   CheckCircleIcon,
   CheckCircleOutlineIcon,
+  CheckIcon,
+  CloseIcon,
   CloudUploadIcon,
   EmojiEventsIcon,
   ImportContactsIcon,

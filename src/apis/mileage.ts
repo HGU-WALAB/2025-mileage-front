@@ -3,7 +3,8 @@ import { http } from '@/apis/http';
 import {
   MileageRequest,
   MileageResponse,
-  NewMileageResponse,
+  NewMileageRequest,
+  SubmittedMileageResponse,
 } from '@/types/mileage';
 import axios, { GenericFormData } from 'axios';
 
@@ -33,27 +34,30 @@ export const getMileageList = async ({
 
 export const getEtcMileageList = async () => {
   const response = await http.get<{ data: MileageResponse[] }>(
-    `${ENDPOINT.NEW_MILEAGE}`,
+    `${ENDPOINT.ETC_MILEAGE}`,
   );
 
   return response.data;
 };
 
 export const postNewMileage = async ({
+  studentId,
+  subitemId,
   semester,
   description1,
   description2,
   file,
-}: NewMileageResponse) => {
+}: NewMileageRequest) => {
   const data = axios.toFormData({
     semester,
     description1,
     description2,
     file,
+    subitemId,
   });
 
   const response = await http.post<GenericFormData>(
-    `${ENDPOINT.NEW_MILEAGE}`,
+    `${ENDPOINT.ETC_MILEAGE}/${studentId}`,
     data,
     {
       headers: {
@@ -63,4 +67,16 @@ export const postNewMileage = async ({
   );
 
   return response;
+};
+
+export const getSubmittedMileageList = async ({
+  studentId,
+}: {
+  studentId: string;
+}) => {
+  const response = await http.get<{ data: SubmittedMileageResponse[] }>(
+    `${ENDPOINT.ETC_MILEAGE}/${studentId}`,
+  );
+
+  return response.data;
 };

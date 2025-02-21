@@ -7,7 +7,7 @@ interface Props extends Omit<TextFieldProps, 'variant'> {
 }
 
 const Input = ({
-  placeholder = '',
+  label = '',
   size = 'small',
   variant = 'outlined',
   fullWidth = false,
@@ -15,7 +15,7 @@ const Input = ({
 }: Props) => {
   return (
     <TextField
-      label={placeholder}
+      label={label}
       size={size}
       variant={variant}
       fullWidth={fullWidth}
