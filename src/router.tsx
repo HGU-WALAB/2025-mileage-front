@@ -1,4 +1,4 @@
-import { AuthGuard, DrawerLayout, Layout } from '@/components';
+import { DrawerLayout, Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import {
   AddMileagePage,
@@ -16,9 +16,9 @@ import { createBrowserRouter } from 'react-router-dom';
 const router = createBrowserRouter([
   {
     element: (
-      <AuthGuard>
-        <DrawerLayout />
-      </AuthGuard>
+      // <AuthGuard>
+      <DrawerLayout />
+      // </AuthGuard>
     ),
     errorElement: <ErrorPage />,
     children: [
