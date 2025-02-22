@@ -7,8 +7,8 @@ export const lightTheme = createTheme({
     mode: 'light',
 
     primary: {
-      main: palette.blue500,
       light: palette.blue300,
+      main: palette.blue500,
       dark: palette.blue600,
     },
     secondary: {
@@ -38,8 +38,8 @@ export const darkTheme = createTheme({
 
     primary: {
       main: palette.blue500,
-      light: palette.blue300,
-      dark: palette.blue600,
+      light: palette.blue600,
+      dark: palette.blue300,
     },
     secondary: {
       main: palette.pink500,

@@ -35,7 +35,7 @@ const S = {
 
     &:hover,
     &:active {
-      background-color: ${({ theme }) => theme.palette.primary.dark};
+      background-color: ${({ theme }) => theme.palette.blue600};
     }
   `,
 };

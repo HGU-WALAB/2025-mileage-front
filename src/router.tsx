@@ -2,7 +2,6 @@ import { AuthGuard, DrawerLayout, Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import {
   AddMileagePage,
-  Components,
   DashboardPage,
   ErrorPage,
   LandingPage,
@@ -52,11 +51,7 @@ const router = createBrowserRouter([
     ),
     children: [
       {
-        path: ROUTE_PATH.root,
-        element: <Components />,
-      },
-      {
-        path: ROUTE_PATH.landing,
+        path: ROUTE_PATH.login,
         element: <LandingPage />,
       },
     ],

@@ -11,7 +11,7 @@ import ModalHeader from './ModalHeader';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   open: boolean;
   toggleModal: () => void;
-  trigger: React.ReactNode;
+  trigger?: React.ReactNode;
   size?: Size;
   hasCloseButton?: boolean;
 }
@@ -35,6 +35,7 @@ const Modal = ({
             onClose={toggleModal}
             fullWidth
             maxWidth={size === 'large' ? 'md' : size === 'medium' ? 'sm' : 'xs'}
+            PaperProps={{ sx: { borderRadius: '.75rem' } }}
           >
             <DialogContent {...props}>
               {children}
@@ -45,8 +46,8 @@ const Modal = ({
                   onClick={toggleModal}
                   sx={theme => ({
                     position: 'absolute',
-                    right: 8,
-                    top: 8,
+                    right: 12,
+                    top: 10,
                     color: theme.palette.grey[500],
                   })}
                 >

@@ -5,7 +5,7 @@ const DrawerLayout = () => {
   const { isDrawerOpen } = useDrawerStore();
 
   return (
-    <Flex.Column margin="0 0 2rem 0">
+    <Flex.Column>
       <Drawer />
       <Flex.Row justify="center">
         <Main open={isDrawerOpen}>

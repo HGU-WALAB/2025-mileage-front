@@ -39,7 +39,7 @@ const Button = ({
           backgroundColor: variant === 'contained' ? hoverColor : 'transparent',
           borderColor: variant === 'outlined' ? hoverColor : 'transparent',
         },
-        borderRadius: isRound ? '2.4rem' : '.2rem',
+        borderRadius: isRound ? '2.4rem' : '.75rem',
         width: size === 'full' ? '100%' : 'auto',
         height: size === 'small' ? '30px' : size === 'medium' ? '36px' : '42px',
       }}
