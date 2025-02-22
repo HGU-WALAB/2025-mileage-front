@@ -1,23 +1,17 @@
-import {
-  drawerWidth,
-  globalHeight,
-  headerHeight,
-} from '@/constants/layoutSize';
+import { drawerWidth, globalHeight } from '@/constants/layoutSize';
 import { styled } from '@mui/material/styles';
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
   open?: boolean;
 }>(({ theme }) => ({
   flexGrow: 1,
-  padding: theme.spacing(3),
   transition: theme.transitions.create('margin', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
   height: globalHeight,
-  maxWidth: '80rem',
-  margin: `1rem 1rem 0`,
-  paddingTop: headerHeight,
+  maxWidth: `calc(100% - ${drawerWidth + 48}px)`,
+  margin: `1rem 0 0`,
   backgroundColor: theme.palette.background.default,
   overflowY: 'scroll',
   position: 'relative',

@@ -7,10 +7,6 @@ const useFilteredBySemester = () => {
 
   const { data: mileageList } = useGetMileageQuery({
     studentId: queryParams.studentId,
-    keyword: queryParams.keyword,
-    category: queryParams.category,
-    semester: queryParams.semester,
-    done: queryParams.done,
   });
 
   const semesterList = [

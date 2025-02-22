@@ -3,7 +3,7 @@ import { http, HttpResponse, PathParams } from 'msw';
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
 import { mockMileageList } from '@/mocks/fixtures/mileageList';
-import { Error401, Error500, randomMswError } from '@/utils/mswError';
+import { Error400, Error401, Error500, randomMswError } from '@/utils/mswError';
 
 import { mockEtcMileageList } from '@/mocks/fixtures/etcMileageList';
 import { mockSubmittedMileageList } from '@/mocks/fixtures/submittedMileageList';
@@ -12,8 +12,9 @@ import { LiveStorage } from '@mswjs/storage';
 
 export const MileageHandlers = [
   http.get(BASE_URL + `${ENDPOINT.MILEAGE}/:studentId/search`, req => {
-    const { is401Error, is500Error } = randomMswError();
+    const { is400Error, is401Error, is500Error } = randomMswError();
 
+    if (is400Error) return Error400();
     if (is401Error) return Error401();
     if (is500Error) return Error500();
 

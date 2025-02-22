@@ -1,5 +1,4 @@
-import { DrawerLayout, Layout } from '@/components';
-import AuthGuard from '@/components/_common/Layout/AuthGuard';
+import { AuthGuard, DrawerLayout, Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import {
   AddMileagePage,
