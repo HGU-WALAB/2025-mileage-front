@@ -1,5 +1,7 @@
-import { Table } from '@/components';
+import { EmptyBoxImg } from '@/assets';
+import { Flex, Heading, Table } from '@/components';
 import { MileageResponse } from '@/types/mileage';
+import { useTheme } from '@mui/material';
 import { useMemo } from 'react';
 
 interface Props {
@@ -19,6 +21,8 @@ const MileageTable = ({ mileageList }: Props) => {
     [mileageList],
   );
 
+  if (!mileageList.length) return <EmptyTable />;
+
   return (
     <Table
       headItems={[
@@ -33,3 +37,24 @@ const MileageTable = ({ mileageList }: Props) => {
 };
 
 export default MileageTable;
+
+const EmptyTable = () => {
+  const theme = useTheme();
+  return (
+    <Flex.Column
+      width="100%"
+      height="400px"
+      gap="1rem"
+      justify="center"
+      align="center"
+    >
+      <EmptyBoxImg />
+      <Heading
+        as="h2"
+        style={{ fontSize: '2rem', color: theme.palette.grey300 }}
+      >
+        등록된 마일리지가 없어요
+      </Heading>
+    </Flex.Column>
+  );
+};
