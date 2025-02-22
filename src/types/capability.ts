@@ -4,3 +4,8 @@ export interface Capability {
   capabilityPoint: number;
   [key: string]: unknown;
 }
+
+export interface SemesterCapability {
+  semester: string;
+  point: number;
+}
