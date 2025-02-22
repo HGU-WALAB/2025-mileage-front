@@ -1,4 +1,5 @@
 export { default as Button } from './_common/Button/Button';
+export { default as RadarChart } from './_common/Chart/RadarChart';
 export { default as Drawer } from './_common/Drawer/Drawer';
 export { default as Dropdown } from './_common/Dropdown/Dropdown';
 export { default as CountBoxFallback } from './_common/Error/CountBoxFallback';
