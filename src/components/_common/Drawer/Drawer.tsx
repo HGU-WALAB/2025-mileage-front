@@ -25,7 +25,6 @@ const Drawer = () => {
             height: globalHeight,
             width: drawerWidth,
             boxSizing: 'border-box',
-
             backdropFilter: `blur(10px)`,
             backgroundColor: getOpacityColor(theme.palette.white, 0.1),
             borderRadius: '.5rem',

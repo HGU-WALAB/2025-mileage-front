@@ -1,5 +1,5 @@
-import { Flex } from '@/components';
-import { HisnetLoginButton } from '@/components/Landing';
+import { Flex, Heading } from '@/components';
+import { HisnetLoginButton } from '@/components/Login';
 
 const LoginSection = () => {
   return (
@@ -8,9 +8,9 @@ const LoginSection = () => {
       width="30%"
       justify="space-between"
       align="center"
-      padding="3rem"
+      padding="0 1rem"
     >
-      CSEE 로고
+      <Heading as="h1">Login</Heading>
       <HisnetLoginButton />
     </Flex.Column>
   );

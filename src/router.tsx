@@ -4,7 +4,7 @@ import {
   AddMileagePage,
   DashboardPage,
   ErrorPage,
-  LandingPage,
+  LoginPage,
   MileageListPage,
   NotFoundPage,
   ScholarshipApplyPage,
@@ -44,15 +44,11 @@ const router = createBrowserRouter([
     ],
   },
   {
-    element: (
-      <AuthGuard>
-        <Layout />
-      </AuthGuard>
-    ),
+    element: <Layout />,
     children: [
       {
         path: ROUTE_PATH.login,
-        element: <LandingPage />,
+        element: <LoginPage />,
       },
     ],
   },
