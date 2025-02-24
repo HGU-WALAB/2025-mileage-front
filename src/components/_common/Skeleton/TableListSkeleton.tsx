@@ -4,7 +4,7 @@ const TableListSkeleton = () => {
   return (
     <>
       {[...Array(3)].map((_, index) => (
-        <TableSkeleton index={index} />
+        <TableSkeleton key={index} index={index} />
       ))}
     </>
   );
