@@ -22,8 +22,8 @@ const GuideDescSection = () => {
       backgroundColor={theme.palette.variant.default}
     >
       <Flex.Column align="center" style={{ color: theme.palette.primary.main }}>
-        <Heading as="h2">자격증 및 기타실적 등록</Heading>
-        <Heading as="h2">가이드라인</Heading>
+        <Heading as="h3">자격증 및 기타실적 등록</Heading>
+        <Heading as="h3">가이드라인</Heading>
       </Flex.Column>
 
       <S.GuideWrapper padding=".5rem 1rem">

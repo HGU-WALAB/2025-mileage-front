@@ -1,10 +1,10 @@
-import { Table } from '@/components';
+import { BoxSkeleton, Table } from '@/components';
 import { AddMileageModal } from '@/components/AddMileage';
 import { useGetEtcMileageQuery } from '@/hooks/queries';
 import { useMemo } from 'react';
 
 const EtcMileageTable = () => {
-  const { data: etcMileageList } = useGetEtcMileageQuery();
+  const { data: etcMileageList, isLoading } = useGetEtcMileageQuery();
 
   const bodyItems = useMemo(
     () =>
@@ -22,6 +22,8 @@ const EtcMileageTable = () => {
       })) ?? [],
     [etcMileageList],
   );
+
+  if (isLoading) return <BoxSkeleton />;
 
   return (
     <Table

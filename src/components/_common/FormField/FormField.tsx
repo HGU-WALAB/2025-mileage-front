@@ -35,7 +35,15 @@ const FormField = Object.assign(FormFieldWrapper, {
     value,
     ...rest
   }: { value: string } & GetProps<typeof Text>) => (
-    <Text style={{ color: 'red', height: '1rem' }} {...rest}>
+    <Text
+      style={{
+        color: 'red',
+        height: '1rem',
+        marginLeft: '0.25rem',
+        fontSize: '0.875rem',
+      }}
+      {...rest}
+    >
       {value}
     </Text>
   ),

@@ -49,7 +49,6 @@ const S = {
   Value: styled(Flex.Row)`
     background-color: ${({ theme }) => theme.palette.primary.light};
     border-radius: 1rem;
-    color: ${({ theme }) => theme.palette.grey600};
     height: 55px;
     padding-left: 1rem;
     width: 100%;

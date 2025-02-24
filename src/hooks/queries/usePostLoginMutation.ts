@@ -3,6 +3,7 @@ import { ROUTE_PATH } from '@/constants/routePath';
 import { useAuthStore } from '@/stores';
 import { useMutation } from '@tanstack/react-query';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const usePostLoginMutation = () => {
   const { login } = useAuthStore();
@@ -11,7 +12,7 @@ const usePostLoginMutation = () => {
   return useMutation({
     mutationFn: postLogin,
     onSuccess: res => {
-      alert('로그인 성공');
+      toast.success('어서오세요!');
       login(
         {
           studentId: res.studentId,

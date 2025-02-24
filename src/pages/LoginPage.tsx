@@ -4,16 +4,7 @@ import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled } from '@mui/material';
 
-const LandingPage = () => {
-  // const navigate = useNavigate();
-  // const { isLogin } = useAuthStore();
-
-  // useEffect(() => {
-  //   if (isLogin) {
-  //     navigate(ROUTE_PATH.dashboard);
-  //   }
-  // }, [isLogin, navigate]);
-
+const LoginPage = () => {
   return (
     <Flex.Column justify="center" align="center" height="100%">
       <S.GlassContainer
@@ -33,6 +24,7 @@ const LandingPage = () => {
             <LogoSection />
             <NoticeCard />
           </Flex.Column>
+
           <LoginSection />
         </Flex.Row>
       </S.GlassContainer>
@@ -40,7 +32,7 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default LoginPage;
 
 const S = {
   GlassContainer: styled(Flex)`

@@ -3,6 +3,7 @@ import ApplySucceedModal from '@/components/ScholarshipApply/ApplySucceedModal';
 import { usePostScholarshipApply } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
+import { toast } from 'react-toastify';
 
 const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
   // TODO: 이후 유저 데이터 처리 로직 추가 예정
@@ -11,7 +12,7 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
 
   const handleApply = () => {
     if (!isAgree) {
-      alert('동의해야 신청 가능');
+      toast.error('개인 정보 수집을 동의해주세요!');
       return;
     }
 
@@ -50,7 +51,7 @@ const S = {
 
     &:hover,
     :active {
-      background-color: ${({ theme }) => theme.palette.primary.dark};
+      background-color: ${({ theme }) => theme.palette.blue600};
     }
   `,
 };

@@ -1,11 +1,11 @@
-import { Table } from '@/components';
+import { BoxSkeleton, Table } from '@/components';
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { useMemo } from 'react';
 
 const SubmittedMileageTable = () => {
   const { student } = useAuthStore();
-  const { data: submittedMileageList } = useGetSubmittedMileageQuery(
+  const { data: submittedMileageList, isLoading } = useGetSubmittedMileageQuery(
     student?.studentId ?? '',
   );
 
@@ -20,6 +20,8 @@ const SubmittedMileageTable = () => {
       })) ?? [],
     [submittedMileageList],
   );
+
+  if (isLoading) return <BoxSkeleton />;
 
   return (
     <Table

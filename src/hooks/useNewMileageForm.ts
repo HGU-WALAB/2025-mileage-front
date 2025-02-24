@@ -2,6 +2,7 @@ import { useFile, useInput, useInputWithValidate } from '@/hooks';
 import { usePostNewMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { validateRequired } from '@/utils/validate';
+import { toast } from 'react-toastify';
 
 const useNewMileageForm = (semester: string, subitemId: number) => {
   const { student } = useAuthStore();
@@ -37,7 +38,7 @@ const useNewMileageForm = (semester: string, subitemId: number) => {
     const errorMessage = validateRequired(description1);
 
     if (errorMessage) {
-      alert(errorMessage);
+      toast.error(errorMessage);
       return;
     }
 
@@ -60,9 +61,8 @@ const useNewMileageForm = (semester: string, subitemId: number) => {
       });
 
       resetForm();
-      alert('post 성공');
-    } catch (error) {
-      console.error(error);
+    } catch {
+      toast.error('마일리지 추가에 실패했습니다. 다시 시도해주세요');
     }
   };
 

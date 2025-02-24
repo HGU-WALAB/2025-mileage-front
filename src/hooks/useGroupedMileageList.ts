@@ -5,7 +5,7 @@ import { MileageResponse } from '@/types/mileage';
 const useGroupedMileageList = () => {
   const { queryParams } = useQueryParams();
 
-  const { data: mileageList } = useGetMileageQuery({
+  const { data: mileageList, isLoading } = useGetMileageQuery({
     studentId: queryParams.studentId,
     keyword: queryParams.keyword,
     category: queryParams.category ? queryParams.category : undefined,
@@ -39,7 +39,7 @@ const useGroupedMileageList = () => {
 
   const groupedMileageList = groupByCategoryId(mileageList || []);
 
-  return groupedMileageList;
+  return { groupedMileageList, isLoading };
 };
 
 export default useGroupedMileageList;
