@@ -1,4 +1,5 @@
 import { BoxSkeleton, Table } from '@/components';
+import SubmittedMileageModal from '@/components/AddMileage/SubmittedMileageModal';
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { useMemo } from 'react';
@@ -16,7 +17,7 @@ const SubmittedMileageTable = () => {
         subitemName: item.subitemName,
         description1: item.description1,
         modDate: item.modDate,
-        addModal: <></>,
+        overview: <SubmittedMileageModal item={item} />,
       })) ?? [],
     [submittedMileageList],
   );
@@ -30,7 +31,7 @@ const SubmittedMileageTable = () => {
         { id: 2, text: '항목', value: 'subitemName' },
         { id: 3, text: '설명', value: 'description1' },
         { id: 4, text: '신청날짜', value: 'modDate' },
-        { id: 5, text: '', value: 'addModal' },
+        { id: 5, text: '상세보기', value: 'overview' },
       ]}
       bodyItems={bodyItems}
     />
