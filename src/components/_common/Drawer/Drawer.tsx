@@ -4,6 +4,7 @@ import { Flex } from '@/components';
 import { drawerWidth, globalHeight } from '@/constants/layoutSize';
 import { useDrawerStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
+import { ErrorBoundary } from 'react-error-boundary';
 import LogoSection from './LogoSection';
 import LogoutSection from './LogoutSection';
 import MenuSection from './MenuSection';
@@ -41,7 +42,9 @@ const Drawer = () => {
         <Flex.Column align="center" padding="1rem" gap="1rem" height="100%">
           <LogoSection />
 
-          <UserSection />
+          <ErrorBoundary fallback={<></>}>
+            <UserSection />
+          </ErrorBoundary>
 
           <MenuSection />
 
