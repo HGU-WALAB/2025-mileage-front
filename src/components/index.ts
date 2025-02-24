@@ -17,6 +17,7 @@ export { default as AuthGuard } from './_common/Layout/AuthGuard';
 export { default as DrawerLayout } from './_common/Layout/DrawerLayout';
 export { default as Layout } from './_common/Layout/Layout';
 export { default as Main } from './_common/Main/Main';
+export { default as AlertModal } from './_common/Modal/AlertModal';
 export { default as Modal } from './_common/Modal/Modal';
 export { default as Table } from './_common/Table/Table';
 export { default as Tabs } from './_common/Tabs/Tabs';

@@ -44,7 +44,7 @@ const Header = () => {
           <RightArrowIcon />
         </IconButton>
       </Flex.Row> */}
-      <Flex.Row padding="1rem">
+      <Flex.Row padding="0 1rem">
         <Heading as="h1">{title}</Heading>
       </Flex.Row>
       <Button
