@@ -2,7 +2,7 @@ import { Flex } from '@/components';
 import {
   ApplySection,
   ConsentSection,
-  MileageCountSection,
+  MileageBannerSection,
 } from '@/components/ScholarshipApply';
 import { useState } from 'react';
 
@@ -11,7 +11,7 @@ const ScholarshipApplyPage = () => {
 
   return (
     <Flex.Column gap="1rem">
-      <MileageCountSection />
+      <MileageBannerSection />
       <ConsentSection isAgree={isAgree} handleAgree={setIsAgree} />
       <ApplySection isAgree={isAgree} />
     </Flex.Column>

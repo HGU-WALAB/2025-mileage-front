@@ -1,18 +1,23 @@
 import { Table } from '@/components';
 import { MileageResponse } from '@/types/mileage';
+import { useMemo } from 'react';
 
 interface Props {
   mileageList: MileageResponse[];
 }
 
 const MileageTable = ({ mileageList }: Props) => {
-  const bodyItems = mileageList.map((item, index) => ({
-    id: index + 1,
-    semester: item.semester,
-    categoryName: item.categoryName,
-    description: item.description,
-    done: item.done ? 'Y' : 'N',
-  }));
+  const bodyItems = useMemo(
+    () =>
+      mileageList.map((item, index) => ({
+        id: index + 1,
+        semester: item.semester,
+        categoryName: item.categoryName,
+        description: item.description,
+        done: item.done ? 'Y' : 'N',
+      })),
+    [mileageList],
+  );
 
   return (
     <Table
