@@ -10,28 +10,29 @@ import { AxiosError } from 'axios';
 import { RouterProvider } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 
-const App = () => {
-  const themeMode = useThemeStore(state => state.themeMode);
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      mutations: {
-        onError: error => {
-          if ((error as AxiosError).isAxiosError) {
-            const axiosError = error as AxiosError;
-            const errorData = axiosError.response?.data as ErrorResponse;
+const queryClient = new QueryClient({
+  defaultOptions: {
+    mutations: {
+      onError: error => {
+        if ((error as AxiosError).isAxiosError) {
+          const axiosError = error as AxiosError;
+          const errorData = axiosError.response?.data as ErrorResponse;
 
-            if (errorData) {
-              toast.error(errorData.message);
-            }
+          if (errorData) {
+            toast.error(errorData.message);
           }
-        },
-      },
-      queries: {
-        staleTime: 5 * 60 * 1000,
-        throwOnError: true,
+        }
       },
     },
-  });
+    queries: {
+      staleTime: 5 * 60 * 1000,
+      throwOnError: true,
+    },
+  },
+});
+
+const App = () => {
+  const themeMode = useThemeStore(state => state.themeMode);
 
   return (
     <QueryClientProvider client={queryClient}>

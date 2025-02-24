@@ -3,14 +3,11 @@ import {
   EtcMileageSection,
   SubmittedMileageSection,
 } from '@/components/AddMileage';
-import { headerHeight } from '@/constants/layoutSize';
+import { pageHeight } from '@/constants/layoutSize';
 
 const AddMileagePage = () => {
   return (
-    <Flex.Column
-      margin="1rem 2rem"
-      height={`calc(100% - ${headerHeight + 32}px)`}
-    >
+    <Flex.Column margin="1rem 2rem" height={pageHeight}>
       <EtcMileageSection />
       <SubmittedMileageSection />
     </Flex.Column>
