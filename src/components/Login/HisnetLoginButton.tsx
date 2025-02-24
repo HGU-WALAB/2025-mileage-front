@@ -1,29 +1,14 @@
 import { Button } from '@/components';
-import { HISNET_AUTH_URL } from '@/constants/auth';
-import { usePostLoginMutation } from '@/hooks/queries';
+import { ROUTE_PATH } from '@/constants/routePath';
+import useLogin from '@/hooks/useLogin';
 import { styled } from '@mui/material';
-import { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const HisnetLoginButton = () => {
-  const [, setSearchParams] = useSearchParams();
-  const { mutate: postLogin } = usePostLoginMutation();
+  const navigate = useNavigate();
+  const { handleHisnetAuth, isLoginSucceed } = useLogin();
 
-  useEffect(() => {
-    const token = new URL(window.location.href).searchParams.get('token');
-    if (token) {
-      postLogin({ token });
-    }
-  }, [postLogin]);
-
-  const handleHisnetAuth = () => {
-    // 히즈넷 로그인 로직
-    const returnUrl = window.location.href;
-    window.location.href = HISNET_AUTH_URL(returnUrl);
-
-    // mock token 추가로직
-    setSearchParams('token=1t2o3k4e5n');
-  };
+  if (isLoginSucceed) navigate(ROUTE_PATH.dashboard);
 
   return <S.LoginButton label="LOGIN" onClick={handleHisnetAuth} size="full" />;
 };
