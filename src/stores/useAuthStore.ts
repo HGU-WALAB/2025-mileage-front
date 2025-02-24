@@ -3,8 +3,8 @@ import { persist } from 'zustand/middleware';
 
 interface AuthState {
   isLogin: boolean;
-  student: { studentId: string; studentName: string } | null;
-  currentSemester: string | null;
+  student: { studentId: string; studentName: string };
+  currentSemester: string;
   login: (
     student: { studentId: string; studentName: string },
     currentSemester: string,
@@ -16,11 +16,15 @@ const useAuthStore = create<AuthState>()(
   persist(
     set => ({
       isLogin: false,
-      student: null,
-      currentSemester: null,
+      student: {
+        studentId: '',
+        studentName: '',
+      },
+      currentSemester: '',
       login: (student, currentSemester) =>
         set({ isLogin: true, student, currentSemester }),
-      logout: () => set({ isLogin: false, student: null }),
+      logout: () =>
+        set({ isLogin: false, student: { studentId: '', studentName: '' } }),
     }),
     {
       name: 'auth',
