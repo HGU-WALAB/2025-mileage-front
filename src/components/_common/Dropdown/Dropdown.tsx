@@ -16,6 +16,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   setSelectedItem: (item: string) => void;
   size?: Exclude<Size, 'large'>;
   width?: string;
+  disabled?: boolean;
 }
 
 const Dropdown = ({
@@ -25,6 +26,7 @@ const Dropdown = ({
   setSelectedItem,
   size = 'small',
   width,
+  disabled,
   ...props
 }: Props) => {
   const theme = useTheme();
@@ -36,6 +38,7 @@ const Dropdown = ({
         label={label}
         onChange={e => setSelectedItem(e.target.value)}
         style={{ backgroundColor: theme.palette.variant.default }}
+        disabled={disabled}
       >
         {items.map((item, index) => (
           <MenuItem value={item} key={index}>
