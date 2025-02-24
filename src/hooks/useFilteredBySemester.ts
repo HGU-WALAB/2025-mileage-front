@@ -5,7 +5,7 @@ const useFilteredBySemester = () => {
   const { queryParams, updateQueryParams } = useQueryParams();
   const selectedSemester = queryParams.semester;
 
-  const { data: mileageList } = useGetMileageQuery({
+  const { data: mileageList, isLoading } = useGetMileageQuery({
     studentId: queryParams.studentId,
   });
 
@@ -20,7 +20,7 @@ const useFilteredBySemester = () => {
     updateQueryParams({ semester: newSemester });
   };
 
-  return { semesterList, selectedSemester, setSelectedSemester };
+  return { semesterList, isLoading, selectedSemester, setSelectedSemester };
 };
 
 export default useFilteredBySemester;
