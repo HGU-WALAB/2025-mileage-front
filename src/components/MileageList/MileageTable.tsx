@@ -1,12 +1,20 @@
 import { EmptyBoxImg } from '@/assets';
 import { Flex, Heading, Table } from '@/components';
 import { MileageResponse } from '@/types/mileage';
+import { THeader } from '@/types/table';
 import { useTheme } from '@mui/material';
 import { useMemo } from 'react';
 
 interface Props {
   mileageList: MileageResponse[];
 }
+
+const headerItems: THeader[] = [
+  { id: 1, text: '학기', value: 'semester' },
+  { id: 2, text: '항목명', value: 'categoryName' },
+  { id: 3, text: '내용', value: 'description' },
+  { id: 4, text: '참여여부', value: 'done', align: 'center' },
+];
 
 const MileageTable = ({ mileageList }: Props) => {
   const bodyItems = useMemo(
@@ -23,17 +31,7 @@ const MileageTable = ({ mileageList }: Props) => {
 
   if (!mileageList.length) return <EmptyTable />;
 
-  return (
-    <Table
-      headItems={[
-        { id: 1, text: '학기', value: 'semester' },
-        { id: 2, text: '항목명', value: 'categoryName' },
-        { id: 3, text: '내용', value: 'description' },
-        { id: 4, text: '참여여부', value: 'done', align: 'center' },
-      ]}
-      bodyItems={bodyItems}
-    />
-  );
+  return <Table headItems={headerItems} bodyItems={bodyItems} />;
 };
 
 export default MileageTable;

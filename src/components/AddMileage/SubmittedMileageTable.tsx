@@ -2,7 +2,16 @@ import { BoxSkeleton, Table } from '@/components';
 import SubmittedMileageModal from '@/components/AddMileage/SubmittedMileageModal';
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
+import { THeader } from '@/types/table';
 import { useMemo } from 'react';
+
+const headerItems: THeader[] = [
+  { id: 1, text: '학기', value: 'semester' },
+  { id: 2, text: '항목', value: 'subitemName' },
+  { id: 3, text: '설명', value: 'description1' },
+  { id: 4, text: '신청날짜', value: 'modDate' },
+  { id: 5, text: '상세보기', value: 'overview', align: 'center' },
+];
 
 const SubmittedMileageTable = () => {
   const { student } = useAuthStore();
@@ -24,18 +33,7 @@ const SubmittedMileageTable = () => {
 
   if (isLoading) return <BoxSkeleton />;
 
-  return (
-    <Table
-      headItems={[
-        { id: 1, text: '학기', value: 'semester' },
-        { id: 2, text: '항목', value: 'subitemName' },
-        { id: 3, text: '설명', value: 'description1' },
-        { id: 4, text: '신청날짜', value: 'modDate' },
-        { id: 5, text: '상세보기', value: 'overview', align: 'center' },
-      ]}
-      bodyItems={bodyItems}
-    />
-  );
+  return <Table headItems={headerItems} bodyItems={bodyItems} />;
 };
 
 export default SubmittedMileageTable;
