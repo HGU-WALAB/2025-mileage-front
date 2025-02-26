@@ -25,7 +25,6 @@ const NoticeCard = () => {
         src={images[currentIndex]}
         alt={`Carousel ${currentIndex + 1}`}
       />
-      {/* <S.Text>2025 - 1 마일리지 장학금 신청</S.Text> */}
     </S.Container>
   );
 };
@@ -43,10 +42,11 @@ const S = {
     flex-direction: column;
     height: 300px;
     justify-content: flex-start;
+    max-width: 600px;
     object-fit: cover;
     overflow: hidden;
     position: relative;
-    width: 600px;
+    width: 100%;
   `,
   Text: styled('div')`
     bottom: 10%;

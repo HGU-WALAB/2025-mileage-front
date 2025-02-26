@@ -1,16 +1,18 @@
 import { Flex } from '@/components';
 import { LoginSection, LogoSection, NoticeCard } from '@/components/Login';
 import { ROUTE_PATH } from '@/constants/routePath';
+import { RESPONSIVE_MAX_WIDTH } from '@/constants/system';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
-import { styled } from '@mui/material';
+import { styled, useMediaQuery } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const { isLogin } = useAuthStore();
+  const isMobile = useMediaQuery(RESPONSIVE_MAX_WIDTH);
 
   useEffect(() => {
     if (isLogin) {
@@ -23,15 +25,16 @@ const LoginPage = () => {
       <S.GlassContainer
         justify="center"
         align="center"
-        width="80%"
+        width={isMobile ? '90%' : '80%'}
         height="80%"
       >
         <Flex.Row
           justify="center"
           align="center"
-          width="80%"
+          width={isMobile ? '90%' : '80%'}
           height="50%"
           gap="2rem"
+          responsive
         >
           <Flex.Column gap="1rem">
             <LogoSection />

@@ -1,12 +1,17 @@
 import { LogoIcon } from '@/assets';
 import { Flex, Heading } from '@/components';
-import { styled } from '@mui/material';
+import { RESPONSIVE_MAX_WIDTH } from '@/constants/system';
+import { styled, useMediaQuery } from '@mui/material';
 
 const LogoSection = () => {
+  const isMobile = useMediaQuery(RESPONSIVE_MAX_WIDTH);
+
   return (
     <Flex.Row align="center" gap="1rem">
-      <LogoIcon width={60} height={60} />
-      <S.LogoTitle as="h1">CSEE Mileage</S.LogoTitle>
+      <LogoIcon width={isMobile ? 30 : 60} height={isMobile ? 30 : 60} />
+      <S.LogoTitle as="h1" isMobile={isMobile}>
+        CSEE Mileage
+      </S.LogoTitle>
     </Flex.Row>
   );
 };
@@ -14,9 +19,9 @@ const LogoSection = () => {
 export default LogoSection;
 
 const S = {
-  LogoTitle: styled(Heading)`
+  LogoTitle: styled(Heading)<{ isMobile: boolean }>`
     color: ${({ theme }) => theme.palette.white};
-    font-size: 3rem;
+    font-size: ${({ isMobile }) => (isMobile ? '1.5rem' : '3rem')};
     font-weight: 700;
   `,
 };
