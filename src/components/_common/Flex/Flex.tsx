@@ -1,3 +1,5 @@
+import { RESPONSIVE_MAX_WIDTH } from '@/constants/system';
+import { useMediaQuery } from '@mui/material';
 import { HTMLAttributes } from 'react';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -17,6 +19,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   padding?: string;
   margin?: string;
   backgroundColor?: string;
+  responsive?: boolean;
 }
 
 const Flex = ({
@@ -31,14 +34,17 @@ const Flex = ({
   padding,
   margin,
   backgroundColor,
+  responsive,
   style,
   ...props
 }: Props) => {
+  const isMobile = useMediaQuery(RESPONSIVE_MAX_WIDTH);
+
   return (
     <div
       style={{
         display: 'flex',
-        flexDirection: direction,
+        flexDirection: responsive && isMobile ? 'column' : direction,
         justifyContent: justify,
         alignItems: align,
         flexWrap: wrap,
