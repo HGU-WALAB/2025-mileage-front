@@ -10,7 +10,7 @@ const RadarChartSection = () => {
     <S.Container height="40%" width="50%" padding="2rem" gap="1rem">
       <Heading as="h3">나의 역량 비교 그래프</Heading>
       <Flex height="90%" width="100%">
-        <RadarChart data={data.data} />
+        <RadarChart data={data} />
       </Flex>
     </S.Container>
   );

@@ -59,7 +59,7 @@ export const MileageHandlers = [
       });
     }
 
-    return HttpResponse.json({ data: filteredMileageList }, { status: 200 });
+    return HttpResponse.json(filteredMileageList, { status: 200 });
   }),
 
   http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}/:studentId`, () => {
@@ -69,10 +69,7 @@ export const MileageHandlers = [
     if (is401Error) return Error401();
     if (is500Error) return Error500();
 
-    return HttpResponse.json(
-      { data: submittedMileage.getValue() },
-      { status: 200 },
-    );
+    return HttpResponse.json(submittedMileage.getValue(), { status: 200 });
   }),
 
   http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}`, () => {
@@ -82,7 +79,7 @@ export const MileageHandlers = [
     if (is401Error) return Error401();
     if (is500Error) return Error500();
 
-    return HttpResponse.json({ data: mockEtcMileageList }, { status: 200 });
+    return HttpResponse.json(mockEtcMileageList, { status: 200 });
   }),
 
   http.post<
@@ -110,7 +107,7 @@ export const MileageHandlers = [
       } as SubmittedMileageResponse),
     );
 
-    return HttpResponse.json({ data: mockEtcMileageList }, { status: 200 });
+    return HttpResponse.json(mockEtcMileageList, { status: 200 });
   }),
 ];
 

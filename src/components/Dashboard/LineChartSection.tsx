@@ -10,7 +10,7 @@ const LineChartSection = () => {
     <S.Container height="40%" width="50%" padding="2rem" gap="1rem">
       <Heading as="h3">나의 학기별 역량 성장 그래프</Heading>
       <Flex height="90%" width="100%">
-        <LineChart data={data.data} />
+        <LineChart data={data} />
       </Flex>
     </S.Container>
   );

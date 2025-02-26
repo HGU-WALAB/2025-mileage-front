@@ -24,20 +24,18 @@ export const getMileageList = async ({
     done: done.toString(),
   });
 
-  const response = await http.get<{ data: MileageResponse[] }>(
+  const response = await http.get<MileageResponse[]>(
     `${ENDPOINT.MILEAGE}/${studentId}/search`,
     { params: queryParams },
   );
 
-  return response.data;
+  return response;
 };
 
 export const getEtcMileageList = async () => {
-  const response = await http.get<{ data: MileageResponse[] }>(
-    `${ENDPOINT.ETC_MILEAGE}`,
-  );
+  const response = await http.get<MileageResponse[]>(`${ENDPOINT.ETC_MILEAGE}`);
 
-  return response.data;
+  return response;
 };
 
 export const postNewMileage = async ({
@@ -74,9 +72,9 @@ export const getSubmittedMileageList = async ({
 }: {
   studentId: string;
 }) => {
-  const response = await http.get<{ data: SubmittedMileageResponse[] }>(
+  const response = await http.get<SubmittedMileageResponse[]>(
     `${ENDPOINT.ETC_MILEAGE}/${studentId}`,
   );
 
-  return response.data;
+  return response;
 };
