@@ -11,6 +11,7 @@ const MyPage = () => {
   return (
     <Flex.Column margin="1rem 2rem" gap="2rem">
       <InfoGuideSection />
+
       <QueryErrorResetBoundary>
         {({ reset }) => (
           <ErrorBoundary FallbackComponent={PageErrorFallback} onReset={reset}>
@@ -18,6 +19,7 @@ const MyPage = () => {
           </ErrorBoundary>
         )}
       </QueryErrorResetBoundary>
+
       <RefreshUserInfoButton />
     </Flex.Column>
   );

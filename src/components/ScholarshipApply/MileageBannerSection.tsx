@@ -16,7 +16,7 @@ const MileageBannerSection = () => {
         </Text>
         <Text as="h2" style={{ fontSize: '1.25rem' }}>
           <span style={{ fontWeight: 'bold' }}>{currentSemester} 학기 </span>
-          등록하신 마일리지입니다
+          참여하신 마일리지입니다
         </Text>
         <ErrorBoundary FallbackComponent={CountBoxFallback}>
           <MileageCountBox />

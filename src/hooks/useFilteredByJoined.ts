@@ -4,7 +4,7 @@ import { TabItem } from '@/types/tab';
 
 const useFilteredByJoined = () => {
   const { queryParams, updateQueryParams } = useQueryParams();
-  const selectedValue = queryParams.done;
+  const selectedValue = queryParams.done ?? 'all';
 
   const selectedJoined =
     filterJoinedItems.find(item => item.value === selectedValue) ||

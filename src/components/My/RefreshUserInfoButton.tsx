@@ -1,12 +1,13 @@
 import { Button, Flex } from '@/components';
 import UpdateSucceedModal from '@/components/My/UpdateSucceedModal';
+import useLogin from '@/hooks/useLogin';
 import { styled } from '@mui/material';
-import { useState } from 'react';
 
 const RefreshUserInfoButton = () => {
-  const [isSuccess, setIsSuccess] = useState(false);
+  const { handleHisnetAuth, isLoginSucceed } = useLogin();
+
   const handleRefreshAuth = () => {
-    setIsSuccess(!isSuccess);
+    handleHisnetAuth();
   };
 
   return (
@@ -16,7 +17,7 @@ const RefreshUserInfoButton = () => {
         size="large"
         onClick={handleRefreshAuth}
       />
-      <UpdateSucceedModal isSucceed={isSuccess} />
+      <UpdateSucceedModal isSucceed={isLoginSucceed} />
     </Flex.Row>
   );
 };

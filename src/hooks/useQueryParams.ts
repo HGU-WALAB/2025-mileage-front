@@ -13,11 +13,11 @@ const useQueryParams = () => {
     const done = searchParams.get('done');
 
     return {
-      studentId: Number(studentId) || 0,
+      studentId: studentId || '',
       keyword: keyword || '',
       category: category || '',
-      semester: semester || '',
-      done: done || '',
+      semester: semester || '전체',
+      done: done || 'all',
     };
   }, [searchParams]);
 

@@ -1,7 +1,15 @@
 import { BoxSkeleton, Table } from '@/components';
 import { AddMileageModal } from '@/components/AddMileage';
 import { useGetEtcMileageQuery } from '@/hooks/queries';
+import { THeader } from '@/types/table';
 import { useMemo } from 'react';
+
+const headerItems: THeader[] = [
+  { id: 1, text: '학기', value: 'semester' },
+  { id: 2, text: '카테고리', value: 'categoryName' },
+  { id: 3, text: '항목', value: 'subitemName' },
+  { id: 4, text: '', value: 'addModal', align: 'center' },
+];
 
 const EtcMileageTable = () => {
   const { data: etcMileageList, isLoading } = useGetEtcMileageQuery();
@@ -25,17 +33,7 @@ const EtcMileageTable = () => {
 
   if (isLoading) return <BoxSkeleton />;
 
-  return (
-    <Table
-      headItems={[
-        { id: 1, text: '학기', value: 'semester' },
-        { id: 2, text: '카테고리', value: 'categoryName' },
-        { id: 3, text: '항목', value: 'subitemName' },
-        { id: 4, text: '', value: 'addModal' },
-      ]}
-      bodyItems={bodyItems}
-    />
-  );
+  return <Table headItems={headerItems} bodyItems={bodyItems} />;
 };
 
 export default EtcMileageTable;

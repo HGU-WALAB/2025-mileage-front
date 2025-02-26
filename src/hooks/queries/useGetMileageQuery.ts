@@ -19,6 +19,7 @@ const useGetMileageQuery = ({
         semester,
         done,
       }),
+    throwOnError: true,
   });
 };
 

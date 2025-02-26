@@ -12,6 +12,7 @@ export interface UserResponse {
   grade: number;
   term: number;
   department: string;
-  // TODO: 확인하기
   currentSemester: string;
+  modDate: string;
+  studentType: string;
 }

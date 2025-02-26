@@ -1,11 +1,21 @@
 import { Flex, TableListSkeleton, Title } from '@/components';
-import { MileageTable } from '@/components/MileageList';
-import { useGroupedMileageList } from '@/hooks';
+import { EmptyMileageTable, MileageTable } from '@/components/MileageList';
+import { useGroupedMileageList, useQueryParams } from '@/hooks';
+import { useAuthStore } from '@/stores';
+import { useEffect } from 'react';
 
 const MileageTableListSection = () => {
+  const { currentSemester } = useAuthStore();
+  const { updateQueryParams } = useQueryParams();
+
+  useEffect(() => {
+    updateQueryParams({ semester: currentSemester });
+  }, [currentSemester]);
+
   const { groupedMileageList, isLoading } = useGroupedMileageList();
 
   if (isLoading) return <TableListSkeleton />;
+  if (!groupedMileageList.length) return <EmptyMileageTable />;
 
   return (
     <>

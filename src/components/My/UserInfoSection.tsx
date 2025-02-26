@@ -1,14 +1,13 @@
-import BoxSkeleton from '@/components/_common/Skeleton/BoxSkeleton';
+import { BoxSkeleton, Flex } from '@/components';
 import { InfoField } from '@/components/My';
 import { useGetUserInfoQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
+import getDate from '@/utils/getDate';
 import { styled } from '@mui/material';
 
 const UserInfoSection = () => {
   const { student } = useAuthStore();
-  const { data: userInfo, isLoading } = useGetUserInfoQuery(
-    student?.studentId ?? '',
-  );
+  const { data: userInfo, isLoading } = useGetUserInfoQuery(student.studentId);
 
   const customOrder = [
     'studentName',
@@ -26,7 +25,12 @@ const UserInfoSection = () => {
   return (
     <S.Grid>
       {Object.entries(userInfo ?? [])
-        .filter(([key]) => key !== 'currentSemester')
+        .filter(
+          ([key]) =>
+            key !== 'currentSemester' &&
+            key !== 'modDate' &&
+            key !== 'studentType',
+        )
         .sort(
           ([keyA], [keyB]) =>
             customOrder.indexOf(keyA) - customOrder.indexOf(keyB),
@@ -34,6 +38,9 @@ const UserInfoSection = () => {
         .map(([key, value]) => (
           <InfoField info={[key, value]} />
         ))}
+      <Flex.Row height="100%" align="flex-end" padding="0 0 1rem">
+        {getDate(userInfo?.modDate ?? '')} 마지막으로 수정됨
+      </Flex.Row>
     </S.Grid>
   );
 };

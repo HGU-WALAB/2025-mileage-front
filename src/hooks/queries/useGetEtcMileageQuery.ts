@@ -6,6 +6,7 @@ const useGetEtcMileageQuery = () => {
   return useQuery<EtcMileageResponse[]>({
     queryKey: ['etcMileageList'],
     queryFn: () => getEtcMileageList(),
+    throwOnError: true,
   });
 };
 

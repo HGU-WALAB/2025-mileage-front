@@ -1,10 +1,13 @@
 import { Flex } from '@/components';
+import { ROUTE_PATH } from '@/constants/routePath';
 import { useGetMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const MileageCountBox = () => {
+  const navigate = useNavigate();
   const { student, currentSemester } = useAuthStore();
 
   const { data: mileageList } = useGetMileageQuery({
@@ -13,12 +16,16 @@ const MileageCountBox = () => {
     done: 'Y',
   });
 
+  const handleClick = () => {
+    navigate(ROUTE_PATH.mileageList);
+  };
+
   return (
-    <S.CountContainer>
+    <S.CountContainer onClick={handleClick}>
       <Flex.Column align="center">
-        <Flex.Row style={{ fontSize: '1rem' }}>마일리지 개수</Flex.Row>
+        <Flex.Row style={{ fontSize: '1rem' }}>마일리지 항목 개수</Flex.Row>
         <Flex.Row align="baseline" gap=".5rem">
-          <S.CountNumber>{mileageList?.length ?? 0}</S.CountNumber>개
+          <S.CountNumber>{mileageList?.length ?? '-'}</S.CountNumber>개
         </Flex.Row>
       </Flex.Column>
     </S.CountContainer>
