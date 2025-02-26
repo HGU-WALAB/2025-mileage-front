@@ -16,8 +16,8 @@ const useQueryParams = () => {
       studentId: studentId || '',
       keyword: keyword || '',
       category: category || '',
-      semester: semester || '',
-      done: done || '',
+      semester: semester || '전체',
+      done: done || 'all',
     };
   }, [searchParams]);
 

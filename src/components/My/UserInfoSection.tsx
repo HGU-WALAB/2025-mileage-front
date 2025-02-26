@@ -25,7 +25,12 @@ const UserInfoSection = () => {
   return (
     <S.Grid>
       {Object.entries(userInfo ?? [])
-        .filter(([key]) => key !== 'currentSemester' && key !== 'modDate')
+        .filter(
+          ([key]) =>
+            key !== 'currentSemester' &&
+            key !== 'modDate' &&
+            key !== 'studentType',
+        )
         .sort(
           ([keyA], [keyB]) =>
             customOrder.indexOf(keyA) - customOrder.indexOf(keyB),
