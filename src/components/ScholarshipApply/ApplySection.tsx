@@ -1,6 +1,6 @@
 import { Flex } from '@/components';
 import ApplySucceedModal from '@/components/ScholarshipApply/ApplySucceedModal';
-import { usePostScholarshipApply } from '@/hooks/queries';
+import { usePostScholarshipApplyMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
 import { toast } from 'react-toastify';
@@ -8,7 +8,8 @@ import { toast } from 'react-toastify';
 const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
   // TODO: 이후 유저 데이터 처리 로직 추가 예정
   const { student } = useAuthStore();
-  const { mutateAsync: postScholarship, isSuccess } = usePostScholarshipApply();
+  const { mutateAsync: postScholarship, isSuccess } =
+    usePostScholarshipApplyMutation();
 
   const handleApply = () => {
     if (!isAgree) {

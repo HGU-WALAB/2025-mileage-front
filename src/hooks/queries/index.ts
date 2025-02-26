@@ -4,4 +4,4 @@ export { default as useGetSubmittedMileageQuery } from './useGetSubmittedMileage
 export { default as useGetUserInfoQuery } from './useGetUserInfoQuery';
 export { default as usePostLoginMutation } from './usePostLoginMutation';
 export { default as usePostNewMileageMutation } from './usePostNewMileageMutation';
-export { default as usePostScholarshipApply } from './usePostScholarshipApply';
+export { default as usePostScholarshipApplyMutation } from './usePostScholarshipApplyMutation';

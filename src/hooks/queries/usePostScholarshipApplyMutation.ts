@@ -1,10 +1,10 @@
 import { postScholarshipApply } from '@/apis/scholarship';
 import { useMutation } from '@tanstack/react-query';
 
-const usePostScholarshipApply = () => {
+const usePostScholarshipApplyMutation = () => {
   return useMutation({
     mutationFn: postScholarshipApply,
   });
 };
 
-export default usePostScholarshipApply;
+export default usePostScholarshipApplyMutation;
