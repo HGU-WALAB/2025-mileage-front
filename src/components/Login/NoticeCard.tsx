@@ -17,7 +17,7 @@ const NoticeCard = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [images.length]);
+  }, []);
 
   return (
     <S.Container>
