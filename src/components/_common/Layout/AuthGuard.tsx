@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom';
 
 const AuthGuard = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
-
-  // TODO: 유효한 토큰인지 판별하여 예외처리 하는 로직 필요
   const { isLogin } = useAuthStore();
 
   useEffect(() => {
