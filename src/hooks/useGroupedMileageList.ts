@@ -1,12 +1,14 @@
 import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
+import { useAuthStore } from '@/stores';
 import { MileageResponse } from '@/types/mileage';
 
 const useGroupedMileageList = () => {
+  const { student } = useAuthStore();
   const { queryParams } = useQueryParams();
 
   const { data: mileageList, isLoading } = useGetMileageQuery({
-    studentId: queryParams.studentId,
+    studentId: student.studentId,
     keyword: queryParams.keyword,
     category: queryParams.category ? queryParams.category : undefined,
     semester: queryParams.semester,

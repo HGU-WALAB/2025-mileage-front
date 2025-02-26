@@ -14,4 +14,5 @@ export interface UserResponse {
   department: string;
   currentSemester: string;
   modDate: string;
+  studentType: string;
 }

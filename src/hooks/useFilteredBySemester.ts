@@ -1,12 +1,14 @@
 import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
+import { useAuthStore } from '@/stores';
 
 const useFilteredBySemester = () => {
+  const { student } = useAuthStore();
   const { queryParams, updateQueryParams } = useQueryParams();
   const selectedSemester = queryParams.semester;
 
   const { data: mileageList, isLoading } = useGetMileageQuery({
-    studentId: queryParams.studentId,
+    studentId: student.studentId,
   });
 
   const semesterList = [
