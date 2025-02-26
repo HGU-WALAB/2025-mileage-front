@@ -9,7 +9,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 const UserSection = () => {
   const { student } = useAuthStore();
-  const { data: userInfo } = useGetUserInfoQuery(student.studentId);
+  const { data: userInfo, isError } = useGetUserInfoQuery(student.studentId);
 
   const theme = useTheme();
   const location = useLocation();
@@ -31,8 +31,12 @@ const UserSection = () => {
           {student?.studentName}
         </Heading>
         <Text color={theme.palette.white}>{student?.studentId}</Text>
-        <Text color={theme.palette.white}>{userInfo?.department}</Text>
-        <Text color={theme.palette.white}>{userInfo?.major1}</Text>
+        {!isError && (
+          <Text color={theme.palette.white}>{userInfo?.department}</Text>
+        )}
+        {!isError && (
+          <Text color={theme.palette.white}>{userInfo?.major1}</Text>
+        )}
       </Flex.Column>
       <Link to={ROUTE_PATH.myPage}>
         <S.MyPageButton isSelected={location.pathname === ROUTE_PATH.myPage}>

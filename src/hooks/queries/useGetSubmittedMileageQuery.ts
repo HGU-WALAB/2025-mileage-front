@@ -7,6 +7,7 @@ const useGetSubmittedMileageQuery = (studentId: string) => {
   return useQuery<SubmittedMileageResponse[]>({
     queryKey: [QUERY_KEYS.submittedMileage, studentId],
     queryFn: () => getSubmittedMileageList({ studentId }),
+    throwOnError: true,
   });
 };
 
