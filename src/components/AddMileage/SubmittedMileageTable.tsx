@@ -31,7 +31,7 @@ const SubmittedMileageTable = () => {
         { id: 2, text: '항목', value: 'subitemName' },
         { id: 3, text: '설명', value: 'description1' },
         { id: 4, text: '신청날짜', value: 'modDate' },
-        { id: 5, text: '상세보기', value: 'overview' },
+        { id: 5, text: '상세보기', value: 'overview', align: 'center' },
       ]}
       bodyItems={bodyItems}
     />

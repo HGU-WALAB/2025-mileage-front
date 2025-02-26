@@ -31,7 +31,7 @@ const EtcMileageTable = () => {
         { id: 1, text: '학기', value: 'semester' },
         { id: 2, text: '카테고리', value: 'categoryName' },
         { id: 3, text: '항목', value: 'subitemName' },
-        { id: 4, text: '', value: 'addModal' },
+        { id: 4, text: '', value: 'addModal', align: 'center' },
       ]}
       bodyItems={bodyItems}
     />

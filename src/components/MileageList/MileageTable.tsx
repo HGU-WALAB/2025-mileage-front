@@ -29,7 +29,7 @@ const MileageTable = ({ mileageList }: Props) => {
         { id: 1, text: '학기', value: 'semester' },
         { id: 2, text: '항목명', value: 'categoryName' },
         { id: 3, text: '내용', value: 'description' },
-        { id: 4, text: '참여여부', value: 'done' },
+        { id: 4, text: '참여여부', value: 'done', align: 'center' },
       ]}
       bodyItems={bodyItems}
     />

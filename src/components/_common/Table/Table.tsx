@@ -27,7 +27,9 @@ const Table = <T extends { [key: string]: any }>({
         <S.TableHead>
           <TableRow>
             {headItems.map(item => (
-              <S.HeadCell key={item.text}>{item.text}</S.HeadCell>
+              <S.HeadCell key={item.text} align={item.align ?? 'left'}>
+                {item.text}
+              </S.HeadCell>
             ))}
           </TableRow>
         </S.TableHead>
@@ -40,7 +42,12 @@ const Table = <T extends { [key: string]: any }>({
               {headItems.map((header, cellIndex) => {
                 const value = row[header.value];
                 return (
-                  <S.BodyCell key={cellIndex} component="th" scope="row">
+                  <S.BodyCell
+                    key={cellIndex}
+                    component="th"
+                    scope="row"
+                    align={header.align}
+                  >
                     {value}
                   </S.BodyCell>
                 );
