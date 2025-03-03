@@ -32,9 +32,9 @@ const LoginPage = () => {
           justify="center"
           align="center"
           width={isMobile ? '90%' : '80%'}
-          height="50%"
-          gap="2rem"
-          responsive
+          height={isMobile ? '90%' : '50%'}
+          gap={isMobile ? '0' : '2rem'}
+          wrap={isMobile ? 'wrap' : 'nowrap'}
         >
           <Flex.Column gap="1rem">
             <LogoSection />

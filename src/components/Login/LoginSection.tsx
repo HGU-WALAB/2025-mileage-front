@@ -1,24 +1,29 @@
 import { Flex, Heading } from '@/components';
 import { HisnetLoginButton } from '@/components/Login';
-import { RESPONSIVE_MAX_WIDTH } from '@/constants/system';
-import { useMediaQuery } from '@mui/material';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
+import { styled, useMediaQuery } from '@mui/material';
 
 const LoginSection = () => {
-  const isMobile = useMediaQuery(RESPONSIVE_MAX_WIDTH);
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   return (
     <Flex.Column
-      height="100%"
       width={isMobile ? '100%' : '30%'}
       justify="space-between"
-      align="center"
       padding={isMobile ? '0' : '0 1rem'}
-      gap={isMobile ? '1rem' : 'none'}
+      gap="1rem"
     >
-      <Heading as="h1">Login</Heading>
+      <S.Text as="h1">히즈넷 로그인</S.Text>
       <HisnetLoginButton />
     </Flex.Column>
   );
 };
 
 export default LoginSection;
+
+const S = {
+  Text: styled(Heading)`
+    ${({ theme }) => theme.typography.h1}
+    color: ${({ theme }) => theme.palette.white};
+  `,
+};
