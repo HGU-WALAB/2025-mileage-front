@@ -1,7 +1,7 @@
 import { Flex } from '@/components';
 import { LoginSection, LogoSection, NoticeCard } from '@/components/Login';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { RESPONSIVE_MAX_WIDTH } from '@/constants/system';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
@@ -12,7 +12,7 @@ import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
   const navigate = useNavigate();
   const { isLogin } = useAuthStore();
-  const isMobile = useMediaQuery(RESPONSIVE_MAX_WIDTH);
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   useEffect(() => {
     if (isLogin) {

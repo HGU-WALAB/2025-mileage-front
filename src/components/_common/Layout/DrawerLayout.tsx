@@ -1,12 +1,12 @@
 import { Drawer, ErrorResetBoundary, Flex, Header, Main } from '@/components';
-import { RESPONSIVE_MAX_WIDTH } from '@/constants/system';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useDrawerStore } from '@/stores';
 import { useMediaQuery } from '@mui/material';
 import { useEffect } from 'react';
 
 const DrawerLayout = () => {
   const { isDrawerOpen, setIsDrawerOpen } = useDrawerStore();
-  const isMobile = useMediaQuery(RESPONSIVE_MAX_WIDTH);
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   useEffect(() => {
     setIsDrawerOpen(!isMobile);

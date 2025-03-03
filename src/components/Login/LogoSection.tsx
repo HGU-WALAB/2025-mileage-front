@@ -1,10 +1,10 @@
 import { LogoIcon } from '@/assets';
 import { Flex, Heading } from '@/components';
-import { RESPONSIVE_MAX_WIDTH } from '@/constants/system';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 
 const LogoSection = () => {
-  const isMobile = useMediaQuery(RESPONSIVE_MAX_WIDTH);
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   return (
     <Flex.Row align="center" gap="1rem">

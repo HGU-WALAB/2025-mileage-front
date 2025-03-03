@@ -1,4 +1,4 @@
-import { RESPONSIVE_MAX_WIDTH } from '@/constants/system';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useMediaQuery } from '@mui/material';
 import { HTMLAttributes } from 'react';
 
@@ -38,15 +38,16 @@ const Flex = ({
   style,
   ...props
 }: Props) => {
-  const isMobile = useMediaQuery(RESPONSIVE_MAX_WIDTH);
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   return (
     <div
       style={{
         display: 'flex',
-        flexDirection: responsive && isMobile ? 'column' : direction,
+        // flexDirection: responsive && isMobile ? 'column' : direction,
+        flexDirection: direction,
         justifyContent: justify,
-        alignItems: align,
+        alignItems: responsive && isMobile ? 'flex-start' : align,
         flexWrap: wrap,
         gap,
         width,

@@ -1,1 +1,1 @@
-export const RESPONSIVE_MAX_WIDTH = '(max-width:600px)';
+export const MAX_RESPONSIVE_WIDTH = '(max-width:600px)';
