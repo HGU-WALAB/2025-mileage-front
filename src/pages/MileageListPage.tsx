@@ -12,7 +12,9 @@ const MileageListPage = () => {
     <Flex.Column margin="1rem 2rem">
       <Flex.Row justify="space-between" align="center">
         <MileageFilterSection />
-        <MileageCountSection />
+        <ErrorBoundary fallback={<div />}>
+          <MileageCountSection />
+        </ErrorBoundary>
       </Flex.Row>
       <QueryErrorResetBoundary>
         {({ reset }) => (
