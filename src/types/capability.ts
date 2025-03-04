@@ -1,7 +1,7 @@
 export interface Capability {
   capabilityId: number;
   capabilityName: string;
-  capabilityPoint: number;
+  milestoneCount: number;
   [key: string]: unknown;
 }
 
