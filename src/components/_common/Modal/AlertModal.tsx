@@ -31,10 +31,20 @@ const AlertModal = ({ alertOpen, alertMessage }: Props) => {
     >
       <Modal.Body
         position="center"
-        style={{ margin: '3rem auto', gap: '2rem' }}
+        style={{
+          margin: '2rem auto',
+          gap: '2rem',
+        }}
       >
         <LogoIcon width="100px" height="100px" />
-        <Heading as="h2" style={{ fontSize: '2rem' }}>
+        <Heading
+          as="h2"
+          style={{
+            overflowWrap: 'normal',
+            wordBreak: 'keep-all',
+            textAlign: 'center',
+          }}
+        >
           {alertMessage}
         </Heading>
         <S.CloseButton label="확인" size="large" onClick={toggleModal} />
