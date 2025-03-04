@@ -8,8 +8,8 @@ import { styled } from '@mui/material';
 const MileageCountSection = () => {
   const { student, currentSemester } = useAuthStore();
   const { data: mileageList } = useGetMileageQuery({
-    studentId: student?.studentId ?? '',
-    semester: currentSemester ?? '',
+    studentId: student.studentId,
+    semester: currentSemester,
     done: 'Y',
   });
 
