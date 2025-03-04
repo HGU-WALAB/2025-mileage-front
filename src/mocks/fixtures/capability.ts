@@ -4,26 +4,26 @@ export const mockCapability: Capability[] = [
   {
     capabilityId: 1,
     capabilityName: '전공 교과 역량',
-    capabilityPoint: 733,
+    milestoneCount: 23,
   },
   {
     capabilityId: 2,
     capabilityName: '전공 비교과 역량',
-    capabilityPoint: 135,
+    milestoneCount: 13,
   },
   {
     capabilityId: 3,
     capabilityName: '산학 연구 - 프로젝트',
-    capabilityPoint: 312,
+    milestoneCount: 31,
   },
   {
     capabilityId: 4,
     capabilityName: '가치 확산',
-    capabilityPoint: 293,
+    milestoneCount: 29,
   },
   {
     capabilityId: 5,
     capabilityName: '대외 활동',
-    capabilityPoint: 993,
+    milestoneCount: 13,
   },
 ];

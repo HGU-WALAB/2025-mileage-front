@@ -1,10 +1,14 @@
 import { EmptyBoxImg } from '@/assets';
-import { Button, Flex, Heading } from '@/components';
+import { AuthErrorFallback, Button, Flex, Heading } from '@/components';
 import { useTheme } from '@mui/material';
 import { FallbackProps } from 'react-error-boundary';
 
 const PageErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const theme = useTheme();
+
+  if (error.response?.status === 401) {
+    return <AuthErrorFallback resetErrorBoundary={resetErrorBoundary} />;
+  }
 
   return (
     <Flex.Column

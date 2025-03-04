@@ -1,3 +1,4 @@
+import { ThemeIcon } from '@/assets';
 import { Button, Flex, Heading } from '@/components';
 import headerItems from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
@@ -53,6 +54,8 @@ const Header = () => {
         color="blue"
         size="medium"
         onClick={toggleTheme}
+        icon={ThemeIcon}
+        iconPosition="end"
       />
     </Flex.Row>
   );

@@ -8,9 +8,8 @@ const RadarChart = ({ data }: { data: Capability[] }) => {
   return (
     <ResponsiveRadar
       data={data}
-      keys={['capabilityPoint']}
+      keys={['milestoneCount']}
       indexBy="capabilityName"
-      valueFormat=">-.2f"
       margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
       borderColor={{ from: 'color', modifiers: [] }}
       gridLabelOffset={36}
@@ -29,7 +28,7 @@ const RadarChart = ({ data }: { data: Capability[] }) => {
           }}
         >
           <strong>역량: </strong>
-          {point.data[0].formattedValue}
+          {point.data[0].formattedValue}개
         </div>
       )}
     />

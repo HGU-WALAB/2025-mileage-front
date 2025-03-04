@@ -26,7 +26,7 @@ export const palette = {
   grey200: '#D5D7DA',
   grey300: '#CECECE',
   grey400: '#979797',
-  grey500: '#D9D9D9',
+  grey500: '#717680',
   grey600: '#687182',
   // etc
   nearBlack: '#1E1E1E',
