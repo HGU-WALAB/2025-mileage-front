@@ -1,5 +1,6 @@
 import { Flex, PageErrorFallback } from '@/components';
 import {
+  MileageCountSection,
   MileageFilterSection,
   MileageTableListSection,
 } from '@/components/MileageList';
@@ -9,7 +10,10 @@ import { ErrorBoundary } from 'react-error-boundary';
 const MileageListPage = () => {
   return (
     <Flex.Column margin="1rem 2rem">
-      <MileageFilterSection />
+      <Flex.Row justify="space-between" align="center">
+        <MileageFilterSection />
+        <MileageCountSection />
+      </Flex.Row>
       <QueryErrorResetBoundary>
         {({ reset }) => (
           <ErrorBoundary FallbackComponent={PageErrorFallback} onReset={reset}>
