@@ -3,6 +3,7 @@ export { default as LineChart } from './_common/Chart/LineChart';
 export { default as RadarChart } from './_common/Chart/RadarChart';
 export { default as Drawer } from './_common/Drawer/Drawer';
 export { default as Dropdown } from './_common/Dropdown/Dropdown';
+export { default as AuthErrorFallback } from './_common/Error/AuthErrorFallback';
 export { default as CountBoxFallback } from './_common/Error/CountBoxFallback';
 export { default as ErrorResetBoundary } from './_common/Error/ErrorResetBoundary';
 export { default as GlobalErrorBoundary } from './_common/Error/GlobalErrorBoundary';
