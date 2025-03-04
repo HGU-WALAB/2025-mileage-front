@@ -2,7 +2,7 @@ import { Flex, Heading, Text } from '@/components';
 import { useGetUserInfoQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
-import { useTheme } from '@mui/material';
+import { styled, useTheme } from '@mui/material';
 
 const UserSection = () => {
   const theme = useTheme();
@@ -15,22 +15,29 @@ const UserSection = () => {
       gap=".5rem"
       backgroundColor={getOpacityColor(theme.palette.white, 0.1)}
       width="100%"
-      padding="1rem 0"
+      padding="1rem"
       style={{
         border: `0.5px solid ${getOpacityColor(theme.palette.white, 0.7)}`,
         borderRadius: '.5rem',
       }}
     >
-      <Flex.Column align="center">
-        <Heading as="h3" color={theme.palette.white}>
-          {student?.studentName}
-        </Heading>
-        <Text color={theme.palette.white}>{student?.studentId}</Text>
+      <Flex.Column align="center" width="100%">
+        <S.UserBox align="center">
+          <Heading as="h3" color={theme.palette.white}>
+            {student?.studentName}
+          </Heading>
+          <Text color={theme.palette.white}>{student?.studentId}</Text>
+        </S.UserBox>
+
         {!isError && (
-          <Text color={theme.palette.white}>{userInfo?.department}</Text>
+          <Text style={{ color: theme.palette.white, fontWeight: 'bold' }}>
+            {userInfo?.department}
+          </Text>
         )}
         {!isError && (
-          <Text color={theme.palette.white}>{userInfo?.major1}</Text>
+          <Text style={{ color: theme.palette.white, fontWeight: 'bold' }}>
+            {userInfo?.major1}
+          </Text>
         )}
       </Flex.Column>
     </Flex.Column>
@@ -38,3 +45,17 @@ const UserSection = () => {
 };
 
 export default UserSection;
+
+const S = {
+  UserBox: styled(Flex.Column)`
+    background: linear-gradient(
+      135deg,
+      ${getOpacityColor('#8043ff', 0.5)},
+      ${getOpacityColor('#2e68ff', 0.5)}
+    );
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+  `,
+};
