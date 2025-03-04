@@ -1,4 +1,4 @@
-import drawerItems from '@/constants/drawerItems';
+import { drawerItems } from '@/constants/drawerItems';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import {
   List,

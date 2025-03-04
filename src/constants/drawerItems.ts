@@ -3,10 +3,11 @@ import {
   MileageListIcon,
   ScholarshipIcon,
   SpaceDashboardIcon,
+  UserIcon,
 } from '@/assets';
 import { ROUTE_PATH } from '@/constants/routePath';
 
-const drawerItems = [
+export const drawerItems = [
   {
     id: 1,
     text: '대시보드',
@@ -31,6 +32,10 @@ const drawerItems = [
     icon: ScholarshipIcon,
     route: ROUTE_PATH.scholarship,
   },
+  {
+    id: 5,
+    text: '프로필 설정',
+    icon: UserIcon,
+    route: ROUTE_PATH.myPage,
+  },
 ];
-
-export default drawerItems;

@@ -4,6 +4,7 @@ import { Flex } from '@/components';
 import { drawerWidth, globalHeight } from '@/constants/layoutSize';
 import { useDrawerStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
+
 import LogoSection from './LogoSection';
 import LogoutSection from './LogoutSection';
 import MenuSection from './MenuSection';

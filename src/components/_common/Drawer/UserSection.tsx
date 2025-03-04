@@ -1,18 +1,13 @@
 import { Flex, Heading, Text } from '@/components';
-import { ROUTE_PATH } from '@/constants/routePath';
 import { useGetUserInfoQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
-import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
-import { styled, useTheme } from '@mui/material';
-import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '@mui/material';
 
 const UserSection = () => {
+  const theme = useTheme();
   const { student } = useAuthStore();
   const { data: userInfo, isError } = useGetUserInfoQuery(student.studentId);
-
-  const theme = useTheme();
-  const location = useLocation();
 
   return (
     <Flex.Column
@@ -38,36 +33,8 @@ const UserSection = () => {
           <Text color={theme.palette.white}>{userInfo?.major1}</Text>
         )}
       </Flex.Column>
-      <Link to={ROUTE_PATH.myPage}>
-        <S.MyPageButton isSelected={location.pathname === ROUTE_PATH.myPage}>
-          프로필 설정
-        </S.MyPageButton>
-      </Link>
     </Flex.Column>
   );
 };
 
 export default UserSection;
-
-const S = {
-  MyPageButton: styled('div')<{ isSelected: boolean }>`
-    border-radius: 0.5rem;
-    color: ${({ theme }) => theme.palette.white};
-    outline: 1px solid ${({ theme }) => theme.palette.white};
-    padding: 0.25rem 1rem;
-
-    ${({ isSelected, theme }) =>
-      isSelected &&
-      `
-        background-color: ${theme.palette.primary.main};
-        outline: none;
-        ${boxShadow};
-      `}
-
-    &:hover,
-      &:active {
-      background-color: ${({ theme }) =>
-        getOpacityColor(theme.palette.white, 0.3)};
-    }
-  `,
-};
