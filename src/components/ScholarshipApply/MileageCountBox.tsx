@@ -8,11 +8,11 @@ import { useNavigate } from 'react-router-dom';
 
 const MileageCountBox = () => {
   const navigate = useNavigate();
-  const { student, currentSemester } = useAuthStore();
 
+  const { student, currentSemester } = useAuthStore();
   const { data: mileageList } = useGetMileageQuery({
-    studentId: student?.studentId ?? '',
-    semester: currentSemester ?? '',
+    studentId: student.studentId,
+    semester: currentSemester,
     done: 'Y',
   });
 

@@ -2,7 +2,7 @@ export interface MileageResponse {
   // 역량
   capabilityId: number;
   capabilityName: string;
-  capabilityPoint: number;
+  milestoneCount: number;
 
   // 카테고리
   categoryId: number;

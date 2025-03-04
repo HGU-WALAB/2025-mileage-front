@@ -9,6 +9,8 @@ import MileageAddIcon from '@/assets/icons/mileageAdd.svg?react';
 import MileageListIcon from '@/assets/icons/mileageList.svg?react';
 import ScholarshipIcon from '@/assets/icons/scholarship.svg?react';
 import SearchIcon from '@/assets/icons/search.svg?react';
+import ThemeIcon from '@/assets/icons/theme.svg?react';
+import UserIcon from '@/assets/icons/user.svg?react';
 // imgs
 import Img1 from '@/assets/imgs/1.png';
 import Img2 from '@/assets/imgs/2.png';
@@ -51,4 +53,6 @@ export {
   ScholarshipIcon,
   SearchIcon,
   SpaceDashboardIcon,
+  ThemeIcon,
+  UserIcon,
 };
