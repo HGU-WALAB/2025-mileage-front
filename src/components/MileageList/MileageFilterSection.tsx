@@ -8,15 +8,15 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 const MileageFilterSection = () => {
   return (
-    <Flex.Column>
-      <Flex.Row height="40px" margin="1rem 0" align="center" gap="1rem">
+    <Flex direction="row-reverse" justify="space-between" margin="1rem 0">
+      <Flex.Row height="30px" align="center" gap="1rem">
         <SearchMileageInput />
         <ErrorBoundary fallback={<div />}>
           <SemesterDropdown />
         </ErrorBoundary>
       </Flex.Row>
       <JoinedTabs />
-    </Flex.Column>
+    </Flex>
   );
 };
 

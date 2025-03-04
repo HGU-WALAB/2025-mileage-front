@@ -8,7 +8,7 @@ const SemesterDropdown = () => {
     useFilteredBySemester();
 
   return (
-    <Flex.Row gap=".5rem" align="center">
+    <Flex.Row gap=".75rem" align="center">
       <Text>학기 선택</Text>
       {!isLoading && (
         <Dropdown
