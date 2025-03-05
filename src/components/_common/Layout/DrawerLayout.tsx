@@ -10,15 +10,10 @@ import {
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useDrawerStore } from '@/stores';
 import { useMediaQuery } from '@mui/material';
-import { useEffect } from 'react';
 
 const DrawerLayout = () => {
-  const { isDrawerOpen, setIsDrawerOpen } = useDrawerStore();
+  const { isDrawerOpen } = useDrawerStore();
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-
-  useEffect(() => {
-    setIsDrawerOpen(!isMobile);
-  }, [isMobile, setIsDrawerOpen]);
 
   if (isMobile)
     return (
