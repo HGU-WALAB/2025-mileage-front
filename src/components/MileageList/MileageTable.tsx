@@ -1,4 +1,4 @@
-import { EmptyBoxImg } from '@/assets';
+import { EmptyBoxImg, JoinedCheckCircleIcon } from '@/assets';
 import { Flex, Heading, Table } from '@/components';
 import { MileageResponse } from '@/types/mileage';
 import { THeader } from '@/types/table';
@@ -24,7 +24,7 @@ const MileageTable = ({ mileageList }: Props) => {
         semester: item.semester,
         categoryName: item.categoryName,
         description: item.description,
-        done: item.done ? 'Y' : 'N',
+        done: item.done ? <JoinedCheckCircleIcon /> : <div />,
       })),
     [mileageList],
   );

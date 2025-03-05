@@ -22,7 +22,7 @@ const MileageCountSection = () => {
         <S.CountNumber>{mileageList?.length ?? '-'}</S.CountNumber>개
       </S.CountContainer>
       <S.TextBox align="center" justify="center" padding=".5rem 0 0">
-        참여한 마일리지 개수
+        현재 참여한 마일리지
       </S.TextBox>
     </S.Container>
   );
