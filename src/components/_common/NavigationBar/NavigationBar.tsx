@@ -1,4 +1,4 @@
-import Flex from '@/components/_common/Flex/Flex';
+import { Flex } from '@/components';
 import { drawerItems } from '@/constants/drawerItems';
 import { navigationBarHeight } from '@/constants/layoutSize';
 import { getOpacityColor } from '@/utils/getOpacityColor';

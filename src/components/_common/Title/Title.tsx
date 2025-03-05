@@ -1,4 +1,4 @@
-import Heading from '@/components/_common/Heading/Heading';
+import { Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 
