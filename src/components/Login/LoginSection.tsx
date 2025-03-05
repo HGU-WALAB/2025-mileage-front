@@ -10,10 +10,11 @@ const LoginSection = () => {
     <Flex.Column
       width={isMobile ? '100%' : '30%'}
       justify="space-between"
+      align="center"
       padding={isMobile ? '0' : '0 1rem'}
       gap="1rem"
     >
-      <S.Text as="h1">히즈넷 로그인</S.Text>
+      {!isMobile && <S.Text as="h1">Log In</S.Text>}
       <HisnetLoginButton />
     </Flex.Column>
   );
@@ -23,7 +24,8 @@ export default LoginSection;
 
 const S = {
   Text: styled(Heading)`
-    ${({ theme }) => theme.typography.h1}
     color: ${({ theme }) => theme.palette.white};
+    ${({ theme }) => theme.typography.h1}
+    font-size: 2rem;
   `,
 };

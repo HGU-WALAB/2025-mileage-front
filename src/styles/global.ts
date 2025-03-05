@@ -1,4 +1,5 @@
-import { BackgroundImg } from '@/assets';
+import { BackgroundImg, MobileBackgroundImg } from '@/assets';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { restCss } from '@/styles/reset';
 import { css } from '@emotion/react';
 
@@ -16,6 +17,13 @@ export const globalStyle = css`
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  @media (${MAX_RESPONSIVE_WIDTH}) {
+    body {
+      background-image: url(${MobileBackgroundImg});
+      background-position: center center;
+    }
   }
 
   div {

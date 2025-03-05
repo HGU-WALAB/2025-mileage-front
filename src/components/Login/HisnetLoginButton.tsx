@@ -10,7 +10,13 @@ const HisnetLoginButton = () => {
 
   if (isLoginSucceed) navigate(ROUTE_PATH.dashboard);
 
-  return <S.LoginButton label="LOGIN" onClick={handleHisnetAuth} size="full" />;
+  return (
+    <S.LoginButton
+      label="히즈넷으로 로그인하기"
+      onClick={handleHisnetAuth}
+      size="full"
+    />
+  );
 };
 
 export default HisnetLoginButton;
@@ -18,6 +24,7 @@ export default HisnetLoginButton;
 const S = {
   LoginButton: styled(Button)`
     background: linear-gradient(135deg, #8043ff, #2e68ff);
-    font-weight: bold;
+    ${({ theme }) => theme.typography.h3};
+    height: 3rem;
   `,
 };
