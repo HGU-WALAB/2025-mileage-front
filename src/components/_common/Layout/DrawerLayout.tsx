@@ -25,7 +25,7 @@ const DrawerLayout = () => {
       <Flex.Column>
         <HeaderMobile />
         <Flex.Row justify="center">
-          <Main open={isDrawerOpen}>
+          <Main open={false}>
             <ErrorResetBoundary />
           </Main>
         </Flex.Row>

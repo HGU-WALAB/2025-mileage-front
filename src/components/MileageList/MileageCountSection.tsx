@@ -1,11 +1,13 @@
 import { Flex } from '@/components';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useGetMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
-import { styled } from '@mui/material';
+import { styled, useMediaQuery } from '@mui/material';
 
 const MileageCountSection = () => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const { student, currentSemester } = useAuthStore();
   const { data: mileageList } = useGetMileageQuery({
     studentId: student.studentId,
@@ -13,6 +15,7 @@ const MileageCountSection = () => {
     done: 'Y',
   });
 
+  if (isMobile) return <div />;
   return (
     <S.Container justify="space-between">
       <S.CountContainer align="center" justify="center" gap=".5rem">
