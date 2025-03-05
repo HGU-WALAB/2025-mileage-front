@@ -5,8 +5,8 @@ import {
   Header,
   HeaderMobile,
   Main,
+  NavigationBar,
 } from '@/components';
-import NavigationBar from '@/components/_common/NavigationBar/NavigationBar';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useDrawerStore } from '@/stores';
 import { useMediaQuery } from '@mui/material';

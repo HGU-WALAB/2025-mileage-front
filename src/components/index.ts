@@ -23,6 +23,7 @@ export { default as Layout } from './_common/Layout/Layout';
 export { default as Main } from './_common/Main/Main';
 export { default as AlertModal } from './_common/Modal/AlertModal';
 export { default as Modal } from './_common/Modal/Modal';
+export { default as NavigationBar } from './_common/NavigationBar/NavigationBar';
 export { default as BoxSkeleton } from './_common/Skeleton/BoxSkeleton';
 export { default as TableListSkeleton } from './_common/Skeleton/TableListSkeleton';
 export { default as TableSkeleton } from './_common/Skeleton/TableSkeleton';
