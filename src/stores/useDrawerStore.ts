@@ -17,7 +17,6 @@ const useDrawerStore = create<DrawerState>()(
           isDrawerOpen: !state.isDrawerOpen,
         })),
     }),
-
     {
       name: 'isDrawerOpen',
     },

@@ -1,10 +1,12 @@
 import { Img1, Img2, Img3, Img4, Img5, Img6, Img7 } from '@/assets';
-import { styled } from '@mui/material';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
+import { styled, useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
 
 const images = [Img1, Img2, Img3, Img4, Img5, Img6, Img7];
 
 const NoticeCard = () => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -20,23 +22,17 @@ const NoticeCard = () => {
   }, []);
 
   return (
-    <S.Container>
-      <S.CardImg
-        src={images[currentIndex]}
-        alt={`Carousel ${currentIndex + 1}`}
-      />
-      {/* <S.Text>2025 - 1 마일리지 장학금 신청</S.Text> */}
-    </S.Container>
+    <S.CardImg
+      src={images[currentIndex]}
+      alt={`Carousel ${currentIndex + 1}`}
+      isMobile={isMobile}
+    />
   );
 };
 export default NoticeCard;
 
 const S = {
-  Container: styled('div')`
-    position: relative;
-    width: 100%;
-  `,
-  CardImg: styled('img')`
+  CardImg: styled('img')<{ isMobile: boolean }>`
     background-color: ${({ theme }) => theme.palette.black};
     border-radius: 24px;
     display: flex;
@@ -46,14 +42,6 @@ const S = {
     object-fit: cover;
     overflow: hidden;
     position: relative;
-    width: 600px;
-  `,
-  Text: styled('div')`
-    bottom: 10%;
-    color: ${({ theme }) => theme.palette.white};
-    font-size: 2rem;
-    font-weight: bold;
-    left: 10%;
-    position: absolute;
+    width: ${({ isMobile }) => (isMobile ? '100%' : '600px')};
   `,
 };

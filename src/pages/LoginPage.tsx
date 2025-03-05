@@ -1,16 +1,18 @@
 import { Flex } from '@/components';
 import { LoginSection, LogoSection, NoticeCard } from '@/components/Login';
 import { ROUTE_PATH } from '@/constants/routePath';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
-import { styled } from '@mui/material';
+import { styled, useMediaQuery } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const navigate = useNavigate();
   const { isLogin } = useAuthStore();
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   useEffect(() => {
     if (isLogin) {
@@ -18,20 +20,38 @@ const LoginPage = () => {
     }
   }, [isLogin, navigate]);
 
+  if (isMobile)
+    return (
+      <Flex.Column justify="center" align="center" height="100%">
+        <S.GlassContainer
+          justify="center"
+          align="center"
+          width="90%"
+          height="40%"
+        >
+          <Flex.Column gap="1rem" width="90%">
+            <LogoSection />
+            <LoginSection />
+          </Flex.Column>
+        </S.GlassContainer>
+      </Flex.Column>
+    );
+
   return (
     <Flex.Column justify="center" align="center" height="100%">
       <S.GlassContainer
         justify="center"
         align="center"
-        width="80%"
+        width={isMobile ? '90%' : '80%'}
         height="80%"
       >
         <Flex.Row
           justify="center"
           align="center"
-          width="80%"
-          height="50%"
-          gap="2rem"
+          width={isMobile ? '90%' : '80%'}
+          height={isMobile ? '90%' : '50%'}
+          gap={isMobile ? '0' : '2rem'}
+          wrap={isMobile ? 'wrap' : 'nowrap'}
         >
           <Flex.Column gap="1rem">
             <LogoSection />
