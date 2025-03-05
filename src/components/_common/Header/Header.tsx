@@ -12,7 +12,6 @@ const Header = () => {
 
   const theme = useTheme();
   const toggleTheme = useThemeStore(state => state.toggleTheme);
-  // const { isDrawerOpen, toggleDrawer } = useDrawerStore();
 
   return (
     <Flex.Row
@@ -29,22 +28,6 @@ const Header = () => {
         zIndex: 10,
       }}
     >
-      {/* <Flex.Row padding="1rem" align="center" justify="center">
-        <IconButton
-          color="inherit"
-          aria-label="open drawer"
-          onClick={toggleDrawer}
-          edge="end"
-          sx={[
-            {
-              mr: 2,
-            },
-            isDrawerOpen && { display: 'none' },
-          ]}
-        >
-          <RightArrowIcon />
-        </IconButton>
-      </Flex.Row> */}
       <Flex.Row padding="0 1rem">
         <Heading as="h1">{title}</Heading>
       </Flex.Row>

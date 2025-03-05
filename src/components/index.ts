@@ -14,6 +14,7 @@ export { default as SectionErrorFallback } from './_common/Error/SectionErrorFal
 export { default as Flex } from './_common/Flex/Flex';
 export { default as FormField } from './_common/FormField/FormField';
 export { default as Header } from './_common/Header/Header';
+export { default as HeaderMobile } from './_common/Header/HeaderMobile';
 export { default as Heading } from './_common/Heading/Heading';
 export { default as Input } from './_common/Input/Input';
 export { default as AuthGuard } from './_common/Layout/AuthGuard';
