@@ -8,10 +8,10 @@ import { styled, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const LogoutSection = () => {
-  const navigate = useNavigate();
   const theme = useTheme();
-  const { logout } = useAuthStore();
+  const navigate = useNavigate();
 
+  const { logout } = useAuthStore();
   const handleLogout = () => {
     logout();
     navigate(ROUTE_PATH.login);

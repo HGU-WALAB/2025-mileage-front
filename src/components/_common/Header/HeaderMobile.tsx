@@ -3,15 +3,23 @@ import { Flex, Heading } from '@/components';
 import headerItems from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
 import { ROUTE_PATH } from '@/constants/routePath';
+import { useAuthStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const HeaderMobile = () => {
   const theme = useTheme();
-  const location = useLocation();
   const navigate = useNavigate();
+
+  const location = useLocation();
   const title = headerItems[location.pathname];
+
+  const { logout } = useAuthStore();
+  const handleLogout = () => {
+    logout();
+    navigate(ROUTE_PATH.login);
+  };
 
   return (
     <S.Container
@@ -30,9 +38,7 @@ const HeaderMobile = () => {
       >
         {title}
       </Heading>
-      <Link to={ROUTE_PATH.login}>
-        <LogoutIcon onClick={() => navigate(ROUTE_PATH.login)} />
-      </Link>
+      <LogoutIcon onClick={handleLogout} />
     </S.Container>
   );
 };
