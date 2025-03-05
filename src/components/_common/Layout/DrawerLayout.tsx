@@ -1,4 +1,12 @@
-import { Drawer, ErrorResetBoundary, Flex, Header, Main } from '@/components';
+import {
+  Drawer,
+  ErrorResetBoundary,
+  Flex,
+  Header,
+  HeaderMobile,
+  Main,
+} from '@/components';
+import NavigationBar from '@/components/_common/NavigationBar/NavigationBar';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useDrawerStore } from '@/stores';
 import { useMediaQuery } from '@mui/material';
@@ -11,6 +19,19 @@ const DrawerLayout = () => {
   useEffect(() => {
     setIsDrawerOpen(!isMobile);
   }, [isMobile, setIsDrawerOpen]);
+
+  if (isMobile)
+    return (
+      <Flex.Column>
+        <HeaderMobile />
+        <Flex.Row justify="center">
+          <Main open={isDrawerOpen}>
+            <ErrorResetBoundary />
+          </Main>
+        </Flex.Row>
+        <NavigationBar />
+      </Flex.Column>
+    );
 
   return (
     <Flex.Column>
