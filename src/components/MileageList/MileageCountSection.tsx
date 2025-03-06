@@ -15,7 +15,8 @@ const MileageCountSection = () => {
     done: 'Y',
   });
 
-  if (isMobile) return <div />;
+  if (isMobile) return null;
+
   return (
     <S.Container justify="space-between">
       <S.CountContainer align="center" justify="center" gap=".5rem">
