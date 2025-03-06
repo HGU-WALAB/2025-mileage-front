@@ -1,7 +1,5 @@
 import { CheckIcon } from '@/assets';
-import Flex from '@/components/_common/Flex/Flex';
-import Heading from '@/components/_common/Heading/Heading';
-import Text from '@/components/_common/Text/Text';
+import { Flex, Heading, Text } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 

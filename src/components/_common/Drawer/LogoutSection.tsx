@@ -1,6 +1,5 @@
 import { LogoutIcon } from '@/assets';
-import Flex from '@/components/_common/Flex/Flex';
-import Text from '@/components/_common/Text/Text';
+import { Flex, Text } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useAuthStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';

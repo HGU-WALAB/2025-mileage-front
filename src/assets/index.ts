@@ -3,6 +3,7 @@ import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
 import CheckCircleIcon from '@/assets/icons/checkCircle.svg?react';
 import CheckCircleOutlineIcon from '@/assets/icons/checkCircleOutline.svg?react';
+import JoinedCheckCircleIcon from '@/assets/icons/joinedCheckCircle.svg?react';
 import LogoIcon from '@/assets/icons/logo.svg?react';
 import LogoutIcon from '@/assets/icons/logout.svg?react';
 import MileageAddIcon from '@/assets/icons/mileageAdd.svg?react';
@@ -45,6 +46,7 @@ export {
   Img5,
   Img6,
   Img7,
+  JoinedCheckCircleIcon,
   ChevronLeftIcon as LeftArrowIcon,
   LogoIcon,
   LogoutIcon,

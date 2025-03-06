@@ -1,11 +1,13 @@
 import { Flex } from '@/components';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useGetMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
-import { styled } from '@mui/material';
+import { styled, useMediaQuery } from '@mui/material';
 
 const MileageCountSection = () => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const { student, currentSemester } = useAuthStore();
   const { data: mileageList } = useGetMileageQuery({
     studentId: student.studentId,
@@ -13,13 +15,15 @@ const MileageCountSection = () => {
     done: 'Y',
   });
 
+  if (isMobile) return null;
+
   return (
     <S.Container justify="space-between">
       <S.CountContainer align="center" justify="center" gap=".5rem">
         <S.CountNumber>{mileageList?.length ?? '-'}</S.CountNumber>개
       </S.CountContainer>
       <S.TextBox align="center" justify="center" padding=".5rem 0 0">
-        참여한 마일리지 개수
+        현재 참여한 마일리지
       </S.TextBox>
     </S.Container>
   );
