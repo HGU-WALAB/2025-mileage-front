@@ -35,7 +35,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={themeMode === 'light' ? lightTheme : darkTheme}>
+      <ThemeProvider theme={themeMode === 'dark' ? darkTheme : lightTheme}>
         <Global styles={globalStyle} />
         <ToastContainer autoClose={2000} position="top-center" />
         <CssBaseline />
