@@ -25,16 +25,13 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
   const { desc1, desc2, file, handleSubmit, isSuccess } = useNewMileageForm(
     semester,
     subitemId,
+    toggleModal,
   );
 
   const handleSubmitForm = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
   ) => {
     handleSubmit(e);
-
-    if (isSuccess) {
-      toggleModal();
-    }
   };
 
   return (
