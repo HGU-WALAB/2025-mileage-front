@@ -1,11 +1,13 @@
 import { BoxSkeleton, Flex } from '@/components';
 import { InfoField } from '@/components/My';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useGetUserInfoQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import getDate from '@/utils/getDate';
-import { styled } from '@mui/material';
+import { styled, useMediaQuery } from '@mui/material';
 
 const UserInfoSection = () => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const { student } = useAuthStore();
   const { data: userInfo, isLoading } = useGetUserInfoQuery(student.studentId);
 
@@ -23,7 +25,7 @@ const UserInfoSection = () => {
   if (isLoading) return <BoxSkeleton height={400} />;
 
   return (
-    <S.Grid>
+    <S.Grid isMobile={isMobile}>
       {Object.entries(userInfo ?? [])
         .filter(([key]) => customOrder.includes(key))
         .sort(
@@ -43,11 +45,11 @@ const UserInfoSection = () => {
 export default UserInfoSection;
 
 const S = {
-  Grid: styled('div')`
+  Grid: styled('div')<{ isMobile: boolean }>`
     display: grid;
-    gap: 1rem;
+    gap: ${({ isMobile }) => (isMobile ? 'none' : '1rem')};
     grid-auto-rows: minmax(100px, auto);
-    grid-template-columns: repeat(3, 1fr);
-    padding: 1rem;
+    grid-template-columns: ${({ isMobile }) =>
+      `repeat(${isMobile ? 1 : 3}, 1fr)`};
   `,
 };

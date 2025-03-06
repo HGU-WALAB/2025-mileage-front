@@ -29,5 +29,6 @@ const S = {
     background: linear-gradient(135deg, #8043ff, #2e68ff);
     ${({ theme }) => theme.typography.h3};
     height: 3rem;
+    width: 300px;
   `,
 };

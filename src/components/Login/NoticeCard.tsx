@@ -1,4 +1,5 @@
 import { Img1, Img2, Img3, Img4, Img5, Img6, Img7 } from '@/assets';
+import { Flex } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 import { useEffect, useState } from 'react';
@@ -22,26 +23,29 @@ const NoticeCard = () => {
   }, []);
 
   return (
-    <S.CardImg
-      src={images[currentIndex]}
-      alt={`Carousel ${currentIndex + 1}`}
-      isMobile={isMobile}
-    />
+    <S.CardBox isMobile={isMobile}>
+      <S.CardImg
+        src={images[currentIndex]}
+        alt={`Carousel ${currentIndex + 1}`}
+      />
+    </S.CardBox>
   );
 };
+
 export default NoticeCard;
 
 const S = {
-  CardImg: styled('img')<{ isMobile: boolean }>`
-    background-color: ${({ theme }) => theme.palette.black};
+  CardBox: styled(Flex.Row)<{ isMobile: boolean }>`
     border-radius: 24px;
-    display: flex;
-    flex-direction: column;
     height: 300px;
-    justify-content: flex-start;
-    object-fit: cover;
     overflow: hidden;
     position: relative;
-    width: ${({ isMobile }) => (isMobile ? '100%' : '600px')};
+    width: ${({ isMobile }) => (isMobile ? '100%' : '500px')};
+  `,
+  CardImg: styled('img')`
+    border-radius: 24px;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
   `,
 };

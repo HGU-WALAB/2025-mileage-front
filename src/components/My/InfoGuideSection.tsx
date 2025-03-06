@@ -3,6 +3,7 @@ import { Flex, Heading, Text } from '@/components';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
+import { useMemo } from 'react';
 
 const guides = (currentSemester: string) => [
   `학년과 학기 정보는 ${currentSemester}학기를 기준으로 표시됩니다.`,
@@ -14,20 +15,27 @@ const InfoGuideSection = () => {
   const theme = useTheme();
   const { currentSemester } = useAuthStore();
 
+  const memoizedGuides = useMemo(
+    () => guides(currentSemester ?? ''),
+    [currentSemester],
+  );
+
   return (
     <S.Section
       width="100%"
       justify="space-around"
       align="center"
-      padding="1rem 2rem"
+      padding="1rem"
+      gap="1rem"
       backgroundColor={theme.palette.variant.default}
+      wrap="wrap"
     >
       <Flex.Column align="center" style={{ color: theme.palette.primary.main }}>
         <Heading as="h2">나의 정보 확인하기</Heading>
       </Flex.Column>
 
-      <S.GuideWrapper padding=".5rem 2rem">
-        {guides(currentSemester ?? '').map(guide => (
+      <S.GuideWrapper padding=".5rem 1rem">
+        {memoizedGuides.map(guide => (
           <Flex.Row align="center" gap="0.25rem" key={guide.toString()}>
             <CheckIcon />
             <Text

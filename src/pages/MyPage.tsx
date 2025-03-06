@@ -9,7 +9,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 const MyPage = () => {
   return (
-    <Flex.Column margin="1rem 2rem" gap="2rem">
+    <Flex.Column margin="1rem 2rem" gap="1rem">
       <InfoGuideSection />
 
       <QueryErrorResetBoundary>
