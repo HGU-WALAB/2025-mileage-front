@@ -19,14 +19,16 @@ const InfoGuideSection = () => {
       width="100%"
       justify="space-around"
       align="center"
-      padding="1rem 2rem"
+      padding="1rem"
+      gap="1rem"
       backgroundColor={theme.palette.variant.default}
+      wrap="wrap"
     >
       <Flex.Column align="center" style={{ color: theme.palette.primary.main }}>
         <Heading as="h2">나의 정보 확인하기</Heading>
       </Flex.Column>
 
-      <S.GuideWrapper padding=".5rem 2rem">
+      <S.GuideWrapper padding=".5rem 1rem">
         {guides(currentSemester ?? '').map(guide => (
           <Flex.Row align="center" gap="0.25rem" key={guide.toString()}>
             <CheckIcon />
