@@ -25,7 +25,6 @@ const NavigationBar = () => {
       width="100%"
       align="center"
       justify="space-between"
-      padding=".5rem"
     >
       {navigationItems.map(item => (
         <S.Navigation
@@ -33,7 +32,11 @@ const NavigationBar = () => {
           align="center"
           onClick={() => navigate(item.route)}
         >
-          <S.Item selected={location.pathname === item.route}>
+          <S.Item
+            selected={location.pathname === item.route}
+            justify="center"
+            align="center"
+          >
             {location.pathname === item.route ? (
               <item.selectedIcon />
             ) : (
@@ -70,5 +73,7 @@ const S = {
     border-radius: 0.5rem;
     color: ${({ selected, theme }) =>
       selected ? theme.palette.primary.main : theme.palette.white};
+    height: 90%;
+    width: 90%;
   `,
 };
