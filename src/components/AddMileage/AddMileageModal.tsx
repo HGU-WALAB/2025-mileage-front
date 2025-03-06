@@ -22,7 +22,7 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
   const theme = useTheme();
   const { open, toggleModal } = useOpenModal();
 
-  const { desc1, desc2, file, handleSubmit, isSuccess } = useNewMileageForm(
+  const { desc1, desc2, file, handleSubmit } = useNewMileageForm(
     semester,
     subitemId,
     toggleModal,

@@ -23,8 +23,7 @@ const useNewMileageForm = (
   } = useInput();
   const { value: file, handleChange: handleFile, reset: resetFile } = useFile();
 
-  const { mutateAsync: postNewMileage, isSuccess } =
-    usePostNewMileageMutation();
+  const { mutateAsync: postNewMileage } = usePostNewMileageMutation();
 
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
@@ -95,7 +94,6 @@ const useNewMileageForm = (
       reset: resetFile,
     },
     handleSubmit,
-    isSuccess,
   };
 };
 
