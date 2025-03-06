@@ -26,7 +26,7 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
   };
 
   return (
-    <Flex.Row justify="center">
+    <Flex.Row justify="center" margin="0 0 1rem">
       <S.ApplyButton
         onClick={handleApply}
         justify="center"
