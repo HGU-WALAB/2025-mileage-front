@@ -13,7 +13,7 @@ const ConsentSection = ({ isAgree, handleAgree }: Props) => {
   const consentData: Consent = personalInfoConsent;
 
   return (
-    <S.Section>
+    <S.Section wrap="wrap">
       <Flex.Column>
         <Heading as="h2">{consentData.title}</Heading>
         <S.ConsentText
@@ -37,7 +37,7 @@ const ConsentSection = ({ isAgree, handleAgree }: Props) => {
 export default ConsentSection;
 
 const S = {
-  Section: styled('section')`
+  Section: styled(Flex.Row)`
     align-items: flex-end;
     background-color: ${({ theme }) => theme.palette.primary.light};
     border: 1px solid ${({ theme }) => theme.palette.primary.main};
@@ -46,7 +46,7 @@ const S = {
     flex-direction: row;
     gap: 1rem;
     justify-content: space-between;
-    margin: 0 3rem;
+    margin: 0 1rem;
     padding: 1rem 1.5rem;
   `,
   ConsentText: styled(Text)`
