@@ -24,7 +24,7 @@ const MileageTable = ({ mileageList }: Props) => {
         semester: item.semester,
         categoryName: item.categoryName,
         description: item.description,
-        done: item.done ? <JoinedCheckCircleIcon /> : <div />,
+        done: item.done ? <JoinedCheckCircleIcon /> : null,
       })),
     [mileageList],
   );
