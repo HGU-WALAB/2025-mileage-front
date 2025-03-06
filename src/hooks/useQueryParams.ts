@@ -1,3 +1,4 @@
+import { ALL_SEMESTER } from '@/constants/system';
 import { MileageRequest } from '@/types/mileage';
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
@@ -5,18 +6,16 @@ import { useSearchParams } from 'react-router-dom';
 const useQueryParams = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const getQueryParams = useCallback((): MileageRequest => {
-    const studentId = searchParams.get('studentId');
+  const getQueryParams = useCallback((): Omit<MileageRequest, 'studentId'> => {
     const keyword = searchParams.get('keyword');
     const category = searchParams.get('category');
     const semester = searchParams.get('semester');
     const done = searchParams.get('done');
 
     return {
-      studentId: studentId || '',
       keyword: keyword || '',
       category: category || '',
-      semester: semester || '전체',
+      semester: semester || ALL_SEMESTER,
       done: done || 'all',
     };
   }, [searchParams]);

@@ -1,3 +1,4 @@
+import { ALL_SEMESTER } from '@/constants/system';
 import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
@@ -12,7 +13,7 @@ const useFilteredBySemester = () => {
   });
 
   const semesterList = [
-    '전체',
+    ALL_SEMESTER,
     ...Array.from(new Set(mileageList?.map(item => item.semester))).sort(
       (a, b) => b.localeCompare(a),
     ),
