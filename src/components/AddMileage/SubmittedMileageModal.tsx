@@ -1,14 +1,16 @@
 import { Button, Dropdown, Flex, FormField, Modal, Text } from '@/components';
 import GuideDescSection from '@/components/AddMileage/GuideDescSection';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useOpenModal } from '@/hooks';
 import { SubmittedMileageResponse } from '@/types/mileage';
-import { styled, useTheme } from '@mui/material';
+import { styled, useMediaQuery, useTheme } from '@mui/material';
 
 interface Props {
   item: SubmittedMileageResponse;
 }
 
 const SubmittedMileageModal = ({ item }: Props) => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const theme = useTheme();
   const { open, toggleModal } = useOpenModal();
 
@@ -26,13 +28,13 @@ const SubmittedMileageModal = ({ item }: Props) => {
       <Modal.Header>마일리지 등록 항목 상세보기</Modal.Header>
       <Modal.Body
         position="center"
-        style={{ width: '85%', margin: '2rem auto' }}
+        style={{ width: isMobile ? '100%' : '85%', margin: '2rem auto' }}
       >
         <GuideDescSection />
 
         <S.Form>
           <FormField
-            direction="row"
+            direction={isMobile ? 'column' : 'row'}
             style={{
               justifyContent: 'space-between',
             }}
@@ -48,7 +50,6 @@ const SubmittedMileageModal = ({ item }: Props) => {
             />
             <Flex.Column width="100%">
               <Dropdown
-                label="년도 및 학기"
                 items={[item.semester]}
                 selectedItem={item.semester}
                 setSelectedItem={() => {}}
@@ -59,7 +60,7 @@ const SubmittedMileageModal = ({ item }: Props) => {
             </Flex.Column>
           </FormField>
 
-          <FormField direction="row">
+          <FormField direction={isMobile ? 'column' : 'row'}>
             <FormField.Label
               label={'등록 상세 정보'}
               required
@@ -79,7 +80,7 @@ const SubmittedMileageModal = ({ item }: Props) => {
             </Flex.Column>
           </FormField>
 
-          <FormField direction="row">
+          <FormField direction={isMobile ? 'column' : 'row'}>
             <FormField.Label
               label={'추가 설명'}
               style={{
@@ -102,7 +103,7 @@ const SubmittedMileageModal = ({ item }: Props) => {
             </Flex.Column>
           </FormField>
 
-          <FormField direction="row">
+          <FormField direction={isMobile ? 'column' : 'row'}>
             <FormField.Label
               label={'첨부파일'}
               style={{

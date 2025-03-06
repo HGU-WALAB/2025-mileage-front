@@ -4,13 +4,15 @@ import { navigationBarHeight } from '@/constants/layoutSize';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled } from '@mui/material';
 import { useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const customOrder = ['조회', '등록', '대시보드', '장학금 신청', '프로필'];
 
 const NavigationBar = () => {
   const navigate = useNavigate();
-  const navigateItems = useMemo(() => {
+  const location = useLocation();
+
+  const navigationItems = useMemo(() => {
     return drawerItems.sort(
       (a, b) =>
         customOrder.indexOf(a.shortText) - customOrder.indexOf(b.shortText),
@@ -23,13 +25,23 @@ const NavigationBar = () => {
       width="100%"
       align="center"
       justify="space-between"
-      padding="1rem"
+      padding=".5rem"
     >
-      {navigateItems.map(item => (
-        <S.NavigateItem align="center" onClick={() => navigate(item.route)}>
-          <item.icon />
-          {item.shortText}
-        </S.NavigateItem>
+      {navigationItems.map(item => (
+        <S.Navigation
+          justify="center"
+          align="center"
+          onClick={() => navigate(item.route)}
+        >
+          <S.Item selected={location.pathname === item.route}>
+            {location.pathname === item.route ? (
+              <item.selectedIcon />
+            ) : (
+              <item.icon />
+            )}
+            {item.shortText}
+          </S.Item>
+        </S.Navigation>
       ))}
     </S.Container>
   );
@@ -47,9 +59,16 @@ const S = {
     position: fixed;
     z-index: 10;
   `,
-  NavigateItem: styled(Flex.Column)`
+  Navigation: styled(Flex.Column)`
     ${({ theme }) => theme.typography.body2};
-    color: ${({ theme }) => theme.palette.white};
+    height: 100%;
     width: 100%;
+  `,
+  Item: styled(Flex.Column)<{ selected: boolean }>`
+    background-color: ${({ selected, theme }) =>
+      selected ? theme.palette.white : 'none'};
+    border-radius: 0.5rem;
+    color: ${({ selected, theme }) =>
+      selected ? theme.palette.primary.main : theme.palette.white};
   `,
 };

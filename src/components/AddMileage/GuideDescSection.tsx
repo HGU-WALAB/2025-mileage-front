@@ -1,7 +1,8 @@
 import { CheckIcon } from '@/assets';
 import { Flex, Heading, Text } from '@/components';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { boxShadow } from '@/styles/common';
-import { styled, useTheme } from '@mui/material';
+import { styled, useMediaQuery, useTheme } from '@mui/material';
 
 const guides = [
   'SW 관련 자격증 또는 개인별 추가 실적 제출',
@@ -11,13 +12,17 @@ const guides = [
 
 const GuideDescSection = () => {
   const theme = useTheme();
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+
   return (
-    <S.Section
+    <S.RowSection
       width="100%"
-      justify="space-between"
+      justify={isMobile ? 'center' : 'space-between'}
       align="center"
-      padding="1rem 2rem"
+      padding={isMobile ? '1rem' : '1rem 2rem'}
       backgroundColor={theme.palette.variant.default}
+      wrap="wrap"
+      gap="1rem"
     >
       <Flex.Column align="center" style={{ color: theme.palette.primary.main }}>
         <Heading as="h3">자격증 및 기타실적 등록</Heading>
@@ -38,14 +43,14 @@ const GuideDescSection = () => {
           </Flex.Row>
         ))}
       </S.GuideWrapper>
-    </S.Section>
+    </S.RowSection>
   );
 };
 
 export default GuideDescSection;
 
 const S = {
-  Section: styled(Flex.Row)`
+  RowSection: styled(Flex.Row)`
     border-radius: 1rem;
     ${boxShadow}
   `,
