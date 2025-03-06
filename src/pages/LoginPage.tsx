@@ -44,6 +44,7 @@ const LoginPage = () => {
         align="center"
         width="80%"
         height="80%"
+        padding="1rem"
         gap="1rem"
         wrap="wrap"
       >
