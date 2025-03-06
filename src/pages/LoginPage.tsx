@@ -42,24 +42,17 @@ const LoginPage = () => {
       <S.GlassContainer
         justify="center"
         align="center"
-        width={isMobile ? '90%' : '80%'}
+        width="80%"
         height="80%"
+        gap="1rem"
+        wrap="wrap"
       >
-        <Flex.Row
-          justify="center"
-          align="center"
-          width={isMobile ? '90%' : '80%'}
-          height={isMobile ? '90%' : '50%'}
-          gap={isMobile ? '0' : '2rem'}
-          wrap={isMobile ? 'wrap' : 'nowrap'}
-        >
-          <Flex.Column gap="1rem">
-            <LogoSection />
-            <NoticeCard />
-          </Flex.Column>
+        <Flex.Column gap="1rem">
+          <LogoSection />
+          <NoticeCard />
+        </Flex.Column>
 
-          <LoginSection />
-        </Flex.Row>
+        <LoginSection />
       </S.GlassContainer>
     </Flex.Column>
   );
@@ -68,7 +61,7 @@ const LoginPage = () => {
 export default LoginPage;
 
 const S = {
-  GlassContainer: styled(Flex)`
+  GlassContainer: styled(Flex.Row)`
     backdrop-filter: blur(1.875rem);
     background-color: ${({ theme }) =>
       getOpacityColor(theme.palette.white, 0.2)};

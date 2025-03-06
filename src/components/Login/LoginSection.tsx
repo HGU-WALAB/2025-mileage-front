@@ -8,7 +8,7 @@ const LoginSection = () => {
 
   return (
     <Flex.Column
-      width={isMobile ? '100%' : '30%'}
+      width="300px"
       justify="space-between"
       align="center"
       padding={isMobile ? '0' : '0 1rem'}
