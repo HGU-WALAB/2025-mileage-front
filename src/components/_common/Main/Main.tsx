@@ -1,4 +1,8 @@
-import { drawerWidth, globalHeight } from '@/constants/layoutSize';
+import {
+  drawerWidth,
+  globalHeight,
+  globalMobileHeight,
+} from '@/constants/layoutSize';
 import { styled } from '@mui/material/styles';
 
 const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
@@ -9,7 +13,7 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  height: globalHeight,
+  height: globalMobileHeight,
   maxWidth: `100%`,
   margin: `.5rem`,
   backgroundColor: theme.palette.background.default,
@@ -24,6 +28,7 @@ const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
           easing: theme.transitions.easing.easeOut,
           duration: theme.transitions.duration.enteringScreen,
         }),
+        height: globalHeight,
         maxWidth: `calc(100% - ${drawerWidth + 24}px)`,
         marginLeft: `${drawerWidth + 16}px`,
       },

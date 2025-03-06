@@ -43,10 +43,8 @@ const LineChart = ({ data }: { data: SemesterCapability[] }) => {
         truncateTickAt: 0,
       }}
       colors={[theme.palette.primary.main]}
-      pointSize={10}
-      pointColor={{ theme: 'background' }}
+      pointSize={5}
       pointBorderWidth={2}
-      pointBorderColor={{ from: 'serieColor' }}
       pointLabel="data.yFormatted"
       pointLabelYOffset={-12}
       enableArea={true}

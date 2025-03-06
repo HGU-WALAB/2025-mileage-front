@@ -4,7 +4,7 @@ import { pageHeight } from '@/constants/layoutSize';
 
 const DashboardPage = () => {
   return (
-    <Flex.Column margin="1rem 2rem" height={pageHeight}>
+    <Flex.Column margin="1rem" height={pageHeight}>
       <ChartSection />
     </Flex.Column>
   );

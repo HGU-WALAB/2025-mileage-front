@@ -17,6 +17,7 @@ export const globalStyle = css`
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
   }
 
   @media (${MAX_RESPONSIVE_WIDTH}) {
@@ -28,5 +29,10 @@ export const globalStyle = css`
 
   div {
     box-sizing: border-box;
+  }
+
+  h3 {
+    vertical-align: bottom;
+    margin: 0;
   }
 `;

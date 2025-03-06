@@ -11,7 +11,7 @@ const ChartSection = () => {
       height="100%"
       width="100%"
       justify="center"
-      gap="2rem"
+      gap="1rem"
       wrap={isMobile ? 'wrap' : 'nowrap'}
     >
       <RadarChartSection />

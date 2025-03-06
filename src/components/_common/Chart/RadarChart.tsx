@@ -13,8 +13,7 @@ const RadarChart = ({ data }: { data: Capability[] }) => {
       margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
       borderColor={{ from: 'color', modifiers: [] }}
       gridLabelOffset={36}
-      dotSize={10}
-      dotColor={{ theme: 'background' }}
+      dotSize={5}
       dotBorderWidth={2}
       colors={[theme.palette.primary.main]}
       blendMode="multiply"
