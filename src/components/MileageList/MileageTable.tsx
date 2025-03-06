@@ -11,7 +11,7 @@ interface Props {
 
 const headerItems: THeader[] = [
   { id: 1, text: '학기', value: 'semester' },
-  { id: 2, text: '항목명', value: 'categoryName' },
+  { id: 2, text: '항목명', value: 'subitemName' },
   { id: 3, text: '내용', value: 'description' },
   { id: 4, text: '참여여부', value: 'done', align: 'center' },
 ];
@@ -22,7 +22,7 @@ const MileageTable = ({ mileageList }: Props) => {
       mileageList.map((item, index) => ({
         id: index + 1,
         semester: item.semester,
-        categoryName: item.categoryName,
+        subitemName: item.subitemName,
         description: item.description,
         done: item.done ? <JoinedCheckCircleIcon /> : null,
       })),

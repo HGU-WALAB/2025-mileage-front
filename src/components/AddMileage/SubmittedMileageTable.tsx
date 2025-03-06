@@ -3,6 +3,7 @@ import SubmittedMileageModal from '@/components/AddMileage/SubmittedMileageModal
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { THeader } from '@/types/table';
+import getDate from '@/utils/getDate';
 import { useMemo } from 'react';
 
 const headerItems: THeader[] = [
@@ -25,7 +26,7 @@ const SubmittedMileageTable = () => {
         semester: item.semester,
         subitemName: item.subitemName,
         description1: item.description1,
-        modDate: item.modDate,
+        modDate: getDate(item.modDate),
         overview: <SubmittedMileageModal item={item} />,
       })) ?? [],
     [submittedMileageList],
