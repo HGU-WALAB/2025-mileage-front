@@ -1,12 +1,14 @@
 import { Flex } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useGetMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
-import { styled } from '@mui/material';
+import { styled, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const MileageCountBox = () => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const navigate = useNavigate();
 
   const { student, currentSemester } = useAuthStore();
@@ -20,14 +22,19 @@ const MileageCountBox = () => {
     navigate(ROUTE_PATH.mileageList);
   };
 
+  const text = isMobile ? '마일리지 개수' : '마일리지 항목 개수';
+
   return (
-    <S.CountContainer onClick={handleClick}>
-      <Flex.Column align="center">
-        <Flex.Row style={{ fontSize: '1rem' }}>마일리지 항목 개수</Flex.Row>
-        <Flex.Row align="baseline" gap=".5rem">
-          <S.CountNumber>{mileageList?.length ?? '-'}</S.CountNumber>개
-        </Flex.Row>
-      </Flex.Column>
+    <S.CountContainer align="center" onClick={handleClick} isMobile={isMobile}>
+      <Flex.Row style={{ fontSize: isMobile ? '0.75rem' : '1rem' }}>
+        {text}
+      </Flex.Row>
+      <Flex.Row align="baseline" gap=".5rem">
+        <S.CountNumber isMobile={isMobile}>
+          {mileageList?.length ?? '-'}
+        </S.CountNumber>
+        개
+      </Flex.Row>
     </S.CountContainer>
   );
 };
@@ -35,29 +42,21 @@ const MileageCountBox = () => {
 export default MileageCountBox;
 
 const S = {
-  Container: styled(Flex.Column)`
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    border-radius: 1rem;
-    color: ${({ theme }) => theme.palette.white};
-    height: 110px;
-    position: relative;
-    width: 80%;
-  `,
-  CountContainer: styled(Flex.Column)`
+  CountContainer: styled(Flex.Column)<{ isMobile: boolean }>`
     background-color: ${({ theme }) => theme.palette.white};
     border-radius: 1rem;
     color: ${({ theme }) => theme.palette.black};
-    height: 110px;
-    padding: 1rem;
+    height: ${({ isMobile }) => (isMobile ? '80px' : '110px')};
+    padding: ${({ isMobile }) => (isMobile ? '.5rem' : '1rem')};
     position: absolute;
     right: 10%;
     top: -30%;
-    width: 20%;
+    width: ${({ isMobile }) => (isMobile ? '100px' : '200px')};
     ${boxShadow}
   `,
-  CountNumber: styled(Flex.Row)`
+  CountNumber: styled(Flex.Row)<{ isMobile: boolean }>`
     color: ${({ theme }) => theme.palette.primary.main};
-    font-size: 2.5rem;
+    font-size: ${({ isMobile }) => (isMobile ? '2rem' : '2.5rem')};
     font-weight: bold;
   `,
 };
