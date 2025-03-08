@@ -5,7 +5,7 @@ import { RadarCapability } from '@/types/capability';
 import { styled } from '@mui/material';
 
 const RadarChartSection = () => {
-  const { data: capability } = useGetCapabilityQuery();
+  const { data: capability, isLoading } = useGetCapabilityQuery();
   const capabilityData = capability?.map(capability => {
     return {
       capabilityId: capability.capabilityId,
@@ -14,6 +14,8 @@ const RadarChartSection = () => {
         (capability.milestoneCount / capability.totalMilestoneCount) * 100,
     };
   });
+
+  if (isLoading) return <div>Loading...</div>;
 
   return (
     <S.Container height="40%" width="100%" padding="1rem" gap="1rem">
