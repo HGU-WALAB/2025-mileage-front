@@ -6,6 +6,7 @@ const DashboardPage = () => {
   return (
     <Flex.Column margin="1rem" height={pageHeight} gap="1rem">
       <MileageCountSection />
+
       <ChartSection />
     </Flex.Column>
   );

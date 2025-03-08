@@ -1,29 +1,34 @@
-import { Capability } from '@/types/capability';
+import { CapabilityResponse } from '@/types/capability';
 
-export const mockCapability: Capability[] = [
+export const mockCapability: CapabilityResponse[] = [
   {
     capabilityId: 1,
     capabilityName: '전공 교과 역량',
-    milestoneCount: 23,
+    milestoneCount: 6,
+    totalMilestoneCount: 12,
   },
   {
     capabilityId: 2,
     capabilityName: '전공 비교과 역량',
-    milestoneCount: 13,
+    milestoneCount: 3,
+    totalMilestoneCount: 9,
   },
   {
     capabilityId: 3,
     capabilityName: '산학 연구 - 프로젝트',
-    milestoneCount: 31,
+    milestoneCount: 3,
+    totalMilestoneCount: 8,
   },
   {
     capabilityId: 4,
     capabilityName: '가치 확산',
-    milestoneCount: 29,
+    milestoneCount: 2,
+    totalMilestoneCount: 10,
   },
   {
     capabilityId: 5,
     capabilityName: '대외 활동',
-    milestoneCount: 13,
+    milestoneCount: 8,
+    totalMilestoneCount: 20,
   },
 ];

@@ -1,15 +1,16 @@
-import { Capability } from '@/types/capability';
+import { RadarCapability } from '@/types/capability';
 import { useTheme } from '@mui/material';
 import { ResponsiveRadar } from '@nivo/radar';
 
-const RadarChart = ({ data }: { data: Capability[] }) => {
+const RadarChart = ({ data }: { data: RadarCapability[] }) => {
   const theme = useTheme();
 
   return (
     <ResponsiveRadar
       data={data}
-      keys={['milestoneCount']}
+      keys={['mileagePercent']}
       indexBy="capabilityName"
+      maxValue={100}
       margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
       borderColor={{ from: 'color', modifiers: [] }}
       gridLabelOffset={36}
@@ -27,7 +28,7 @@ const RadarChart = ({ data }: { data: Capability[] }) => {
           }}
         >
           <strong>역량: </strong>
-          {point.data[0].formattedValue}개
+          {Number(point.data[0].formattedValue).toFixed(1)}%
         </div>
       )}
     />
