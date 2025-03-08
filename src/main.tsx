@@ -10,7 +10,7 @@ async function enableMocking() {
   const { worker } = await import('./mocks/browser');
   await worker.start({
     serviceWorker: {
-      url: '/mockServiceWorker.js',
+      url: '/mileage/mockServiceWorker.js',
     },
   });
 }
