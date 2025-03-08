@@ -12,7 +12,7 @@ export interface RadarCapability {
   [key: string]: unknown;
 }
 
-export interface SemesterCapability {
+export interface SemesterCapabilityResponse {
   semester: string;
-  point: number;
+  userMilestoneCount: number;
 }

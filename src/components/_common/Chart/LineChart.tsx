@@ -1,15 +1,15 @@
-import { SemesterCapability } from '@/types/capability';
+import { SemesterCapabilityResponse } from '@/types/capability';
 import { useTheme } from '@mui/material';
 import { ResponsiveLine } from '@nivo/line';
 
-const LineChart = ({ data }: { data: SemesterCapability[] }) => {
+const LineChart = ({ data }: { data: SemesterCapabilityResponse[] }) => {
   const theme = useTheme();
   const formattedData = [
     {
       id: 'Capability Points',
       data: data.map(capability => ({
         x: capability.semester,
-        y: capability.point,
+        y: capability.userMilestoneCount,
       })),
     },
   ];
