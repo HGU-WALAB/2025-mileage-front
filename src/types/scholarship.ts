@@ -4,5 +4,6 @@ export interface ScholarshipApplyRequest {
 }
 
 export interface IsAppliedScholarshipResponse {
-  isApply: boolean;
+  // 신청함: 1, 신청안함: 0
+  isApply: number;
 }

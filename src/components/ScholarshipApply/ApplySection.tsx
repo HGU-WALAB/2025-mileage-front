@@ -16,12 +16,10 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
       return;
     }
 
-    if (student) {
-      postScholarship({
-        studentId: student.studentId,
-        isAgree,
-      });
-    }
+    postScholarship({
+      studentId: student.studentId,
+      isAgree,
+    });
   };
 
   return (
@@ -40,15 +38,8 @@ export default ApplySection;
 
 const S = {
   ApplyButton: styled(Button)`
-    background-color: ${({ theme }) => theme.palette.primary.main};
     border-radius: 1rem;
-    color: ${({ theme }) => theme.palette.white};
     ${({ theme }) => theme.typography.h2};
     padding: 2.5rem 3rem;
-
-    &:hover,
-    :active {
-      background-color: ${({ theme }) => theme.palette.blue600};
-    }
   `,
 };

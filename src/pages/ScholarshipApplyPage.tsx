@@ -14,6 +14,11 @@ const ScholarshipApplyPage = () => {
       <MileageBannerSection />
       <ConsentSection isAgree={isAgree} handleAgree={setIsAgree} />
       <ApplySection isAgree={isAgree} />
+      {isApplied?.isApply ? (
+        <AppliedSection />
+      ) : (
+        <ApplySection isAgree={isAgree} />
+      )}
     </Flex.Column>
   );
 };
