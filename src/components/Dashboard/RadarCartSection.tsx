@@ -1,5 +1,6 @@
+import { LoadingIcon } from '@/assets';
 import { Flex, Heading, RadarChart } from '@/components';
-import useGetCapabilityQuery from '@/hooks/queries/useGetCapabilityQuery';
+import { useGetCapabilityQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
 import { RadarCapability } from '@/types/capability';
 import { styled } from '@mui/material';
@@ -15,13 +16,15 @@ const RadarChartSection = () => {
     };
   });
 
-  if (isLoading) return <div>Loading...</div>;
-
   return (
     <S.Container height="40%" width="100%" padding="1rem" gap="1rem">
       <Heading as="h3">나의 역량 비교 그래프</Heading>
-      <Flex height="90%" width="100%">
-        <RadarChart data={capabilityData as RadarCapability[]} />
+      <Flex height="90%" width="100%" justify="center" align="center">
+        {isLoading ? (
+          <LoadingIcon width={100} height={100} />
+        ) : (
+          <RadarChart data={capabilityData as RadarCapability[]} />
+        )}
       </Flex>
     </S.Container>
   );

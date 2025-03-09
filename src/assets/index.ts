@@ -6,6 +6,7 @@ import CheckCircleOutlineIcon from '@/assets/icons/checkCircleOutline.svg?react'
 import DashboardIcon from '@/assets/icons/dashboard.svg?react';
 import DashboardBlueIcon from '@/assets/icons/dashboardBlue.svg?react';
 import JoinedCheckCircleIcon from '@/assets/icons/joinedCheckCircle.svg?react';
+import LoadingIcon from '@/assets/icons/loading.svg?react';
 import LogoIcon from '@/assets/icons/logo.svg?react';
 import LogoutIcon from '@/assets/icons/logout.svg?react';
 import MileageAddIcon from '@/assets/icons/mileageAdd.svg?react';
@@ -55,6 +56,7 @@ export {
   Img7,
   JoinedCheckCircleIcon,
   ChevronLeftIcon as LeftArrowIcon,
+  LoadingIcon,
   LogoIcon,
   LogoutIcon,
   MileageAddBlueIcon,
