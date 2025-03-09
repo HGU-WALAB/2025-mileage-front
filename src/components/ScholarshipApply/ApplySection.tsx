@@ -28,7 +28,7 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
   return (
     <Flex.Row justify="center" margin="0 0 1rem">
       <S.ApplyButton
-        label="마일리지 장학금 신청하기"
+        label={`${student.studentType} 마일리지 장학금 신청하기`}
         onClick={handleApply}
         disabled={!isAgree}
       />
