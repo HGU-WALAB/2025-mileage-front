@@ -1,7 +1,7 @@
 import { HttpResponse } from 'msw';
 
 const ERROR_400_CHANCE = 0.1;
-const ERROR_401_CHANCE = 0.1;
+const ERROR_401_CHANCE = 1;
 const ERROR_500_CHANCE = 0.1;
 
 const isErrorRandomly = (threshold: number) => {
