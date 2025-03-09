@@ -1,4 +1,5 @@
 export { default as useGetEtcMileageQuery } from './useGetEtcMileageQuery';
+export { default as useGetIsAppliedScholarshipQuery } from './useGetIsAppliedScholarshipQuery';
 export { default as useGetMileageQuery } from './useGetMileageQuery';
 export { default as useGetSubmittedMileageQuery } from './useGetSubmittedMileageQuery';
 export { default as useGetUserInfoQuery } from './useGetUserInfoQuery';

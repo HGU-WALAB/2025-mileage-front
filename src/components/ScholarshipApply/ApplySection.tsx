@@ -6,7 +6,6 @@ import { styled } from '@mui/material';
 import { toast } from 'react-toastify';
 
 const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
-  // TODO: 이후 유저 데이터 처리 로직 추가 예정
   const { student } = useAuthStore();
   const { mutateAsync: postScholarship, isSuccess } =
     usePostScholarshipApplyMutation();
