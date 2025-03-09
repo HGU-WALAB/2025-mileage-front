@@ -11,7 +11,6 @@ const useGetSemesterCapabilityQuery = () => {
       getSemesterCapability({
         studentId: student.studentId,
       }),
-    throwOnError: true,
   });
 };
 
