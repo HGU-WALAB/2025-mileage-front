@@ -27,7 +27,7 @@ const LineChart = ({ data }: { data: SemesterCapabilityResponse[] }) => {
         reverse: false,
       }}
       yFormat=" >-.2f"
-      curve="natural"
+      curve="linear"
       axisTop={null}
       axisRight={null}
       axisBottom={{
