@@ -1,4 +1,4 @@
-import { Flex } from '@/components';
+import { Button, Flex } from '@/components';
 import ApplySucceedModal from '@/components/ScholarshipApply/ApplySucceedModal';
 import { usePostScholarshipApplyMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
@@ -28,13 +28,10 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
   return (
     <Flex.Row justify="center" margin="0 0 1rem">
       <S.ApplyButton
+        label="마일리지 장학금 신청하기"
         onClick={handleApply}
-        justify="center"
-        align="center"
-        gap="1rem"
-      >
-        마일리지 장학금 신청하기
-      </S.ApplyButton>
+        disabled={!isAgree}
+      />
       <ApplySucceedModal isSucceed={isSuccess} />
     </Flex.Row>
   );
@@ -43,12 +40,12 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
 export default ApplySection;
 
 const S = {
-  ApplyButton: styled(Flex.Row)`
+  ApplyButton: styled(Button)`
     background-color: ${({ theme }) => theme.palette.primary.main};
     border-radius: 1rem;
     color: ${({ theme }) => theme.palette.white};
     ${({ theme }) => theme.typography.h2};
-    padding: 1.5rem 2.5rem;
+    padding: 2.5rem 3rem;
 
     &:hover,
     :active {
