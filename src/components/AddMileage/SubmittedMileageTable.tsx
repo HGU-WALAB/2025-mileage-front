@@ -1,4 +1,5 @@
 import { BoxSkeleton, Table } from '@/components';
+import EditSubmittedMileageModal from '@/components/AddMileage/EditSubmittedMileageModal';
 import SubmittedMileageModal from '@/components/AddMileage/SubmittedMileageModal';
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
@@ -12,6 +13,8 @@ const headerItems: THeader[] = [
   { id: 3, text: '설명', value: 'description1' },
   { id: 4, text: '신청날짜', value: 'modDate' },
   { id: 5, text: '상세보기', value: 'overview', align: 'center' },
+  { id: 6, text: '수정', value: 'edit', align: 'center' },
+  { id: 7, text: '삭제', value: 'delete', align: 'center' },
 ];
 
 const SubmittedMileageTable = () => {
@@ -28,6 +31,8 @@ const SubmittedMileageTable = () => {
         description1: item.description1,
         modDate: getDate(item.modDate),
         overview: <SubmittedMileageModal item={item} />,
+        edit: <EditSubmittedMileageModal item={item} />,
+        delete: <SubmittedMileageModal item={item} />,
       })) ?? [],
     [submittedMileageList],
   );
