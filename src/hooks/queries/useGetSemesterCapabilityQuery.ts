@@ -6,7 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 const useGetSemesterCapabilityQuery = () => {
   const { student } = useAuthStore();
   return useQuery<SemesterCapabilityResponse[]>({
-    queryKey: ['semseterCapability', student.studentId],
+    queryKey: ['semesterCapability', student.studentId],
     queryFn: () =>
       getSemesterCapability({
         studentId: student.studentId,

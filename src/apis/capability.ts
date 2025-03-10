@@ -6,11 +6,11 @@ import {
 } from '@/types/capability';
 
 export const getCapability = async ({ studentId }: { studentId: string }) => {
-  const response = await http.get<{ data: CapabilityResponse[] }>(
+  const response = await http.get<CapabilityResponse[]>(
     `${ENDPOINT.CAPABILITY}/${studentId}`,
   );
 
-  return response.data;
+  return response;
 };
 
 export const getSemesterCapability = async ({
@@ -18,9 +18,9 @@ export const getSemesterCapability = async ({
 }: {
   studentId: string;
 }) => {
-  const response = await http.get<{ data: SemesterCapabilityResponse[] }>(
+  const response = await http.get<SemesterCapabilityResponse[]>(
     `${ENDPOINT.CAPABILITY}/semester/${studentId}`,
   );
 
-  return response.data;
+  return response;
 };

@@ -11,7 +11,7 @@ export const CapabilityHandlers = [
     const { is500Error } = randomMswError();
     if (is500Error) return Error500();
 
-    return HttpResponse.json({ data: mockCapability }, { status: 200 });
+    return HttpResponse.json(mockCapability, { status: 200 });
   }),
 
   http.get(BASE_URL + `${ENDPOINT.CAPABILITY}/semester/:studentId`, () => {
@@ -20,6 +20,6 @@ export const CapabilityHandlers = [
     if (is401Error) return Error401();
     if (is500Error) return Error500();
 
-    return HttpResponse.json({ data: mockSemesterCapability }, { status: 200 });
+    return HttpResponse.json(mockSemesterCapability, { status: 200 });
   }),
 ];
