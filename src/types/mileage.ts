@@ -59,3 +59,12 @@ export interface NewMileageRequest {
   description2: string | null;
   file: File | null;
 }
+
+export interface PatchSubmittedMileageRequest {
+  recordId: number;
+  studentId: string;
+  subitemId: number;
+  description1: string;
+  description2: string | null;
+  file: File | null;
+}

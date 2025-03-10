@@ -25,4 +25,12 @@ export const http = {
     const res = await axiosInstance.put<Response>(url, data);
     return res.data;
   },
+  patch: async function patch<Request = any, Response = unknown>(
+    url: string,
+    data?: Request,
+    config?: AxiosRequestConfig,
+  ) {
+    const res = await axiosInstance.patch<Response>(url, data, config);
+    return res.data;
+  },
 };
