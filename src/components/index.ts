@@ -1,3 +1,4 @@
+export { default as Accordion } from './_common/Accordion/Accordion';
 export { default as Button } from './_common/Button/Button';
 export { default as LineChart } from './_common/Chart/LineChart';
 export { default as RadarChart } from './_common/Chart/RadarChart';
