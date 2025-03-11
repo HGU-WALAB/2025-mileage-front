@@ -2,7 +2,7 @@ import { LogoutIcon } from '@/assets';
 import { Text } from '@/components';
 import Flex from '@/components/_common/Flex/Flex';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useAuthStore } from '@/stores';
+import { usePostLogoutMutation } from '@/hooks/queries';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
@@ -10,8 +10,8 @@ import { useNavigate } from 'react-router-dom';
 const LogoutSection = () => {
   const theme = useTheme();
   const navigate = useNavigate();
+  const { mutate: logout } = usePostLogoutMutation();
 
-  const { logout } = useAuthStore();
   const handleLogout = () => {
     logout();
     navigate(ROUTE_PATH.login);

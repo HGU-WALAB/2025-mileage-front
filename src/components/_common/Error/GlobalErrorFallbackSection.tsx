@@ -1,6 +1,6 @@
 import { Button } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useAuthStore } from '@/stores';
+import { usePostLogoutMutation } from '@/hooks/queries';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 const GlobalErrorFallbackSection = ({ error, resetErrorBoundary }: Props) => {
-  const { logout } = useAuthStore();
+  const { mutate: logout } = usePostLogoutMutation();
   const navigate = useNavigate();
 
   const handleLoginRedirect = () => {
