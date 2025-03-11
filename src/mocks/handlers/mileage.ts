@@ -96,7 +96,7 @@ export const MileageHandlers = [
 
     submittedMileage.update(prevData =>
       prevData.concat({
-        recordId: prevData.length,
+        recordId: prevData.length + 1,
         subitemId: Number(subitemId),
         subitemName: '기타',
         semester: semester,
@@ -109,6 +109,58 @@ export const MileageHandlers = [
 
     return HttpResponse.json(mockEtcMileageList, { status: 200 });
   }),
+
+  http.patch(
+    BASE_URL + `${ENDPOINT.ETC_MILEAGE}/:studentId/:recordId`,
+    async ({ params, request }) => {
+      const { is400Error, is401Error, is500Error } = randomMswError();
+
+      if (is400Error) return Error400();
+      if (is401Error) return Error401();
+      if (is500Error) return Error500();
+
+      const recordId = Number(params.recordId);
+      const requestData = await request.formData();
+
+      const description1 = requestData.get('description1');
+      const description2 = requestData.get('description2');
+      const file = requestData.get('file');
+
+      submittedMileage.update(prevData =>
+        prevData.map(item =>
+          item.recordId === recordId
+            ? ({
+                ...item,
+                description1: description1 as string,
+                description2: description2 as string,
+                file: file as File,
+                modDate: new Date().toDateString(),
+              } as SubmittedMileageResponse)
+            : item,
+        ),
+      );
+
+      return HttpResponse.json({}, { status: 200 });
+    },
+  ),
+
+  http.delete(
+    BASE_URL + `${ENDPOINT.ETC_MILEAGE}/:studentId/:recordId`,
+    ({ params }) => {
+      const { is400Error, is401Error, is500Error } = randomMswError();
+
+      if (is400Error) return Error400();
+      if (is401Error) return Error401();
+      if (is500Error) return Error500();
+
+      const recordId = Number(params.recordId);
+      submittedMileage.update(prevData =>
+        prevData.filter(item => item.recordId !== recordId),
+      );
+
+      return HttpResponse.json({}, { status: 200 });
+    },
+  ),
 ];
 
 const submittedMileage = new LiveStorage<SubmittedMileageResponse[]>(

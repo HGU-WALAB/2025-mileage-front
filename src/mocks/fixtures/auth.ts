@@ -11,5 +11,5 @@ export const mockUserData: UserResponse = {
   department: '전산전자공학부',
   currentSemester: '2025-1',
   modDate: new Date().toString(),
-  studentType: '미대상자',
+  studentType: '전공',
 };

@@ -10,4 +10,5 @@ export default defineConfig({
     svgr(),
     tsconfigPaths(),
   ],
+  base: '/mileage/',
 });
