@@ -1,10 +1,11 @@
 import { getEtcMileageList } from '@/apis/mileage';
+import { QUERY_KEYS } from '@/constants/queryKeys';
 import { EtcMileageResponse } from '@/types/mileage';
 import { useQuery } from '@tanstack/react-query';
 
 const useGetEtcMileageQuery = () => {
   return useQuery<EtcMileageResponse[]>({
-    queryKey: ['etcMileageList'],
+    queryKey: [QUERY_KEYS.etcMileageList],
     queryFn: () => getEtcMileageList(),
     throwOnError: true,
   });

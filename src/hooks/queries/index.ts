@@ -1,6 +1,7 @@
 export { default as useDeleteSubmittedMileageMutation } from './useDeleteSubmittedMileageMutation';
 export { default as useGetCapabilityQuery } from './useGetCapabilityQuery';
 export { default as useGetEtcMileageQuery } from './useGetEtcMileageQuery';
+export { default as useGetIsAppliedScholarshipQuery } from './useGetIsAppliedScholarshipQuery';
 export { default as useGetMileageQuery } from './useGetMileageQuery';
 export { default as useGetSemesterCapabilityQuery } from './useGetSemesterCapabilityQuery';
 export { default as useGetSubmittedMileageQuery } from './useGetSubmittedMileageQuery';
