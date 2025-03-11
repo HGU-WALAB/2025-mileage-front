@@ -20,22 +20,7 @@ const LoginPage = () => {
     }
   }, [isLogin, navigate]);
 
-  if (isMobile)
-    return (
-      <Flex.Column justify="center" align="center" height="100%">
-        <S.GlassContainer
-          justify="center"
-          align="center"
-          width="90%"
-          height="40%"
-        >
-          <Flex.Column gap="1rem" width="90%">
-            <LogoSection />
-            <LoginSection />
-          </Flex.Column>
-        </S.GlassContainer>
-      </Flex.Column>
-    );
+  if (isMobile) <MobileLoginPage />;
 
   return (
     <Flex.Column justify="center" align="center" height="100%">
@@ -60,6 +45,24 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+const MobileLoginPage = () => {
+  return (
+    <Flex.Column justify="center" align="center" height="100%">
+      <S.GlassContainer
+        justify="center"
+        align="center"
+        width="90%"
+        height="40%"
+      >
+        <Flex.Column gap="1rem" width="90%">
+          <LogoSection />
+          <LoginSection />
+        </Flex.Column>
+      </S.GlassContainer>
+    </Flex.Column>
+  );
+};
 
 const S = {
   GlassContainer: styled(Flex.Row)`

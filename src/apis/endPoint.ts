@@ -8,4 +8,6 @@ export const ENDPOINT = {
   AUTH: `/api/mileage/auth/login`,
   // user
   USER: `/api/mileage/users`,
+  // capability
+  CAPABILITY: `/api/mileage/capability`,
 };

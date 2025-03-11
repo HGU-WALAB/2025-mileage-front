@@ -13,50 +13,55 @@ import {
 
 import { createBrowserRouter } from 'react-router-dom';
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
+    {
+      element: (
+        <AuthGuard>
+          <DrawerLayout />
+        </AuthGuard>
+      ),
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          path: ROUTE_PATH.dashboard,
+          element: <DashboardPage />,
+        },
+        {
+          path: ROUTE_PATH.mileageList,
+          element: <MileageListPage />,
+        },
+        {
+          path: ROUTE_PATH.newMileage,
+          element: <AddMileagePage />,
+        },
+        {
+          path: ROUTE_PATH.scholarship,
+          element: <ScholarshipApplyPage />,
+        },
+        {
+          path: ROUTE_PATH.myPage,
+          element: <MyPage />,
+        },
+        {
+          path: '*',
+          element: <NotFoundPage />,
+        },
+      ],
+    },
+    {
+      element: <Layout />,
+      children: [
+        {
+          path: ROUTE_PATH.login,
+          element: <LoginPage />,
+        },
+      ],
+    },
+  ],
   {
-    element: (
-      <AuthGuard>
-        <DrawerLayout />
-      </AuthGuard>
-    ),
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: ROUTE_PATH.dashboard,
-        element: <DashboardPage />,
-      },
-      {
-        path: ROUTE_PATH.mileageList,
-        element: <MileageListPage />,
-      },
-      {
-        path: ROUTE_PATH.newMileage,
-        element: <AddMileagePage />,
-      },
-      {
-        path: ROUTE_PATH.scholarship,
-        element: <ScholarshipApplyPage />,
-      },
-      {
-        path: ROUTE_PATH.myPage,
-        element: <MyPage />,
-      },
-      {
-        path: '*',
-        element: <NotFoundPage />,
-      },
-    ],
+    basename: '/mileage/',
   },
-  {
-    element: <Layout />,
-    children: [
-      {
-        path: ROUTE_PATH.login,
-        element: <LoginPage />,
-      },
-    ],
-  },
-]);
+);
 
 export default router;
