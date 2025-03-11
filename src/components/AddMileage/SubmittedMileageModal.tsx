@@ -1,5 +1,5 @@
 import { Button, Dropdown, Flex, FormField, Modal, Text } from '@/components';
-import GuideDescSection from '@/components/AddMileage/GuideDescSection';
+import { FileDownloadButton, GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useOpenModal } from '@/hooks';
 import { SubmittedMileageResponse } from '@/types/mileage';
@@ -115,16 +115,7 @@ const SubmittedMileageModal = ({ item }: Props) => {
             <Flex.Row gap="1rem" align="center">
               <Flex.Column>
                 {item.file ? (
-                  <Text
-                    style={{
-                      ...theme.typography.body2,
-                      whiteSpace: 'nowrap',
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                    }}
-                  >
-                    {item.file.name}
-                  </Text>
+                  <FileDownloadButton item={item} />
                 ) : (
                   <>
                     <Text style={{ ...theme.typography.body2 }}>
