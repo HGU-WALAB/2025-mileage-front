@@ -6,6 +6,7 @@ const useGetUserInfoQuery = (studentId: string) => {
   return useQuery<UserResponse>({
     queryKey: ['userInfo', studentId],
     queryFn: () => getUserInfo({ studentId }),
+    throwOnError: true,
   });
 };
 

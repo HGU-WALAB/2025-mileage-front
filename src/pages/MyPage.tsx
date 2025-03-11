@@ -16,11 +16,10 @@ const MyPage = () => {
         {({ reset }) => (
           <ErrorBoundary FallbackComponent={PageErrorFallback} onReset={reset}>
             <UserInfoSection />
+            <RefreshUserInfoButton />
           </ErrorBoundary>
         )}
       </QueryErrorResetBoundary>
-
-      <RefreshUserInfoButton />
     </Flex.Column>
   );
 };
