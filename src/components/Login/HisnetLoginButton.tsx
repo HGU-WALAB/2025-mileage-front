@@ -11,7 +11,7 @@ const HisnetLoginButton = () => {
 
   useEffect(() => {
     if (isLoginSucceed) navigate(ROUTE_PATH.dashboard);
-  }, [isLoginSucceed, navigate]);
+  }, [isLoginSucceed]);
 
   return (
     <S.LoginButton
