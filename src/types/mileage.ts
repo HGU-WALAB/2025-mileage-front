@@ -50,7 +50,10 @@ export interface SubmittedMileageResponse {
 
   description1: string;
   description2: string | null;
-  file: File | null;
+
+  fileId: number;
+  file: string;
+  uniqueFileName: string;
 
   modDate: string;
 }
