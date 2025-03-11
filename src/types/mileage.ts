@@ -52,7 +52,7 @@ export interface SubmittedMileageResponse {
   description2: string | null;
 
   fileId: number;
-  file: string;
+  file: string | null;
   uniqueFileName: string;
 
   modDate: string;

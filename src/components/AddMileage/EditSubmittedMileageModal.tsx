@@ -151,7 +151,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
                       textOverflow: 'ellipsis',
                     }}
                   >
-                    {item.file.name}
+                    {item.file}
                   </Text>
                 ) : (
                   <>

@@ -23,11 +23,7 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     handleChange: handleDesc2,
     reset: resetDesc2,
   } = useInput(item?.description2 ?? undefined);
-  const {
-    value: file,
-    handleChange: handleFile,
-    reset: resetFile,
-  } = useFile(item.file);
+  const { value: file, handleChange: handleFile, reset: resetFile } = useFile();
 
   const { mutateAsync: patchSubmittedMileage } =
     usePatchSubmittedMileageMutation();
