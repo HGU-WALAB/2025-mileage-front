@@ -7,7 +7,7 @@ import { styled, useTheme } from '@mui/material';
 const UserSection = () => {
   const theme = useTheme();
   const { student } = useAuthStore();
-  const { data: userInfo, isError } = useGetUserInfoQuery(student.studentId);
+  const { data: userInfo, isLoading } = useGetUserInfoQuery(student.studentId);
 
   return (
     <Flex.Column
@@ -28,17 +28,17 @@ const UserSection = () => {
           </Heading>
           <Text color={theme.palette.white}>{student?.studentId}</Text>
         </S.UserBox>
-
-        {!isError && (
-          <Text style={{ color: theme.palette.white, fontWeight: 'bold' }}>
-            {userInfo?.department}
-          </Text>
-        )}
-        {!isError && (
-          <Text style={{ color: theme.palette.white, fontWeight: 'bold' }}>
-            {userInfo?.major1}
-          </Text>
-        )}
+        <Text
+          style={{
+            color: theme.palette.white,
+            fontWeight: 'bold',
+          }}
+        >
+          {isLoading ? '-' : userInfo?.department}
+        </Text>
+        <Text style={{ color: theme.palette.white, fontWeight: 'bold' }}>
+          {isLoading ? '-' : userInfo?.major1}
+        </Text>
       </Flex.Column>
     </Flex.Column>
   );

@@ -18,18 +18,16 @@ const LogoutSection = () => {
   };
 
   return (
-    <S.Wrapper direction="column-reverse" width="100%" align="center">
-      <S.LogoutButton
-        gap="1rem"
-        onClick={handleLogout}
-        width="100%"
-        justify="center"
-        padding=".5rem"
-      >
-        <LogoutIcon />
-        <Text color={theme.palette.white}>Logout</Text>
-      </S.LogoutButton>
-    </S.Wrapper>
+    <S.LogoutButton
+      gap="1rem"
+      onClick={handleLogout}
+      width="100%"
+      justify="center"
+      padding=".5rem"
+    >
+      <LogoutIcon />
+      <Text color={theme.palette.white}>Logout</Text>
+    </S.LogoutButton>
   );
 };
 
@@ -37,7 +35,6 @@ export default LogoutSection;
 
 const S = {
   Wrapper: styled(Flex)`
-    flex-grow: 1;
     margin-bottom: 1rem;
   `,
   LogoutButton: styled(Flex.Row)`

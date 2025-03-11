@@ -1,5 +1,6 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
+import { ALL_SEMESTER } from '@/constants/system';
 import {
   MileageRequest,
   MileageResponse,
@@ -16,7 +17,7 @@ export const getMileageList = async ({
   semester = 'all',
   done = 'all',
 }: MileageRequest) => {
-  if (semester === '전체') semester = 'all';
+  if (semester === ALL_SEMESTER) semester = 'all';
 
   const queryParams = new URLSearchParams({
     keyword,

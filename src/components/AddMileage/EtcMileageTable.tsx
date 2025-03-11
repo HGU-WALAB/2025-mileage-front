@@ -16,8 +16,7 @@ const EtcMileageTable = () => {
 
   const bodyItems = useMemo(
     () =>
-      etcMileageList?.map((item, index) => ({
-        id: index + 1,
+      etcMileageList?.map(item => ({
         semester: item.semester,
         categoryName: item.categoryName,
         subitemName: item.subitemName,

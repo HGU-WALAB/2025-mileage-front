@@ -7,9 +7,10 @@ import { styled } from '@mui/material';
 interface Props {
   isAgree: boolean;
   handleAgree: (isAgree: boolean) => void;
+  isApplied: number;
 }
 
-const ConsentSection = ({ isAgree, handleAgree }: Props) => {
+const ConsentSection = ({ isAgree, handleAgree, isApplied }: Props) => {
   const consentData: Consent = personalInfoConsent;
 
   return (
@@ -20,16 +21,18 @@ const ConsentSection = ({ isAgree, handleAgree }: Props) => {
           dangerouslySetInnerHTML={{ __html: consentData.description }}
         />
       </Flex.Column>
-      <S.AgreeButton
-        onClick={() => handleAgree(!isAgree)}
-        isAgree={isAgree}
-        justify="center"
-        align="center"
-        gap="1rem"
-      >
-        네, 동의합니다.
-        {isAgree ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
-      </S.AgreeButton>
+      {!isApplied && (
+        <S.AgreeButton
+          onClick={() => handleAgree(!isAgree)}
+          isAgree={isAgree}
+          justify="center"
+          align="center"
+          gap="1rem"
+        >
+          네, 동의합니다.
+          {isAgree ? <CheckCircleIcon /> : <CheckCircleOutlineIcon />}
+        </S.AgreeButton>
+      )}
     </S.Section>
   );
 };
