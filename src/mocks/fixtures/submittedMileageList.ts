@@ -8,10 +8,9 @@ export const mockSubmittedMileageList: SubmittedMileageResponse[] = [
     semester: '2025-1',
     description1: '학생회 활동',
     description2: '행사 기획 및 진행',
-    file: null,
-    // file: new File(['file content'], 'mileage_document.pdf', {
-    //   type: 'application/pdf',
-    // }),
+    file: new File(['file content'], 'mileage_document.pdf', {
+      type: 'application/pdf',
+    }),
     modDate: '2025-02-15',
   },
   {
@@ -30,11 +29,10 @@ export const mockSubmittedMileageList: SubmittedMileageResponse[] = [
     subitemName: '교내활동',
     semester: '2023-1',
     description1: '학교 홍보대사 활동',
-    description2: '입학 설명회 진행',
-    file: null,
-    // file: new File(['file content'], 'promo_activity.jpg', {
-    //   type: 'image/jpeg',
-    // }),
+    description2: null,
+    file: new File(['file content'], 'promo_activity.jpg', {
+      type: 'image/jpeg',
+    }),
     modDate: '2023-05-18',
   },
 ];

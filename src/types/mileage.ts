@@ -41,20 +41,33 @@ export interface EtcMileageResponse {
 }
 
 export interface SubmittedMileageResponse {
+  recordId: number;
+
   subitemId: number;
   subitemName: string;
+
   semester: string;
+
   description1: string;
   description2: string | null;
   file: File | null;
+
   modDate: string;
-  recordId: number;
 }
 
 export interface NewMileageRequest {
   studentId: string;
   subitemId: number;
   semester: string;
+  description1: string;
+  description2: string | null;
+  file: File | null;
+}
+
+export interface PatchSubmittedMileageRequest {
+  recordId: number;
+  studentId: string;
+  subitemId: number;
   description1: string;
   description2: string | null;
   file: File | null;

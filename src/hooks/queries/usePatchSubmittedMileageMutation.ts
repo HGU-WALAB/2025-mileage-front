@@ -1,18 +1,18 @@
-import { postScholarshipApply } from '@/apis/scholarship';
+import { patchSubmittedMileage } from '@/apis/mileage';
 import { QUERY_KEYS } from '@/constants/queryKeys';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const usePostScholarshipApplyMutation = () => {
+const usePatchSubmittedMileageMutation = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: postScholarshipApply,
+    mutationFn: patchSubmittedMileage,
     onSuccess: async () => {
       await queryClient.invalidateQueries({
-        queryKey: [QUERY_KEYS.isAppliedScholarship],
+        queryKey: [QUERY_KEYS.submittedMileage],
       });
     },
   });
 };
 
-export default usePostScholarshipApplyMutation;
+export default usePatchSubmittedMileageMutation;

@@ -1,28 +1,28 @@
-import { SemesterCapability } from '@/types/capability';
+import { SemesterCapabilityResponse } from '@/types/capability';
 
-export const mockSemesterCapability: SemesterCapability[] = [
+export const mockSemesterCapability: SemesterCapabilityResponse[] = [
   {
     semester: '2023-01',
-    point: 253,
+    userMilestoneCount: 253,
   },
   {
     semester: '2023-02',
-    point: 283,
+    userMilestoneCount: 283,
   },
   {
     semester: '2024-01',
-    point: 356,
+    userMilestoneCount: 356,
   },
   {
     semester: '2024-02',
-    point: 543,
+    userMilestoneCount: 543,
   },
   {
     semester: '2025-01',
-    point: 213,
+    userMilestoneCount: 213,
   },
   {
     semester: '2025-02',
-    point: 235,
+    userMilestoneCount: 235,
   },
 ];

@@ -1,6 +1,9 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
-import { ScholarshipApplyRequest } from '@/types/scholarship';
+import {
+  IsAppliedScholarshipResponse,
+  ScholarshipApplyRequest,
+} from '@/types/scholarship';
 
 export const postScholarshipApply = async ({
   studentId,
@@ -11,6 +14,18 @@ export const postScholarshipApply = async ({
     {
       isAgree,
     },
+  );
+
+  return response;
+};
+
+export const getIsAppliedScholarship = async ({
+  studentId,
+}: {
+  studentId: string;
+}) => {
+  const response = await http.get<IsAppliedScholarshipResponse>(
+    `${ENDPOINT.SCHOLARSHIP_APPLY}/${studentId}`,
   );
 
   return response;
