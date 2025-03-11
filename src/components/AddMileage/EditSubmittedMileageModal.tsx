@@ -1,3 +1,4 @@
+import { EditIcon } from '@/assets';
 import {
   Button,
   Dropdown,
@@ -38,7 +39,11 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
     <Modal
       open={open}
       toggleModal={toggleModal}
-      trigger={<Button label="수정하기" style={{ width: '100px' }} />}
+      trigger={
+        <S.IconButton>
+          <EditIcon />
+        </S.IconButton>
+      }
       size="large"
       hasCloseButton
       style={{
@@ -184,6 +189,16 @@ const S = {
     gap: 1rem;
     padding-top: 2rem;
     width: 100%;
+  `,
+  IconButton: styled('button')`
+    align-items: center;
+    background-color: ${({ theme }) => theme.palette.grey100};
+    border: 2px solid ${({ theme }) => theme.palette.grey200};
+    border-radius: 0.5rem;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    width: 30px;
   `,
   SubmitButton: styled(Button)`
     width: 300px;
