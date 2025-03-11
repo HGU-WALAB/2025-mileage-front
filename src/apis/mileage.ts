@@ -107,3 +107,17 @@ export const patchSubmittedMileage = async ({
 
   return response;
 };
+
+export const deleteSubmittedMileage = async ({
+  studentId,
+  recordId,
+}: {
+  studentId: string;
+  recordId: number;
+}) => {
+  const response = await http.delete(
+    `${ENDPOINT.ETC_MILEAGE}/${studentId}/${recordId}`,
+  );
+
+  return response;
+};

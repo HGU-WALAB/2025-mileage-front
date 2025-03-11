@@ -33,4 +33,8 @@ export const http = {
     const res = await axiosInstance.patch<Response>(url, data, config);
     return res.data;
   },
+  delete: async function remove<Response = unknown>(url: string) {
+    const res = await axiosInstance.delete<Response>(url);
+    return res.data;
+  },
 };
