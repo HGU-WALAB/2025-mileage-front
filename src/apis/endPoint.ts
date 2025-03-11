@@ -5,7 +5,7 @@ export const ENDPOINT = {
   // scholarship
   SCHOLARSHIP_APPLY: `/api/mileage/apply`,
   // auth
-  AUTH: `/api/mileage/auth/login`,
+  AUTH: `/api/mileage/auth`,
   // user
   USER: `/api/mileage/users`,
   // capability
