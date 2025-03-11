@@ -1,5 +1,10 @@
 import { Flex } from '@/components';
-import { ChartSection, MileageCountSection } from '@/components/Dashboard';
+import {
+  ChartSection,
+  FAQSection,
+  MileageCountSection,
+  ProcessSection,
+} from '@/components/Dashboard';
 import { pageHeight } from '@/constants/layoutSize';
 
 const DashboardPage = () => {
@@ -8,6 +13,10 @@ const DashboardPage = () => {
       <MileageCountSection />
 
       <ChartSection />
+
+      <ProcessSection />
+
+      <FAQSection />
     </Flex.Column>
   );
 };
