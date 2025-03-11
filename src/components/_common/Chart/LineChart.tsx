@@ -14,6 +14,10 @@ const LineChart = ({ data }: { data: SemesterCapabilityResponse[] }) => {
     },
   ];
 
+  const minBaseLine = Math.min(
+    ...data.filter(a => a.userMilestoneCount).map(a => a.userMilestoneCount),
+  );
+
   return (
     <ResponsiveLine
       data={formattedData}
@@ -48,7 +52,7 @@ const LineChart = ({ data }: { data: SemesterCapabilityResponse[] }) => {
       pointLabel="data.yFormatted"
       pointLabelYOffset={-12}
       enableArea={true}
-      areaBaselineValue={200}
+      areaBaselineValue={minBaseLine}
       enableTouchCrosshair={true}
       useMesh={true}
     />
