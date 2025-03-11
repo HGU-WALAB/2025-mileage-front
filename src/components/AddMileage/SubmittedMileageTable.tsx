@@ -8,13 +8,14 @@ import getDate from '@/utils/getDate';
 import { useMemo } from 'react';
 
 const headerItems: THeader[] = [
-  { id: 1, text: '학기', value: 'semester' },
-  { id: 2, text: '항목', value: 'subitemName' },
-  { id: 3, text: '설명', value: 'description1' },
-  { id: 4, text: '신청날짜', value: 'modDate' },
-  { id: 5, text: '상세보기', value: 'overview', align: 'center' },
-  { id: 6, text: '수정', value: 'edit', align: 'center' },
-  { id: 7, text: '삭제', value: 'delete', align: 'center' },
+  { text: '학기', value: 'semester' },
+  { text: '카테고리', value: 'categoryName' },
+  { text: '항목', value: 'subitemName' },
+  { text: '설명', value: 'description1' },
+  { text: '신청날짜', value: 'modDate' },
+  { text: '상세보기', value: 'overview', align: 'center' },
+  { text: '수정', value: 'edit', align: 'center' },
+  { text: '삭제', value: 'delete', align: 'center' },
 ];
 
 const SubmittedMileageTable = () => {
@@ -27,6 +28,7 @@ const SubmittedMileageTable = () => {
     () =>
       submittedMileageList?.map(item => ({
         semester: item.semester,
+        category: item.categoryName,
         subitemName: item.subitemName,
         description1: item.description1,
         modDate: getDate(item.modDate),
