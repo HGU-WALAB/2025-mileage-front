@@ -41,14 +41,21 @@ export interface EtcMileageResponse {
 }
 
 export interface SubmittedMileageResponse {
+  recordId: number;
+
+  categoryId: number;
+  categoryName: string;
+
   subitemId: number;
   subitemName: string;
+
   semester: string;
+
   description1: string;
   description2: string | null;
   file: File | null;
+
   modDate: string;
-  recordId: number;
 }
 
 export interface NewMileageRequest {
