@@ -10,7 +10,6 @@ import { useMemo } from 'react';
 
 const headerItems: THeader[] = [
   { text: '학기', value: 'semester' },
-  { text: '카테고리', value: 'categoryName' },
   { text: '항목', value: 'subitemName' },
   { text: '등록 상세 정보', value: 'description1' },
   { text: '신청날짜', value: 'modDate' },

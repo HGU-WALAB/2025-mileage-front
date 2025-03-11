@@ -22,7 +22,7 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     value: description2,
     handleChange: handleDesc2,
     reset: resetDesc2,
-  } = useInput(item?.description2);
+  } = useInput(item?.description2 ?? undefined);
   const {
     value: file,
     handleChange: handleFile,

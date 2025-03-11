@@ -1,5 +1,5 @@
 import { LogoIcon } from '@/assets';
-import { Button, Flex, Modal, Text } from '@/components';
+import { Button, Flex, Heading, Modal, Text } from '@/components';
 import { useOpenModal } from '@/hooks';
 import { useDeleteSubmittedMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
@@ -45,7 +45,14 @@ const DeleteSubmittedMileageModal = ({ item }: Props) => {
         }}
       >
         <LogoIcon width="100px" height="100px" />
+        <Flex.Column align="center">
+          <Heading as="h2">
+            정말 제출된 마일리지 항목을 삭제하시겠습니까?
+          </Heading>
+          <Heading as="h2">삭제된 마일리지는 다시 복구할 수 없습니다.</Heading>
+        </Flex.Column>
         <Flex.Column>
+          <Heading as="h3">제출된 마일리지 정보</Heading>
           <Text>항목 : {item.subitemName}</Text>
           <Text>등록 상세 정보 : {item.description1}</Text>
         </Flex.Column>
