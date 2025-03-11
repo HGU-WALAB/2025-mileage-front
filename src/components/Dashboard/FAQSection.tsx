@@ -30,7 +30,11 @@ export default FAQSection;
 
 const FAQDescBox = ({ list }: { list: FAQListItem[] }) => {
   return (
-    <Flex.Column height="270px" padding="0 1rem">
+    <Flex.Column
+      height="fit-content"
+      padding="0 1rem"
+      style={{ minHeight: '250px' }}
+    >
       <Flex.Column gap=".5rem">
         {list.map((item, index) => (
           <Flex.Column key={index}>
