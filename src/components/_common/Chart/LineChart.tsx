@@ -1,18 +1,22 @@
 import { SemesterCapabilityResponse } from '@/types/capability';
 import { useTheme } from '@mui/material';
 import { ResponsiveLine } from '@nivo/line';
+import { useMemo } from 'react';
 
 const LineChart = ({ data }: { data: SemesterCapabilityResponse[] }) => {
   const theme = useTheme();
-  const formattedData = [
-    {
-      id: 'Capability Points',
-      data: data.map(capability => ({
-        x: capability.semester,
-        y: capability.userMilestoneCount,
-      })),
-    },
-  ];
+  const formattedData = useMemo(
+    () => [
+      {
+        id: 'Capability Points',
+        data: data.map(capability => ({
+          x: capability.semester,
+          y: capability.userMilestoneCount,
+        })),
+      },
+    ],
+    [data],
+  );
 
   return (
     <ResponsiveLine
