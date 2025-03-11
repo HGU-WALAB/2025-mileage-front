@@ -9,11 +9,12 @@ const usePostLoginMutation = () => {
   return useMutation({
     mutationFn: postLogin,
     onSuccess: res => {
-      toast.success('어서오세요!');
+      toast.success('환영합니다!');
       login(
         {
           studentId: res.studentId,
           studentName: res.studentName,
+          studentType: res.studentType,
         },
         res.currentSemester,
       );

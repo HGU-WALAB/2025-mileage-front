@@ -14,5 +14,7 @@ export interface UserResponse {
   department: string;
   currentSemester: string;
   modDate: string;
-  studentType: string;
+  studentType: StudentType;
 }
+
+export type StudentType = '전공' | '융합' | '1학년' | '기타';
