@@ -5,10 +5,10 @@ import { THeader } from '@/types/table';
 import { useMemo } from 'react';
 
 const headerItems: THeader[] = [
-  { id: 1, text: '학기', value: 'semester' },
-  { id: 2, text: '카테고리', value: 'categoryName' },
-  { id: 3, text: '항목', value: 'subitemName' },
-  { id: 4, text: '', value: 'addModal', align: 'center' },
+  { text: '학기', value: 'semester' },
+  { text: '카테고리', value: 'categoryName' },
+  { text: '항목', value: 'subitemName' },
+  { text: '', value: 'addModal', align: 'center' },
 ];
 
 const EtcMileageTable = () => {

@@ -5,6 +5,7 @@ export { default as Drawer } from './_common/Drawer/Drawer';
 export { default as Dropdown } from './_common/Dropdown/Dropdown';
 export { default as AuthErrorFallback } from './_common/Error/AuthErrorFallback';
 export { default as CountBoxFallback } from './_common/Error/CountBoxFallback';
+export { default as ErrorBox } from './_common/Error/ErrorBox';
 export { default as ErrorResetBoundary } from './_common/Error/ErrorResetBoundary';
 export { default as GlobalErrorBoundary } from './_common/Error/GlobalErrorBoundary';
 export { default as GlobalErrorFallbackSection } from './_common/Error/GlobalErrorFallbackSection';
