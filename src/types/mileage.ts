@@ -43,9 +43,6 @@ export interface EtcMileageResponse {
 export interface SubmittedMileageResponse {
   recordId: number;
 
-  categoryId: number;
-  categoryName: string;
-
   subitemId: number;
   subitemName: string;
 

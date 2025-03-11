@@ -3,8 +3,6 @@ import { SubmittedMileageResponse } from '@/types/mileage';
 export const mockSubmittedMileageList: SubmittedMileageResponse[] = [
   {
     recordId: 1,
-    categoryId: 1,
-    categoryName: '대외활동',
     subitemId: 101,
     subitemName: '대외활동',
     semester: '2025-1',
@@ -17,8 +15,6 @@ export const mockSubmittedMileageList: SubmittedMileageResponse[] = [
   },
   {
     recordId: 2,
-    categoryId: 1,
-    categoryName: '대외활동',
     subitemId: 102,
     subitemName: '봉사',
     semester: '2024-2',
@@ -29,8 +25,6 @@ export const mockSubmittedMileageList: SubmittedMileageResponse[] = [
   },
   {
     recordId: 3,
-    categoryId: 1,
-    categoryName: '비교과',
     subitemId: 105,
     subitemName: '교내활동',
     semester: '2023-1',

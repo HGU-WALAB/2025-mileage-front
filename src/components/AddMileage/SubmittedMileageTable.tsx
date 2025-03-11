@@ -29,7 +29,6 @@ const SubmittedMileageTable = () => {
     () =>
       submittedMileageList?.map(item => ({
         semester: item.semester,
-        category: item.categoryName,
         subitemName: item.subitemName,
         description1: item.description1,
         modDate: getDate(item.modDate),

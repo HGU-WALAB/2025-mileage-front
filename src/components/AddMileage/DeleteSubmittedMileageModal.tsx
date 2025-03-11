@@ -46,7 +46,6 @@ const DeleteSubmittedMileageModal = ({ item }: Props) => {
       >
         <LogoIcon width="100px" height="100px" />
         <Flex.Column>
-          <Text>카테고리 : {item.categoryName}</Text>
           <Text>항목 : {item.subitemName}</Text>
           <Text>등록 상세 정보 : {item.description1}</Text>
         </Flex.Column>
