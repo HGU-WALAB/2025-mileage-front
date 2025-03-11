@@ -27,7 +27,11 @@ const Table = <T extends { [key: string]: any }>({
         <S.TableHead>
           <TableRow>
             {headItems.map(item => (
-              <S.HeadCell key={item.text} align={item.align ?? 'left'}>
+              <S.HeadCell
+                key={item.text}
+                align={item.align ?? 'left'}
+                width={item.width}
+              >
                 {item.text}
               </S.HeadCell>
             ))}
@@ -47,6 +51,7 @@ const Table = <T extends { [key: string]: any }>({
                     component="th"
                     scope="row"
                     align={header.align}
+                    width={header.width}
                   >
                     {value}
                   </S.BodyCell>
