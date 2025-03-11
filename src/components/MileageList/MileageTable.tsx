@@ -1,8 +1,9 @@
 import { EmptyBoxImg, JoinedCheckCircleIcon } from '@/assets';
 import { Flex, Heading, Table } from '@/components';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { MileageResponse } from '@/types/mileage';
 import { THeader } from '@/types/table';
-import { useTheme } from '@mui/material';
+import { useMediaQuery, useTheme } from '@mui/material';
 import { useMemo } from 'react';
 
 interface Props {
@@ -17,21 +18,31 @@ const headerItems: THeader[] = [
 ];
 
 const MileageTable = ({ mileageList }: Props) => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+
   const bodyItems = useMemo(
     () =>
-      mileageList.map((item, index) => ({
-        id: index + 1,
+      mileageList.map(item => ({
         semester: item.semester,
         subitemName: item.subitemName,
-        description: item.description,
+        ...(isMobile ? {} : { description: item.description }),
         done: item.done ? <JoinedCheckCircleIcon /> : null,
       })),
-    [mileageList],
+    [mileageList, isMobile],
   );
 
   if (!mileageList.length) return <EmptyTable />;
 
-  return <Table headItems={headerItems} bodyItems={bodyItems} />;
+  return (
+    <Table
+      headItems={
+        isMobile
+          ? headerItems.filter(item => item.text !== '내용')
+          : headerItems
+      }
+      bodyItems={bodyItems}
+    />
+  );
 };
 
 export default MileageTable;
