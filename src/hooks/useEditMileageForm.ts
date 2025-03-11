@@ -1,29 +1,36 @@
 import { useFile, useInput, useInputWithValidate } from '@/hooks';
-import { usePostNewMileageMutation } from '@/hooks/queries';
+import usePatchSubmittedMileageMutation from '@/hooks/queries/usePatchSubmittedMileageMutation';
 import { useAuthStore } from '@/stores';
+import { SubmittedMileageResponse } from '@/types/mileage';
 import { validateRequired } from '@/utils/validate';
 import { toast } from 'react-toastify';
 
-const useNewMileageForm = (
-  semester: string,
-  subitemId: number,
-  toggleModal: () => void,
-) => {
+interface Props {
+  item: SubmittedMileageResponse;
+  toggleModal: () => void;
+}
+
+const useEditMileageForm = ({ item, toggleModal }: Props) => {
   const { student } = useAuthStore();
   const {
     value: description1,
     handleChange: handleDesc1,
     errorMessage: desc1ErrorMessage,
     reset: resetDesc1,
-  } = useInputWithValidate('', validateRequired);
+  } = useInputWithValidate(item.description1, validateRequired);
   const {
     value: description2,
     handleChange: handleDesc2,
     reset: resetDesc2,
-  } = useInput();
-  const { value: file, handleChange: handleFile, reset: resetFile } = useFile();
+  } = useInput(item?.description2 ?? undefined);
+  const {
+    value: file,
+    handleChange: handleFile,
+    reset: resetFile,
+  } = useFile(item.file);
 
-  const { mutateAsync: postNewMileage } = usePostNewMileageMutation();
+  const { mutateAsync: patchSubmittedMileage } =
+    usePatchSubmittedMileageMutation();
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
   ) => {
@@ -53,19 +60,19 @@ const useNewMileageForm = (
 
   const submitForm = async () => {
     try {
-      await postNewMileage({
-        studentId: student?.studentId,
-        subitemId,
-        semester,
+      await patchSubmittedMileage({
+        studentId: student.studentId,
+        recordId: item.recordId,
+        subitemId: item.subitemId,
         description1,
         description2,
         file,
       });
       toggleModal();
-      toast.success('마일리지를 추가했습니다!');
+      toast.success('마일리지를 수정했습니다!');
       resetForm();
     } catch {
-      toast.error('마일리지 추가에 실패했습니다. 다시 시도해주세요');
+      toast.error('마일리지 수정에 실패했습니다. 다시 시도해주세요');
     }
   };
 
@@ -96,4 +103,4 @@ const useNewMileageForm = (
   };
 };
 
-export default useNewMileageForm;
+export default useEditMileageForm;

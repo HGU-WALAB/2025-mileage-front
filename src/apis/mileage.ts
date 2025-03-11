@@ -4,6 +4,7 @@ import {
   MileageRequest,
   MileageResponse,
   NewMileageRequest,
+  PatchSubmittedMileageRequest,
   SubmittedMileageResponse,
 } from '@/types/mileage';
 import axios, { GenericFormData } from 'axios';
@@ -74,6 +75,48 @@ export const getSubmittedMileageList = async ({
 }) => {
   const response = await http.get<SubmittedMileageResponse[]>(
     `${ENDPOINT.ETC_MILEAGE}/${studentId}`,
+  );
+
+  return response;
+};
+
+export const patchSubmittedMileage = async ({
+  recordId,
+  studentId,
+  subitemId,
+  description1,
+  description2,
+  file,
+}: PatchSubmittedMileageRequest) => {
+  const data = axios.toFormData({
+    description1,
+    description2,
+    file,
+    subitemId,
+  });
+
+  const response = await http.patch<GenericFormData>(
+    `${ENDPOINT.ETC_MILEAGE}/${studentId}/${recordId}`,
+    data,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  );
+
+  return response;
+};
+
+export const deleteSubmittedMileage = async ({
+  studentId,
+  recordId,
+}: {
+  studentId: string;
+  recordId: number;
+}) => {
+  const response = await http.delete(
+    `${ENDPOINT.ETC_MILEAGE}/${studentId}/${recordId}`,
   );
 
   return response;

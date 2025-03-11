@@ -1,3 +1,4 @@
+export { default as useDeleteSubmittedMileageMutation } from './useDeleteSubmittedMileageMutation';
 export { default as useGetCapabilityQuery } from './useGetCapabilityQuery';
 export { default as useGetEtcMileageQuery } from './useGetEtcMileageQuery';
 export { default as useGetMileageQuery } from './useGetMileageQuery';

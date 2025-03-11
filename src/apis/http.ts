@@ -21,8 +21,21 @@ export const http = {
   put: async function put<Request = any, Response = unknown>(
     url: string,
     data?: Request,
+    config?: AxiosRequestConfig,
   ) {
-    const res = await axiosInstance.put<Response>(url, data);
+    const res = await axiosInstance.put<Response>(url, data, config);
+    return res.data;
+  },
+  patch: async function patch<Request = any, Response = unknown>(
+    url: string,
+    data?: Request,
+    config?: AxiosRequestConfig,
+  ) {
+    const res = await axiosInstance.patch<Response>(url, data, config);
+    return res.data;
+  },
+  delete: async function remove<Response = unknown>(url: string) {
+    const res = await axiosInstance.delete<Response>(url);
     return res.data;
   },
 };
