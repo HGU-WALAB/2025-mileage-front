@@ -5,7 +5,7 @@ import { AuthRequest, UserResponse } from '@/types/auth';
 
 export const postLogin = async ({ token }: Omit<AuthRequest, 'accessKey'>) => {
   const response = await http.post<AuthRequest, UserResponse>(
-    `${ENDPOINT.AUTH}`,
+    `${ENDPOINT.AUTH}/login`,
     {
       accessKey: AUTH_ACCESS_KEY,
       token,
@@ -23,3 +23,7 @@ export const getUserInfo = async ({ studentId }: { studentId: string }) => {
   return response;
 };
 
+export const postLogout = async () => {
+  const response = await http.post(`${ENDPOINT.AUTH}/logout`);
+  return response;
+};

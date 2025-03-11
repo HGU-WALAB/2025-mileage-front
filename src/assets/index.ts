@@ -1,10 +1,14 @@
 // icons
+import AlertBoxIcon from '@/assets/icons/alertBox.svg?react';
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
+import CheckBoxIcon from '@/assets/icons/checkBox.svg?react';
 import CheckCircleIcon from '@/assets/icons/checkCircle.svg?react';
 import CheckCircleOutlineIcon from '@/assets/icons/checkCircleOutline.svg?react';
 import DashboardIcon from '@/assets/icons/dashboard.svg?react';
 import DashboardBlueIcon from '@/assets/icons/dashboardBlue.svg?react';
+import DeleteIcon from '@/assets/icons/delete.svg?react';
+import EditIcon from '@/assets/icons/edit.svg?react';
 import JoinedCheckCircleIcon from '@/assets/icons/joinedCheckCircle.svg?react';
 import LoadingIcon from '@/assets/icons/loading.svg?react';
 import LogoIcon from '@/assets/icons/logo.svg?react';
@@ -35,10 +39,13 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloseIcon from '@mui/icons-material/Close';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export {
+  AlertBoxIcon,
   AsteriskIcon,
   BackgroundImg,
+  CheckBoxIcon,
   CheckCircleIcon,
   CheckCircleOutlineIcon,
   CheckIcon,
@@ -46,7 +53,10 @@ export {
   CloudUploadIcon,
   DashboardBlueIcon,
   DashboardIcon,
+  DeleteIcon,
+  EditIcon,
   EmptyBoxImg,
+  ExpandMoreIcon,
   Img1,
   Img2,
   Img3,

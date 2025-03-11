@@ -122,3 +122,18 @@ export const deleteSubmittedMileage = async ({
 
   return response;
 };
+
+export const getSubmittedMileageFile = async ({
+  uniqueFileName,
+}: {
+  uniqueFileName: string;
+}) => {
+  const response = await http.get<Blob>(
+    `${ENDPOINT.ETC_MILEAGE}/file/${uniqueFileName}`,
+    {
+      responseType: 'blob',
+    },
+  );
+
+  return response;
+};

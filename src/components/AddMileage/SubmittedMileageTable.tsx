@@ -1,4 +1,4 @@
-import { BoxSkeleton, Table } from '@/components';
+import { BoxSkeleton, Flex, Table } from '@/components';
 import DeleteSubmittedMileageModal from '@/components/AddMileage/DeleteSubmittedMileageModal';
 import EditSubmittedMileageModal from '@/components/AddMileage/EditSubmittedMileageModal';
 import SubmittedMileageModal from '@/components/AddMileage/SubmittedMileageModal';
@@ -13,9 +13,8 @@ const headerItems: THeader[] = [
   { text: '항목', value: 'subitemName' },
   { text: '등록 상세 정보', value: 'description1' },
   { text: '신청날짜', value: 'modDate' },
-  { text: '상세보기', value: 'overview', align: 'center' },
-  { text: '수정', value: 'edit', align: 'center' },
-  { text: '삭제', value: 'delete', align: 'center' },
+  { text: '상세 내역 보기', value: 'overview', align: 'center' },
+  { text: '수정/삭제', value: 'func', align: 'center' },
 ];
 
 const SubmittedMileageTable = () => {
@@ -31,9 +30,13 @@ const SubmittedMileageTable = () => {
         subitemName: item.subitemName,
         description1: item.description1,
         modDate: getDate(item.modDate),
+        func: (
+          <Flex.Row gap=".5rem" justify="center">
+            <EditSubmittedMileageModal item={item} />
+            <DeleteSubmittedMileageModal item={item} />
+          </Flex.Row>
+        ),
         overview: <SubmittedMileageModal item={item} />,
-        edit: <EditSubmittedMileageModal item={item} />,
-        delete: <DeleteSubmittedMileageModal item={item} />,
       })) ?? [],
     [submittedMileageList],
   );

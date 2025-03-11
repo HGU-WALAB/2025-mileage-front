@@ -1,7 +1,7 @@
 import { EmptyBoxImg } from '@/assets';
 import { Button, Flex, Heading } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useAuthStore } from '@/stores';
+import { usePostLogoutMutation } from '@/hooks/queries';
 import { useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,7 +11,7 @@ const AuthErrorFallback = ({
   resetErrorBoundary: () => void;
 }) => {
   const theme = useTheme();
-  const { logout } = useAuthStore();
+  const { mutate: logout } = usePostLogoutMutation();
   const navigate = useNavigate();
 
   const handleLoginRedirect = () => {
