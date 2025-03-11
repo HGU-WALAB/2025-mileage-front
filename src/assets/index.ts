@@ -1,6 +1,8 @@
 // icons
+import AlertBoxIcon from '@/assets/icons/alertBox.svg?react';
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
+import CheckBoxIcon from '@/assets/icons/checkBox.svg?react';
 import CheckCircleIcon from '@/assets/icons/checkCircle.svg?react';
 import CheckCircleOutlineIcon from '@/assets/icons/checkCircleOutline.svg?react';
 import DashboardIcon from '@/assets/icons/dashboard.svg?react';
@@ -37,8 +39,10 @@ import CloseIcon from '@mui/icons-material/Close';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 export {
+  AlertBoxIcon,
   AsteriskIcon,
   BackgroundImg,
+  CheckBoxIcon,
   CheckCircleIcon,
   CheckCircleOutlineIcon,
   CheckIcon,
