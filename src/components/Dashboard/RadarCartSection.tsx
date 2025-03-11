@@ -7,7 +7,7 @@ import { styled } from '@mui/material';
 
 const RadarChartSection = () => {
   return (
-    <S.Container height="40%" width="100%" padding="1rem" gap="1rem">
+    <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
       <Heading as="h3">나의 역량 비교 그래프</Heading>
       <Flex height="90%" width="100%" justify="center" align="center">
         <ChartSection />
