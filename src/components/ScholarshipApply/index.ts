@@ -1,3 +1,4 @@
+export { default as AppliedSection } from './AppliedSection';
 export { default as ApplySection } from './ApplySection';
 export { default as ApplySucceedModal } from './ApplySucceedModal';
 export { default as ConsentSection } from './ConsentSection';

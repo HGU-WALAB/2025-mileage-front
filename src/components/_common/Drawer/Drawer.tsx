@@ -1,10 +1,11 @@
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 
-import { Flex } from '@/components';
+import { Button, Flex } from '@/components';
 import { drawerWidth, globalHeight } from '@/constants/layoutSize';
 import { useDrawerStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 
+import { ErrorBoundary } from 'react-error-boundary';
 import LogoSection from './LogoSection';
 import LogoutSection from './LogoutSection';
 import MenuSection from './MenuSection';
@@ -42,7 +43,9 @@ const Drawer = () => {
         <Flex.Column align="center" padding="1rem" gap="1rem" height="100%">
           <LogoSection />
 
-          <UserSection />
+          <ErrorBoundary fallback={<ReLoginSection />}>
+            <UserSection />
+          </ErrorBoundary>
 
           <MenuSection />
 
@@ -54,3 +57,23 @@ const Drawer = () => {
 };
 
 export default Drawer;
+
+const ReLoginSection = () => {
+  const theme = useTheme();
+  return (
+    <Flex.Row
+      align="center"
+      justify="center"
+      gap=".5rem"
+      backgroundColor={getOpacityColor(theme.palette.white, 0.1)}
+      width="100%"
+      padding="1rem"
+      style={{
+        border: `0.5px solid ${getOpacityColor(theme.palette.white, 0.7)}`,
+        borderRadius: '.5rem',
+      }}
+    >
+      <Button label="히즈넷 로그인하러 가기" />
+    </Flex.Row>
+  );
+};
