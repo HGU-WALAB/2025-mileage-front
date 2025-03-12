@@ -1,5 +1,6 @@
 import { Button, Flex } from '@/components';
-import ApplySucceedModal from '@/components/ScholarshipApply/ApplySucceedModal';
+import { ApplySucceedModal } from '@/components/ScholarshipApply';
+import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { usePostScholarshipApplyMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
@@ -12,7 +13,7 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
 
   const handleApply = () => {
     if (!isAgree) {
-      toast.error('개인 정보 수집을 동의해주세요!');
+      toast.error(TOAST_MESSAGES.checkConsent);
       return;
     }
 
