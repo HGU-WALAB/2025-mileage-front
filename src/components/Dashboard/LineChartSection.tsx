@@ -23,10 +23,11 @@ const ChartSection = () => {
     data: semesterCapability,
     isLoading,
     isError,
+    error,
   } = useGetSemesterCapabilityQuery();
 
   if (isLoading) return <LoadingIcon width={100} height={100} />;
-  if (isError) return <ErrorBox />;
+  if (isError) return <ErrorBox error={error} />;
   return (
     <LineChart data={semesterCapability as SemesterCapabilityResponse[]} />
   );
