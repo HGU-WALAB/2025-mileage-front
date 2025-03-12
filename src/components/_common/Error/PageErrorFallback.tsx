@@ -6,27 +6,28 @@ import { FallbackProps } from 'react-error-boundary';
 const PageErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const theme = useTheme();
 
-  if (error.response?.status === 401) {
-    return <AuthErrorFallback resetErrorBoundary={resetErrorBoundary} />;
-  }
-
   return (
-    <Flex.Column
-      width="100%"
-      height="400px"
-      gap="1rem"
-      justify="center"
-      align="center"
-    >
-      <EmptyBoxImg />
-      <Heading
-        as="h2"
-        style={{ fontSize: '2rem', color: theme.palette.grey300 }}
+    <>
+      {error.response?.status === 401 && (
+        <AuthErrorFallback resetErrorBoundary={resetErrorBoundary} />
+      )}
+      <Flex.Column
+        width="100%"
+        height="400px"
+        gap="1rem"
+        justify="center"
+        align="center"
       >
-        헉 {error.status} 에러 발생 .. !
-      </Heading>
-      <Button label="다시 시도하기" onClick={resetErrorBoundary} />
-    </Flex.Column>
+        <EmptyBoxImg />
+        <Heading
+          as="h2"
+          style={{ fontSize: '2rem', color: theme.palette.grey300 }}
+        >
+          헉 {error.status} 에러 발생 .. !
+        </Heading>
+        <Button label="다시 시도하기" onClick={resetErrorBoundary} />
+      </Flex.Column>
+    </>
   );
 };
 
