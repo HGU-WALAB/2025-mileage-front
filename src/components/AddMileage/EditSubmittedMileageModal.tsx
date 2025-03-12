@@ -136,7 +136,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
                 ...theme.typography.body2,
               }}
             />
-            <Flex.Row gap="1rem" align="center">
+            <Flex.Row gap="1rem" align="center" wrap="wrap">
               <UploadButton
                 label="첨부파일 업로드"
                 onUpload={file.handleChange}
