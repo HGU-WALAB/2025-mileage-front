@@ -10,7 +10,7 @@ const FAQSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   return (
-    <S.Container height="fit-content" width="100%" wrap="wrap" gap="1rem">
+    <S.Container height="fit-content" width="100%" gap="1rem">
       <Heading as="h2" color={theme.palette.primary.main}>
         자주 묻는 질문
       </Heading>
@@ -52,7 +52,7 @@ const FAQDescBox = ({ list }: { list: FAQListItem[] }) => {
 };
 
 const S = {
-  Container: styled(Flex.Row)`
+  Container: styled(Flex.Column)`
     background-color: ${({ theme }) => theme.palette.white};
     border-radius: 1rem;
     margin-bottom: 2rem;
