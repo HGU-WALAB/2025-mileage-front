@@ -20,7 +20,7 @@ const LoginPage = () => {
     }
   }, [isLogin, navigate]);
 
-  if (isMobile) <MobileLoginPage />;
+  if (isMobile) return <MobileLoginPage />;
 
   return (
     <Flex.Column justify="center" align="center" height="100%">
