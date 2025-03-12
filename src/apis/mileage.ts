@@ -1,5 +1,6 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
+import { ALL_SEMESTER } from '@/constants/system';
 import {
   MileageRequest,
   MileageResponse,
@@ -16,7 +17,7 @@ export const getMileageList = async ({
   semester = 'all',
   done = 'all',
 }: MileageRequest) => {
-  if (semester === '전체') semester = 'all';
+  if (semester === ALL_SEMESTER) semester = 'all';
 
   const queryParams = new URLSearchParams({
     keyword,
@@ -117,6 +118,21 @@ export const deleteSubmittedMileage = async ({
 }) => {
   const response = await http.delete(
     `${ENDPOINT.ETC_MILEAGE}/${studentId}/${recordId}`,
+  );
+
+  return response;
+};
+
+export const getSubmittedMileageFile = async ({
+  uniqueFileName,
+}: {
+  uniqueFileName: string;
+}) => {
+  const response = await http.get<Blob>(
+    `${ENDPOINT.ETC_MILEAGE}/file/${uniqueFileName}`,
+    {
+      responseType: 'blob',
+    },
   );
 
   return response;

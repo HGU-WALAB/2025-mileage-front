@@ -8,7 +8,7 @@ const ChartSection = () => {
 
   return (
     <Flex.Row
-      height="100%"
+      height="fit-content"
       width="100%"
       justify="center"
       gap="1rem"

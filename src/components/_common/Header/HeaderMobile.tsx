@@ -3,7 +3,7 @@ import { Flex, Heading } from '@/components';
 import headerItems from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useAuthStore } from '@/stores';
+import { usePostLogoutMutation } from '@/hooks/queries';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -15,7 +15,7 @@ const HeaderMobile = () => {
   const location = useLocation();
   const title = headerItems[location.pathname];
 
-  const { logout } = useAuthStore();
+  const { mutate: logout } = usePostLogoutMutation();
   const handleLogout = () => {
     logout();
     navigate(ROUTE_PATH.login);

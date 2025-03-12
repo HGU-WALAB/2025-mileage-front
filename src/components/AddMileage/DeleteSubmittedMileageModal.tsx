@@ -1,4 +1,4 @@
-import { LogoIcon } from '@/assets';
+import { DeleteIcon, LogoIcon } from '@/assets';
 import { Button, Flex, Heading, Modal, Text } from '@/components';
 import { useOpenModal } from '@/hooks';
 import { useDeleteSubmittedMileageMutation } from '@/hooks/queries';
@@ -29,7 +29,9 @@ const DeleteSubmittedMileageModal = ({ item }: Props) => {
       open={open}
       toggleModal={toggleModal}
       trigger={
-        <Button label="삭제하기" style={{ width: '100px' }} color="pink" />
+        <S.IconButton>
+          <DeleteIcon />
+        </S.IconButton>
       }
       size="medium"
       hasCloseButton
@@ -72,6 +74,16 @@ const DeleteSubmittedMileageModal = ({ item }: Props) => {
 export default DeleteSubmittedMileageModal;
 
 const S = {
+  IconButton: styled('button')`
+    align-items: center;
+    background-color: ${({ theme }) => theme.palette.grey100};
+    border: 2px solid ${({ theme }) => theme.palette.grey200};
+    border-radius: 0.5rem;
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    width: 30px;
+  `,
   SubmitButton: styled(Button)`
     width: 150px;
     ${({ theme }) => theme.typography.h3}

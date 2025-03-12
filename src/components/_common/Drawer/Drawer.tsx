@@ -1,11 +1,11 @@
-import { Drawer as MuiDrawer, useTheme } from '@mui/material';
-
 import { Button, Flex } from '@/components';
 import { drawerWidth, globalHeight } from '@/constants/layoutSize';
 import { useDrawerStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
-
+import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 import { ErrorBoundary } from 'react-error-boundary';
+
+import IsApplyCheckSection from '@/components/_common/Drawer/IsApplyCheckSection';
 import LogoSection from './LogoSection';
 import LogoutSection from './LogoutSection';
 import MenuSection from './MenuSection';
@@ -49,7 +49,16 @@ const Drawer = () => {
 
           <MenuSection />
 
-          <LogoutSection />
+          <Flex.Column
+            justify="flex-end"
+            width="100%"
+            gap="1rem"
+            style={{ flexGrow: 1 }}
+            margin="1rem 0"
+          >
+            <IsApplyCheckSection />
+            <LogoutSection />
+          </Flex.Column>
         </Flex.Column>
       </MuiDrawer>
     </>

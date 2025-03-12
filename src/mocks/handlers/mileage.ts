@@ -133,7 +133,7 @@ export const MileageHandlers = [
                 ...item,
                 description1: description1 as string,
                 description2: description2 as string,
-                file: file as File,
+                file: file as string,
                 modDate: new Date().toDateString(),
               } as SubmittedMileageResponse)
             : item,

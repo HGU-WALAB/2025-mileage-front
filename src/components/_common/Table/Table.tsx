@@ -23,11 +23,15 @@ const Table = <T extends { [key: string]: any }>({
 }: Props<T>) => {
   return (
     <TableContainer component={Paper} sx={{ boxShadow: 'none' }}>
-      <MuiTable sx={{ minWidth: 650 }} aria-label="table">
+      <MuiTable sx={{ minWidth: 400 }} aria-label="table">
         <S.TableHead>
           <TableRow>
             {headItems.map(item => (
-              <S.HeadCell key={item.text} align={item.align ?? 'left'}>
+              <S.HeadCell
+                key={`head-cell-${item.text}`}
+                align={item.align ?? 'left'}
+                width={item.width}
+              >
                 {item.text}
               </S.HeadCell>
             ))}
@@ -43,10 +47,11 @@ const Table = <T extends { [key: string]: any }>({
                 const value = row[header.value];
                 return (
                   <S.BodyCell
-                    key={cellIndex}
+                    key={`body-cell-${cellIndex}-${value}`}
                     component="th"
                     scope="row"
                     align={header.align}
+                    width={header.width}
                   >
                     {value}
                   </S.BodyCell>
