@@ -55,7 +55,7 @@ const MobileLoginPage = () => {
         width="90%"
         height="40%"
       >
-        <Flex.Column gap="1rem" width="90%">
+        <Flex.Column gap="1rem" width="90%" justify="center" align="center">
           <LogoSection />
           <LoginSection />
         </Flex.Column>
