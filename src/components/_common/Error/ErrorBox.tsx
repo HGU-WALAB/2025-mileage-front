@@ -7,7 +7,7 @@ import { AxiosError } from 'axios';
 const ErrorBox = ({ error }: { error: AxiosError }) => {
   const theme = useTheme();
   return (
-    <Flex.Column gap=".5rem" align="center">
+    <Flex.Column gap="1rem" align="center">
       <EmptyBoxImg width={75} height={75} />
       <Heading
         as="h2"
