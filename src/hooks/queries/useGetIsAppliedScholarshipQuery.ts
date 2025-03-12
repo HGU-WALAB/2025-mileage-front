@@ -9,7 +9,6 @@ const useGetIsAppliedScholarshipQuery = () => {
   return useQuery<IsAppliedScholarshipResponse>({
     queryKey: [QUERY_KEYS.isAppliedScholarship],
     queryFn: () => getIsAppliedScholarship({ studentId: student.studentId }),
-    throwOnError: true,
   });
 };
 
