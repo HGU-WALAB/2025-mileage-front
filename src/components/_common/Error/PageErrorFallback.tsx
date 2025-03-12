@@ -20,10 +20,7 @@ const PageErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
         align="center"
       >
         <EmptyBoxImg />
-        <Heading
-          as="h2"
-          style={{ fontSize: '2rem', color: theme.palette.grey300 }}
-        >
+        <Heading as="h2" style={{ color: theme.palette.grey300 }}>
           {getErrorMessage(error.status)}
         </Heading>
         <Button label="다시 시도하기" onClick={resetErrorBoundary} />

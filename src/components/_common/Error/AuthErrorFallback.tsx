@@ -43,7 +43,6 @@ const AuthErrorFallback = ({
         <Heading
           as="h2"
           style={{
-            fontSize: '1rem',
             textAlign: 'center',
           }}
         >
