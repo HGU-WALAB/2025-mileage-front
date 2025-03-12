@@ -6,6 +6,8 @@ import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import IsApplyCheckSection from '@/components/_common/Drawer/IsApplyCheckSection';
+import { ROUTE_PATH } from '@/constants/routePath';
+import { useNavigate } from 'react-router-dom';
 import LogoSection from './LogoSection';
 import LogoutSection from './LogoutSection';
 import MenuSection from './MenuSection';
@@ -68,6 +70,7 @@ const Drawer = () => {
 export default Drawer;
 
 const ReLoginSection = () => {
+  const navigate = useNavigate();
   const theme = useTheme();
   return (
     <Flex.Row
@@ -82,7 +85,10 @@ const ReLoginSection = () => {
         borderRadius: '.5rem',
       }}
     >
-      <Button label="히즈넷 로그인하러 가기" />
+      <Button
+        label="히즈넷 로그인하러 가기"
+        onClick={() => navigate(ROUTE_PATH.login)}
+      />
     </Flex.Row>
   );
 };
