@@ -1,4 +1,4 @@
 .Toastify__toast {
-  width: fit-content;
+  min-width: fit-content;
   font-size: 16px;
 }
