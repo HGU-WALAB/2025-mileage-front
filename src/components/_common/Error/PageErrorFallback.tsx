@@ -1,5 +1,6 @@
 import { EmptyBoxImg } from '@/assets';
 import { AuthErrorFallback, Button, Flex, Heading } from '@/components';
+import { getErrorMessage } from '@/utils/getErrorMessage';
 import { useTheme } from '@mui/material';
 import { FallbackProps } from 'react-error-boundary';
 
@@ -23,7 +24,7 @@ const PageErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
           as="h2"
           style={{ fontSize: '2rem', color: theme.palette.grey300 }}
         >
-          헉 {error.status} 에러 발생 .. !
+          {getErrorMessage(error.status)}
         </Heading>
         <Button label="다시 시도하기" onClick={resetErrorBoundary} />
       </Flex.Column>
