@@ -25,18 +25,16 @@ const ChartSection = () => {
     isError,
     error,
   } = useGetCapabilityQuery();
-  const capabilityData = capability?.map(capability => {
-    return {
-      capabilityId: capability.capabilityId,
-      capabilityName: capability.capabilityName,
-      mileagePercent:
-        (capability.milestoneCount / capability.totalMilestoneCount) * 100,
-    };
-  });
+
+  const capabilityData: RadarCapability[] = (capability ?? []).map(cap => ({
+    capabilityId: cap.capabilityId,
+    capabilityName: cap.capabilityName,
+    mileagePercent: (cap.milestoneCount / cap.totalMilestoneCount) * 100,
+  }));
 
   if (isLoading) return <LoadingIcon width={100} height={100} />;
   if (isError) return <ErrorBox error={error} />;
-  return <RadarChart data={capabilityData as RadarCapability[]} />;
+  return <RadarChart data={capabilityData} />;
 };
 
 const S = {
