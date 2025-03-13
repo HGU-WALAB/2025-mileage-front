@@ -3,6 +3,7 @@ import { http } from '@/apis/http';
 import {
   IsAppliedScholarshipResponse,
   ScholarshipApplyRequest,
+  ScholarshipDurationResponse,
 } from '@/types/scholarship';
 
 export const postScholarshipApply = async ({
@@ -26,6 +27,14 @@ export const getIsAppliedScholarship = async ({
 }) => {
   const response = await http.get<IsAppliedScholarshipResponse>(
     `${ENDPOINT.SCHOLARSHIP_APPLY}/${studentId}`,
+  );
+
+  return response;
+};
+
+export const getScholarshipDuration = async () => {
+  const response = await http.get<ScholarshipDurationResponse>(
+    `${ENDPOINT.SCHOLARSHIP_APPLY}`,
   );
 
   return response;

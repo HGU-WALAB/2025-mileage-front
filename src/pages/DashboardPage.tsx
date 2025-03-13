@@ -4,6 +4,7 @@ import {
   FAQSection,
   MileageCountSection,
   ProcessSection,
+  ScholarshipDurationSection,
 } from '@/components/Dashboard';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 
@@ -12,7 +13,10 @@ const DashboardPage = () => {
 
   return (
     <Flex.Column margin="1rem 1rem 2rem" gap="1rem">
-      <MileageCountSection />
+      <Flex.Row justify="space-between" align="flex-end">
+        <ScholarshipDurationSection />
+        <MileageCountSection />
+      </Flex.Row>
 
       <ChartSection />
 

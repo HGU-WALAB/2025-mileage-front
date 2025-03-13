@@ -46,7 +46,12 @@ const ProcessStep = () => {
     <>
       {processStep.map((step, index) => (
         <>
-          <S.StepBox justify="center" align="center" isMobile={isMobile}>
+          <S.StepBox
+            key={`step-${step}`}
+            justify="center"
+            align="center"
+            isMobile={isMobile}
+          >
             <Heading
               as="h3"
               style={{
@@ -57,7 +62,11 @@ const ProcessStep = () => {
             </Heading>
           </S.StepBox>
           {index + 1 !== processStep.length &&
-            (isMobile ? <S.DownArrowBox /> : <S.RightArrowBox />)}
+            (isMobile ? (
+              <S.DownArrowBox key={`down-arrow-${step}`} />
+            ) : (
+              <S.RightArrowBox key={`right-arrow-${step}`} />
+            ))}
         </>
       ))}
     </>

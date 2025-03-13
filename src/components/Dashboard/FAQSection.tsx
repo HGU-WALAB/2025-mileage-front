@@ -17,6 +17,7 @@ const FAQSection = () => {
       <S.Grid isMobile={isMobile}>
         {FAQ.map(faq => (
           <Accordion
+            key={`faq-accordion-${faq.category}`}
             title={faq.category}
             desc={<FAQDescBox list={faq.list} />}
           />
