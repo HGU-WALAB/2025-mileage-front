@@ -1,5 +1,5 @@
 import { ExpandMoreIcon } from '@/assets';
-import { Flex } from '@/components';
+import Flex from '@/components/_common/Flex/Flex';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { Accordion as MuiAccordion, styled, useTheme } from '@mui/material';
