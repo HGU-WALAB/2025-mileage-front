@@ -1,3 +1,4 @@
+import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { useFile, useInput, useInputWithValidate } from '@/hooks';
 import { usePostNewMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
@@ -54,7 +55,7 @@ const useNewMileageForm = (
   const submitForm = async () => {
     try {
       await postNewMileage({
-        studentId: student?.studentId,
+        studentId: student.studentId,
         subitemId,
         semester,
         description1,
@@ -62,10 +63,10 @@ const useNewMileageForm = (
         file,
       });
       toggleModal();
-      toast.success('마일리지를 추가했습니다!');
+      toast.success(TOAST_MESSAGES.addMileage);
       resetForm();
     } catch {
-      toast.error('마일리지 추가에 실패했습니다. 다시 시도해주세요');
+      toast.error(TOAST_MESSAGES.failedAddMileage);
     }
   };
 
