@@ -1,4 +1,5 @@
 import { postLogin } from '@/apis/auth';
+import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { useAuthStore } from '@/stores';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
@@ -9,7 +10,7 @@ const usePostLoginMutation = () => {
   return useMutation({
     mutationFn: postLogin,
     onSuccess: res => {
-      toast.success('환영합니다!');
+      toast.success(TOAST_MESSAGES.welcome);
       login(
         {
           studentId: res.studentId,

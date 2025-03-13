@@ -8,10 +8,9 @@ import {
   Text,
   UploadButton,
 } from '@/components';
-import GuideDescSection from '@/components/AddMileage/GuideDescSection';
+import { GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useOpenModal } from '@/hooks';
-import useEditMileageForm from '@/hooks/useEditMileageForm';
+import { useEditMileageForm, useOpenModal } from '@/hooks';
 import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
@@ -136,7 +135,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
                 ...theme.typography.body2,
               }}
             />
-            <Flex.Row gap="1rem" align="center">
+            <Flex.Row gap="1rem" align="center" wrap="wrap">
               <UploadButton
                 label="첨부파일 업로드"
                 onUpload={file.handleChange}

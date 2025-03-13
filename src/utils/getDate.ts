@@ -1,4 +1,4 @@
-const getDate = (stringDate: string) => {
+export const getDate = (stringDate: string) => {
   const date = new Date(stringDate);
 
   const year = date.getFullYear();
@@ -7,5 +7,3 @@ const getDate = (stringDate: string) => {
 
   return `${year}/${month}/${day}`;
 };
-
-export default getDate;

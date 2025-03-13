@@ -1,11 +1,13 @@
 import { BoxSkeleton, Flex, Table } from '@/components';
-import DeleteSubmittedMileageModal from '@/components/AddMileage/DeleteSubmittedMileageModal';
-import EditSubmittedMileageModal from '@/components/AddMileage/EditSubmittedMileageModal';
-import SubmittedMileageModal from '@/components/AddMileage/SubmittedMileageModal';
+import {
+  DeleteSubmittedMileageModal,
+  EditSubmittedMileageModal,
+  SubmittedMileageModal,
+} from '@/components/AddMileage';
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { THeader } from '@/types/table';
-import getDate from '@/utils/getDate';
+import { getDate } from '@/utils/getDate';
 import { useMemo } from 'react';
 
 const headerItems: THeader[] = [

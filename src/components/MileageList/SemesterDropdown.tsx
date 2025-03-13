@@ -9,14 +9,16 @@ const SemesterDropdown = () => {
 
   return (
     <Flex.Row gap=".75rem" align="center">
-      <Text>학기 선택</Text>
       {!isLoading && (
-        <Dropdown
-          items={semesterList ?? []}
-          selectedItem={selectedSemester ?? currentSemester}
-          setSelectedItem={setSelectedSemester}
-          width="200px"
-        />
+        <>
+          <Text>학기 선택</Text>
+          <Dropdown
+            items={semesterList ?? []}
+            selectedItem={selectedSemester ?? currentSemester}
+            setSelectedItem={setSelectedSemester}
+            width="200px"
+          />
+        </>
       )}
     </Flex.Row>
   );

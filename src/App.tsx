@@ -1,8 +1,10 @@
 import router from '@/router';
-import useThemeStore from '@/stores/useThemeStore';
+import { useThemeStore } from '@/stores';
 import { globalStyle } from '@/styles/global';
 import { darkTheme, lightTheme } from '@/styles/theme';
+import '@/styles/toast.css';
 import { ErrorResponse } from '@/types/error';
+import { getErrorMessage } from '@/utils/getErrorMessage';
 import { Global } from '@emotion/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
@@ -20,7 +22,7 @@ const queryClient = new QueryClient({
 
           if (errorData) {
             toast.error(errorData.message);
-          }
+          } else toast.error(getErrorMessage(error.name));
         }
       },
     },
@@ -37,7 +39,12 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={themeMode === 'dark' ? darkTheme : lightTheme}>
         <Global styles={globalStyle} />
-        <ToastContainer autoClose={2000} position="top-center" />
+        <ToastContainer
+          autoClose={2000}
+          position="top-center"
+          hideProgressBar={true}
+          className="custom-toast-container"
+        />
         <CssBaseline />
         <RouterProvider router={router} />
       </ThemeProvider>

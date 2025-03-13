@@ -6,9 +6,16 @@ const useLogin = () => {
   const { mutate: postLogin, isSuccess } = usePostLoginMutation();
 
   useEffect(() => {
-    const token = new URL(window.location.href).searchParams.get('token');
+    const currentUrl = new URL(window.location.href);
+    const params = new URLSearchParams(currentUrl.search);
+    const token = params.get('token');
+
     if (token) {
       postLogin({ token });
+
+      params.delete('token');
+      currentUrl.search = params.toString();
+      window.history.replaceState({}, '', currentUrl.toString());
     }
   }, [postLogin]);
 

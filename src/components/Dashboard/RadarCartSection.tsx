@@ -19,7 +19,12 @@ const RadarChartSection = () => {
 export default RadarChartSection;
 
 const ChartSection = () => {
-  const { data: capability, isLoading, isError } = useGetCapabilityQuery();
+  const {
+    data: capability,
+    isLoading,
+    isError,
+    error,
+  } = useGetCapabilityQuery();
   const capabilityData = capability?.map(capability => {
     return {
       capabilityId: capability.capabilityId,
@@ -30,7 +35,7 @@ const ChartSection = () => {
   });
 
   if (isLoading) return <LoadingIcon width={100} height={100} />;
-  if (isError) return <ErrorBox />;
+  if (isError) return <ErrorBox error={error} />;
   return <RadarChart data={capabilityData as RadarCapability[]} />;
 };
 

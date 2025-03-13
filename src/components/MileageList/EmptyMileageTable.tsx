@@ -14,11 +14,8 @@ const EmptyMileageTable = () => {
       align="center"
     >
       <EmptyBoxImg />
-      <Heading
-        as="h2"
-        style={{ fontSize: '2rem', color: theme.palette.grey300 }}
-      >
-        앗 마일리지가 없어요
+      <Heading as="h2" style={{ color: theme.palette.grey300 }}>
+        마일리지 정보가 없어요
       </Heading>
     </Flex.Column>
   );

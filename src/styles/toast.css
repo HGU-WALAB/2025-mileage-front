@@ -1,0 +1,5 @@
+.Toastify__toast {
+  min-width: fit-content;
+  word-break: keep-all;
+  white-space: nowrap;
+}

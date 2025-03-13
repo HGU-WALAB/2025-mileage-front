@@ -7,7 +7,7 @@ import {
   Text,
   UploadButton,
 } from '@/components';
-import GuideDescSection from '@/components/AddMileage/GuideDescSection';
+import { GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useNewMileageForm, useOpenModal } from '@/hooks';
 import { styled, useMediaQuery, useTheme } from '@mui/material';

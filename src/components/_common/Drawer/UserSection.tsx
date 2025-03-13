@@ -7,7 +7,7 @@ import { styled, useTheme } from '@mui/material';
 const UserSection = () => {
   const theme = useTheme();
   const { student } = useAuthStore();
-  const { data: userInfo, isLoading } = useGetUserInfoQuery(student.studentId);
+  const { data: userInfo, isLoading } = useGetUserInfoQuery();
 
   return (
     <Flex.Column

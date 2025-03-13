@@ -15,17 +15,7 @@ const DrawerLayout = () => {
   const { isDrawerOpen } = useDrawerStore();
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
-  if (isMobile)
-    return (
-      <Flex.Column>
-        <HeaderMobile />
-        <Main open={false}>
-          <ErrorResetBoundary />
-        </Main>
-        <NavigationBar />
-      </Flex.Column>
-    );
-
+  if (isMobile) return <MobileDrawerLayout />;
   return (
     <Flex.Column>
       <Drawer />
@@ -40,3 +30,15 @@ const DrawerLayout = () => {
 };
 
 export default DrawerLayout;
+
+const MobileDrawerLayout = () => {
+  return (
+    <Flex.Column>
+      <HeaderMobile />
+      <Main open={false}>
+        <ErrorResetBoundary />
+      </Main>
+      <NavigationBar />
+    </Flex.Column>
+  );
+};

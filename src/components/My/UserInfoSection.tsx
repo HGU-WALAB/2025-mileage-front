@@ -2,14 +2,12 @@ import { BoxSkeleton, Flex } from '@/components';
 import { InfoField } from '@/components/My';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useGetUserInfoQuery } from '@/hooks/queries';
-import { useAuthStore } from '@/stores';
-import getDate from '@/utils/getDate';
+import { getDate } from '@/utils/getDate';
 import { styled, useMediaQuery } from '@mui/material';
 
 const UserInfoSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  const { student } = useAuthStore();
-  const { data: userInfo, isLoading } = useGetUserInfoQuery(student.studentId);
+  const { data: userInfo, isLoading } = useGetUserInfoQuery();
 
   const customOrder = [
     'studentName',
@@ -33,11 +31,13 @@ const UserInfoSection = () => {
             customOrder.indexOf(keyA) - customOrder.indexOf(keyB),
         )
         .map(([key, value]) => (
-          <InfoField info={[key, value]} />
+          <InfoField key={key} info={[key, value]} />
         ))}
-      <Flex.Row height="100%" align="flex-end" padding="0 0 1rem">
-        {getDate(userInfo?.modDate ?? '')} 마지막으로 수정됨
-      </Flex.Row>
+      <Flex.Column justify="flex-end" margin="0 0 1rem">
+        <S.modDateBox align="flex-end">
+          {getDate(userInfo?.modDate ?? '')} 마지막으로 업데이트됨
+        </S.modDateBox>
+      </Flex.Column>
     </S.Grid>
   );
 };
@@ -45,6 +45,15 @@ const UserInfoSection = () => {
 export default UserInfoSection;
 
 const S = {
+  modDateBox: styled(Flex.Row)`
+    background-color: ${({ theme }) => theme.palette.primary.main};
+    border-radius: 0.5rem;
+    color: ${({ theme }) => theme.palette.white};
+    font-size: 0.875rem;
+    height: fit-content;
+    padding: 0.25rem 1rem;
+    width: fit-content;
+  `,
   Grid: styled('div')<{ isMobile: boolean }>`
     display: grid;
     gap: ${({ isMobile }) => (isMobile ? 'none' : '1rem')};

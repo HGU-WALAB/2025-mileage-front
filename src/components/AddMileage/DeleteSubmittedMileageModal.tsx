@@ -48,10 +48,8 @@ const DeleteSubmittedMileageModal = ({ item }: Props) => {
       >
         <LogoIcon width="100px" height="100px" />
         <Flex.Column align="center">
-          <Heading as="h2">
-            정말 제출된 마일리지 항목을 삭제하시겠습니까?
-          </Heading>
-          <Heading as="h2">삭제된 마일리지는 다시 복구할 수 없습니다.</Heading>
+          <Heading as="h2">정말 이 항목을 삭제하시겠습니까?</Heading>
+          <Heading as="h3">삭제된 항목은 다시 복구할 수 없습니다.</Heading>
         </Flex.Column>
         <Flex.Column>
           <Heading as="h3">제출된 마일리지 정보</Heading>
@@ -86,7 +84,6 @@ const S = {
   `,
   SubmitButton: styled(Button)`
     width: 150px;
-    ${({ theme }) => theme.typography.h3}
   `,
   CloseButton: styled(Button)`
     background-color: ${({ theme }) => theme.palette.grey300};
