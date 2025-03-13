@@ -2,6 +2,7 @@ import { DeleteIcon, LogoIcon } from '@/assets';
 import { Button, Flex, Heading, Modal, Text } from '@/components';
 import { useOpenModal } from '@/hooks';
 import { useDeleteSubmittedMileageMutation } from '@/hooks/queries';
+import { trackSubmittedMileageModalDeleteButton } from '@/service/amplitude/trackEvent';
 import { useAuthStore } from '@/stores';
 import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled, useTheme } from '@mui/material';
@@ -29,7 +30,7 @@ const DeleteSubmittedMileageModal = ({ item }: Props) => {
       open={open}
       toggleModal={toggleModal}
       trigger={
-        <S.IconButton>
+        <S.IconButton onClick={() => trackSubmittedMileageModalDeleteButton()}>
           <DeleteIcon />
         </S.IconButton>
       }

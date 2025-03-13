@@ -2,6 +2,7 @@ import { Button, Dropdown, Flex, FormField, Modal, Text } from '@/components';
 import { FileDownloadButton, GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useOpenModal } from '@/hooks';
+import { trackSubmittedMileageModalButton } from '@/service/amplitude/trackEvent';
 import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
@@ -18,7 +19,14 @@ const SubmittedMileageModal = ({ item }: Props) => {
     <Modal
       open={open}
       toggleModal={toggleModal}
-      trigger={<Button label="상세보기" isRound style={{ width: '100px' }} />}
+      trigger={
+        <Button
+          label="상세보기"
+          isRound
+          style={{ width: '100px' }}
+          onClick={() => trackSubmittedMileageModalButton()}
+        />
+      }
       size="large"
       hasCloseButton
       style={{

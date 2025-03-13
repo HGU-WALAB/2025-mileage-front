@@ -11,6 +11,7 @@ import {
 import { GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useEditMileageForm, useOpenModal } from '@/hooks';
+import { trackSubmittedMileageModalEditButton } from '@/service/amplitude/trackEvent';
 import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
@@ -39,7 +40,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
       open={open}
       toggleModal={toggleModal}
       trigger={
-        <S.IconButton>
+        <S.IconButton onClick={() => trackSubmittedMileageModalEditButton()}>
           <EditIcon />
         </S.IconButton>
       }

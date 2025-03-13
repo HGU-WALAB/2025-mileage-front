@@ -1,9 +1,12 @@
 import { EmptyBoxImg } from '@/assets';
 import { Flex, Heading } from '@/components';
 import { ERROR_MESSAGES } from '@/constants/errorMessage';
+import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useTheme } from '@mui/material';
 
 const ErrorPage = () => {
+  useTrackPageView({ eventName: '[View] 에러 페이지' });
+
   const theme = useTheme();
   return (
     <Flex.Column

@@ -1,9 +1,12 @@
 import { LogoIcon } from '@/assets';
 import { Flex, Heading } from '@/components';
+import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { getErrorMessage } from '@/utils/getErrorMessage';
 import { useTheme } from '@mui/material';
 
 const NotFoundPage = () => {
+  useTrackPageView({ eventName: '[View] NotFound 페이지' });
+
   const theme = useTheme();
   return (
     <Flex.Column
