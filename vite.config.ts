@@ -14,6 +14,10 @@ export default defineConfig({
       org: 'hyelim',
       project: '2025-mileage',
     }),
+    sentryVitePlugin({
+      org: "hyelim",
+      project: "2025-mileage"
+    })
   ],
 
   base: '/mileage/',
