@@ -28,6 +28,7 @@ const NavigationBar = () => {
     >
       {navigationItems.map(item => (
         <S.Navigation
+          key={`navigation-${item.text}`}
           justify="center"
           align="center"
           onClick={() => navigate(item.route)}
