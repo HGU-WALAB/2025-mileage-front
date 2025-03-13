@@ -10,7 +10,10 @@ import {
 import { GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useNewMileageForm, useOpenModal } from '@/hooks';
-import { trackAddNewMileageButton } from '@/service/amplitude/trackEvent';
+import {
+  trackAddNewMileageButton,
+  trackAddNewMileageModalButton,
+} from '@/service/amplitude/trackEvent';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
 interface Props {
@@ -44,7 +47,7 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
           label="등록하기"
           isRound
           style={{ width: '100px' }}
-          onClick={() => trackAddNewMileageButton()}
+          onClick={() => trackAddNewMileageModalButton()}
         />
       }
       size="large"
@@ -178,7 +181,12 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
               onClick={toggleModal}
               size="large"
             />
-            <S.SubmitButton type="submit" label="등록하기" size="large" />
+            <S.SubmitButton
+              type="submit"
+              label="등록하기"
+              size="large"
+              onClick={() => trackAddNewMileageButton()}
+            />
           </Flex.Row>
         </S.Form>
       </Modal.Body>
