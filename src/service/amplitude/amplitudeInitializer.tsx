@@ -1,6 +1,6 @@
 import * as amplitude from '@amplitude/analytics-browser';
 
-const amplitudeApiKey = process.env.VITE_AMPLITUDE_API_KEY ?? '';
+const amplitudeApiKey = import.meta.env.VITE_AMPLITUDE_API_KEY ?? '';
 
 const amplitudeInitializer = () => {
   const init = (userName?: string) => {
