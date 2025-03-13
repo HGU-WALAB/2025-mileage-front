@@ -63,10 +63,10 @@ const useNewMileageForm = (
         file,
       });
       toggleModal();
-      toast.success(TOAST_MESSAGES.addMileage);
+      toast.success(TOAST_MESSAGES.addMileage.succeed);
       resetForm();
     } catch {
-      toast.error(TOAST_MESSAGES.failedAddMileage);
+      toast.error(TOAST_MESSAGES.addMileage.failed);
     }
   };
 
