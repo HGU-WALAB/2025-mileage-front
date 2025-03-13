@@ -51,6 +51,6 @@ const S = {
   Container: styled(Flex.Row)`
     background-color: ${({ theme }) => theme.palette.white};
     border-radius: 0.5rem;
-    font-size: 10px;
+    font-size: 12px;
   `,
 };
