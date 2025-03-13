@@ -10,6 +10,7 @@ import {
 import { GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useNewMileageForm, useOpenModal } from '@/hooks';
+import { trackAddNewMileageButton } from '@/service/amplitude/trackEvent';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
 interface Props {
@@ -38,7 +39,14 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
     <Modal
       open={open}
       toggleModal={toggleModal}
-      trigger={<Button label="등록하기" isRound style={{ width: '100px' }} />}
+      trigger={
+        <Button
+          label="등록하기"
+          isRound
+          style={{ width: '100px' }}
+          onClick={() => trackAddNewMileageButton()}
+        />
+      }
       size="large"
       hasCloseButton
       style={{
