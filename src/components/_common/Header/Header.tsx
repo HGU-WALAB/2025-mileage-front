@@ -1,7 +1,6 @@
 import { Flex, Heading } from '@/components';
 import headerItems from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
-import { useThemeStore } from '@/stores';
 import { useTheme } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
@@ -10,7 +9,7 @@ const Header = () => {
   const title = headerItems[location.pathname];
 
   const theme = useTheme();
-  const toggleTheme = useThemeStore(state => state.toggleTheme);
+  // const toggleTheme = useThemeStore(state => state.toggleTheme);
 
   return (
     <Flex.Row
