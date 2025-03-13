@@ -1,6 +1,6 @@
 import { Flex, Text } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import useGetScholarshipDurationQuery from '@/hooks/queries/useGetScholarshipDurationQuery';
+import { useScholarshipDuration } from '@/hooks';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getFormattedDate } from '@/utils/getDate';
@@ -12,16 +12,24 @@ const ScholarshipDurationSection = () => {
   const navigate = useNavigate();
   const { currentSemester } = useAuthStore();
 
-  const { data: scholarshipDuration } = useGetScholarshipDurationQuery();
+  const { scholarshipDuration, isScholarshipDuration } =
+    useScholarshipDuration();
+
   return (
     <S.DateContainer
       justify="center"
       align="center"
       onClick={() => navigate(ROUTE_PATH.scholarship)}
     >
-      <Text color={theme.palette.primary.main} bold>
-        {`현재 ${currentSemester} 마일리지 장학금 신청 기간입니다. (신청기간 : ${getFormattedDate(scholarshipDuration?.isStart ?? '')} ~ ${getFormattedDate(scholarshipDuration?.isEnd ?? '')})`}
-      </Text>
+      {isScholarshipDuration ? (
+        <Text color={theme.palette.primary.main} bold>
+          {`현재 ${currentSemester} 마일리지 장학금 신청 기간입니다. (신청기간 : ${getFormattedDate(scholarshipDuration?.isStart ?? '')} ~ ${getFormattedDate(scholarshipDuration?.isEnd ?? '')})`}
+        </Text>
+      ) : (
+        <Text color={theme.palette.primary.main} bold>
+          {`현재 ${currentSemester} 마일리지 장학금 신청 기간이 아닙니다.`}
+        </Text>
+      )}
     </S.DateContainer>
   );
 };
