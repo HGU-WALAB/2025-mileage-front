@@ -4,7 +4,9 @@ import {
   ApplySection,
   ConsentSection,
   MileageBannerSection,
+  NotScholarshipDurationSection,
 } from '@/components/ScholarshipApply';
+import { useScholarshipDuration } from '@/hooks';
 import { useGetIsAppliedScholarshipQuery } from '@/hooks/queries';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useState } from 'react';
@@ -14,6 +16,10 @@ const ScholarshipApplyPage = () => {
 
   const [isAgree, setIsAgree] = useState(false);
   const { data: isApplied } = useGetIsAppliedScholarshipQuery();
+
+  const { isScholarshipDuration } = useScholarshipDuration();
+
+  if (!isScholarshipDuration) return <NotScholarshipDurationSection />;
 
   return (
     <Flex.Column gap="1rem">

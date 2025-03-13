@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:msw": "API_ENV=msw vite --mode dev",
+    "dev:msw": "VITE_API_MODE=msw vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
