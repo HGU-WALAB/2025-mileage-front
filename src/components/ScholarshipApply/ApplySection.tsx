@@ -2,6 +2,7 @@ import { Button, Flex } from '@/components';
 import { ApplySucceedModal } from '@/components/ScholarshipApply';
 import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { usePostScholarshipApplyMutation } from '@/hooks/queries';
+import { trackScholarshipApplyButton } from '@/service/amplitude/trackEvent';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
 import { toast } from 'react-toastify';
@@ -17,6 +18,7 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
       return;
     }
 
+    trackScholarshipApplyButton();
     postScholarship({
       studentId: student.studentId,
       isAgree,
