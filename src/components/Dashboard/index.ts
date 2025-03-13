@@ -4,3 +4,4 @@ export { default as LineChartSection } from './LineChartSection';
 export { default as MileageCountSection } from './MileageCountSection';
 export { default as ProcessSection } from './ProcessSection';
 export { default as RadarChartSection } from './RadarCartSection';
+export { default as ScholarshipDurationSection } from './ScholarshipDurationSection';
