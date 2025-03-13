@@ -1,5 +1,4 @@
-import { ThemeIcon } from '@/assets';
-import { Button, Flex, Heading } from '@/components';
+import { Flex, Heading } from '@/components';
 import headerItems from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
 import { useThemeStore } from '@/stores';
@@ -31,7 +30,8 @@ const Header = () => {
       <Flex.Row padding="0 1rem">
         <Heading as="h1">{title}</Heading>
       </Flex.Row>
-      <Button
+      {/* 1차 배포 테마 변경 기능 삭제 */}
+      {/* <Button
         label="테마 변경"
         variant="contained"
         color="blue"
@@ -39,7 +39,7 @@ const Header = () => {
         onClick={toggleTheme}
         icon={ThemeIcon}
         iconPosition="end"
-      />
+      /> */}
     </Flex.Row>
   );
 };
