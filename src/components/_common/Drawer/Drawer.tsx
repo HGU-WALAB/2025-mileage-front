@@ -5,9 +5,9 @@ import { getOpacityColor } from '@/utils/getOpacityColor';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import IsApplyCheckSection from '@/components/_common/Drawer/IsApplyCheckSection';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useNavigate } from 'react-router-dom';
+import IsApplyCheckSection from './IsApplyCheckSection';
 import LogoSection from './LogoSection';
 import LogoutSection from './LogoutSection';
 import MenuSection from './MenuSection';

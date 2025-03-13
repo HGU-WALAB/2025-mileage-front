@@ -3,8 +3,8 @@ import {
   MileageCountSection,
   MileageFilterSection,
   MileageTableListSection,
+  MobileMileageCountSection,
 } from '@/components/MileageList';
-import MobileMileageCountSection from '@/components/MileageList/MobileMileageCountSection';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useMediaQuery } from '@mui/material';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';

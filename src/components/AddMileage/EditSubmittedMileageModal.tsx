@@ -8,10 +8,9 @@ import {
   Text,
   UploadButton,
 } from '@/components';
-import GuideDescSection from '@/components/AddMileage/GuideDescSection';
+import { GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useOpenModal } from '@/hooks';
-import useEditMileageForm from '@/hooks/useEditMileageForm';
+import { useEditMileageForm, useOpenModal } from '@/hooks';
 import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 

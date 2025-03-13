@@ -1,4 +1,4 @@
-import Text from '@/components/_common/Text/Text';
+import { Text } from '@/components';
 import { useGetSubmittedFileQuery } from '@/hooks/queries';
 import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled } from '@mui/material';

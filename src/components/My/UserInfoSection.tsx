@@ -2,7 +2,7 @@ import { BoxSkeleton, Flex } from '@/components';
 import { InfoField } from '@/components/My';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useGetUserInfoQuery } from '@/hooks/queries';
-import getDate from '@/utils/getDate';
+import { getDate } from '@/utils/getDate';
 import { styled, useMediaQuery } from '@mui/material';
 
 const UserInfoSection = () => {
