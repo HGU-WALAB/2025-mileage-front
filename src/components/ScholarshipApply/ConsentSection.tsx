@@ -1,7 +1,6 @@
 import { CheckCircleIcon, CheckCircleOutlineIcon } from '@/assets';
 import { Flex, Heading, Text } from '@/components';
-import personalInfoConsent from '@/constants/personalInfoConsent.json';
-import { Consent } from '@/types/consent';
+import { personalInfoConsent } from '@/constants/personalInfoConsent';
 import { styled } from '@mui/material';
 
 interface Props {
@@ -11,14 +10,12 @@ interface Props {
 }
 
 const ConsentSection = ({ isAgree, handleAgree, isApplied }: Props) => {
-  const consentData: Consent = personalInfoConsent;
-
   return (
     <S.Section wrap="wrap">
       <Flex.Column>
-        <Heading as="h2">{consentData.title}</Heading>
+        <Heading as="h2">{personalInfoConsent.title}</Heading>
         <S.ConsentText
-          dangerouslySetInnerHTML={{ __html: consentData.description }}
+          dangerouslySetInnerHTML={{ __html: personalInfoConsent.description }}
         />
       </Flex.Column>
       {!isApplied && (
