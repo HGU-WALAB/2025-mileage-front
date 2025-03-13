@@ -2,6 +2,7 @@ import { Flex } from '@/components';
 import { LoginSection, LogoSection, NoticeCard } from '@/components/Login';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
+import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
@@ -10,6 +11,8 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
+  useTrackPageView({ eventName: '[View] 로그인 페이지' });
+
   const navigate = useNavigate();
   const { isLogin } = useAuthStore();
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);

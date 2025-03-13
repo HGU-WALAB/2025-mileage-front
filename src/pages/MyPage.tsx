@@ -4,10 +4,13 @@ import {
   RefreshUserInfoButton,
   UserInfoSection,
 } from '@/components/My';
+import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
 const MyPage = () => {
+  useTrackPageView({ eventName: '[View] 마이페이지' });
+
   return (
     <Flex.Column margin="1rem 2rem" gap="1rem">
       <InfoGuideSection />

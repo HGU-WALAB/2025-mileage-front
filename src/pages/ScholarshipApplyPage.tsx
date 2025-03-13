@@ -6,9 +6,12 @@ import {
   MileageBannerSection,
 } from '@/components/ScholarshipApply';
 import { useGetIsAppliedScholarshipQuery } from '@/hooks/queries';
+import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useState } from 'react';
 
 const ScholarshipApplyPage = () => {
+  useTrackPageView({ eventName: '[View] 장학금 신청 페이지' });
+
   const [isAgree, setIsAgree] = useState(false);
   const { data: isApplied } = useGetIsAppliedScholarshipQuery();
 
