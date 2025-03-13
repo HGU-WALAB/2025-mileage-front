@@ -1,3 +1,4 @@
+import { getErrorMessage } from '@/utils/getErrorMessage';
 import { HttpResponse } from 'msw';
 
 const ERROR_400_CHANCE = 0.1;
@@ -19,7 +20,7 @@ export const randomMswError = () => {
   return { is400Error, is401Error, is500Error, isRandom };
 };
 
-export const Error400 = (message: string = '400 ERROR') => {
+export const Error400 = (message: string = getErrorMessage('400')) => {
   return HttpResponse.json(
     {
       message,
@@ -31,7 +32,7 @@ export const Error400 = (message: string = '400 ERROR') => {
   );
 };
 
-export const Error401 = (message: string = '401 ERROR') => {
+export const Error401 = (message: string = getErrorMessage('401')) => {
   return HttpResponse.json(
     {
       message,
@@ -43,7 +44,7 @@ export const Error401 = (message: string = '401 ERROR') => {
   );
 };
 
-export const Error500 = (message: string = '500 ERROR') => {
+export const Error500 = (message: string = getErrorMessage('500')) => {
   return HttpResponse.json(
     {
       message,
