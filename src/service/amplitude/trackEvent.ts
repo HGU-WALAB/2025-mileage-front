@@ -26,5 +26,5 @@ export const trackSubmittedMileageModalDeleteButton = () => {
 
 // scholarship apply
 export const trackScholarshipApplyButton = () => {
-  amplitudeService.customTrack('[Click] 등록된 마일리지 삭제 버튼');
+  amplitudeService.customTrack('[Click] 마일리지 장학금 신청 버튼');
 };
