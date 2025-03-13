@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { axiosInstance } from '@/apis/axios';
+import axiosInstance from '@/apis/axios';
 import { AxiosRequestConfig } from 'axios';
 
 export const http = {
