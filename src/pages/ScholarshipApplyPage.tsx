@@ -18,17 +18,18 @@ const ScholarshipApplyPage = () => {
   const { data: isApplied } = useGetIsAppliedScholarshipQuery();
 
   const { isScholarshipDuration } = useScholarshipDuration();
-
   if (!isScholarshipDuration) return <NotScholarshipDurationSection />;
 
   return (
     <Flex.Column gap="1rem">
       <MileageBannerSection />
+
       <ConsentSection
         isAgree={isAgree}
         handleAgree={setIsAgree}
         isApplied={isApplied?.isApply ?? 0}
       />
+
       {isApplied?.isApply ? (
         <AppliedSection />
       ) : (

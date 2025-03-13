@@ -1,5 +1,5 @@
 import { Flex, Heading } from '@/components';
-import headerItems from '@/constants/headerItems';
+import { headerItems } from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
 import { useTheme } from '@mui/material';
 import { useLocation } from 'react-router-dom';

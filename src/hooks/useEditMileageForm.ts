@@ -1,5 +1,5 @@
 import { useFile, useInput, useInputWithValidate } from '@/hooks';
-import usePatchSubmittedMileageMutation from '@/hooks/queries/usePatchSubmittedMileageMutation';
+import { usePatchSubmittedMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { SubmittedMileageResponse } from '@/types/mileage';
 import { validateRequired } from '@/utils/validate';

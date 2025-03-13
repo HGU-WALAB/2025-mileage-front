@@ -1,6 +1,6 @@
 import { EmptyBoxImg } from '@/assets';
 import { Flex, Heading } from '@/components';
-import MileageBannerSection from '@/components/ScholarshipApply/MileageBannerSection';
+import { MileageBannerSection } from '@/components/ScholarshipApply';
 import { styled } from '@mui/material';
 
 const NotScholarshipDurationSection = () => {

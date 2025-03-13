@@ -1,6 +1,6 @@
 import { LogoutIcon } from '@/assets';
 import { Flex, Heading } from '@/components';
-import headerItems from '@/constants/headerItems';
+import { headerItems } from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { usePostLogoutMutation } from '@/hooks/queries';

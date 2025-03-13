@@ -1,5 +1,5 @@
 import { CountBoxFallback, Flex, Text } from '@/components';
-import MileageCountBox from '@/components/ScholarshipApply/MileageCountBox';
+import { MileageCountBox } from '@/components/ScholarshipApply';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useAuthStore } from '@/stores';
 import { styled, useMediaQuery } from '@mui/material';

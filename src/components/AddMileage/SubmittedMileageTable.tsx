@@ -22,7 +22,7 @@ const headerItems: THeader[] = [
 const SubmittedMileageTable = () => {
   const { student } = useAuthStore();
   const { data: submittedMileageList, isLoading } = useGetSubmittedMileageQuery(
-    student?.studentId ?? '',
+    student.studentId,
   );
 
   const bodyItems = useMemo(
