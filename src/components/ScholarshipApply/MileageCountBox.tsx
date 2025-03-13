@@ -22,7 +22,7 @@ const MileageCountBox = () => {
     navigate(ROUTE_PATH.mileageList);
   };
 
-  const text = isMobile ? '마일리지 개수' : '마일리지 항목 개수';
+  const text = isMobile ? '마일리지 건수' : '마일리지 항목 건수';
 
   return (
     <S.CountContainer align="center" onClick={handleClick} isMobile={isMobile}>
@@ -33,7 +33,7 @@ const MileageCountBox = () => {
         <S.CountNumber isMobile={isMobile}>
           {mileageList?.length ?? '-'}
         </S.CountNumber>
-        개
+        건
       </Flex.Row>
     </S.CountContainer>
   );

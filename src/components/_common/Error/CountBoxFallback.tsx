@@ -6,9 +6,9 @@ const CountBoxFallback = () => {
   return (
     <S.CountContainer>
       <Flex.Column align="center">
-        <Flex.Row style={{ fontSize: '1rem' }}>마일리지 개수</Flex.Row>
+        <Flex.Row style={{ fontSize: '1rem' }}>마일리지 건수</Flex.Row>
         <Flex.Row align="baseline" gap=".5rem">
-          <S.CountNumber>N</S.CountNumber>개
+          <S.CountNumber>N</S.CountNumber>건
         </Flex.Row>
       </Flex.Column>
     </S.CountContainer>

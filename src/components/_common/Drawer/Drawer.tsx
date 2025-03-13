@@ -6,6 +6,7 @@ import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { ROUTE_PATH } from '@/constants/routePath';
+import { useScholarshipDuration } from '@/hooks';
 import { useNavigate } from 'react-router-dom';
 import IsApplyCheckSection from './IsApplyCheckSection';
 import LogoSection from './LogoSection';
@@ -17,53 +18,53 @@ const Drawer = () => {
   const theme = useTheme();
   const { isDrawerOpen } = useDrawerStore();
 
+  const { isScholarshipDuration } = useScholarshipDuration();
+
   return (
-    <>
-      <MuiDrawer
-        sx={{
+    <MuiDrawer
+      sx={{
+        width: drawerWidth,
+        flexShrink: 0,
+        '& .MuiDrawer-paper': {
+          top: '.5rem',
+          left: '.5rem',
+          height: globalHeight,
           width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            top: '.5rem',
-            left: '.5rem',
-            height: globalHeight,
-            width: drawerWidth,
-            boxSizing: 'border-box',
-            backdropFilter: `blur(10px)`,
-            backgroundColor: getOpacityColor(theme.palette.white, 0.1),
-            borderRadius: '.5rem',
-            boxShadow:
-              theme.palette.mode === 'light'
-                ? `0px 4px 6px ${getOpacityColor(theme.palette.black, 0.1)}`
-                : `0px 4px 10px ${getOpacityColor(theme.palette.black, 0.5)}`,
-          },
-        }}
-        variant="persistent"
-        anchor="left"
-        open={isDrawerOpen}
-      >
-        <Flex.Column align="center" padding="1rem" gap="1rem" height="100%">
-          <LogoSection />
+          boxSizing: 'border-box',
+          backdropFilter: `blur(10px)`,
+          backgroundColor: getOpacityColor(theme.palette.white, 0.1),
+          borderRadius: '.5rem',
+          boxShadow:
+            theme.palette.mode === 'light'
+              ? `0px 4px 6px ${getOpacityColor(theme.palette.black, 0.1)}`
+              : `0px 4px 10px ${getOpacityColor(theme.palette.black, 0.5)}`,
+        },
+      }}
+      variant="persistent"
+      anchor="left"
+      open={isDrawerOpen}
+    >
+      <Flex.Column align="center" padding="1rem" gap="1rem" height="100%">
+        <LogoSection />
 
-          <ErrorBoundary fallback={<ReLoginSection />}>
-            <UserSection />
-          </ErrorBoundary>
+        <ErrorBoundary fallback={<ReLoginSection />}>
+          <UserSection />
+        </ErrorBoundary>
 
-          <MenuSection />
+        <MenuSection />
 
-          <Flex.Column
-            justify="flex-end"
-            width="100%"
-            gap="1rem"
-            style={{ flexGrow: 1 }}
-            margin="1rem 0"
-          >
-            <IsApplyCheckSection />
-            <LogoutSection />
-          </Flex.Column>
+        <Flex.Column
+          justify="flex-end"
+          width="100%"
+          gap="1rem"
+          style={{ flexGrow: 1 }}
+          margin="1rem 0"
+        >
+          {isScholarshipDuration && <IsApplyCheckSection />}
+          <LogoutSection />
         </Flex.Column>
-      </MuiDrawer>
-    </>
+      </Flex.Column>
+    </MuiDrawer>
   );
 };
 
