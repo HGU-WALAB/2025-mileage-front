@@ -23,7 +23,7 @@ const ScholarshipDurationSection = () => {
     >
       {isScholarshipDuration ? (
         <Text color={theme.palette.primary.main} bold>
-          {`현재 ${currentSemester} 마일리지 장학금 신청 기간입니다. (신청기간 : ${getFormattedDate(scholarshipDuration?.isStart ?? '')} ~ ${getFormattedDate(scholarshipDuration?.isEnd ?? '')})`}
+          {`현재 ${currentSemester} 마일리지 장학금 신청 기간입니다. (신청기간 : ${getFormattedDate(scholarshipDuration?.regStart ?? '')} ~ ${getFormattedDate(scholarshipDuration?.regEnd ?? '')})`}
         </Text>
       ) : (
         <Text color={theme.palette.primary.main} bold>
