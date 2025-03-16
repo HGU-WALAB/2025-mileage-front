@@ -51,9 +51,9 @@ export interface SubmittedMileageResponse {
   description1: string;
   description2: string | null;
 
-  fileId: number;
+  fileId: number | null;
   file: string | null;
-  uniqueFileName: string;
+  uniqueFileName: string | null;
 
   modDate: string;
 }

@@ -125,11 +125,9 @@ const SubmittedMileageModal = ({ item }: Props) => {
                 {item.file ? (
                   <FileDownloadButton item={item} />
                 ) : (
-                  <>
-                    <Text style={{ ...theme.typography.body2 }}>
-                      제출된 파일이 없습니다.
-                    </Text>
-                  </>
+                  <Text style={{ ...theme.typography.body2 }}>
+                    제출된 파일이 없습니다.
+                  </Text>
                 )}
               </Flex.Column>
             </Flex.Row>

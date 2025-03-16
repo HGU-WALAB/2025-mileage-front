@@ -5,7 +5,6 @@ import {
   SubmittedMileageModal,
 } from '@/components/AddMileage';
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
-import { useAuthStore } from '@/stores';
 import { THeader } from '@/types/table';
 import { getDate } from '@/utils/getDate';
 import { useMemo } from 'react';
@@ -20,10 +19,8 @@ const headerItems: THeader[] = [
 ];
 
 const SubmittedMileageTable = () => {
-  const { student } = useAuthStore();
-  const { data: submittedMileageList, isLoading } = useGetSubmittedMileageQuery(
-    student.studentId,
-  );
+  const { data: submittedMileageList, isLoading } =
+    useGetSubmittedMileageQuery();
 
   const bodyItems = useMemo(
     () =>

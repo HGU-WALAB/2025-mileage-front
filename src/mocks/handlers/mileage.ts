@@ -102,7 +102,9 @@ export const MileageHandlers = [
         semester: semester,
         description1,
         description2,
-        file,
+        fileId: file ? prevData.length + 1 : null,
+        file: file instanceof File ? file.name : null,
+        uniqueFileName: file instanceof File ? file.name : null,
         modDate: new Date().toDateString(),
       } as SubmittedMileageResponse),
     );
@@ -133,7 +135,8 @@ export const MileageHandlers = [
                 ...item,
                 description1: description1 as string,
                 description2: description2 as string,
-                file: file as string,
+                file: file?.toString(),
+                uniqueFileName: file?.toString(),
                 modDate: new Date().toDateString(),
               } as SubmittedMileageResponse)
             : item,
