@@ -21,9 +21,10 @@ const ProcessSection = () => {
           반드시 마일리지 장학금 공지사항을 정독 후 신청하세요.
         </Text>
         <Text style={{ fontSize: '12px' }}>
-          아래 3가지 절차를 모두 완료해야 신청이 완료됩니다.
+          아래 절차를 모두 완료해야 신청이 완료됩니다.
         </Text>
       </Flex.Column>
+
       <Flex.Row justify="space-around" align="center" gap="1rem" wrap="wrap">
         <ProcessStep />
       </Flex.Row>
