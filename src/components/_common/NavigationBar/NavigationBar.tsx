@@ -13,7 +13,8 @@ const NavigationBar = () => {
   const location = useLocation();
 
   const navigationItems = useMemo(() => {
-    return drawerItems.sort(
+    const navigationItems = drawerItems;
+    return navigationItems.sort(
       (a, b) =>
         customOrder.indexOf(a.shortText) - customOrder.indexOf(b.shortText),
     );
