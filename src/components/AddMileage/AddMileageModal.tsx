@@ -166,7 +166,7 @@ const AddMileageModal = ({ semester, subitemId }: Props) => {
                       활동을 증명할 파일을 업로드해주세요
                     </Text>
                     <Text style={{ ...theme.typography.body2 }}>
-                      이미지파일(jpg,png)또는 pdf만 업로드 가능
+                      첨부파일은 pdf만 업로드 가능
                     </Text>
                   </>
                 )}
