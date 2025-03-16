@@ -25,6 +25,7 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
             background: 'white',
             padding: '5px 10px',
             border: '1px solid #ccc',
+            borderRadius: '4px',
           }}
         >
           <strong>역량: </strong>
