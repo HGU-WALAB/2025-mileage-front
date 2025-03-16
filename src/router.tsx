@@ -1,17 +1,18 @@
 import { AuthGuard, DrawerLayout, Layout } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import {
-  AddMileagePage,
-  DashboardPage,
-  ErrorPage,
-  LoginPage,
-  MileageListPage,
-  MyPage,
-  NotFoundPage,
-  ScholarshipApplyPage,
-} from '@/pages';
-
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+
+const DashboardPage = React.lazy(() => import('@/pages/DashboardPage'));
+const MileageListPage = React.lazy(() => import('@/pages/MileageListPage'));
+const AddMileagePage = React.lazy(() => import('@/pages/AddMileagePage'));
+const ScholarshipApplyPage = React.lazy(
+  () => import('@/pages/ScholarshipApplyPage'),
+);
+const MyPage = React.lazy(() => import('@/pages/MyPage'));
+const LoginPage = React.lazy(() => import('@/pages/LoginPage'));
+const ErrorPage = React.lazy(() => import('@/pages/ErrorPage'));
+const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
 
 const router = createBrowserRouter(
   [
