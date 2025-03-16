@@ -47,22 +47,22 @@ const S = {
     border-radius: 1rem;
     color: ${({ theme }) => theme.palette.primary.main};
     height: fit-content;
-    padding: ${({ isMobile }) => (isMobile ? '1rem' : '1.5rem')};
+    padding: ${({ isMobile }) => (isMobile ? '1rem' : '1rem')};
     width: ${({ isMobile }) => (isMobile ? '100%' : 'fit-content')};
   `,
   DownArrowBox: styled('div')`
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-top: 25px solid
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid
       ${({ theme }) => getOpacityColor(theme.palette.primary.main, 0.7)};
     height: 0;
     width: 0;
   `,
   RightArrowBox: styled('div')`
-    border-bottom: 20px solid transparent;
-    border-left: 25px solid
+    border-bottom: 15px solid transparent;
+    border-left: 20px solid
       ${({ theme }) => getOpacityColor(theme.palette.primary.main, 0.7)};
-    border-top: 20px solid transparent;
+    border-top: 15px solid transparent;
     height: 0;
     width: 0;
   `,

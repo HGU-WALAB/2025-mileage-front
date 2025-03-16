@@ -13,8 +13,13 @@ const ProcessSection = () => {
       justify="space-around"
       align="center"
     >
-      <Flex.Column justify="center" align="center" padding=".5rem">
-        <Heading as="h2" margin=".5rem" color={theme.palette.primary.main}>
+      <Flex.Column
+        justify="center"
+        align="flex-start"
+        padding=".5rem"
+        width="fit-content"
+      >
+        <Heading as="h2" margin="0 0 .5rem" color={theme.palette.primary.main}>
           마일리지 장학금 신청 절차
         </Heading>
         <Text style={{ fontSize: '12px' }}>
