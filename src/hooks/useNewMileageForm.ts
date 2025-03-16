@@ -1,5 +1,5 @@
 import { TOAST_MESSAGES } from '@/constants/toastMessage';
-import { useFile, useInput, useInputWithValidate } from '@/hooks';
+import { useFileWithType, useInput, useInputWithValidate } from '@/hooks';
 import { usePostNewMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { validateRequired } from '@/utils/validate';
@@ -22,7 +22,11 @@ const useNewMileageForm = (
     handleChange: handleDesc2,
     reset: resetDesc2,
   } = useInput();
-  const { value: file, handleChange: handleFile, reset: resetFile } = useFile();
+  const {
+    value: file,
+    handleChange: handleFile,
+    reset: resetFile,
+  } = useFileWithType('pdf');
 
   const { mutateAsync: postNewMileage } = usePostNewMileageMutation();
   const handleSubmit = (

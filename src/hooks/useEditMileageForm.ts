@@ -1,5 +1,4 @@
-import { TOAST_MESSAGES } from '@/constants/toastMessage';
-import { useFile, useInput, useInputWithValidate } from '@/hooks';
+import { useFileWithType, useInput, useInputWithValidate } from '@/hooks';
 import { usePatchSubmittedMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { SubmittedMileageResponse } from '@/types/mileage';
@@ -24,7 +23,11 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     handleChange: handleDesc2,
     reset: resetDesc2,
   } = useInput(item?.description2 ?? undefined);
-  const { value: file, handleChange: handleFile, reset: resetFile } = useFile();
+  const {
+    value: file,
+    handleChange: handleFile,
+    reset: resetFile,
+  } = useFileWithType('pdf');
 
   const { mutateAsync: patchSubmittedMileage } =
     usePatchSubmittedMileageMutation();
@@ -56,21 +59,16 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
   };
 
   const submitForm = async () => {
-    try {
-      await patchSubmittedMileage({
-        studentId: student.studentId,
-        recordId: item.recordId,
-        subitemId: item.subitemId,
-        description1,
-        description2,
-        file,
-      });
-      toggleModal();
-      toast.success(TOAST_MESSAGES.editMileage.succeed);
-      resetForm();
-    } catch {
-      toast.error(TOAST_MESSAGES.editMileage.failed);
-    }
+    await patchSubmittedMileage({
+      studentId: student.studentId,
+      recordId: item.recordId,
+      subitemId: item.subitemId,
+      description1,
+      description2,
+      file,
+    });
+    toggleModal();
+    resetForm();
   };
 
   const resetForm = () => {
