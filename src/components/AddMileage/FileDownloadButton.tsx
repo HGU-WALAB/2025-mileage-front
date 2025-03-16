@@ -27,6 +27,7 @@ export default FileDownloadButton;
 const S = {
   Text: styled(Text)`
     border-bottom: 1px solid ${({ theme }) => theme.palette.grey300};
+    cursor: pointer;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

@@ -23,6 +23,7 @@ const ScholarshipDurationSection = () => {
       gap=".5rem"
       onClick={() => navigate(ROUTE_PATH.scholarship)}
       isMobile={isMobile}
+      pointer
     >
       <S.LabelBox>신청기간</S.LabelBox>
       {isScholarshipDuration ? (

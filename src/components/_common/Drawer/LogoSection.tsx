@@ -8,7 +8,7 @@ const LogoSection = () => {
   const theme = useTheme();
   return (
     <Link to={ROUTE_PATH.dashboard}>
-      <Flex.Row gap="0.5rem" margin="0 0 1rem" align="center">
+      <Flex.Row gap="0.5rem" margin="0 0 1rem" align="center" pointer>
         <LogoIcon />
         <Heading as="h3" color={theme.palette.white}>
           CSEE Mileage
