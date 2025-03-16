@@ -12,7 +12,7 @@ const MileageCountSection = () => {
 
   const text = useMemo(() => {
     return student.studentType !== '기타'
-      ? `${student.studentType} 마일리지 장학금 신청 대상입니다!`
+      ? `${student.studentType} 마일리지 장학금 신청 대상자입니다!`
       : '마일리지 장학금 신청 대상이 아닙니다.';
   }, [student.studentType]);
 
@@ -31,7 +31,7 @@ const S = {
   RowContainer: styled(Flex.Row)<{ isMobile: boolean }>`
     background-color: ${({ theme }) => theme.palette.white};
     border-radius: 0.5rem;
-    height: 60px;
+    min-height: 60px;
     padding: 0.5rem 1rem;
     width: ${({ isMobile }) => (isMobile ? '100%' : '340px')};
     ${boxShadow}
