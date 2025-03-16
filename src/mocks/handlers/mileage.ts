@@ -62,16 +62,6 @@ export const MileageHandlers = [
     return HttpResponse.json(filteredMileageList, { status: 200 });
   }),
 
-  http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}/:studentId`, () => {
-    const { is400Error, is401Error, is500Error } = randomMswError();
-
-    if (is400Error) return Error400();
-    if (is401Error) return Error401();
-    if (is500Error) return Error500();
-
-    return HttpResponse.json(submittedMileage.getValue(), { status: 200 });
-  }),
-
   http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}`, () => {
     const { is400Error, is401Error, is500Error } = randomMswError();
 
@@ -110,6 +100,16 @@ export const MileageHandlers = [
     );
 
     return HttpResponse.json(mockEtcMileageList, { status: 200 });
+  }),
+
+  http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}/:studentId`, () => {
+    const { is400Error, is401Error, is500Error } = randomMswError();
+
+    if (is400Error) return Error400();
+    if (is401Error) return Error401();
+    if (is500Error) return Error500();
+
+    return HttpResponse.json(submittedMileage.getValue(), { status: 200 });
   }),
 
   http.patch(

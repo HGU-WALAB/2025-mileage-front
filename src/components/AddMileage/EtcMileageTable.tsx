@@ -8,7 +8,7 @@ const headerItems: THeader[] = [
   { text: '학기', value: 'semester' },
   { text: '카테고리', value: 'categoryName' },
   { text: '항목', value: 'subitemName' },
-  { text: '', value: 'addModal', align: 'center' },
+  { text: '등록하기', value: 'addModal', align: 'center' },
 ];
 
 const EtcMileageTable = () => {
@@ -16,17 +16,19 @@ const EtcMileageTable = () => {
 
   const bodyItems = useMemo(
     () =>
-      etcMileageList?.map(item => ({
-        semester: item.semester,
-        categoryName: item.categoryName,
-        subitemName: item.subitemName,
-        addModal: (
-          <AddMileageModal
-            semester={item.semester}
-            subitemId={item.subitemId}
-          />
-        ),
-      })) ?? [],
+      etcMileageList && etcMileageList.length > 0
+        ? etcMileageList.map(item => ({
+            semester: item.semester,
+            categoryName: item.categoryName,
+            subitemName: item.subitemName,
+            addModal: (
+              <AddMileageModal
+                semester={item.semester}
+                subitemId={item.subitemId}
+              />
+            ),
+          }))
+        : [{ semester: '등록 가능한 항목이 없어요' }],
     [etcMileageList],
   );
 

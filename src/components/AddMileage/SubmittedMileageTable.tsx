@@ -24,19 +24,21 @@ const SubmittedMileageTable = () => {
 
   const bodyItems = useMemo(
     () =>
-      submittedMileageList?.map(item => ({
-        semester: item.semester,
-        subitemName: item.subitemName,
-        description1: item.description1,
-        modDate: getDate(item.modDate),
-        func: (
-          <Flex.Row gap=".5rem" justify="center">
-            <EditSubmittedMileageModal item={item} />
-            <DeleteSubmittedMileageModal item={item} />
-          </Flex.Row>
-        ),
-        overview: <SubmittedMileageModal item={item} />,
-      })) ?? [],
+      submittedMileageList && submittedMileageList.length > 0
+        ? submittedMileageList.map(item => ({
+            semester: item.semester,
+            subitemName: item.subitemName,
+            description1: item.description1,
+            modDate: getDate(item.modDate),
+            func: (
+              <Flex.Row gap=".5rem" justify="center">
+                <EditSubmittedMileageModal item={item} />
+                <DeleteSubmittedMileageModal item={item} />
+              </Flex.Row>
+            ),
+            overview: <SubmittedMileageModal item={item} />,
+          }))
+        : [{ semester: '등록된 항목이 없어요' }],
     [submittedMileageList],
   );
 
