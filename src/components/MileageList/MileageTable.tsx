@@ -12,7 +12,7 @@ interface Props {
 
 const headerItems: THeader[] = [
   { text: '학기', value: 'semester', width: '100px' },
-  { text: '카테고리명', value: 'categoryName', width: '300px' },
+  { text: '카테고리명', value: 'categoryName', width: '200px' },
   { text: '항목명', value: 'subitemName', width: '300px' },
   { text: '내용', value: 'description' },
   { text: '참여여부', value: 'done', align: 'center', width: '150px' },
