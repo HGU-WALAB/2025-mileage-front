@@ -37,6 +37,7 @@ const NavigationBar = () => {
             selected={location.pathname === item.route}
             justify="center"
             align="center"
+            pointer
           >
             {location.pathname === item.route ? (
               <item.selectedIcon />
