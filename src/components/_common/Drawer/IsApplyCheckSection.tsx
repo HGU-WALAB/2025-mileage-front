@@ -8,11 +8,11 @@ import { styled } from '@mui/material';
 const applyCheck = {
   completed: {
     title: '장학금 신청을 완료하셨습니다!',
-    desc: '이미 신청을 완료하셨습니다.',
+    desc: '이미 신청을 완료하셨습니다',
   },
   uncompleted: {
     title: '장학금 신청을 놓치지 마세요!',
-    desc: '지금 장학금을 신청할 수 있어요!',
+    desc: '지금 장학금을 신청할 수 있어요',
   },
 };
 
