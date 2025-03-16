@@ -33,7 +33,6 @@ const EtcMileageTable = () => {
   );
 
   if (isLoading) return <BoxSkeleton />;
-
   return <Table headItems={headerItems} bodyItems={bodyItems} />;
 };
 
