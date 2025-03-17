@@ -16,16 +16,20 @@ const DeleteSubmittedMileageModal = ({ item }: Props) => {
   const { student } = useAuthStore();
   const { open, toggleModal } = useOpenModal();
 
-  const { mutate: deleteMileage, isSuccess } =
-    useDeleteSubmittedMileageMutation();
+  const { mutate: deleteMileage } = useDeleteSubmittedMileageMutation();
 
   const handleClickDelete = () => {
-    deleteMileage({
-      studentId: student.studentId,
-      recordId: item.recordId,
-    });
-
-    if (isSuccess) toggleModal();
+    deleteMileage(
+      {
+        studentId: student.studentId,
+        recordId: item.recordId,
+      },
+      {
+        onSuccess: () => {
+          toggleModal();
+        },
+      },
+    );
   };
 
   return (
