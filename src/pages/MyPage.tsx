@@ -12,7 +12,7 @@ const MyPage = () => {
   useTrackPageView({ eventName: '[View] 마이페이지' });
 
   return (
-    <Flex.Column margin="1rem 2rem" gap="1rem">
+    <Flex.Column margin="1rem" gap="1rem">
       <InfoGuideSection />
 
       <QueryErrorResetBoundary>
