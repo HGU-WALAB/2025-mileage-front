@@ -9,7 +9,7 @@ const NotScholarshipDurationSection = () => {
       <MileageBannerSection />
       <Flex.Column
         width="100%"
-        height="40%"
+        height="50%"
         align="center"
         justify="center"
         gap="1rem"

@@ -54,7 +54,7 @@ const S = {
     height: ${({ isMobile }) => (isMobile ? '80px' : '110px')};
     padding: ${({ isMobile }) => (isMobile ? '.5rem' : '1rem')};
     position: absolute;
-    right: 10%;
+    right: 5%;
     top: -30%;
     width: ${({ isMobile }) => (isMobile ? '100px' : '200px')};
     ${boxShadow}
