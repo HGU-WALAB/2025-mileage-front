@@ -29,8 +29,8 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     reset: resetFile,
   } = useFileWithType('pdf');
 
-  const { mutateAsync: patchSubmittedMileage } =
-    usePatchSubmittedMileageMutation();
+  const { mutate: patchSubmittedMileage } = usePatchSubmittedMileageMutation();
+
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
   ) => {
@@ -58,23 +58,22 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     return true;
   };
 
-  const submitForm = async () => {
-    await patchSubmittedMileage({
-      studentId: student.studentId,
-      recordId: item.recordId,
-      subitemId: item.subitemId,
-      description1,
-      description2,
-      file,
-    });
-    toggleModal();
-    resetForm();
-  };
-
-  const resetForm = () => {
-    resetDesc1();
-    resetDesc2();
-    resetFile();
+  const submitForm = () => {
+    patchSubmittedMileage(
+      {
+        studentId: student.studentId,
+        recordId: item.recordId,
+        subitemId: item.subitemId,
+        description1,
+        description2,
+        file,
+      },
+      {
+        onSuccess: () => {
+          toggleModal();
+        },
+      },
+    );
   };
 
   return {

@@ -15,7 +15,6 @@ const usePatchSubmittedMileageMutation = () => {
         queryKey: [QUERY_KEYS.submittedMileage],
       });
     },
-
     onError: error => {
       if ((error as AxiosError).isAxiosError) {
         const axiosError = error as AxiosError;
