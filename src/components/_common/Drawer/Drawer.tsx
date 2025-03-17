@@ -17,7 +17,6 @@ import UserSection from './UserSection';
 const Drawer = () => {
   const theme = useTheme();
   const { isDrawerOpen } = useDrawerStore();
-
   const { isScholarshipDuration } = useScholarshipDuration();
 
   return (
