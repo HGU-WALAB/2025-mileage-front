@@ -6,7 +6,7 @@ import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useMediaQuery } from '@mui/material';
 import { useMemo } from 'react';
 
-const MileageCountSection = () => {
+const ScholarshipStudentTypeSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const { student } = useAuthStore();
 
@@ -25,15 +25,15 @@ const MileageCountSection = () => {
   );
 };
 
-export default MileageCountSection;
+export default ScholarshipStudentTypeSection;
 
 const S = {
   RowContainer: styled(Flex.Row)<{ isMobile: boolean }>`
     background-color: ${({ theme }) => theme.palette.white};
     border-radius: 0.5rem;
     min-height: 60px;
+    min-width: ${({ isMobile }) => (isMobile ? '100%' : '340px')};
     padding: 0.5rem 1rem;
-    width: ${({ isMobile }) => (isMobile ? '100%' : '340px')};
     ${boxShadow}
   `,
   BlueWrapper: styled(Flex.Row)<{ isMobile: boolean }>`
