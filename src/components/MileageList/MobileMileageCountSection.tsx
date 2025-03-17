@@ -17,7 +17,7 @@ const MobileMileageCountSection = () => {
 
   return (
     <S.Container justify="center" align="center" gap=".5rem">
-      {queryParams.semester} 참여한 마일리지
+      {queryParams.semester} 참여 마일리지
       <S.CountBox>{mileageList?.length ?? '-'} 건</S.CountBox>
     </S.Container>
   );

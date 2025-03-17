@@ -25,7 +25,7 @@ const MileageCountSection = () => {
         <S.CountNumber>{mileageList?.length ?? '-'}</S.CountNumber>건
       </S.CountContainer>
       <S.TextBox align="center" justify="center" padding=".5rem 0 0">
-        {queryParams.semester} 참여한 마일리지
+        {queryParams.semester} 참여 마일리지
       </S.TextBox>
     </S.Container>
   );
@@ -37,9 +37,10 @@ const S = {
   Container: styled(Flex.Column)`
     background-color: ${({ theme }) => theme.palette.white};
     border-radius: 1rem;
-    height: 130px;
-    min-width: 200px;
+    min-height: 120px;
+    min-width: 220px;
     padding: 1rem;
+    word-break: keep-all;
     ${boxShadow}
   `,
   CountContainer: styled(Flex.Row)`
