@@ -2,23 +2,31 @@ import { SearchIcon } from '@/assets';
 import { Flex, Input } from '@/components';
 import { useFilteredByKeyword } from '@/hooks';
 import { styled, useTheme } from '@mui/material';
+import { useState } from 'react';
 
 const SearchMileageInput = () => {
   const theme = useTheme();
   const { keyword, setKeyword } = useFilteredByKeyword();
+  const [localKeyword, setLocalKeyword] = useState(keyword);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newKeyword = e.target.value;
+    setLocalKeyword(newKeyword);
+    setKeyword(newKeyword);
+  };
 
   return (
     <Flex.Row gap=".5rem">
       <Input
         placeholder="항목명을 입력하세요"
-        value={keyword}
-        onChange={e => setKeyword(e.target.value)}
+        value={localKeyword}
+        onChange={handleInputChange}
         style={{
           width: '300px',
           backgroundColor: theme.palette.variant.default,
         }}
       />
-      <S.SearchButton onClick={() => setKeyword(keyword ?? '')}>
+      <S.SearchButton onClick={() => setKeyword(localKeyword ?? '')}>
         <SearchIcon />
       </S.SearchButton>
     </Flex.Row>
