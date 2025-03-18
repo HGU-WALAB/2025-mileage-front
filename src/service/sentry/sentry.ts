@@ -9,7 +9,7 @@ import {
 
 Sentry.init({
   dsn: import.meta.env.VITE_SENTRY_DSN_TOKEN,
-  release: '0.0.10',
+  release: '1.0.0',
   environment: import.meta.env.MODE,
   normalizeDepth: 6,
   debug: import.meta.env.MODE !== 'production',
