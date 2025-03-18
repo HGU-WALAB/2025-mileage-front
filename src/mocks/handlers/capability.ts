@@ -14,7 +14,7 @@ export const CapabilityHandlers = [
     return HttpResponse.json(mockCapability, { status: 200 });
   }),
 
-  http.get(BASE_URL + `${ENDPOINT.CAPABILITY}/semester/:studentId`, () => {
+  http.get(BASE_URL + `${ENDPOINT.CAPABILITY}/semester`, () => {
     const { is401Error, is500Error } = randomMswError();
 
     if (is401Error) return Error401();
