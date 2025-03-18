@@ -7,7 +7,7 @@ import { mockSemesterCapability } from '@/mocks/fixtures/semesterCapability';
 import { Error401, Error500, randomMswError } from '@/utils/mswError';
 
 export const CapabilityHandlers = [
-  http.get(BASE_URL + `${ENDPOINT.CAPABILITY}/:studentId`, () => {
+  http.get(BASE_URL + `${ENDPOINT.CAPABILITY}/milestone`, () => {
     const { is500Error } = randomMswError();
     if (is500Error) return Error500();
 
