@@ -15,10 +15,8 @@ export const postLogin = async ({ token }: Omit<AuthRequest, 'accessKey'>) => {
   return response;
 };
 
-export const getUserInfo = async ({ studentId }: { studentId: string }) => {
-  const response = await http.get<UserResponse>(
-    `${ENDPOINT.USER}/${studentId}`,
-  );
+export const getUserInfo = async () => {
+  const response = await http.get<UserResponse>(`${ENDPOINT.USER}`);
 
   return response;
 };
