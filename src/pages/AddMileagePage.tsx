@@ -10,7 +10,7 @@ const AddMileagePage = () => {
   useTrackPageView({ eventName: '[View] 마일리지 등록 페이지' });
 
   return (
-    <Flex.Column margin="1rem 2rem" height={pageHeight}>
+    <Flex.Column margin="1rem" height={pageHeight}>
       <EtcMileageSection />
 
       <SubmittedMileageSection />

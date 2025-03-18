@@ -142,7 +142,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
                 onUpload={file.handleChange}
               />
               <Flex.Column>
-                {item.file ? (
+                {item.file || file.value ? (
                   <Text
                     style={{
                       ...theme.typography.body2,
@@ -151,7 +151,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
                       textOverflow: 'ellipsis',
                     }}
                   >
-                    {item.file}
+                    {file.value ? file.value.name : item.file}
                   </Text>
                 ) : (
                   <>

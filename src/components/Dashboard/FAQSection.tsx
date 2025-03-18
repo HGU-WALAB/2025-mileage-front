@@ -34,7 +34,7 @@ const FAQDescBox = ({ list }: { list: FAQListItem[] }) => {
     <Flex.Column
       height="fit-content"
       padding="0 1rem"
-      style={{ minHeight: '250px' }}
+      style={{ minHeight: '150px' }}
     >
       <Flex.Column gap=".5rem">
         {list.map((item, index) => (

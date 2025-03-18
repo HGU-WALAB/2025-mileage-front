@@ -24,6 +24,7 @@ const LogoutSection = () => {
       width="100%"
       justify="center"
       padding=".5rem"
+      pointer
     >
       <LogoutIcon />
       <Text color={theme.palette.white}>Logout</Text>

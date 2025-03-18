@@ -10,7 +10,6 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
       data={data}
       keys={['mileagePercent']}
       indexBy="capabilityName"
-      maxValue={100}
       margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
       borderColor={{ from: 'color', modifiers: [] }}
       gridLabelOffset={36}
@@ -25,6 +24,7 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
             background: 'white',
             padding: '5px 10px',
             border: '1px solid #ccc',
+            borderRadius: '4px',
           }}
         >
           <strong>역량: </strong>

@@ -32,6 +32,7 @@ const S = {
     background-color: ${({ theme }) => theme.palette.primary.main};
     border-radius: 0.5rem;
     color: ${({ theme }) => theme.palette.white};
+    cursor: pointer;
     display: flex;
     flex-shrink: 0;
     gap: 1.5rem;

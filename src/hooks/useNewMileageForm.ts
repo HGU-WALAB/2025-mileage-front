@@ -1,4 +1,5 @@
-import { useFile, useInput, useInputWithValidate } from '@/hooks';
+import { TOAST_MESSAGES } from '@/constants/toastMessage';
+import { useFileWithType, useInput, useInputWithValidate } from '@/hooks';
 import { usePostNewMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { validateRequired } from '@/utils/validate';
@@ -21,7 +22,11 @@ const useNewMileageForm = (
     handleChange: handleDesc2,
     reset: resetDesc2,
   } = useInput();
-  const { value: file, handleChange: handleFile, reset: resetFile } = useFile();
+  const {
+    value: file,
+    handleChange: handleFile,
+    reset: resetFile,
+  } = useFileWithType('pdf');
 
   const { mutateAsync: postNewMileage } = usePostNewMileageMutation();
   const handleSubmit = (
@@ -54,7 +59,7 @@ const useNewMileageForm = (
   const submitForm = async () => {
     try {
       await postNewMileage({
-        studentId: student?.studentId,
+        studentId: student.studentId,
         subitemId,
         semester,
         description1,
@@ -62,10 +67,10 @@ const useNewMileageForm = (
         file,
       });
       toggleModal();
-      toast.success('마일리지를 추가했습니다!');
+      toast.success(TOAST_MESSAGES.addMileage.succeed);
       resetForm();
     } catch {
-      toast.error('마일리지 추가에 실패했습니다. 다시 시도해주세요');
+      toast.error(TOAST_MESSAGES.addMileage.failed);
     }
   };
 

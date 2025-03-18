@@ -4,7 +4,7 @@ export const mockCapability: CapabilityResponse[] = [
   {
     capabilityId: 1,
     capabilityName: '전공 교과 역량',
-    milestoneCount: 6,
+    milestoneCount: 1,
     totalMilestoneCount: 12,
   },
   {
@@ -16,7 +16,7 @@ export const mockCapability: CapabilityResponse[] = [
   {
     capabilityId: 3,
     capabilityName: '산학 연구 - 프로젝트',
-    milestoneCount: 3,
+    milestoneCount: 0,
     totalMilestoneCount: 8,
   },
   {
@@ -28,7 +28,7 @@ export const mockCapability: CapabilityResponse[] = [
   {
     capabilityId: 5,
     capabilityName: '대외 활동',
-    milestoneCount: 8,
+    milestoneCount: 3,
     totalMilestoneCount: 20,
   },
 ];

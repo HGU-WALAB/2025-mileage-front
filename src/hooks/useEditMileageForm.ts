@@ -1,5 +1,5 @@
-import { useFile, useInput, useInputWithValidate } from '@/hooks';
-import usePatchSubmittedMileageMutation from '@/hooks/queries/usePatchSubmittedMileageMutation';
+import { useFileWithType, useInput, useInputWithValidate } from '@/hooks';
+import { usePatchSubmittedMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { SubmittedMileageResponse } from '@/types/mileage';
 import { validateRequired } from '@/utils/validate';
@@ -23,10 +23,14 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     handleChange: handleDesc2,
     reset: resetDesc2,
   } = useInput(item?.description2 ?? undefined);
-  const { value: file, handleChange: handleFile, reset: resetFile } = useFile();
+  const {
+    value: file,
+    handleChange: handleFile,
+    reset: resetFile,
+  } = useFileWithType('pdf');
 
-  const { mutateAsync: patchSubmittedMileage } =
-    usePatchSubmittedMileageMutation();
+  const { mutate: patchSubmittedMileage } = usePatchSubmittedMileageMutation();
+
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
   ) => {
@@ -54,28 +58,22 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     return true;
   };
 
-  const submitForm = async () => {
-    try {
-      await patchSubmittedMileage({
+  const submitForm = () => {
+    patchSubmittedMileage(
+      {
         studentId: student.studentId,
         recordId: item.recordId,
         subitemId: item.subitemId,
         description1,
         description2,
         file,
-      });
-      toggleModal();
-      toast.success('마일리지를 수정했습니다!');
-      resetForm();
-    } catch {
-      toast.error('마일리지 수정에 실패했습니다. 다시 시도해주세요');
-    }
-  };
-
-  const resetForm = () => {
-    resetDesc1();
-    resetDesc2();
-    resetFile();
+      },
+      {
+        onSuccess: () => {
+          toggleModal();
+        },
+      },
+    );
   };
 
   return {

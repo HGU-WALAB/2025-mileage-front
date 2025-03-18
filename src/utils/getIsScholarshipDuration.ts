@@ -4,9 +4,9 @@ export const getIsScholarshipDuration = (
   today: string,
   scholarshipDuration: ScholarshipDurationResponse,
 ) => {
-  const { isStart, isEnd } = scholarshipDuration;
+  const { regStart, regEnd } = scholarshipDuration;
 
   return (
-    new Date(isStart) <= new Date(today) && new Date(today) <= new Date(isEnd)
+    new Date(regStart) <= new Date(today) && new Date(today) <= new Date(regEnd)
   );
 };

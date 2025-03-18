@@ -6,7 +6,7 @@ import { styled, useMediaQuery, useTheme } from '@mui/material';
 
 const guides = [
   'SW 관련 자격증 또는 개인별 추가 실적 제출',
-  '첨부파일은 이미지파일 (jpg, png) 또는 pdf만 업로드 가능',
+  '첨부파일은 pdf만 업로드 가능',
   '업로드 할 첨부파일 : 자격증 사본 또는 실적을 증빙할 수 있는 서류 사본',
 ];
 

@@ -8,6 +8,7 @@ export { default as useGetSemesterCapabilityQuery } from './useGetSemesterCapabi
 export { default as useGetSubmittedFileQuery } from './useGetSubmittedFileQuery';
 export { default as useGetSubmittedMileageQuery } from './useGetSubmittedMileageQuery';
 export { default as useGetUserInfoQuery } from './useGetUserInfoQuery';
+export { default as usePatchSubmittedMileageMutation } from './usePatchSubmittedMileageMutation';
 export { default as usePostLoginMutation } from './usePostLoginMutation';
 export { default as usePostLogoutMutation } from './usePostLogoutMutation';
 export { default as usePostNewMileageMutation } from './usePostNewMileageMutation';

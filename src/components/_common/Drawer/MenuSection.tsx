@@ -20,6 +20,7 @@ const MenuSection = () => {
       sx={{
         display: 'flex',
         flexDirection: 'column',
+        gap: '0.25rem',
         width: '100%',
       }}
     >

@@ -13,7 +13,7 @@ const NavigationBar = () => {
   const location = useLocation();
 
   const navigationItems = useMemo(() => {
-    return drawerItems.sort(
+    return [...drawerItems].sort(
       (a, b) =>
         customOrder.indexOf(a.shortText) - customOrder.indexOf(b.shortText),
     );
@@ -37,6 +37,7 @@ const NavigationBar = () => {
             selected={location.pathname === item.route}
             justify="center"
             align="center"
+            pointer
           >
             {location.pathname === item.route ? (
               <item.selectedIcon />

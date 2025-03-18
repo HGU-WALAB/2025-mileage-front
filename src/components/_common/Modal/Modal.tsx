@@ -1,9 +1,9 @@
+import { CloseIcon } from '@/assets';
 import { Size } from '@/types/style';
 import { Dialog, DialogContent, IconButton } from '@mui/material';
 import { HTMLAttributes } from 'react';
 import { createPortal } from 'react-dom';
 
-import { CloseIcon } from '@/assets';
 import ModalBody from './ModalBody';
 import ModalFooter from './ModalFooter';
 import ModalHeader from './ModalHeader';

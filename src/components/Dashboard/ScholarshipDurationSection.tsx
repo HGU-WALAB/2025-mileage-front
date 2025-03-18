@@ -1,14 +1,15 @@
 import { Flex, Text } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useScholarshipDuration } from '@/hooks';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getFormattedDate } from '@/utils/getDate';
-import { styled, useTheme } from '@mui/material';
+import { styled, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 const ScholarshipDurationSection = () => {
-  const theme = useTheme();
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const navigate = useNavigate();
   const { currentSemester } = useAuthStore();
 
@@ -17,16 +18,23 @@ const ScholarshipDurationSection = () => {
 
   return (
     <S.DateContainer
-      justify="center"
+      justify="flex-start"
       align="center"
+      gap=".5rem"
       onClick={() => navigate(ROUTE_PATH.scholarship)}
+      isMobile={isMobile}
+      pointer
     >
+      <S.LabelBox>신청기간</S.LabelBox>
       {isScholarshipDuration ? (
-        <Text color={theme.palette.primary.main} bold>
-          {`현재 ${currentSemester} 마일리지 장학금 신청 기간입니다. (신청기간 : ${getFormattedDate(scholarshipDuration?.isStart ?? '')} ~ ${getFormattedDate(scholarshipDuration?.isEnd ?? '')})`}
-        </Text>
+        <Flex.Column>
+          <Text>{`${currentSemester} 마일리지 장학금 신청`}</Text>
+          <Text>
+            {`${getFormattedDate(scholarshipDuration?.regStart ?? '')} ~ ${getFormattedDate(scholarshipDuration?.regEnd ?? '')}`}
+          </Text>
+        </Flex.Column>
       ) : (
-        <Text color={theme.palette.primary.main} bold>
+        <Text>
           {`현재 ${currentSemester} 마일리지 장학금 신청 기간이 아닙니다.`}
         </Text>
       )}
@@ -37,12 +45,19 @@ const ScholarshipDurationSection = () => {
 export default ScholarshipDurationSection;
 
 const S = {
-  DateContainer: styled(Flex.Row)`
+  DateContainer: styled(Flex.Row)<{ isMobile: boolean }>`
     background-color: ${({ theme }) => theme.palette.white};
     border-radius: 0.5rem;
-    height: 60px;
-    padding: 0.5rem 2rem;
-    width: fit-content;
+    min-height: 60px;
+    padding: 0.5rem 1rem;
+    width: ${({ isMobile }) => (isMobile ? '100%' : 'fit-content')};
     ${boxShadow}
+  `,
+  LabelBox: styled(Flex.Row)`
+    background-color: ${({ theme }) => theme.palette.primary.main};
+    border-radius: 0.25rem;
+    color: ${({ theme }) => theme.palette.white};
+    padding: 0.25rem;
+    width: fit-content;
   `,
 };

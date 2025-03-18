@@ -1,24 +1,16 @@
 import { CheckIcon } from '@/assets';
 import { Flex, Heading, Text } from '@/components';
-import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
-import { useMemo } from 'react';
 
-const guides = (currentSemester: string) => [
-  `학년과 학기 정보는 ${currentSemester}학기를 기준으로 표시됩니다.`,
+const guides = [
+  `학년과 학기 정보는 히즈넷 정보 기준으로 표시됩니다.`,
   '반드시 학부와 전공 정보를 확인한 후, 장학금 신청 대상인 경우에만 신청하세요.',
   '정보가 다르다면 아래의 업데이트 버튼을 눌러 자동으로 최신 정보로 갱신하세요.',
 ];
 
 const InfoGuideSection = () => {
   const theme = useTheme();
-  const { currentSemester } = useAuthStore();
-
-  const memoizedGuides = useMemo(
-    () => guides(currentSemester ?? ''),
-    [currentSemester],
-  );
 
   return (
     <S.Section
@@ -35,7 +27,7 @@ const InfoGuideSection = () => {
       </Flex.Column>
 
       <S.GuideWrapper padding=".5rem 1rem">
-        {memoizedGuides.map(guide => (
+        {guides.map(guide => (
           <Flex.Row align="center" gap="0.25rem" key={guide.toString()}>
             <CheckIcon />
             <Text

@@ -17,6 +17,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   padding?: string;
   margin?: string;
   backgroundColor?: string;
+  pointer?: boolean;
 }
 
 const Flex = ({
@@ -31,6 +32,7 @@ const Flex = ({
   padding,
   margin,
   backgroundColor,
+  pointer,
   style,
   ...props
 }: Props) => {
@@ -49,6 +51,7 @@ const Flex = ({
         margin,
         backgroundColor,
         boxSizing: 'border-box',
+        cursor: pointer ? 'pointer' : 'default',
         ...style,
       }}
       {...props}

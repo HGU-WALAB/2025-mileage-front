@@ -1,6 +1,6 @@
 import { Button } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import useLogin from '@/hooks/useLogin';
+import { useLogin } from '@/hooks';
 import { styled } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';

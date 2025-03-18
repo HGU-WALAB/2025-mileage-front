@@ -1,4 +1,5 @@
 import { Flex } from '@/components';
+import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
@@ -6,16 +7,17 @@ import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled } from '@mui/material';
 
 const MobileMileageCountSection = () => {
-  const { student, currentSemester } = useAuthStore();
+  const { student } = useAuthStore();
+  const { queryParams } = useQueryParams();
   const { data: mileageList } = useGetMileageQuery({
     studentId: student.studentId,
-    semester: currentSemester,
+    semester: queryParams.semester,
     done: 'Y',
   });
 
   return (
     <S.Container justify="center" align="center" gap=".5rem">
-      현재 참여한 마일리지
+      {queryParams.semester} 참여 마일리지
       <S.CountBox>{mileageList?.length ?? '-'} 건</S.CountBox>
     </S.Container>
   );

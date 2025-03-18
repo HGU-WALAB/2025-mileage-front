@@ -9,6 +9,6 @@ export interface IsAppliedScholarshipResponse {
 }
 
 export interface ScholarshipDurationResponse {
-  isStart: string;
-  isEnd: string;
+  regStart: string;
+  regEnd: string;
 }

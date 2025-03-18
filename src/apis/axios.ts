@@ -10,7 +10,9 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.response.use(
   response => response,
   error => {
-    captureException(error);
+    if (error.response && error.response.status === 500) {
+      captureException(error);
+    }
 
     return Promise.reject(error);
   },

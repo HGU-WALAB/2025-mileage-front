@@ -1,4 +1,4 @@
-import useGetScholarshipDurationQuery from '@/hooks/queries/useGetScholarshipDurationQuery';
+import { useGetScholarshipDurationQuery } from '@/hooks/queries';
 import { getIsScholarshipDuration } from '@/utils/getIsScholarshipDuration';
 import { useMemo } from 'react';
 

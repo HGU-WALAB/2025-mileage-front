@@ -9,7 +9,7 @@ export const mockUserData: UserResponse = {
   grade: 3,
   term: 7,
   department: '전산전자공학부',
-  currentSemester: '2025-1',
+  currentSemester: '2025-01',
   modDate: new Date().toString(),
   studentType: '전공',
 };

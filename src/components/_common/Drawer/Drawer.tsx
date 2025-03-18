@@ -1,13 +1,13 @@
 import { Button, Flex } from '@/components';
 import { drawerWidth, globalHeight } from '@/constants/layoutSize';
+import { ROUTE_PATH } from '@/constants/routePath';
+import { useScholarshipDuration } from '@/hooks';
 import { useDrawerStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
 import { ErrorBoundary } from 'react-error-boundary';
-
-import { ROUTE_PATH } from '@/constants/routePath';
-import { useScholarshipDuration } from '@/hooks';
 import { useNavigate } from 'react-router-dom';
+
 import IsApplyCheckSection from './IsApplyCheckSection';
 import LogoSection from './LogoSection';
 import LogoutSection from './LogoutSection';
@@ -17,7 +17,6 @@ import UserSection from './UserSection';
 const Drawer = () => {
   const theme = useTheme();
   const { isDrawerOpen } = useDrawerStore();
-
   const { isScholarshipDuration } = useScholarshipDuration();
 
   return (

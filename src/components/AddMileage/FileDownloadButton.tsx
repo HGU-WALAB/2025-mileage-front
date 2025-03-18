@@ -4,7 +4,7 @@ import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled } from '@mui/material';
 
 const FileDownloadButton = ({ item }: { item: SubmittedMileageResponse }) => {
-  const { data: file } = useGetSubmittedFileQuery(item.uniqueFileName);
+  const { data: file } = useGetSubmittedFileQuery(item.uniqueFileName ?? '');
 
   const handleDownload = () => {
     if (file) {
@@ -27,6 +27,7 @@ export default FileDownloadButton;
 const S = {
   Text: styled(Text)`
     border-bottom: 1px solid ${({ theme }) => theme.palette.grey300};
+    cursor: pointer;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

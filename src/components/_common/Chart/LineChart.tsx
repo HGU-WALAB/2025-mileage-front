@@ -59,6 +59,21 @@ const LineChart = ({ data }: { data: SemesterCapabilityResponse[] }) => {
       areaBaselineValue={minBaseLine}
       enableTouchCrosshair={true}
       useMesh={true}
+      tooltip={point => {
+        return (
+          <div
+            style={{
+              background: 'white',
+              padding: '5px 10px',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+            }}
+          >
+            <strong>마일리지 건수: </strong>
+            {point.point.data.y.toString()}건
+          </div>
+        );
+      }}
     />
   );
 };

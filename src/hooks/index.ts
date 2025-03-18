@@ -1,5 +1,6 @@
 export { default as useEditMileageForm } from './useEditMileageForm';
 export { default as useFile } from './useFile';
+export { default as useFileWithType } from './useFileWithType';
 export { default as useFilteredByJoined } from './useFilteredByJoined';
 export { default as useFilteredByKeyword } from './useFilteredByKeyword';
 export { default as useFilteredBySemester } from './useFilteredBySemester';

@@ -16,7 +16,7 @@ const MileageListPage = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   return (
-    <Flex.Column margin="1rem 2rem">
+    <Flex.Column margin="1rem">
       {isMobile && (
         <ErrorBoundary fallback={<div />}>
           <MobileMileageCountSection />

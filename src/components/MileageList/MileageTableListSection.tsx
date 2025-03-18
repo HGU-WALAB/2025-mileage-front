@@ -7,12 +7,11 @@ import { useEffect } from 'react';
 const MileageTableListSection = () => {
   const { currentSemester } = useAuthStore();
   const { updateQueryParams } = useQueryParams();
+  const { groupedMileageList, isLoading } = useGroupedMileageList();
 
   useEffect(() => {
     updateQueryParams({ semester: currentSemester });
   }, [currentSemester]);
-
-  const { groupedMileageList, isLoading } = useGroupedMileageList();
 
   if (isLoading) return <TableListSkeleton />;
   if (!groupedMileageList.length) return <EmptyMileageTable />;

@@ -6,13 +6,13 @@ export const mockEtcMileageList: EtcMileageResponse[] = [
     categoryName: 'Leadership',
     subitemId: 101,
     subitemName: 'Team Building',
-    semester: '2025-1',
+    semester: '2025-01',
   },
   {
     categoryId: 2,
     categoryName: 'Communication',
     subitemId: 102,
     subitemName: 'Public Speaking',
-    semester: '2024-2',
+    semester: '2024-02',
   },
 ];

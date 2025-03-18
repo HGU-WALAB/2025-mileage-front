@@ -11,13 +11,9 @@ export default defineConfig({
     svgr(),
     tsconfigPaths(),
     sentryVitePlugin({
-      org: 'hyelim',
+      org: 'hgu-mileage',
       project: '2025-mileage',
     }),
-    sentryVitePlugin({
-      org: "hyelim",
-      project: "2025-mileage"
-    })
   ],
 
   base: '/mileage/',

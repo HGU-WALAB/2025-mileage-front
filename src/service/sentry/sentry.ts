@@ -10,8 +10,9 @@ import {
 Sentry.init({
   dsn: import.meta.env.VITE_SENTRY_DSN_TOKEN,
   release: '1.0.0',
-  environment: 'production',
+  environment: import.meta.env.MODE,
   normalizeDepth: 6,
+  debug: import.meta.env.MODE !== 'production',
 
   integrations: [
     Sentry.reactRouterV6BrowserTracingIntegration({
@@ -29,5 +30,4 @@ Sentry.init({
 
   tracesSampleRate: 1.0,
   tracePropagationTargets: ['localhost', `${import.meta.env.VITE_API_URL}`],
-  debug: true,
 });

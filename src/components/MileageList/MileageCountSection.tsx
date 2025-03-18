@@ -1,5 +1,6 @@
 import { Flex } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
+import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
@@ -8,22 +9,23 @@ import { styled, useMediaQuery } from '@mui/material';
 
 const MileageCountSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  const { student, currentSemester } = useAuthStore();
+
+  const { student } = useAuthStore();
+  const { queryParams } = useQueryParams();
   const { data: mileageList } = useGetMileageQuery({
     studentId: student.studentId,
-    semester: currentSemester,
+    semester: queryParams.semester,
     done: 'Y',
   });
 
   if (isMobile) return null;
-
   return (
     <S.Container justify="space-between">
       <S.CountContainer align="center" justify="center" gap=".5rem">
         <S.CountNumber>{mileageList?.length ?? '-'}</S.CountNumber>건
       </S.CountContainer>
       <S.TextBox align="center" justify="center" padding=".5rem 0 0">
-        현재 참여한 마일리지
+        {queryParams.semester} 참여 마일리지
       </S.TextBox>
     </S.Container>
   );
@@ -35,9 +37,10 @@ const S = {
   Container: styled(Flex.Column)`
     background-color: ${({ theme }) => theme.palette.white};
     border-radius: 1rem;
-    height: 130px;
+    min-height: 120px;
+    min-width: 220px;
     padding: 1rem;
-    width: 200px;
+    word-break: keep-all;
     ${boxShadow}
   `,
   CountContainer: styled(Flex.Row)`

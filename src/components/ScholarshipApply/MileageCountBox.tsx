@@ -25,7 +25,12 @@ const MileageCountBox = () => {
   const text = isMobile ? '마일리지 건수' : '마일리지 항목 건수';
 
   return (
-    <S.CountContainer align="center" onClick={handleClick} isMobile={isMobile}>
+    <S.CountContainer
+      align="center"
+      onClick={handleClick}
+      isMobile={isMobile}
+      pointer
+    >
       <Flex.Row style={{ fontSize: isMobile ? '0.75rem' : '1rem' }}>
         {text}
       </Flex.Row>
@@ -49,7 +54,7 @@ const S = {
     height: ${({ isMobile }) => (isMobile ? '80px' : '110px')};
     padding: ${({ isMobile }) => (isMobile ? '.5rem' : '1rem')};
     position: absolute;
-    right: 10%;
+    right: 5%;
     top: -30%;
     width: ${({ isMobile }) => (isMobile ? '100px' : '200px')};
     ${boxShadow}

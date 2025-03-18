@@ -32,7 +32,7 @@ export const MileageHandlers = [
           mileageList.subitemName.includes(keyword) ||
           mileageList.categoryName.includes(keyword) ||
           mileageList.capabilityName.includes(keyword) ||
-          mileageList.description.includes(keyword),
+          mileageList.description1.includes(keyword),
       );
     }
 
@@ -60,16 +60,6 @@ export const MileageHandlers = [
     }
 
     return HttpResponse.json(filteredMileageList, { status: 200 });
-  }),
-
-  http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}/:studentId`, () => {
-    const { is400Error, is401Error, is500Error } = randomMswError();
-
-    if (is400Error) return Error400();
-    if (is401Error) return Error401();
-    if (is500Error) return Error500();
-
-    return HttpResponse.json(submittedMileage.getValue(), { status: 200 });
   }),
 
   http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}`, () => {
@@ -102,12 +92,24 @@ export const MileageHandlers = [
         semester: semester,
         description1,
         description2,
-        file,
+        fileId: file ? prevData.length + 1 : null,
+        file: file instanceof File ? file.name : null,
+        uniqueFileName: file instanceof File ? file.name : null,
         modDate: new Date().toDateString(),
       } as SubmittedMileageResponse),
     );
 
     return HttpResponse.json(mockEtcMileageList, { status: 200 });
+  }),
+
+  http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}/:studentId`, () => {
+    const { is400Error, is401Error, is500Error } = randomMswError();
+
+    if (is400Error) return Error400();
+    if (is401Error) return Error401();
+    if (is500Error) return Error500();
+
+    return HttpResponse.json(submittedMileage.getValue(), { status: 200 });
   }),
 
   http.patch(
@@ -133,7 +135,8 @@ export const MileageHandlers = [
                 ...item,
                 description1: description1 as string,
                 description2: description2 as string,
-                file: file as string,
+                file: file?.toString(),
+                uniqueFileName: file?.toString(),
                 modDate: new Date().toDateString(),
               } as SubmittedMileageResponse)
             : item,

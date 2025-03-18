@@ -4,10 +4,11 @@ import {
   EditSubmittedMileageModal,
   SubmittedMileageModal,
 } from '@/components/AddMileage';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useGetSubmittedMileageQuery } from '@/hooks/queries';
-import { useAuthStore } from '@/stores';
 import { THeader } from '@/types/table';
 import { getDate } from '@/utils/getDate';
+import { useMediaQuery } from '@mui/material';
 import { useMemo } from 'react';
 
 const headerItems: THeader[] = [
@@ -20,32 +21,41 @@ const headerItems: THeader[] = [
 ];
 
 const SubmittedMileageTable = () => {
-  const { student } = useAuthStore();
-  const { data: submittedMileageList, isLoading } = useGetSubmittedMileageQuery(
-    student?.studentId ?? '',
-  );
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+  const { data: submittedMileageList, isLoading } =
+    useGetSubmittedMileageQuery();
 
   const bodyItems = useMemo(
     () =>
-      submittedMileageList?.map(item => ({
-        semester: item.semester,
-        subitemName: item.subitemName,
-        description1: item.description1,
-        modDate: getDate(item.modDate),
-        func: (
-          <Flex.Row gap=".5rem" justify="center">
-            <EditSubmittedMileageModal item={item} />
-            <DeleteSubmittedMileageModal item={item} />
-          </Flex.Row>
-        ),
-        overview: <SubmittedMileageModal item={item} />,
-      })) ?? [],
+      submittedMileageList && submittedMileageList.length > 0
+        ? submittedMileageList.map(item => ({
+            semester: item.semester,
+            subitemName: item.subitemName,
+            description1: item.description1,
+            modDate: getDate(item.modDate),
+            func: (
+              <Flex.Row gap=".5rem" justify="center">
+                <EditSubmittedMileageModal item={item} />
+                <DeleteSubmittedMileageModal item={item} />
+              </Flex.Row>
+            ),
+            overview: <SubmittedMileageModal item={item} />,
+          }))
+        : [{ semester: '등록된 항목이 없어요' }],
     [submittedMileageList],
   );
 
   if (isLoading) return <BoxSkeleton />;
-
-  return <Table headItems={headerItems} bodyItems={bodyItems} />;
+  return (
+    <Table
+      headItems={
+        isMobile
+          ? headerItems.filter(item => !'항목, 신청날짜'.includes(item.text))
+          : headerItems
+      }
+      bodyItems={bodyItems}
+    />
+  );
 };
 
 export default SubmittedMileageTable;

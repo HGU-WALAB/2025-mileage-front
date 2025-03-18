@@ -26,6 +26,7 @@ const Accordion = ({ title, desc }: Props) => {
             justify="center"
             align="center"
             expanded={expanded}
+            pointer
           >
             <ExpandMoreIcon
               sx={{
