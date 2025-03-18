@@ -20,13 +20,9 @@ export const postScholarshipApply = async ({
   return response;
 };
 
-export const getIsAppliedScholarship = async ({
-  studentId,
-}: {
-  studentId: string;
-}) => {
+export const getIsAppliedScholarship = async () => {
   const response = await http.get<IsAppliedScholarshipResponse>(
-    `${ENDPOINT.SCHOLARSHIP_APPLY}/${studentId}`,
+    `${ENDPOINT.SCHOLARSHIP_APPLY}/status`,
   );
 
   return response;
