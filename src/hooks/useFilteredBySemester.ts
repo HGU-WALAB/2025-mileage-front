@@ -1,17 +1,13 @@
 import { ALL_SEMESTER } from '@/constants/system';
 import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
-import { useAuthStore } from '@/stores';
 import { useMemo } from 'react';
 
 const useFilteredBySemester = () => {
-  const { student } = useAuthStore();
   const { queryParams, updateQueryParams } = useQueryParams();
   const selectedSemester = queryParams.semester;
 
-  const { data: mileageList, isLoading } = useGetMileageQuery({
-    studentId: student.studentId,
-  });
+  const { data: mileageList, isLoading } = useGetMileageQuery({});
 
   const semesterList = useMemo(
     () => [

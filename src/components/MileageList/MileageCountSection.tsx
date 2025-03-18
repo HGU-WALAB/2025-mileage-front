@@ -2,7 +2,6 @@ import { Flex } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
-import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useMediaQuery } from '@mui/material';
@@ -10,10 +9,8 @@ import { styled, useMediaQuery } from '@mui/material';
 const MileageCountSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
-  const { student } = useAuthStore();
   const { queryParams } = useQueryParams();
   const { data: mileageList } = useGetMileageQuery({
-    studentId: student.studentId,
     semester: queryParams.semester,
     done: 'Y',
   });

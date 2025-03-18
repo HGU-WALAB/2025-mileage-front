@@ -14,7 +14,7 @@ const headerItems: THeader[] = [
   { text: '학기', value: 'semester', width: '100px' },
   { text: '카테고리명', value: 'categoryName', width: '250px' },
   { text: '항목명', value: 'subitemName', width: '400px' },
-  { text: '내용', value: 'description1' },
+  { text: '내용', value: 'description1', width: '250px' },
   { text: '참여여부', value: 'done', align: 'center', width: '150px' },
 ];
 
