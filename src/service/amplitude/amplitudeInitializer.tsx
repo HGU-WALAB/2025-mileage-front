@@ -8,6 +8,9 @@ export const amplitudeInitializer = () => {
       defaultTracking: {
         pageViews: false,
       },
+      autocapture: {
+        elementInteractions: true,
+      },
       minIdLength: 1,
     });
   };
