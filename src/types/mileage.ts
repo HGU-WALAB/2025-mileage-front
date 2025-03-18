@@ -14,7 +14,7 @@ export interface MileageResponse {
 
   semester: string;
   done: boolean;
-  description: string;
+  description1: string;
 
   // 등록한 카테고리에 대한 관리자 처리
   isEtcActioned: boolean;

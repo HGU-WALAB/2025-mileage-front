@@ -11,7 +11,7 @@ export const mockMileageList: MileageResponse[] = [
     milestoneCount: 10,
     semester: '2025-01',
     done: true,
-    description: 'JavaScript 기본 문법 학습 및 간단한 프로젝트 구현',
+    description1: '',
     isEtcActioned: false,
   },
   {
@@ -24,7 +24,7 @@ export const mockMileageList: MileageResponse[] = [
     milestoneCount: 5,
     semester: '2025-02',
     done: false,
-    description: '프로그래밍 문제 해결을 위한 알고리즘 문제 풀이 10개 이상',
+    description1: '',
     isEtcActioned: true,
   },
   {
@@ -37,7 +37,7 @@ export const mockMileageList: MileageResponse[] = [
     milestoneCount: 7,
     semester: '2024-01',
     done: true,
-    description: '클린 코드 작성과 코드 리뷰 진행',
+    description1: '클린 코드 작성과 코드 리뷰 진행',
     isEtcActioned: false,
   },
   {
@@ -50,7 +50,7 @@ export const mockMileageList: MileageResponse[] = [
     milestoneCount: 15,
     semester: '2024-02',
     done: true,
-    description: 'Git을 이용한 버전 관리와 협업 툴 사용법 학습',
+    description1: 'Git을 이용한 버전 관리와 협업 툴 사용법 학습',
     isEtcActioned: false,
   },
   {
@@ -63,7 +63,7 @@ export const mockMileageList: MileageResponse[] = [
     milestoneCount: 12,
     semester: '2023-02',
     done: false,
-    description: 'React를 활용한 SPA 프로젝트 구현',
+    description1: 'React를 활용한 SPA 프로젝트 구현',
     isEtcActioned: true,
   },
   {
@@ -76,7 +76,7 @@ export const mockMileageList: MileageResponse[] = [
     milestoneCount: 8,
     semester: '2026-02',
     done: true,
-    description: 'Node.js를 이용한 서버 구축 및 API 개발',
+    description1: 'Node.js를 이용한 서버 구축 및 API 개발',
     isEtcActioned: false,
   },
 ];

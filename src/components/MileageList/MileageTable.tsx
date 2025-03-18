@@ -12,9 +12,9 @@ interface Props {
 
 const headerItems: THeader[] = [
   { text: '학기', value: 'semester', width: '100px' },
-  { text: '카테고리명', value: 'categoryName', width: '200px' },
-  { text: '항목명', value: 'subitemName', width: '200px' },
-  { text: '내용', value: 'description' },
+  { text: '카테고리명', value: 'categoryName', width: '250px' },
+  { text: '항목명', value: 'subitemName', width: '400px' },
+  { text: '내용', value: 'description1' },
   { text: '참여여부', value: 'done', align: 'center', width: '150px' },
 ];
 
@@ -27,7 +27,7 @@ const MileageTable = ({ mileageList }: Props) => {
         semester: item.semester,
         categoryName: item.categoryName,
         subitemName: item.subitemName,
-        description: item.description,
+        description1: item.description1,
         done: item.done ? <JoinedCheckCircleIcon /> : null,
       })),
     [mileageList],
