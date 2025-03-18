@@ -5,21 +5,17 @@ import {
   SemesterCapabilityResponse,
 } from '@/types/capability';
 
-export const getCapability = async ({ studentId }: { studentId: string }) => {
+export const getCapability = async () => {
   const response = await http.get<CapabilityResponse[]>(
-    `${ENDPOINT.CAPABILITY}/${studentId}`,
+    `${ENDPOINT.CAPABILITY}/milestone`,
   );
 
   return response;
 };
 
-export const getSemesterCapability = async ({
-  studentId,
-}: {
-  studentId: string;
-}) => {
+export const getSemesterCapability = async () => {
   const response = await http.get<SemesterCapabilityResponse[]>(
-    `${ENDPOINT.CAPABILITY}/semester/${studentId}`,
+    `${ENDPOINT.CAPABILITY}/semester`,
   );
 
   return response;

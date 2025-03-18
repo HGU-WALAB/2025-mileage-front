@@ -1,17 +1,13 @@
 import { getCapability } from '@/apis/capability';
-import { useAuthStore } from '@/stores';
+import { QUERY_KEYS } from '@/constants/queryKeys';
 import { CapabilityResponse } from '@/types/capability';
 import { useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
 const useGetCapabilityQuery = () => {
-  const { student } = useAuthStore();
   return useQuery<CapabilityResponse[], AxiosError>({
-    queryKey: ['capability', student.studentId],
-    queryFn: () =>
-      getCapability({
-        studentId: student.studentId,
-      }),
+    queryKey: [QUERY_KEYS.capability],
+    queryFn: () => getCapability(),
   });
 };
 
