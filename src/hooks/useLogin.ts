@@ -3,7 +3,7 @@ import { usePostLoginMutation } from '@/hooks/queries';
 import { useEffect } from 'react';
 
 const useLogin = () => {
-  const { mutate: postLogin } = usePostLoginMutation();
+  const { mutate: postLogin, isSuccess } = usePostLoginMutation();
 
   useEffect(() => {
     const currentUrl = new URL(window.location.href);
@@ -24,7 +24,7 @@ const useLogin = () => {
     window.location.href = HISNET_AUTH_URL(returnUrl);
   };
 
-  return { handleHisnetAuth };
+  return { handleHisnetAuth, isLoginSucceed: isSuccess };
 };
 
 export default useLogin;
