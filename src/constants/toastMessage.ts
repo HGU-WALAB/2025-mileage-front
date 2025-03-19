@@ -14,5 +14,6 @@ export const TOAST_MESSAGES = {
   },
   requiredField: '필수 정보를 입력해 주세요.',
   checkConsent: '개인 정보 수집을 동의해주세요!',
+  failedAuth: '로그인 후 사용할 수 있습니다.',
   default: '알 수 없는 오류가 발생했어요. 다시 시도해 주세요.',
 };
