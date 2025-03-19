@@ -1,3 +1,4 @@
+import { STORE_NAME } from '@/constants/storeName';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -31,7 +32,7 @@ const useAuthStore = create<AuthState>()(
         }),
     }),
     {
-      name: 'auth',
+      name: STORE_NAME.auth,
     },
   ),
 );
