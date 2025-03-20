@@ -164,6 +164,16 @@ export const MileageHandlers = [
       return HttpResponse.json({}, { status: 200 });
     },
   ),
+
+  http.get(BASE_URL + `${ENDPOINT.ETC_MILEAGE}/file/:uniqueFileName`, () => {
+    const { is400Error, is401Error, is500Error } = randomMswError();
+
+    if (is400Error) return Error400();
+    if (is401Error) return Error401();
+    if (is500Error) return Error500();
+
+    return HttpResponse.json({}, { status: 200 });
+  }),
 ];
 
 const submittedMileage = new LiveStorage<SubmittedMileageResponse[]>(
