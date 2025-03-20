@@ -22,13 +22,13 @@ const Drawer = () => {
   return (
     <MuiDrawer
       sx={{
-        width: drawerWidth,
+        minWidth: drawerWidth,
         flexShrink: 0,
         '& .MuiDrawer-paper': {
           top: '.5rem',
           left: '.5rem',
           height: globalHeight,
-          width: drawerWidth,
+          minWidth: drawerWidth,
           boxSizing: 'border-box',
           backdropFilter: `blur(10px)`,
           backgroundColor: getOpacityColor(theme.palette.white, 0.1),

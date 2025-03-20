@@ -1,16 +1,13 @@
 import { Flex } from '@/components';
 import { useQueryParams } from '@/hooks';
 import { useGetMileageQuery } from '@/hooks/queries';
-import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled } from '@mui/material';
 
 const MobileMileageCountSection = () => {
-  const { student } = useAuthStore();
   const { queryParams } = useQueryParams();
   const { data: mileageList } = useGetMileageQuery({
-    studentId: student.studentId,
     semester: queryParams.semester,
     done: 'Y',
   });

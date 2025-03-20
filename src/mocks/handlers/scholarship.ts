@@ -15,12 +15,14 @@ export const ScholarshipHandlers = [
 
     return HttpResponse.json({}, { status: 200 });
   }),
-  http.get(BASE_URL + `${ENDPOINT.SCHOLARSHIP_APPLY}/:studentId`, () => {
+
+  http.get(BASE_URL + `${ENDPOINT.SCHOLARSHIP_APPLY}/status`, () => {
     const { isRandom } = randomMswError();
 
     if (isRandom) return HttpResponse.json({ isApply: 1 }, { status: 200 });
     return HttpResponse.json({ isApply: 0 }, { status: 200 });
   }),
+
   http.get(BASE_URL + `${ENDPOINT.SCHOLARSHIP_APPLY}`, () => {
     const { is500Error } = randomMswError();
 

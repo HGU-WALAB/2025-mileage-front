@@ -3,16 +3,9 @@ import { EtcMileageResponse } from '@/types/mileage';
 export const mockEtcMileageList: EtcMileageResponse[] = [
   {
     categoryId: 1,
-    categoryName: 'Leadership',
+    categoryName: '기타',
     subitemId: 101,
-    subitemName: 'Team Building',
+    subitemName: '자격증',
     semester: '2025-01',
-  },
-  {
-    categoryId: 2,
-    categoryName: 'Communication',
-    subitemId: 102,
-    subitemName: 'Public Speaking',
-    semester: '2024-02',
   },
 ];

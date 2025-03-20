@@ -1,6 +1,5 @@
 import { Flex } from '@/components';
 import {
-  AppliedSection,
   ApplySection,
   ConsentSection,
   MileageBannerSection,
@@ -30,11 +29,7 @@ const ScholarshipApplyPage = () => {
         isApplied={isApplied?.isApply ?? 0}
       />
 
-      {isApplied?.isApply ? (
-        <AppliedSection />
-      ) : (
-        <ApplySection isAgree={isAgree} />
-      )}
+      <ApplySection isAgree={isAgree} />
     </Flex.Column>
   );
 };

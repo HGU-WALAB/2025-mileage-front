@@ -11,7 +11,6 @@ import {
 import axios, { GenericFormData } from 'axios';
 
 export const getMileageList = async ({
-  studentId,
   keyword = '',
   category = 'all',
   semester = 'all',
@@ -27,7 +26,7 @@ export const getMileageList = async ({
   });
 
   const response = await http.get<MileageResponse[]>(
-    `${ENDPOINT.MILEAGE}/${studentId}/search`,
+    `${ENDPOINT.MILEAGE}/search`,
     { params: queryParams },
   );
 
@@ -69,13 +68,9 @@ export const postNewMileage = async ({
   return response;
 };
 
-export const getSubmittedMileageList = async ({
-  studentId,
-}: {
-  studentId: string;
-}) => {
+export const getSubmittedMileageList = async () => {
   const response = await http.get<SubmittedMileageResponse[]>(
-    `${ENDPOINT.ETC_MILEAGE}/${studentId}`,
+    `${ENDPOINT.ETC_MILEAGE}/get`,
   );
 
   return response;

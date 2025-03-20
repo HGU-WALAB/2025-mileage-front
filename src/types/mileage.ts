@@ -21,7 +21,6 @@ export interface MileageResponse {
 }
 
 export interface MileageRequest {
-  studentId: string;
   keyword?: string;
   category?: string;
   semester?: string;

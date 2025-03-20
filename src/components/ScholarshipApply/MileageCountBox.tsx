@@ -11,9 +11,8 @@ const MileageCountBox = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const navigate = useNavigate();
 
-  const { student, currentSemester } = useAuthStore();
+  const { currentSemester } = useAuthStore();
   const { data: mileageList } = useGetMileageQuery({
-    studentId: student.studentId,
     semester: currentSemester,
     done: 'Y',
   });

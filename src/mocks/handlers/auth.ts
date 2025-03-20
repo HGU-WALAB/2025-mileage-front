@@ -20,7 +20,7 @@ export const AuthHandlers = [
     return HttpResponse.json({}, { status: 200 });
   }),
 
-  http.get(BASE_URL + `${ENDPOINT.USER}/:studentId`, () => {
+  http.get(BASE_URL + `${ENDPOINT.USER}`, () => {
     const { is401Error, is500Error } = randomMswError();
 
     if (is401Error) return Error401();

@@ -1,17 +1,13 @@
 import { getSemesterCapability } from '@/apis/capability';
-import { useAuthStore } from '@/stores';
+import { QUERY_KEYS } from '@/constants/queryKeys';
 import { SemesterCapabilityResponse } from '@/types/capability';
 import { useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
 const useGetSemesterCapabilityQuery = () => {
-  const { student } = useAuthStore();
   return useQuery<SemesterCapabilityResponse[], AxiosError>({
-    queryKey: ['semesterCapability', student.studentId],
-    queryFn: () =>
-      getSemesterCapability({
-        studentId: student.studentId,
-      }),
+    queryKey: [QUERY_KEYS.semesterCapability],
+    queryFn: () => getSemesterCapability(),
   });
 };
 

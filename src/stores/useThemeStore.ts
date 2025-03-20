@@ -1,3 +1,4 @@
+import { STORE_NAME } from '@/constants/storeName';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -25,7 +26,7 @@ const useThemeStore = create<ThemeState>()(
         })),
     }),
     {
-      name: 'theme',
+      name: STORE_NAME.theme,
     },
   ),
 );

@@ -1,3 +1,4 @@
+import { STORE_NAME } from '@/constants/storeName';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -18,7 +19,7 @@ const useDrawerStore = create<DrawerState>()(
         })),
     }),
     {
-      name: 'isDrawerOpen',
+      name: STORE_NAME.drawer,
     },
   ),
 );
