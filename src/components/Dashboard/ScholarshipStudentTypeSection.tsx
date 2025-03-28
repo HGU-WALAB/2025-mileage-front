@@ -11,10 +11,10 @@ const ScholarshipStudentTypeSection = () => {
   const { student } = useAuthStore();
 
   const text = useMemo(() => {
-    return student.studentType !== '기타'
+    return student.studentType !== '기타' && student.term < 10
       ? `${student.studentType} 마일리지 장학금 신청 대상자입니다!`
       : '마일리지 장학금 신청 대상이 아닙니다.';
-  }, [student.studentType]);
+  }, [student]);
 
   return (
     <S.RowContainer isMobile={isMobile} justify="center">

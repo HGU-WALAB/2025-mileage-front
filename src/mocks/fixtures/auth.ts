@@ -7,7 +7,7 @@ export const mockUserData: UserResponse = {
   major1: '컴퓨터공학',
   major2: '경영학',
   grade: 3,
-  term: 7,
+  term: 10,
   department: '전산전자공학부',
   currentSemester: '2025-01',
   modDate: new Date().toString(),
