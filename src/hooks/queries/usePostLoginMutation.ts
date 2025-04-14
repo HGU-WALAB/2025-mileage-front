@@ -19,6 +19,7 @@ const usePostLoginMutation = () => {
           studentId: res.studentId,
           studentName: res.studentName,
           studentType: res.studentType,
+          term: res.term,
         },
         res.currentSemester,
       );
