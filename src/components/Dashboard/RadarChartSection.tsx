@@ -4,13 +4,19 @@ import { useGetCapabilityQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
 import { RadarCapability } from '@/types/capability';
 import { styled } from '@mui/material';
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 const RadarChartSection = () => {
   return (
     <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
       <Heading as="h3">나의 역량 비교 그래프</Heading>
       <Flex height="90%" width="100%" justify="center" align="center">
-        <ChartSection />
+        <ErrorBoundary FallbackComponent={ErrorBox}>
+          <Suspense fallback={<LoadingIcon width={100} height={100} />}>
+            <ChartSection />
+          </Suspense>
+        </ErrorBoundary>
       </Flex>
     </S.Container>
   );
@@ -19,12 +25,7 @@ const RadarChartSection = () => {
 export default RadarChartSection;
 
 const ChartSection = () => {
-  const {
-    data: capability,
-    isLoading,
-    isError,
-    error,
-  } = useGetCapabilityQuery();
+  const { data: capability } = useGetCapabilityQuery();
 
   const capabilityData: RadarCapability[] = (capability ?? []).map(cap => ({
     capabilityId: cap.capabilityId,
@@ -32,8 +33,6 @@ const ChartSection = () => {
     mileagePercent: (cap.milestoneCount / cap.totalMilestoneCount) * 100,
   }));
 
-  if (isLoading) return <LoadingIcon width={100} height={100} />;
-  if (isError) return <ErrorBox error={error} />;
   return <RadarChart data={capabilityData} />;
 };
 
