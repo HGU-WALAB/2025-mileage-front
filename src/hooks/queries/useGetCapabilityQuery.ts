@@ -5,10 +5,12 @@ import { useSuspenseQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
 const useGetCapabilityQuery = () => {
-  return useSuspenseQuery<CapabilityResponse[], AxiosError>({
+  const { data, ...rest } = useSuspenseQuery<CapabilityResponse[], AxiosError>({
     queryKey: [QUERY_KEYS.capability],
     queryFn: () => getCapability(),
   });
+
+  return { capability: data, ...rest };
 };
 
 export default useGetCapabilityQuery;

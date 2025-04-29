@@ -1,40 +1,23 @@
-import { LoadingIcon } from '@/assets';
-import { ErrorBox, Flex, Heading, RadarChart } from '@/components';
-import { CompareOptionButtonSection } from '@/components/Dashboard';
-import { useGetCapabilityQuery } from '@/hooks/queries';
+import { RadarChart } from '@/components';
+import { useGetCapabilityQuery, useGetUserInfoQuery } from '@/hooks/queries';
 import { useGetCompareCapabilityQuery } from '@/hooks/queries/useGetCompareCapabilityQuery';
-import { boxShadow } from '@/styles/common';
 import { RadarCapability } from '@/types/capability';
-import { styled } from '@mui/material';
-import { Suspense, useState } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 
-const RadarChartSection = () => {
-  const [compareOption, setCompareOption] = useState<string[]>([]);
+export const RadarChartSection = ({
+  compareOption,
+}: {
+  compareOption: string[];
+}) => {
+  const { data: user } = useGetUserInfoQuery();
 
-  return (
-    <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
-      <Heading as="h3">나의 역량 비교 그래프</Heading>
-      <Flex height="70%" width="100%" justify="center" align="center">
-        <ErrorBoundary FallbackComponent={ErrorBox}>
-          <Suspense fallback={<LoadingIcon width={100} height={100} />}>
-            <ChartSection compareOption={compareOption} />
-          </Suspense>
-        </ErrorBoundary>
-      </Flex>
-      <CompareOptionButtonSection
-        compareOption={compareOption}
-        setCompareOption={setCompareOption}
-      />
-    </S.Container>
-  );
-};
-
-export default RadarChartSection;
-
-const ChartSection = ({ compareOption }: { compareOption: string[] }) => {
-  const { data: capability } = useGetCapabilityQuery();
+  const { capability } = useGetCapabilityQuery();
   const { compareCapability } = useGetCompareCapabilityQuery({
+    term: compareOption.includes('term') ? `${user?.term}` : undefined,
+    entryYear: compareOption.includes('entryYear')
+      ? user?.studentId.slice(1, 3)
+      : undefined,
+    major1: compareOption.includes('major1') ? user?.major1 : undefined,
+    major2: compareOption.includes('major2') ? user?.major2 : undefined,
   });
 
   const capabilityData: RadarCapability[] = (capability ?? []).map(cap => {
@@ -57,12 +40,4 @@ const ChartSection = ({ compareOption }: { compareOption: string[] }) => {
   });
 
   return <RadarChart data={capabilityData} />;
-};
-
-const S = {
-  Container: styled(Flex.Column)`
-    background-color: ${({ theme }) => theme.palette.variant.default};
-    border-radius: 1rem;
-    ${boxShadow}
-  `,
 };
