@@ -27,6 +27,7 @@ const Button = ({
   ...props
 }: Props) => {
   const { baseColor, hoverColor } = getColor(color);
+
   return (
     <MuiButton
       variant={variant}

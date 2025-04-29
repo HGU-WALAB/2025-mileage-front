@@ -7,3 +7,5 @@ export { default as ProcessStep } from './ProcessStep';
 export { default as RadarChartSection } from './RadarChartSection';
 export { default as ScholarshipDurationSection } from './ScholarshipDurationSection';
 export { default as ScholarshipStudentTypeSection } from './ScholarshipStudentTypeSection';
+
+export * from './CompareOptionButtonSection';
