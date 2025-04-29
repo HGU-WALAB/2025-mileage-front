@@ -1,6 +1,7 @@
 import { LoadingIcon } from '@/assets';
 import { ErrorBox, Flex, Heading, RadarChart } from '@/components';
 import { useGetCapabilityQuery } from '@/hooks/queries';
+import { useGetCompareCapabilityQuery } from '@/hooks/queries/useGetCompareCapabilityQuery';
 import { boxShadow } from '@/styles/common';
 import { RadarCapability } from '@/types/capability';
 import { styled } from '@mui/material';
@@ -26,12 +27,27 @@ export default RadarChartSection;
 
 const ChartSection = () => {
   const { data: capability } = useGetCapabilityQuery();
+  const { compareCapability } = useGetCompareCapabilityQuery({
+  });
 
-  const capabilityData: RadarCapability[] = (capability ?? []).map(cap => ({
-    capabilityId: cap.capabilityId,
-    capabilityName: cap.capabilityName,
-    mileagePercent: (cap.milestoneCount / cap.totalMilestoneCount) * 100,
-  }));
+  const capabilityData: RadarCapability[] = (capability ?? []).map(cap => {
+    const matchedCompare = compareCapability?.find(
+      other => other.capabilityId === cap.capabilityId,
+    );
+
+    const myMileagePercent =
+      (cap.milestoneCount / cap.totalMilestoneCount) * 100;
+    const otherMileagePercent = matchedCompare
+      ? (matchedCompare.averageMilestoneCount / cap.totalMilestoneCount) * 100
+      : 0;
+
+    return {
+      capabilityId: cap.capabilityId,
+      capabilityName: cap.capabilityName,
+      '나의 마일리지': myMileagePercent,
+      '다른사람 평균': otherMileagePercent,
+    };
+  });
 
   return <RadarChart data={capabilityData} />;
 };

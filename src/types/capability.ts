@@ -21,7 +21,8 @@ export interface CompareCapabilityResponse {
 export interface RadarCapability {
   capabilityId: number;
   capabilityName: string;
-  mileagePercent: number;
+  '나의 마일리지': number;
+  '다른사람 평균': number;
   [key: string]: unknown;
 }
 
