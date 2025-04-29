@@ -6,5 +6,6 @@ export const QUERY_KEYS = {
   etcMileageList: 'etcMileageList',
   userInfo: 'userInfo',
   capability: 'capability',
+  compareCapability: 'compareCapability',
   semesterCapability: 'semesterCapability',
 };
