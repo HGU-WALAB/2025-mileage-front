@@ -1,6 +1,6 @@
 import { BASE_URL } from '@/apis/config';
 import { TOAST_MESSAGES } from '@/constants/toastMessage';
-import { useAuthStore } from '@/stores';
+// import { useAuthStore } from '@/stores';
 import { captureException } from '@sentry/react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -19,7 +19,7 @@ axiosInstance.interceptors.response.use(
 
     if (error.response && error.response.status === 401) {
       toast.error(TOAST_MESSAGES.failedAuth);
-      useAuthStore.getState().logout();
+      // useAuthStore.getState().logout();
     }
 
     return Promise.reject(error);
