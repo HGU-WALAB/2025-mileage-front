@@ -5,10 +5,24 @@ export interface CapabilityResponse {
   totalMilestoneCount: number;
 }
 
+export interface CompareCapabilityRequest {
+  term?: string;
+  entryYear?: string;
+  major1?: string;
+  major2?: string;
+}
+
+export interface CompareCapabilityResponse {
+  capabilityId: number;
+  capabilityName: string;
+  averageMilestoneCount: number;
+}
+
 export interface RadarCapability {
   capabilityId: number;
   capabilityName: string;
-  mileagePercent: number;
+  '나의 마일리지': number;
+  '다른사람 평균': number;
   [key: string]: unknown;
 }
 

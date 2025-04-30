@@ -35,3 +35,6 @@ export { default as Text } from './_common/Text/Text';
 export { default as Title } from './_common/Title/Title';
 export { default as ToggleButton } from './_common/ToggleButton/ToggleButton';
 export { default as UploadButton } from './_common/UploadButton/UploadButton';
+
+export * from './_common/Deferred/DeferredComponent';
+export * from './_common/Spinner/Spinner';

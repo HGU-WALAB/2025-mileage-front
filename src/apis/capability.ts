@@ -2,12 +2,35 @@ import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
 import {
   CapabilityResponse,
+  CompareCapabilityRequest,
+  CompareCapabilityResponse,
   SemesterCapabilityResponse,
 } from '@/types/capability';
 
 export const getCapability = async () => {
   const response = await http.get<CapabilityResponse[]>(
     `${ENDPOINT.CAPABILITY}/milestone`,
+  );
+
+  return response;
+};
+
+export const getCompareCapability = async ({
+  term = '',
+  entryYear = '',
+  major1 = '',
+  major2 = '',
+}: CompareCapabilityRequest) => {
+  const queryParams = new URLSearchParams({
+    term,
+    entryYear,
+    major1,
+    major2,
+  });
+
+  const response = await http.get<CompareCapabilityResponse[]>(
+    `${ENDPOINT.CAPABILITY}/milestone/compare`,
+    { params: queryParams },
   );
 
   return response;

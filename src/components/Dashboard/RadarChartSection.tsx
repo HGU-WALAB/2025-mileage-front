@@ -1,46 +1,43 @@
-import { LoadingIcon } from '@/assets';
-import { ErrorBox, Flex, Heading, RadarChart } from '@/components';
-import { useGetCapabilityQuery } from '@/hooks/queries';
-import { boxShadow } from '@/styles/common';
+import { RadarChart } from '@/components';
+import { useGetCapabilityQuery, useGetUserInfoQuery } from '@/hooks/queries';
+import { useGetCompareCapabilityQuery } from '@/hooks/queries/useGetCompareCapabilityQuery';
 import { RadarCapability } from '@/types/capability';
-import { styled } from '@mui/material';
 
-const RadarChartSection = () => {
-  return (
-    <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
-      <Heading as="h3">나의 역량 비교 그래프</Heading>
-      <Flex height="90%" width="100%" justify="center" align="center">
-        <ChartSection />
-      </Flex>
-    </S.Container>
-  );
-};
+export const RadarChartSection = ({
+  compareOption,
+}: {
+  compareOption: string[];
+}) => {
+  const { data: user } = useGetUserInfoQuery();
 
-export default RadarChartSection;
+  const { capability } = useGetCapabilityQuery();
+  const { compareCapability } = useGetCompareCapabilityQuery({
+    term: compareOption.includes('term') ? `${user?.term}` : undefined,
+    entryYear: compareOption.includes('entryYear')
+      ? user?.studentId.slice(1, 3)
+      : undefined,
+    major1: compareOption.includes('major1') ? user?.major1 : undefined,
+    major2: compareOption.includes('major2') ? user?.major2 : undefined,
+  });
 
-const ChartSection = () => {
-  const {
-    data: capability,
-    isLoading,
-    isError,
-    error,
-  } = useGetCapabilityQuery();
+  const capabilityData: RadarCapability[] = (capability ?? []).map(cap => {
+    const matchedCompare = compareCapability?.find(
+      other => other.capabilityId === cap.capabilityId,
+    );
 
-  const capabilityData: RadarCapability[] = (capability ?? []).map(cap => ({
-    capabilityId: cap.capabilityId,
-    capabilityName: cap.capabilityName,
-    mileagePercent: (cap.milestoneCount / cap.totalMilestoneCount) * 100,
-  }));
+    const myMileagePercent =
+      (cap.milestoneCount / cap.totalMilestoneCount) * 100;
+    const otherMileagePercent = matchedCompare
+      ? (matchedCompare.averageMilestoneCount / cap.totalMilestoneCount) * 100
+      : 0;
 
-  if (isLoading) return <LoadingIcon width={100} height={100} />;
-  if (isError) return <ErrorBox error={error} />;
+    return {
+      capabilityId: cap.capabilityId,
+      capabilityName: cap.capabilityName,
+      '나의 마일리지': myMileagePercent,
+      '다른사람 평균': otherMileagePercent,
+    };
+  });
+
   return <RadarChart data={capabilityData} />;
-};
-
-const S = {
-  Container: styled(Flex.Column)`
-    background-color: ${({ theme }) => theme.palette.variant.default};
-    border-radius: 1rem;
-    ${boxShadow}
-  `,
 };

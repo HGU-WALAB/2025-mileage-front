@@ -1,5 +1,6 @@
 import { Flex } from '@/components';
-import { LineChartSection, RadarChartSection } from '@/components/Dashboard';
+import { LineChartSection } from '@/components/Dashboard';
+import { CompetencyAnalyzeChartSection } from '@/components/Dashboard/CompetencyAnalyzeChartSection';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useMediaQuery } from '@mui/material';
 
@@ -14,7 +15,8 @@ const ChartSection = () => {
       gap="1rem"
       wrap={isMobile ? 'wrap' : 'nowrap'}
     >
-      <RadarChartSection />
+      <CompetencyAnalyzeChartSection />
+
       <LineChartSection />
     </Flex.Row>
   );

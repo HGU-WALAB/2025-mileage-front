@@ -1,0 +1,52 @@
+import {
+  DeferredComponent,
+  ErrorBox,
+  Flex,
+  Heading,
+  Spinner,
+} from '@/components';
+import {
+  CompareOptionButtonSection,
+  RadarChartSection,
+} from '@/components/Dashboard';
+import { boxShadow } from '@/styles/common';
+import { styled } from '@mui/material';
+import { Suspense, useState } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+
+export const CompetencyAnalyzeChartSection = () => {
+  const [compareOption, setCompareOption] = useState<string[]>([]);
+
+  return (
+    <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
+      <Heading as="h3">나의 역량 비교 그래프</Heading>
+
+      <Flex height="70%" width="100%" justify="center" align="center">
+        <ErrorBoundary FallbackComponent={ErrorBox}>
+          <Suspense
+            fallback={
+              <DeferredComponent>
+                <Spinner />
+              </DeferredComponent>
+            }
+          >
+            <RadarChartSection compareOption={compareOption} />
+          </Suspense>
+        </ErrorBoundary>
+      </Flex>
+
+      <CompareOptionButtonSection
+        compareOption={compareOption}
+        setCompareOption={setCompareOption}
+      />
+    </S.Container>
+  );
+};
+
+const S = {
+  Container: styled(Flex.Column)`
+    background-color: ${({ theme }) => theme.palette.variant.default};
+    border-radius: 1rem;
+    ${boxShadow}
+  `,
+};
