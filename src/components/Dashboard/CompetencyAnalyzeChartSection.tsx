@@ -1,4 +1,10 @@
-import { ErrorBox, Flex, Heading, Spinner } from '@/components';
+import {
+  DeferredComponent,
+  ErrorBox,
+  Flex,
+  Heading,
+  Spinner,
+} from '@/components';
 import {
   CompareOptionButtonSection,
   RadarChartSection,
@@ -17,7 +23,13 @@ export const CompetencyAnalyzeChartSection = () => {
 
       <Flex height="70%" width="100%" justify="center" align="center">
         <ErrorBoundary FallbackComponent={ErrorBox}>
-          <Suspense fallback={<Spinner />}>
+          <Suspense
+            fallback={
+              <DeferredComponent>
+                <Spinner />
+              </DeferredComponent>
+            }
+          >
             <RadarChartSection compareOption={compareOption} />
           </Suspense>
         </ErrorBoundary>

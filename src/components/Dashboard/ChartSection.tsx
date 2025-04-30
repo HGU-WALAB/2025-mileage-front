@@ -16,6 +16,7 @@ const ChartSection = () => {
       wrap={isMobile ? 'wrap' : 'nowrap'}
     >
       <CompetencyAnalyzeChartSection />
+
       <LineChartSection />
     </Flex.Row>
   );
