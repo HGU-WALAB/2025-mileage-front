@@ -28,9 +28,9 @@ const ProcessStep = () => {
           </S.StepBox>
           {index + 1 !== processStep.length &&
             (isMobile ? (
-              <S.DownArrowBox key={`down-arrow-${index}`} />
+              <S.DownArrowBox key={`down-arrow-${index}-${step}`} />
             ) : (
-              <S.RightArrowBox key={`right-arrow-${index}`} />
+              <S.RightArrowBox key={`right-arrow-${index}-${step}`} />
             ))}
         </>
       ))}
