@@ -24,6 +24,7 @@ export const CompareOptionButtonSection = ({
     <Flex justify="flex-end" gap=".5rem">
       {Object.entries(compareOptionLabel).map(([key, value]) => (
         <ToggleButton
+          key={key}
           selected={compareOption.includes(key)}
           label={value}
           variant="outlined"

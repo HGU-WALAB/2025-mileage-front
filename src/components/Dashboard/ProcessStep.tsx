@@ -6,6 +6,7 @@ import { styled, useMediaQuery } from '@mui/material';
 
 const ProcessStep = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+
   return (
     <>
       {processStep.map((step, index) => (
@@ -27,9 +28,9 @@ const ProcessStep = () => {
           </S.StepBox>
           {index + 1 !== processStep.length &&
             (isMobile ? (
-              <S.DownArrowBox key={`down-arrow-${step}`} />
+              <S.DownArrowBox key={`down-arrow-${index}`} />
             ) : (
-              <S.RightArrowBox key={`right-arrow-${step}`} />
+              <S.RightArrowBox key={`right-arrow-${index}`} />
             ))}
         </>
       ))}
