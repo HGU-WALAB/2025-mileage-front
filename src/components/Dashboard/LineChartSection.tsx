@@ -10,7 +10,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 const LineChartSection = () => {
   return (
     <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
-      <Heading as="h3">나의 학기별 역량 성장 그래프</Heading>
+      <Heading as="h3">나의 누적 마일리지 활동 개수</Heading>
       <Flex height="90%" width="100%" justify="center" align="center">
         <ErrorBoundary FallbackComponent={ErrorBox}>
           <Suspense fallback={<LoadingIcon width={100} height={100} />}>
