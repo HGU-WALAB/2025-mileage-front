@@ -1,10 +1,10 @@
 import { Flex, ToggleButton } from '@/components';
 
 const compareOptionLabel = {
-  term: '같은 학기',
-  entryYear: '같은 학번',
-  major1: '같은 1 전공',
-  major2: '같은 2 전공',
+  term: '동일 학기',
+  entryYear: '동일 학번',
+  major1: '동일 1 전공',
+  major2: '동일 2 전공',
 } as const;
 
 export const CompareOptionButtonSection = ({
