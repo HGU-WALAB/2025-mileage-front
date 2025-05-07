@@ -1,35 +1,40 @@
-import { Flex } from '@/components';
-import { useGetSemesterCapabilityQuery } from '@/hooks/queries';
+import { ROUTE_PATH } from '@/constants/routePath';
+import { useGetAwardsQuery } from '@/pages/AwardArchivePage/hooks/useGetAwardsQuery';
 import { boxShadow } from '@/styles/common';
-import { styled, useTheme } from '@mui/material';
+import { styled } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export const AwardCountSection = () => {
-  const theme = useTheme();
-  const { data: semesterCapability } = useGetSemesterCapabilityQuery();
+  const navigate = useNavigate();
+  const { awards } = useGetAwardsQuery();
 
   return (
-    <S.Section
-      width="25%"
-      height="250px"
-      justify="center"
-      align="center"
-      direction="column"
-      padding="2rem"
-      gap="1.5rem"
-      backgroundColor={theme.palette.variant.default}
-    >
+    <S.Section onClick={() => navigate(ROUTE_PATH.award)}>
       <S.LabelText>상장 개수</S.LabelText>
-      <S.MileageNumber>
-        {semesterCapability?.pop()?.userMilestoneCount ?? 0} 개
-      </S.MileageNumber>
+      <S.MileageNumber>{awards.length}</S.MileageNumber>
     </S.Section>
   );
 };
 
 const S = {
-  Section: styled(Flex.Column)`
+  Section: styled('div')`
+    align-items: center;
+    background-color: ${({ theme }) => theme.palette.variant.default};
     border-radius: 1rem;
-    ${boxShadow}
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 250px;
+    justify-content: center;
+    padding: 2rem;
+    ${boxShadow};
+    width: 25%;
+
+    &:hover,
+    &:active {
+      background-color: ${({ theme }) => theme.palette.variant.grey};
+    }
   `,
   LabelText: styled('p')`
     color: ${({ theme }) => theme.palette.primary.main};

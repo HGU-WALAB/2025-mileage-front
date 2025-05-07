@@ -64,7 +64,7 @@ const S = {
     width: fit-content;
 
     &:hover,
-    :active {
+    &:active {
       background-color: ${({ theme }) => theme.palette.variant.grey};
     }
   `,

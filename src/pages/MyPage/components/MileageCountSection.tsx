@@ -1,35 +1,42 @@
-import { Flex } from '@/components';
+import { ROUTE_PATH } from '@/constants/routePath';
 import { useGetSemesterCapabilityQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
-import { styled, useTheme } from '@mui/material';
+import { styled } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export const MileageCountSection = () => {
-  const theme = useTheme();
+  const navigate = useNavigate();
   const { data: semesterCapability } = useGetSemesterCapabilityQuery();
 
   return (
-    <S.Section
-      width="25%"
-      height="250px"
-      justify="center"
-      align="center"
-      direction="column"
-      padding="2rem"
-      gap="1.5rem"
-      backgroundColor={theme.palette.variant.default}
-    >
+    <S.Section onClick={() => navigate(ROUTE_PATH.mileageList)}>
       <S.LabelText>누적 마일리지 건수</S.LabelText>
       <S.MileageNumber>
-        {semesterCapability?.pop()?.userMilestoneCount ?? 0} 건
+        {semesterCapability?.pop()?.userMilestoneCount ?? 0}
       </S.MileageNumber>
     </S.Section>
   );
 };
 
 const S = {
-  Section: styled(Flex.Column)`
+  Section: styled('div')`
+    align-items: center;
+    background-color: ${({ theme }) => theme.palette.variant.default};
     border-radius: 1rem;
-    ${boxShadow}
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 250px;
+    justify-content: center;
+    padding: 2rem;
+    ${boxShadow};
+    width: 25%;
+
+    &:hover,
+    &:active {
+      background-color: ${({ theme }) => theme.palette.variant.grey};
+    }
   `,
   LabelText: styled('p')`
     color: ${({ theme }) => theme.palette.primary.main};
