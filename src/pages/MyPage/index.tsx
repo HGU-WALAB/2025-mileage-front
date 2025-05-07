@@ -3,7 +3,9 @@ import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { AwardCountSection } from './components/AwardCountSection';
 import { GithubGraphSection } from './components/GithubGraphSection';
+import { MileageCountSection } from './components/MileageCountSection';
 import { ProfileSection } from './components/ProfileSection';
 import { UserInfoSection } from './components/UserInfoSection';
 
@@ -17,13 +19,21 @@ const MyPage = () => {
         <GithubGraphSection />
       </ErrorBoundary>
 
-      <QueryErrorResetBoundary>
-        {({ reset }) => (
-          <ErrorBoundary FallbackComponent={PageErrorFallback} onReset={reset}>
-            <UserInfoSection />
-          </ErrorBoundary>
-        )}
-      </QueryErrorResetBoundary>
+      <Flex.Row align="flex-start" gap="1rem">
+        <MileageCountSection />
+
+        <AwardCountSection />
+        <QueryErrorResetBoundary>
+          {({ reset }) => (
+            <ErrorBoundary
+              FallbackComponent={PageErrorFallback}
+              onReset={reset}
+            >
+              <UserInfoSection />
+            </ErrorBoundary>
+          )}
+        </QueryErrorResetBoundary>
+      </Flex.Row>
     </Flex.Column>
   );
 };
