@@ -3,6 +3,7 @@ import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { GithubGraphSection } from '@/pages/MyPage/components/GithubGraphSection';
 import { InfoGuideSection } from './components/InfoGuideSection';
 import { ProfileSection } from './components/ProfileSection';
 import { RefreshUserInfoButton } from './components/RefreshUserInfoButton';
@@ -15,6 +16,7 @@ const MyPage = () => {
     <Flex.Column margin="1rem" gap="1rem">
       <ErrorBoundary FallbackComponent={PageErrorFallback}>
         <ProfileSection />
+        <GithubGraphSection />
       </ErrorBoundary>
 
       <InfoGuideSection />
