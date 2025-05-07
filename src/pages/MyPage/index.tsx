@@ -3,10 +3,8 @@ import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { GithubGraphSection } from '@/pages/MyPage/components/GithubGraphSection';
-import { InfoGuideSection } from './components/InfoGuideSection';
+import { GithubGraphSection } from './components/GithubGraphSection';
 import { ProfileSection } from './components/ProfileSection';
-import { RefreshUserInfoButton } from './components/RefreshUserInfoButton';
 import { UserInfoSection } from './components/UserInfoSection';
 
 const MyPage = () => {
@@ -19,14 +17,10 @@ const MyPage = () => {
         <GithubGraphSection />
       </ErrorBoundary>
 
-      <InfoGuideSection />
-
       <QueryErrorResetBoundary>
         {({ reset }) => (
           <ErrorBoundary FallbackComponent={PageErrorFallback} onReset={reset}>
             <UserInfoSection />
-
-            <RefreshUserInfoButton />
           </ErrorBoundary>
         )}
       </QueryErrorResetBoundary>

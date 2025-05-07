@@ -47,7 +47,7 @@ export const drawerItems = [
   },
   {
     id: 5,
-    text: '프로필 설정',
+    text: '프로필',
     shortText: '프로필',
     icon: UserIcon,
     selectedIcon: UserBlueIcon,
