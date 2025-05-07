@@ -1,12 +1,11 @@
 import { Flex, PageErrorFallback } from '@/components';
-import {
-  InfoGuideSection,
-  RefreshUserInfoButton,
-  UserInfoSection,
-} from '@/components/My';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
+
+import { InfoGuideSection } from './components/InfoGuideSection';
+import { RefreshUserInfoButton } from './components/RefreshUserInfoButton';
+import { UserInfoSection } from './components/UserInfoSection';
 
 const MyPage = () => {
   useTrackPageView({ eventName: '[View] 마이페이지' });
@@ -19,6 +18,7 @@ const MyPage = () => {
         {({ reset }) => (
           <ErrorBoundary FallbackComponent={PageErrorFallback} onReset={reset}>
             <UserInfoSection />
+
             <RefreshUserInfoButton />
           </ErrorBoundary>
         )}

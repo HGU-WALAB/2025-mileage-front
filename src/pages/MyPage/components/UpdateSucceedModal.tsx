@@ -1,6 +1,6 @@
 import { AlertModal } from '@/components';
 
-const UpdateSucceedModal = ({ isSucceed }: { isSucceed: boolean }) => {
+export const UpdateSucceedModal = ({ isSucceed }: { isSucceed: boolean }) => {
   return (
     <AlertModal
       alertOpen={isSucceed}
@@ -8,5 +8,3 @@ const UpdateSucceedModal = ({ isSucceed }: { isSucceed: boolean }) => {
     />
   );
 };
-
-export default UpdateSucceedModal;

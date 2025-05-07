@@ -3,20 +3,22 @@ import { usePostLoginMutation } from '@/hooks/queries';
 import { useEffect } from 'react';
 
 const useLogin = () => {
-  const { mutate: postLogin, isSuccess } = usePostLoginMutation();
+  const { postLogin, isSuccess } = usePostLoginMutation();
 
   useEffect(() => {
-    const currentUrl = new URL(window.location.href);
-    const params = new URLSearchParams(currentUrl.search);
-    const token = params.get('token');
+    (async () => {
+      const currentUrl = new URL(window.location.href);
+      const params = new URLSearchParams(currentUrl.search);
+      const token = params.get('token');
 
-    if (token) {
-      postLogin({ token });
+      if (token) {
+        await postLogin({ token });
 
-      params.delete('token');
-      currentUrl.search = params.toString();
-      window.history.replaceState({}, '', currentUrl.toString());
-    }
+        params.delete('token');
+        currentUrl.search = params.toString();
+        window.history.replaceState({}, '', currentUrl.toString());
+      }
+    })();
   }, [postLogin]);
 
   const handleHisnetAuth = () => {

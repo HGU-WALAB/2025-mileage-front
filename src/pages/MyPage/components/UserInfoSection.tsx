@@ -1,13 +1,14 @@
 import { BoxSkeleton, Flex } from '@/components';
-import { InfoField } from '@/components/My';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useGetUserInfoQuery } from '@/hooks/queries';
 import { getDate } from '@/utils/getDate';
 import { styled, useMediaQuery } from '@mui/material';
 
-const UserInfoSection = () => {
+import { InfoField } from './InfoField';
+
+export const UserInfoSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  const { data: userInfo, isLoading } = useGetUserInfoQuery();
+  const { userInfo, isLoading } = useGetUserInfoQuery();
 
   const customOrder = [
     'studentName',
@@ -21,7 +22,6 @@ const UserInfoSection = () => {
   ];
 
   if (isLoading) return <BoxSkeleton height={400} />;
-
   return (
     <S.Grid isMobile={isMobile}>
       {Object.entries(userInfo ?? [])
@@ -41,8 +41,6 @@ const UserInfoSection = () => {
     </S.Grid>
   );
 };
-
-export default UserInfoSection;
 
 const S = {
   modDateBox: styled(Flex.Row)`

@@ -1,9 +1,10 @@
 import { Button, Flex } from '@/components';
-import { UpdateSucceedModal } from '@/components/My';
 import { useLogin } from '@/hooks';
 import { styled } from '@mui/material';
 
-const RefreshUserInfoButton = () => {
+import { UpdateSucceedModal } from '../components/UpdateSucceedModal';
+
+export const RefreshUserInfoButton = () => {
   const { handleHisnetAuth, isLoginSucceed } = useLogin();
 
   const handleRefreshAuth = () => {
@@ -21,8 +22,6 @@ const RefreshUserInfoButton = () => {
     </Flex.Row>
   );
 };
-
-export default RefreshUserInfoButton;
 
 const S = {
   RefreshButton: styled(Button)`
