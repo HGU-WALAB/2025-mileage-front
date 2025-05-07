@@ -15,6 +15,13 @@ export interface UserResponse {
   currentSemester: string;
   modDate: string;
   studentType: StudentType;
+
+  // profile
+  imgUrl?: string;
+  githubLink?: string;
+  blogLink?: string;
+  linkedInLink?: string;
+  job?: string;
 }
 
 export type StudentType = '전공' | '융합' | '1학년' | '기타';

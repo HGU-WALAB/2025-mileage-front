@@ -23,6 +23,11 @@ import SearchIcon from '@/assets/icons/search.svg?react';
 import ThemeIcon from '@/assets/icons/theme.svg?react';
 import UserIcon from '@/assets/icons/user.svg?react';
 import UserBlueIcon from '@/assets/icons/userBlue.svg?react';
+
+import BlogIcon from '@/assets/icons/blog.svg?react';
+import GithubIcon from '@/assets/icons/github.svg?react';
+import LinkedInIcon from '@/assets/icons/linkedin.svg?react';
+
 // imgs
 import Img1 from '@/assets/imgs/1.png';
 import Img2 from '@/assets/imgs/2.png';
@@ -45,6 +50,7 @@ export {
   AlertBoxIcon,
   AsteriskIcon,
   BackgroundImg,
+  BlogIcon,
   CheckBoxIcon,
   CheckCircleIcon,
   CheckCircleOutlineIcon,
@@ -57,6 +63,7 @@ export {
   EditIcon,
   EmptyBoxImg,
   ExpandMoreIcon,
+  GithubIcon,
   Img1,
   Img2,
   Img3,
@@ -66,6 +73,7 @@ export {
   Img7,
   JoinedCheckCircleIcon,
   ChevronLeftIcon as LeftArrowIcon,
+  LinkedInIcon,
   LoadingIcon,
   LogoIcon,
   LogoutIcon,

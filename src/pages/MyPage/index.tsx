@@ -4,6 +4,7 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { InfoGuideSection } from './components/InfoGuideSection';
+import { ProfileSection } from './components/ProfileSection';
 import { RefreshUserInfoButton } from './components/RefreshUserInfoButton';
 import { UserInfoSection } from './components/UserInfoSection';
 
@@ -12,6 +13,10 @@ const MyPage = () => {
 
   return (
     <Flex.Column margin="1rem" gap="1rem">
+      <ErrorBoundary FallbackComponent={PageErrorFallback}>
+        <ProfileSection />
+      </ErrorBoundary>
+
       <InfoGuideSection />
 
       <QueryErrorResetBoundary>
