@@ -1,6 +1,8 @@
 // icons
 import AlertBoxIcon from '@/assets/icons/alertBox.svg?react';
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
+import AwardListIcon from '@/assets/icons/awardList.svg?react';
+import AwardListBlueIcon from '@/assets/icons/awardListBlue.svg?react';
 import BlogIcon from '@/assets/icons/blog.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
 import CheckBoxIcon from '@/assets/icons/checkBox.svg?react';
@@ -39,6 +41,7 @@ import Img7 from '@/assets/imgs/7.png';
 import BackgroundImg from '@/assets/imgs/background.png';
 import EmptyBoxImg from '@/assets/imgs/emptyBox.svg?react';
 import MobileBackgroundImg from '@/assets/imgs/mobile-background.png';
+
 // mui
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -49,6 +52,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export {
   AlertBoxIcon,
   AsteriskIcon,
+  AwardListBlueIcon,
+  AwardListIcon,
   BackgroundImg,
   BlogIcon,
   CheckBoxIcon,

@@ -10,6 +10,7 @@ async function enableMocking() {
 
   const { worker } = await import('./mocks/browser');
   await worker.start({
+    onUnhandledRequest: 'warn',
     serviceWorker: {
       url: '/mileage/mockServiceWorker.js',
     },
