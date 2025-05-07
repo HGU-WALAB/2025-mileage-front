@@ -1,6 +1,8 @@
 // icons
 import AlertBoxIcon from '@/assets/icons/alertBox.svg?react';
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
+import AwardListIcon from '@/assets/icons/awardList.svg?react';
+import AwardListBlueIcon from '@/assets/icons/awardListBlue.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
 import CheckBoxIcon from '@/assets/icons/checkBox.svg?react';
 import CheckCircleIcon from '@/assets/icons/checkCircle.svg?react';
@@ -23,6 +25,7 @@ import SearchIcon from '@/assets/icons/search.svg?react';
 import ThemeIcon from '@/assets/icons/theme.svg?react';
 import UserIcon from '@/assets/icons/user.svg?react';
 import UserBlueIcon from '@/assets/icons/userBlue.svg?react';
+
 // imgs
 import Img1 from '@/assets/imgs/1.png';
 import Img2 from '@/assets/imgs/2.png';
@@ -34,6 +37,7 @@ import Img7 from '@/assets/imgs/7.png';
 import BackgroundImg from '@/assets/imgs/background.png';
 import EmptyBoxImg from '@/assets/imgs/emptyBox.svg?react';
 import MobileBackgroundImg from '@/assets/imgs/mobile-background.png';
+
 // mui
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -44,6 +48,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 export {
   AlertBoxIcon,
   AsteriskIcon,
+  AwardListBlueIcon,
+  AwardListIcon,
   BackgroundImg,
   CheckBoxIcon,
   CheckCircleIcon,
