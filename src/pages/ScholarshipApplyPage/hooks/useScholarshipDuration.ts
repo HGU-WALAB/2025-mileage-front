@@ -1,9 +1,10 @@
-import { useGetScholarshipDurationQuery } from '@/hooks/queries';
 import { getIsScholarshipDuration } from '@/utils/getIsScholarshipDuration';
 import { useMemo } from 'react';
 
-const useScholarshipDuration = () => {
-  const { data: scholarshipDuration } = useGetScholarshipDurationQuery();
+import { useGetScholarshipDurationQuery } from './useGetScholarshipDurationQuery';
+
+export const useScholarshipDuration = () => {
+  const { scholarshipDuration } = useGetScholarshipDurationQuery();
 
   const isScholarshipDuration = useMemo(() => {
     if (scholarshipDuration) {
@@ -17,5 +18,3 @@ const useScholarshipDuration = () => {
 
   return { scholarshipDuration, isScholarshipDuration };
 };
-
-export default useScholarshipDuration;

@@ -6,4 +6,3 @@ export { default as useInputWithValidate } from './useInputWithValidate';
 export { default as useLogin } from './useLogin';
 export { default as useNewMileageForm } from './useNewMileageForm';
 export { default as useOpenModal } from './useOpenModal';
-export { default as useScholarshipDuration } from './useScholarshipDuration';

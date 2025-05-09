@@ -1,10 +1,11 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
+
 import {
   IsAppliedScholarshipResponse,
   ScholarshipApplyRequest,
   ScholarshipDurationResponse,
-} from '@/types/scholarship';
+} from '../types/scholarship';
 
 export const postScholarshipApply = async ({
   studentId,

@@ -1,7 +1,6 @@
 import { Button, Flex } from '@/components';
 import { drawerWidth, globalHeight } from '@/constants/layoutSize';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useScholarshipDuration } from '@/hooks';
 import { useDrawerStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { Drawer as MuiDrawer, useTheme } from '@mui/material';
@@ -17,7 +16,6 @@ import UserSection from './UserSection';
 const Drawer = () => {
   const theme = useTheme();
   const { isDrawerOpen } = useDrawerStore();
-  const { isScholarshipDuration } = useScholarshipDuration();
 
   return (
     <MuiDrawer
@@ -59,7 +57,8 @@ const Drawer = () => {
           style={{ flexGrow: 1 }}
           margin="1rem 0"
         >
-          {isScholarshipDuration && <IsApplyCheckSection />}
+          <IsApplyCheckSection />
+
           <LogoutSection />
         </Flex.Column>
       </Flex.Column>

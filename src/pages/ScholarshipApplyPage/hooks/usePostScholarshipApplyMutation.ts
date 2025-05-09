@@ -1,8 +1,9 @@
-import { postScholarshipApply } from '@/apis/scholarship';
 import { QUERY_KEYS } from '@/constants/queryKeys';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const usePostScholarshipApplyMutation = () => {
+import { postScholarshipApply } from '../apis/scholarship';
+
+export const usePostScholarshipApplyMutation = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
@@ -14,5 +15,3 @@ const usePostScholarshipApplyMutation = () => {
     },
   });
 };
-
-export default usePostScholarshipApplyMutation;

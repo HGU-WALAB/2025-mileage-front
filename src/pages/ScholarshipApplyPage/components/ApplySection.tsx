@@ -1,18 +1,17 @@
 import { Button, Flex } from '@/components';
-import { ApplySucceedModal } from '@/components/ScholarshipApply';
 import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { useOpenModal } from '@/hooks';
-import {
-  useGetIsAppliedScholarshipQuery,
-  usePostScholarshipApplyMutation,
-} from '@/hooks/queries';
 import { trackScholarshipApplyButton } from '@/service/amplitude/trackEvent';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
 import { toast } from 'react-toastify';
 
-const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
-  const { data: isApplied } = useGetIsAppliedScholarshipQuery();
+import { useGetIsAppliedScholarshipQuery } from '../hooks/useGetIsAppliedScholarshipQuery';
+import { usePostScholarshipApplyMutation } from '../hooks/usePostScholarshipApplyMutation';
+import { ApplySucceedModal } from './ApplySucceedModal';
+
+export const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
+  const { isApplied } = useGetIsAppliedScholarshipQuery();
 
   const { student } = useAuthStore();
   const { open, toggleModal } = useOpenModal(false);
@@ -57,8 +56,6 @@ const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
     </Flex.Row>
   );
 };
-
-export default ApplySection;
 
 const S = {
   ApplyButton: styled(Button)`

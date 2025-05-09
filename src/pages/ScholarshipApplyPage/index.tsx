@@ -1,20 +1,19 @@
 import { Flex } from '@/components';
-import {
-  ApplySection,
-  ConsentSection,
-  MileageBannerSection,
-  NotScholarshipDurationSection,
-} from '@/components/ScholarshipApply';
-import { useScholarshipDuration } from '@/hooks';
-import { useGetIsAppliedScholarshipQuery } from '@/hooks/queries';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useState } from 'react';
+
+import { ApplySection } from './components/ApplySection';
+import { ConsentSection } from './components/ConsentSection';
+import { MileageBannerSection } from './components/MileageBannerSection';
+import { NotScholarshipDurationSection } from './components/NotScholarshipDurationSection';
+import { useGetIsAppliedScholarshipQuery } from './hooks/useGetIsAppliedScholarshipQuery';
+import { useScholarshipDuration } from './hooks/useScholarshipDuration';
 
 const ScholarshipApplyPage = () => {
   useTrackPageView({ eventName: '[View] 장학금 신청 페이지' });
 
   const [isAgree, setIsAgree] = useState(false);
-  const { data: isApplied } = useGetIsAppliedScholarshipQuery();
+  const { isApplied } = useGetIsAppliedScholarshipQuery();
 
   const { isScholarshipDuration } = useScholarshipDuration();
   if (!isScholarshipDuration) return <NotScholarshipDurationSection />;

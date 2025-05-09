@@ -1,13 +1,14 @@
 import { Flex } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useGetMileageQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { styled, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const MileageCountBox = () => {
+import { useGetMileageQuery } from '@/pages/MileageListPage/hooks/useGetMileageQuery';
+
+export const MileageCountBox = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const navigate = useNavigate();
 
@@ -42,8 +43,6 @@ const MileageCountBox = () => {
     </S.CountContainer>
   );
 };
-
-export default MileageCountBox;
 
 const S = {
   CountContainer: styled(Flex.Column)<{ isMobile: boolean }>`

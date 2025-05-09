@@ -1,9 +1,10 @@
 import { EmptyBoxImg } from '@/assets';
 import { Flex, Heading } from '@/components';
-import { MileageBannerSection } from '@/components/ScholarshipApply';
 import { styled } from '@mui/material';
 
-const NotScholarshipDurationSection = () => {
+import { MileageBannerSection } from './MileageBannerSection';
+
+export const NotScholarshipDurationSection = () => {
   return (
     <Flex.Column gap="1rem" width="100%" height="100%">
       <MileageBannerSection />
@@ -21,8 +22,6 @@ const NotScholarshipDurationSection = () => {
     </Flex.Column>
   );
 };
-
-export default NotScholarshipDurationSection;
 
 const S = {
   Text: styled(Heading)`

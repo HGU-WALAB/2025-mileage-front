@@ -1,7 +1,8 @@
 import { CheckCircleIcon, CheckCircleOutlineIcon } from '@/assets';
 import { Flex, Heading, Text } from '@/components';
-import { personalInfoConsent } from '@/constants/personalInfoConsent';
 import { styled } from '@mui/material';
+
+import { personalInfoConsent } from '../constants/personalInfoConsent';
 
 interface Props {
   isAgree: boolean;
@@ -9,7 +10,7 @@ interface Props {
   isApplied: number;
 }
 
-const ConsentSection = ({ isAgree, handleAgree, isApplied }: Props) => {
+export const ConsentSection = ({ isAgree, handleAgree, isApplied }: Props) => {
   return (
     <S.Section wrap="wrap">
       <Flex.Column>
@@ -34,8 +35,6 @@ const ConsentSection = ({ isAgree, handleAgree, isApplied }: Props) => {
     </S.Section>
   );
 };
-
-export default ConsentSection;
 
 const S = {
   Section: styled(Flex.Row)`

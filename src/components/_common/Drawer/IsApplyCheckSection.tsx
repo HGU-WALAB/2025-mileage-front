@@ -1,9 +1,11 @@
 import { AlertBoxIcon, CheckBoxIcon } from '@/assets';
 import { Text } from '@/components';
 import Flex from '@/components/_common/Flex/Flex';
-import { useGetIsAppliedScholarshipQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
+
+import { useGetIsAppliedScholarshipQuery } from '@/pages/ScholarshipApplyPage/hooks/useGetIsAppliedScholarshipQuery';
+import { useScholarshipDuration } from '@/pages/ScholarshipApplyPage/hooks/useScholarshipDuration';
 
 const applyCheck = {
   completed: {
@@ -18,7 +20,8 @@ const applyCheck = {
 
 const IsApplyCheckSection = () => {
   const { student } = useAuthStore();
-  const { data: isApplied } = useGetIsAppliedScholarshipQuery();
+  const { isApplied } = useGetIsAppliedScholarshipQuery();
+  const { isScholarshipDuration } = useScholarshipDuration();
 
   if (student.studentType === '기타') return;
 
@@ -26,22 +29,24 @@ const IsApplyCheckSection = () => {
     applyCheck[isApplied?.isApply ? 'completed' : 'uncompleted'];
 
   return (
-    <S.Container
-      justify="space-around"
-      align="flex-start"
-      height="fit-content"
-      width="100%"
-      padding=".5rem"
-      gap=".25rem"
-    >
-      <Flex.Column margin=".125rem">
-        {isApplied?.isApply ? <CheckBoxIcon /> : <AlertBoxIcon />}
-      </Flex.Column>
-      <Flex.Column>
-        <Text bold>{title}</Text>
-        <Text>{desc}</Text>
-      </Flex.Column>
-    </S.Container>
+    isScholarshipDuration && (
+      <S.Container
+        justify="space-around"
+        align="flex-start"
+        height="fit-content"
+        width="100%"
+        padding=".5rem"
+        gap=".25rem"
+      >
+        <Flex.Column margin=".125rem">
+          {isApplied?.isApply ? <CheckBoxIcon /> : <AlertBoxIcon />}
+        </Flex.Column>
+        <Flex.Column>
+          <Text bold>{title}</Text>
+          <Text>{desc}</Text>
+        </Flex.Column>
+      </S.Container>
+    )
   );
 };
 

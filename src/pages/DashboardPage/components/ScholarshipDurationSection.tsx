@@ -1,12 +1,13 @@
 import { Flex, Text } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useScholarshipDuration } from '@/hooks';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
 import { getFormattedDate } from '@/utils/getDate';
 import { styled, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
+import { useScholarshipDuration } from '@/pages/ScholarshipApplyPage/hooks/useScholarshipDuration';
 
 export const ScholarshipDurationSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);

@@ -1,11 +1,12 @@
 import { CountBoxFallback, Flex, Text } from '@/components';
-import { MileageCountBox } from '@/components/ScholarshipApply';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useAuthStore } from '@/stores';
 import { styled, useMediaQuery } from '@mui/material';
 import { ErrorBoundary } from 'react-error-boundary';
 
-const MileageBannerSection = () => {
+import { MileageCountBox } from './MileageCountBox';
+
+export const MileageBannerSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const { student, currentSemester } = useAuthStore();
 
@@ -26,8 +27,6 @@ const MileageBannerSection = () => {
     </S.Wrapper>
   );
 };
-
-export default MileageBannerSection;
 
 const S = {
   Wrapper: styled(Flex.Row)`
