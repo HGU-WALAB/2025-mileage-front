@@ -6,7 +6,7 @@ import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useMediaQuery } from '@mui/material';
 import { useMemo } from 'react';
 
-const ScholarshipStudentTypeSection = () => {
+export const ScholarshipStudentTypeSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const { student } = useAuthStore();
 
@@ -24,8 +24,6 @@ const ScholarshipStudentTypeSection = () => {
     </S.RowContainer>
   );
 };
-
-export default ScholarshipStudentTypeSection;
 
 const S = {
   RowContainer: styled(Flex.Row)<{ isMobile: boolean }>`

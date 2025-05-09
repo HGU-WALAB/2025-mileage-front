@@ -1,11 +1,12 @@
 import { Accordion, Flex, Heading, Text } from '@/components';
-import { FAQ } from '@/constants/faq';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { boxShadow } from '@/styles/common';
-import { FAQListItem } from '@/types/faq';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
-const FAQSection = () => {
+import { FAQ } from '../constants/faq';
+import { FAQListItem } from '../types/faq';
+
+export const FAQSection = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
@@ -26,8 +27,6 @@ const FAQSection = () => {
     </S.Container>
   );
 };
-
-export default FAQSection;
 
 const FAQDescBox = ({ list }: { list: FAQListItem[] }) => {
   return (

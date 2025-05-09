@@ -6,7 +6,7 @@ import { usePostLogoutMutation } from '@/hooks/queries';
 import { useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const NoAccessLogoutModal = () => {
+export const NoAccessLogoutModal = () => {
   const theme = useTheme();
   const { open, toggleModal } = useOpenModal(true);
 
@@ -48,5 +48,3 @@ const NoAccessLogoutModal = () => {
     </Modal>
   );
 };
-
-export default NoAccessLogoutModal;

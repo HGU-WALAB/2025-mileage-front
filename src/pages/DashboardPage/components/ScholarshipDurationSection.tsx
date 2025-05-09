@@ -8,7 +8,7 @@ import { getFormattedDate } from '@/utils/getDate';
 import { styled, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-const ScholarshipDurationSection = () => {
+export const ScholarshipDurationSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const navigate = useNavigate();
   const { currentSemester } = useAuthStore();
@@ -41,8 +41,6 @@ const ScholarshipDurationSection = () => {
     </S.DateContainer>
   );
 };
-
-export default ScholarshipDurationSection;
 
 const S = {
   DateContainer: styled(Flex.Row)<{ isMobile: boolean }>`

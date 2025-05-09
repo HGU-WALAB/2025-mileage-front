@@ -1,13 +1,14 @@
 import { LoadingIcon } from '@/assets';
 import { ErrorBox, Flex, Heading, LineChart } from '@/components';
-import { useGetSemesterCapabilityQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
-import { SemesterCapabilityResponse } from '@/types/capability';
 import { styled } from '@mui/material';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-const LineChartSection = () => {
+import { useGetSemesterCapabilityQuery } from '../hooks/useGetSemesterCapabilityQuery';
+import { SemesterCapabilityResponse } from '../types/capability';
+
+export const MileageHistoryChartSection = () => {
   return (
     <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
       <Heading as="h3">나의 누적 마일리지 활동 개수</Heading>
@@ -21,8 +22,6 @@ const LineChartSection = () => {
     </S.Container>
   );
 };
-
-export default LineChartSection;
 
 const ChartSection = () => {
   const { data: semesterCapability } = useGetSemesterCapabilityQuery();

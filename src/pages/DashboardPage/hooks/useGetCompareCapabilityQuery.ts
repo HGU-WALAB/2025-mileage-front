@@ -1,11 +1,12 @@
-import { getCompareCapability } from '@/apis/capability';
 import { QUERY_KEYS } from '@/constants/queryKeys';
+import { useSuspenseQuery } from '@tanstack/react-query';
+import { AxiosError } from 'axios';
+
+import { getCompareCapability } from '../apis/capability';
 import {
   CompareCapabilityRequest,
   CompareCapabilityResponse,
-} from '@/types/capability';
-import { useSuspenseQuery } from '@tanstack/react-query';
-import { AxiosError } from 'axios';
+} from '../types/capability';
 
 export const useGetCompareCapabilityQuery = ({
   term,

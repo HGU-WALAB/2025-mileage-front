@@ -1,9 +1,10 @@
 import { Flex, Heading, Text } from '@/components';
-import { ProcessStep } from '@/components/Dashboard';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
-const ProcessSection = () => {
+import { ProcessStep } from './ProcessStep';
+
+export const ProcessSection = () => {
   const theme = useTheme();
   return (
     <S.Container
@@ -36,8 +37,6 @@ const ProcessSection = () => {
     </S.Container>
   );
 };
-
-export default ProcessSection;
 
 const S = {
   Container: styled(Flex.Row)`

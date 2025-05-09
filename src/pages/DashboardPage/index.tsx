@@ -1,14 +1,13 @@
 import { Flex } from '@/components';
-import {
-  ChartSection,
-  FAQSection,
-  NoAccessLogoutModal,
-  ProcessSection,
-  ScholarshipDurationSection,
-  ScholarshipStudentTypeSection,
-} from '@/components/Dashboard';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useAuthStore } from '@/stores';
+
+import { ChartSection } from './components/ChartSection';
+import { FAQSection } from './components/FAQSection';
+import { NoAccessLogoutModal } from './components/NoAccessLogoutModal';
+import { ProcessSection } from './components/ProcessSection';
+import { ScholarshipDurationSection } from './components/ScholarshipDurationSection';
+import { ScholarshipStudentTypeSection } from './components/ScholarshipStudentTypeSection';
 
 const DashboardPage = () => {
   useTrackPageView({ eventName: '[View] 대시보드 페이지' });

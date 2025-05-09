@@ -1,10 +1,11 @@
 import { Flex } from '@/components';
-import { LineChartSection } from '@/components/Dashboard';
-import { CompetencyAnalyzeChartSection } from '@/components/Dashboard/CompetencyAnalyzeChartSection';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useMediaQuery } from '@mui/material';
 
-const ChartSection = () => {
+import { CompetencyAnalyzeChartSection } from './CompetencyAnalyzeChartSection';
+import { MileageHistoryChartSection } from './MileageHistoryChartSection';
+
+export const ChartSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   return (
@@ -17,9 +18,7 @@ const ChartSection = () => {
     >
       <CompetencyAnalyzeChartSection />
 
-      <LineChartSection />
+      <MileageHistoryChartSection />
     </Flex.Row>
   );
 };
-
-export default ChartSection;

@@ -1,11 +1,12 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
+
 import {
   CapabilityResponse,
   CompareCapabilityRequest,
   CompareCapabilityResponse,
   SemesterCapabilityResponse,
-} from '@/types/capability';
+} from '../types/capability';
 
 export const getCapability = async () => {
   const response = await http.get<CapabilityResponse[]>(

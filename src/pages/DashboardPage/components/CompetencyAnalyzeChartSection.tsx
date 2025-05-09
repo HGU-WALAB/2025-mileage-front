@@ -5,14 +5,13 @@ import {
   Heading,
   Spinner,
 } from '@/components';
-import {
-  CompareOptionButtonSection,
-  RadarChartSection,
-} from '@/components/Dashboard';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 import { Suspense, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+
+import { CompareOptionButtonSection } from './CompareOptionButtonSection';
+import { RadarChartSection } from './RadarChartSection';
 
 export const CompetencyAnalyzeChartSection = () => {
   const [compareOption, setCompareOption] = useState<string[]>([]);
