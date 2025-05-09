@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 const images = [Img1, Img2, Img3, Img4, Img5, Img6, Img7];
 
-const NoticeCard = () => {
+export const NoticeCard = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -31,8 +31,6 @@ const NoticeCard = () => {
     </S.CardBox>
   );
 };
-
-export default NoticeCard;
 
 const S = {
   CardBox: styled(Flex.Row)<{ isMobile: boolean }>`

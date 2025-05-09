@@ -1,5 +1,6 @@
 import { RadarChart } from '@/components';
-import { useGetUserInfoQuery } from '@/hooks/queries';
+
+import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
 
 import { useGetCapabilityQuery } from '../hooks/useGetCapabilityQuery';
 import { useGetCompareCapabilityQuery } from '../hooks/useGetCompareCapabilityQuery';

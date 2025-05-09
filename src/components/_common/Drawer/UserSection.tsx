@@ -1,8 +1,9 @@
 import { Flex, Heading, Text } from '@/components';
-import { useGetUserInfoQuery } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
+
+import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
 
 const UserSection = () => {
   const theme = useTheme();

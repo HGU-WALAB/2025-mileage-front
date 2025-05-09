@@ -4,7 +4,7 @@ import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useMediaQuery } from '@mui/material';
 
-const LogoSection = () => {
+export const LogoSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   return (
@@ -22,8 +22,6 @@ const LogoSection = () => {
     </Flex.Row>
   );
 };
-
-export default LogoSection;
 
 const S = {
   LogoTitle: styled(Heading)<{ isMobile: boolean }>`

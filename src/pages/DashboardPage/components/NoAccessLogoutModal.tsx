@@ -2,9 +2,10 @@ import { LogoIcon } from '@/assets';
 import { Button, Heading, Modal } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { useOpenModal } from '@/hooks';
-import { usePostLogoutMutation } from '@/hooks/queries';
 import { useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
+import { usePostLogoutMutation } from '@/pages/LoginPage/hooks/usePostLogoutMutation';
 
 export const NoAccessLogoutModal = () => {
   const theme = useTheme();

@@ -1,9 +1,10 @@
 import { Flex, Heading } from '@/components';
-import { HisnetLoginButton } from '@/components/Login';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 
-const LoginSection = () => {
+import { HisnetLoginButton } from './HisnetLoginButton';
+
+export const LoginSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   return (
@@ -19,8 +20,6 @@ const LoginSection = () => {
     </Flex.Column>
   );
 };
-
-export default LoginSection;
 
 const S = {
   Text: styled(Heading)`

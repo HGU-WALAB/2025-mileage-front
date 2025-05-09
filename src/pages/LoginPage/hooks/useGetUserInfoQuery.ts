@@ -1,7 +1,8 @@
-import { getUserInfo } from '@/apis/auth';
 import { QUERY_KEYS } from '@/constants/queryKeys';
-import { UserResponse } from '@/types/auth';
 import { useQuery } from '@tanstack/react-query';
+
+import { getUserInfo } from '../apis/auth';
+import { UserResponse } from '../types/auth';
 
 export const useGetUserInfoQuery = () => {
   const { data, ...rest } = useQuery<UserResponse>({

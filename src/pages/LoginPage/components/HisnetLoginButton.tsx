@@ -1,8 +1,9 @@
 import { Button } from '@/components';
-import { useLogin } from '@/hooks';
 import { styled } from '@mui/material';
 
-const HisnetLoginButton = () => {
+import { useLogin } from '../hooks/useLogin';
+
+export const HisnetLoginButton = () => {
   const { handleHisnetAuth } = useLogin();
 
   return (
@@ -13,8 +14,6 @@ const HisnetLoginButton = () => {
     />
   );
 };
-
-export default HisnetLoginButton;
 
 const S = {
   LoginButton: styled(Button)`

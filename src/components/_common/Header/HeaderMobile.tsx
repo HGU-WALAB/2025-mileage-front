@@ -3,10 +3,11 @@ import { Flex, Heading } from '@/components';
 import { headerItems } from '@/constants/headerItems';
 import { headerHeight } from '@/constants/layoutSize';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { usePostLogoutMutation } from '@/hooks/queries';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
+
+import { usePostLogoutMutation } from '@/pages/LoginPage/hooks/usePostLogoutMutation';
 
 const HeaderMobile = () => {
   const theme = useTheme();

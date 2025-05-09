@@ -1,8 +1,9 @@
-import { HISNET_AUTH_URL } from '@/constants/auth';
-import { usePostLoginMutation } from '@/hooks/queries';
 import { useEffect } from 'react';
 
-const useLogin = () => {
+import { HISNET_AUTH_URL } from '../constants/auth';
+import { usePostLoginMutation } from './usePostLoginMutation';
+
+export const useLogin = () => {
   const { postLogin, isSuccess } = usePostLoginMutation();
 
   useEffect(() => {
@@ -28,5 +29,3 @@ const useLogin = () => {
 
   return { handleHisnetAuth, isLoginSucceed: isSuccess };
 };
-
-export default useLogin;

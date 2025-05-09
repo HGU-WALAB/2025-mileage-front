@@ -1,8 +1,9 @@
 import { BlogIcon, GithubIcon, LinkedInIcon } from '@/assets';
 import { Flex, Heading } from '@/components';
-import { useGetUserInfoQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
+
+import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
 
 export const ProfileSection = () => {
   const theme = useTheme();

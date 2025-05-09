@@ -1,5 +1,4 @@
 import { Flex } from '@/components';
-import { LoginSection, LogoSection, NoticeCard } from '@/components/Login';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
@@ -9,6 +8,10 @@ import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useMediaQuery } from '@mui/material';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { LoginSection } from './components/LoginSection';
+import { LogoSection } from './components/LogoSection';
+import { NoticeCard } from './components/NoticeCard';
 
 const LoginPage = () => {
   useTrackPageView({ eventName: '[View] 로그인 페이지' });

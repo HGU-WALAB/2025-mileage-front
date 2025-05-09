@@ -1,8 +1,9 @@
-import { postLogout } from '@/apis/auth';
 import { useAuthStore } from '@/stores';
 import { useMutation } from '@tanstack/react-query';
 
-const usePostLogoutMutation = () => {
+import { postLogout } from '../apis/auth';
+
+export const usePostLogoutMutation = () => {
   const { logout } = useAuthStore();
 
   return useMutation({
@@ -12,5 +13,3 @@ const usePostLogoutMutation = () => {
     },
   });
 };
-
-export default usePostLogoutMutation;
