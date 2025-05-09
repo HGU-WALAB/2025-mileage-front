@@ -1,10 +1,15 @@
 import { Text } from '@/components';
-import { useGetSubmittedFileQuery } from '@/hooks/queries';
-import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled } from '@mui/material';
 
-const FileDownloadButton = ({ item }: { item: SubmittedMileageResponse }) => {
-  const { data: file } = useGetSubmittedFileQuery(item.uniqueFileName ?? '');
+import { useGetSubmittedFileQuery } from '../hooks/useGetSubmittedFileQuery';
+import { SubmittedMileageResponse } from '../types/addMileage';
+
+export const FileDownloadButton = ({
+  item,
+}: {
+  item: SubmittedMileageResponse;
+}) => {
+  const { file } = useGetSubmittedFileQuery(item.uniqueFileName ?? '');
 
   const handleDownload = () => {
     if (file) {
@@ -21,8 +26,6 @@ const FileDownloadButton = ({ item }: { item: SubmittedMileageResponse }) => {
 
   return <S.Text onClick={handleDownload}>{item.file}</S.Text>;
 };
-
-export default FileDownloadButton;
 
 const S = {
   Text: styled(Text)`

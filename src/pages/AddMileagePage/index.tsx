@@ -1,10 +1,9 @@
 import { Flex } from '@/components';
-import {
-  EtcMileageSection,
-  SubmittedMileageSection,
-} from '@/components/AddMileage';
 import { pageHeight } from '@/constants/layoutSize';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
+
+import { EtcMileageSection } from './components/EtcMileageSection';
+import { SubmittedMileageSection } from './components/SubmittedMileageSection';
 
 const AddMileagePage = () => {
   useTrackPageView({ eventName: '[View] 마일리지 등록 페이지' });

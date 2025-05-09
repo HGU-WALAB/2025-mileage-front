@@ -1,15 +1,14 @@
-import { BoxSkeleton, Flex, Table } from '@/components';
-import {
-  DeleteSubmittedMileageModal,
-  EditSubmittedMileageModal,
-  SubmittedMileageModal,
-} from '@/components/AddMileage';
+import { Flex, Table } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useGetSubmittedMileageQuery } from '@/hooks/queries';
 import { THeader } from '@/types/table';
 import { getDate } from '@/utils/getDate';
 import { useMediaQuery } from '@mui/material';
 import { useMemo } from 'react';
+
+import { useGetSubmittedMileageQuery } from '../hooks/useGetSubmittedMileageQuery';
+import { DeleteSubmittedMileageModal } from './DeleteSubmittedMileageModal';
+import { EditSubmittedMileageModal } from './EditSubmittedMileageModal';
+import { SubmittedMileageModal } from './SubmittedMileageModal';
 
 const headerItems: THeader[] = [
   { text: '학기', value: 'semester' },
@@ -20,10 +19,9 @@ const headerItems: THeader[] = [
   { text: '수정/삭제', value: 'func', align: 'center' },
 ];
 
-const SubmittedMileageTable = () => {
+export const SubmittedMileageTable = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  const { data: submittedMileageList, isLoading } =
-    useGetSubmittedMileageQuery();
+  const { submittedMileageList } = useGetSubmittedMileageQuery();
 
   const bodyItems = useMemo(
     () =>
@@ -45,7 +43,6 @@ const SubmittedMileageTable = () => {
     [submittedMileageList],
   );
 
-  if (isLoading) return <BoxSkeleton />;
   return (
     <Table
       headItems={
@@ -57,5 +54,3 @@ const SubmittedMileageTable = () => {
     />
   );
 };
-
-export default SubmittedMileageTable;

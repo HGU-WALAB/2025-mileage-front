@@ -1,8 +1,9 @@
-import { BoxSkeleton, Table } from '@/components';
-import { AddMileageModal } from '@/components/AddMileage';
-import { useGetEtcMileageQuery } from '@/hooks/queries';
+import { Table } from '@/components';
 import { THeader } from '@/types/table';
 import { useMemo } from 'react';
+
+import { useGetEtcMileageQuery } from '../hooks/useGetEtcMileageQuery';
+import { AddMileageModal } from './AddMileageModal';
 
 const headerItems: THeader[] = [
   { text: '학기', value: 'semester' },
@@ -11,8 +12,8 @@ const headerItems: THeader[] = [
   { text: '등록하기', value: 'addModal', align: 'center' },
 ];
 
-const EtcMileageTable = () => {
-  const { data: etcMileageList, isLoading } = useGetEtcMileageQuery();
+export const EtcMileageTable = () => {
+  const { etcMileageList } = useGetEtcMileageQuery();
 
   const bodyItems = useMemo(
     () =>
@@ -32,8 +33,5 @@ const EtcMileageTable = () => {
     [etcMileageList],
   );
 
-  if (isLoading) return <BoxSkeleton />;
   return <Table headItems={headerItems} bodyItems={bodyItems} />;
 };
-
-export default EtcMileageTable;

@@ -1,22 +1,23 @@
 import { DeleteIcon, LogoIcon } from '@/assets';
 import { Button, Flex, Heading, Modal, Text } from '@/components';
 import { useOpenModal } from '@/hooks';
-import { useDeleteSubmittedMileageMutation } from '@/hooks/queries';
 import { trackSubmittedMileageModalDeleteButton } from '@/service/amplitude/trackEvent';
 import { useAuthStore } from '@/stores';
-import { SubmittedMileageResponse } from '@/types/mileage';
 import { styled, useTheme } from '@mui/material';
+
+import { useDeleteSubmittedMileageMutation } from '../hooks/useDeleteSubmittedMileageMutation';
+import { SubmittedMileageResponse } from '../types/addMileage';
 
 interface Props {
   item: SubmittedMileageResponse;
 }
 
-const DeleteSubmittedMileageModal = ({ item }: Props) => {
+export const DeleteSubmittedMileageModal = ({ item }: Props) => {
   const theme = useTheme();
   const { student } = useAuthStore();
   const { open, toggleModal } = useOpenModal();
 
-  const { mutate: deleteMileage } = useDeleteSubmittedMileageMutation();
+  const { deleteMileage } = useDeleteSubmittedMileageMutation();
 
   const handleClickDelete = () => {
     deleteMileage(
@@ -76,8 +77,6 @@ const DeleteSubmittedMileageModal = ({ item }: Props) => {
     </Modal>
   );
 };
-
-export default DeleteSubmittedMileageModal;
 
 const S = {
   IconButton: styled('button')`

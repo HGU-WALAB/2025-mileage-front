@@ -1,4 +1,3 @@
-import { EditIcon } from '@/assets';
 import {
   Button,
   Dropdown,
@@ -8,26 +7,32 @@ import {
   Text,
   UploadButton,
 } from '@/components';
-import { GuideDescSection } from '@/components/AddMileage';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useEditMileageForm, useOpenModal } from '@/hooks';
-import { trackSubmittedMileageModalEditButton } from '@/service/amplitude/trackEvent';
-import { SubmittedMileageResponse } from '@/types/mileage';
+import { useOpenModal } from '@/hooks';
+import {
+  trackAddNewMileageButton,
+  trackAddNewMileageModalButton,
+} from '@/service/amplitude/trackEvent';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
+import { useNewMileageForm } from '../hooks/useNewMileageForm';
+import { GuideDescSection } from './GuideDescSection';
+
 interface Props {
-  item: SubmittedMileageResponse;
+  semester: string;
+  subitemId: number;
 }
 
-const EditSubmittedMileageModal = ({ item }: Props) => {
+export const AddMileageModal = ({ semester, subitemId }: Props) => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const theme = useTheme();
   const { open, toggleModal } = useOpenModal();
 
-  const { desc1, desc2, file, handleSubmit } = useEditMileageForm({
-    item,
+  const { desc1, desc2, file, handleSubmit } = useNewMileageForm(
+    semester,
+    subitemId,
     toggleModal,
-  });
+  );
 
   const handleSubmitForm = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
@@ -40,9 +45,12 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
       open={open}
       toggleModal={toggleModal}
       trigger={
-        <S.IconButton onClick={() => trackSubmittedMileageModalEditButton()}>
-          <EditIcon />
-        </S.IconButton>
+        <Button
+          label="등록하기"
+          isRound
+          style={{ width: '100px' }}
+          onClick={() => trackAddNewMileageModalButton()}
+        />
       }
       size="large"
       hasCloseButton
@@ -50,7 +58,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
         backgroundColor: theme.palette.background.default,
       }}
     >
-      <Modal.Header>마일리지 등록 항목 수정하기</Modal.Header>
+      <Modal.Header>마일리지 활동 등록하기</Modal.Header>
       <Modal.Body
         position="center"
         style={{ width: isMobile ? '100%' : '85%', margin: '2rem auto' }}
@@ -75,8 +83,8 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
             />
             <Flex.Column width="100%">
               <Dropdown
-                items={[item.semester]}
-                selectedItem={item.semester}
+                items={[semester]}
+                selectedItem={semester}
                 setSelectedItem={() => {}}
                 width="100%"
               />
@@ -101,6 +109,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
                 value={desc1.value}
                 onChange={desc1.handleChange}
               />
+              <FormField.ErrorMessage value={desc1.errorMessage} />
             </Flex.Column>
           </FormField>
 
@@ -142,7 +151,7 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
                 onUpload={file.handleChange}
               />
               <Flex.Column>
-                {item.file || file.value ? (
+                {file.value ? (
                   <Text
                     style={{
                       ...theme.typography.body2,
@@ -151,12 +160,15 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
                       textOverflow: 'ellipsis',
                     }}
                   >
-                    {file.value ? file.value.name : item.file}
+                    {file.value?.name}
                   </Text>
                 ) : (
                   <>
                     <Text style={{ ...theme.typography.body2 }}>
-                      제출된 파일이 없습니다.
+                      활동을 증명할 파일을 업로드해주세요
+                    </Text>
+                    <Text style={{ ...theme.typography.body2 }}>
+                      첨부파일은 pdf만 업로드 가능
                     </Text>
                   </>
                 )}
@@ -165,22 +177,24 @@ const EditSubmittedMileageModal = ({ item }: Props) => {
             <FormField.Box />
           </FormField>
 
-          <Flex.Row justify="center" gap="2rem" margin="2rem 0 0">
-            <S.CloseButton
-              label="닫기"
+          <Flex.Row justify="center" gap="1rem" margin="2rem 0 0">
+            <S.CancelButton
+              label="취소하기"
               onClick={toggleModal}
               size="large"
-              color="grey"
             />
-            <S.SubmitButton type="submit" label="저장하기" size="large" />
+            <S.SubmitButton
+              type="submit"
+              label="등록하기"
+              size="large"
+              onClick={() => trackAddNewMileageButton()}
+            />
           </Flex.Row>
         </S.Form>
       </Modal.Body>
     </Modal>
   );
 };
-
-export default EditSubmittedMileageModal;
 
 const S = {
   Form: styled('form')`
@@ -190,20 +204,10 @@ const S = {
     padding-top: 2rem;
     width: 100%;
   `,
-  IconButton: styled('button')`
-    align-items: center;
-    background-color: ${({ theme }) => theme.palette.grey100};
-    border: 2px solid ${({ theme }) => theme.palette.grey200};
-    border-radius: 0.5rem;
-    display: flex;
-    height: 30px;
-    justify-content: center;
-    width: 30px;
-  `,
   SubmitButton: styled(Button)`
     width: 300px;
   `,
-  CloseButton: styled(Button)`
+  CancelButton: styled(Button)`
     background-color: ${({ theme }) => theme.palette.grey300};
     width: 300px;
 

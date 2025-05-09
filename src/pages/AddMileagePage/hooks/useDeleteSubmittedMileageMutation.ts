@@ -1,13 +1,14 @@
-import { deleteSubmittedMileage } from '@/apis/mileage';
 import { QUERY_KEYS } from '@/constants/queryKeys';
 import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 
-const useDeleteSubmittedMileageMutation = () => {
+import { deleteSubmittedMileage } from '../apis/addMileage';
+
+export const useDeleteSubmittedMileageMutation = () => {
   const queryClient = useQueryClient();
 
-  return useMutation({
+  const { mutate, ...rest } = useMutation({
     mutationFn: deleteSubmittedMileage,
     onSuccess: async () => {
       toast.success(TOAST_MESSAGES.deleteMileage.succeed);
@@ -19,6 +20,6 @@ const useDeleteSubmittedMileageMutation = () => {
       toast.error(TOAST_MESSAGES.deleteMileage.failed);
     },
   });
-};
 
-export default useDeleteSubmittedMileageMutation;
+  return { deleteMileage: mutate, ...rest };
+};

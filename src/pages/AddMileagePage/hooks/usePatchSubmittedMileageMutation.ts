@@ -1,14 +1,15 @@
-import { patchSubmittedMileage } from '@/apis/mileage';
 import { QUERY_KEYS } from '@/constants/queryKeys';
 import { getErrorMessage } from '@/utils/getErrorMessage';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 import { ErrorResponse } from 'react-router-dom';
 
-const usePatchSubmittedMileageMutation = () => {
+import { patchSubmittedMileage } from '../apis/addMileage';
+
+export const usePatchSubmittedMileageMutation = () => {
   const queryClient = useQueryClient();
 
-  return useMutation({
+  const { mutate, ...rest } = useMutation({
     mutationFn: patchSubmittedMileage,
     onSuccess: async () => {
       await queryClient.invalidateQueries({
@@ -26,6 +27,6 @@ const usePatchSubmittedMileageMutation = () => {
       }
     },
   });
-};
 
-export default usePatchSubmittedMileageMutation;
+  return { patchSubmittedMileage: mutate, ...rest };
+};

@@ -1,9 +1,11 @@
-import { Flex, SectionErrorFallback, Title } from '@/components';
-import { EtcMileageTable } from '@/components/AddMileage';
+import { BoxSkeleton, Flex, SectionErrorFallback, Title } from '@/components';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
+import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-const EtcMileageSection = () => {
+import { EtcMileageTable } from './EtcMileageTable';
+
+export const EtcMileageSection = () => {
   return (
     <Flex.Column height="50%">
       <Title label="신청 가능 마일리지" />
@@ -13,12 +15,12 @@ const EtcMileageSection = () => {
             FallbackComponent={SectionErrorFallback}
             onReset={reset}
           >
-            <EtcMileageTable />
+            <Suspense fallback={<BoxSkeleton />}>
+              <EtcMileageTable />
+            </Suspense>
           </ErrorBoundary>
         )}
       </QueryErrorResetBoundary>
     </Flex.Column>
   );
 };
-
-export default EtcMileageSection;

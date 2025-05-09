@@ -1,36 +1,35 @@
+import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { useFileWithType, useInput, useInputWithValidate } from '@/hooks';
-import { usePatchSubmittedMileageMutation } from '@/hooks/queries';
 import { useAuthStore } from '@/stores';
-import { SubmittedMileageResponse } from '@/types/mileage';
 import { validateRequired } from '@/utils/validate';
 import { toast } from 'react-toastify';
 
-interface Props {
-  item: SubmittedMileageResponse;
-  toggleModal: () => void;
-}
+import { usePostNewMileageMutation } from './usePostNewMileageMutation';
 
-const useEditMileageForm = ({ item, toggleModal }: Props) => {
+export const useNewMileageForm = (
+  semester: string,
+  subitemId: number,
+  toggleModal: () => void,
+) => {
   const { student } = useAuthStore();
   const {
     value: description1,
     handleChange: handleDesc1,
     errorMessage: desc1ErrorMessage,
     reset: resetDesc1,
-  } = useInputWithValidate(item.description1, validateRequired);
+  } = useInputWithValidate('', validateRequired);
   const {
     value: description2,
     handleChange: handleDesc2,
     reset: resetDesc2,
-  } = useInput(item?.description2 ?? undefined);
+  } = useInput();
   const {
     value: file,
     handleChange: handleFile,
     reset: resetFile,
   } = useFileWithType('pdf');
 
-  const { mutate: patchSubmittedMileage } = usePatchSubmittedMileageMutation();
-
+  const { postNewMileage } = usePostNewMileageMutation();
   const handleSubmit = (
     e: React.FormEvent<HTMLFormElement> | React.MouseEvent<HTMLButtonElement>,
   ) => {
@@ -58,22 +57,28 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     return true;
   };
 
-  const submitForm = () => {
-    patchSubmittedMileage(
-      {
+  const submitForm = async () => {
+    try {
+      await postNewMileage({
         studentId: student.studentId,
-        recordId: item.recordId,
-        subitemId: item.subitemId,
+        subitemId,
+        semester,
         description1,
         description2,
         file,
-      },
-      {
-        onSuccess: () => {
-          toggleModal();
-        },
-      },
-    );
+      });
+      toggleModal();
+      toast.success(TOAST_MESSAGES.addMileage.succeed);
+      resetForm();
+    } catch {
+      toast.error(TOAST_MESSAGES.addMileage.failed);
+    }
+  };
+
+  const resetForm = () => {
+    resetDesc1();
+    resetDesc2();
+    resetFile();
   };
 
   return {
@@ -96,5 +101,3 @@ const useEditMileageForm = ({ item, toggleModal }: Props) => {
     handleSubmit,
   };
 };
-
-export default useEditMileageForm;

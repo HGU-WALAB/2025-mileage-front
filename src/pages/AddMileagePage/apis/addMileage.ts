@@ -1,12 +1,14 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
+import axios, { GenericFormData } from 'axios';
+
 import { MileageResponse } from '@/pages/MileageListPage/types/mileage';
+
 import {
   NewMileageRequest,
   PatchSubmittedMileageRequest,
   SubmittedMileageResponse,
-} from '@/types/mileage';
-import axios, { GenericFormData } from 'axios';
+} from '../types/addMileage';
 
 export const getEtcMileageList = async () => {
   const response = await http.get<MileageResponse[]>(`${ENDPOINT.ETC_MILEAGE}`);

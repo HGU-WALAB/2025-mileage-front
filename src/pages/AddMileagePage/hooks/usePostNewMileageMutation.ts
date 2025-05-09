@@ -1,11 +1,12 @@
-import { postNewMileage } from '@/apis/mileage';
 import { QUERY_KEYS } from '@/constants/queryKeys';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-const usePostNewMileageMutation = () => {
+import { postNewMileage } from '../apis/addMileage';
+
+export const usePostNewMileageMutation = () => {
   const queryClient = useQueryClient();
 
-  return useMutation({
+  const { mutateAsync, ...rest } = useMutation({
     mutationFn: postNewMileage,
     onSuccess: async () => {
       await queryClient.invalidateQueries({
@@ -13,6 +14,6 @@ const usePostNewMileageMutation = () => {
       });
     },
   });
-};
 
-export default usePostNewMileageMutation;
+  return { postNewMileage: mutateAsync, ...rest };
+};
