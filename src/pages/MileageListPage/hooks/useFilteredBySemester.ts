@@ -1,9 +1,10 @@
-import { ALL_SEMESTER } from '@/constants/system';
-import { useQueryParams } from '@/hooks';
-import { useGetMileageQuery } from '@/hooks/queries';
 import { useMemo } from 'react';
 
-const useFilteredBySemester = () => {
+import { ALL_SEMESTER } from '../constants/system';
+import { useGetMileageQuery } from './useGetMileageQuery';
+import { useQueryParams } from './useQueryParams';
+
+export const useFilteredBySemester = () => {
   const { queryParams, updateQueryParams } = useQueryParams();
   const selectedSemester = queryParams.semester;
 
@@ -25,5 +26,3 @@ const useFilteredBySemester = () => {
 
   return { semesterList, isLoading, selectedSemester, setSelectedSemester };
 };
-
-export default useFilteredBySemester;

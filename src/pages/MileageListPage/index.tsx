@@ -1,15 +1,14 @@
 import { Flex, PageErrorFallback } from '@/components';
-import {
-  MileageCountSection,
-  MileageFilterSection,
-  MileageTableListSection,
-  MobileMileageCountSection,
-} from '@/components/MileageList';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useMediaQuery } from '@mui/material';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
+
+import { MileageCountSection } from './components/MileageCountSection';
+import { MileageFilterSection } from './components/MileageFilterSection';
+import { MileageTableListSection } from './components/MileageTableListSection';
+import { MobileMileageCountSection } from './components/MobileMileageCountSection';
 
 const MileageListPage = () => {
   useTrackPageView({ eventName: '[View] 마일리지 조회 페이지' });

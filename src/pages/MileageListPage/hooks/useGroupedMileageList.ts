@@ -1,8 +1,8 @@
-import { useQueryParams } from '@/hooks';
-import { useGetMileageQuery } from '@/hooks/queries';
-import { MileageResponse } from '@/types/mileage';
+import { MileageResponse } from '../types/mileage';
+import { useGetMileageQuery } from './useGetMileageQuery';
+import { useQueryParams } from './useQueryParams';
 
-const useGroupedMileageList = () => {
+export const useGroupedMileageList = () => {
   const { queryParams } = useQueryParams();
 
   const { data: mileageList, isLoading } = useGetMileageQuery({
@@ -39,5 +39,3 @@ const useGroupedMileageList = () => {
 
   return { groupedMileageList, isLoading };
 };
-
-export default useGroupedMileageList;

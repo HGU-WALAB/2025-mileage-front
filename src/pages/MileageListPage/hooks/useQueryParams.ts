@@ -1,9 +1,10 @@
-import { ALL_SEMESTER } from '@/constants/system';
-import { MileageRequest } from '@/types/mileage';
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-const useQueryParams = () => {
+import { ALL_SEMESTER } from '../constants/system';
+import { MileageRequest } from '../types/mileage';
+
+export const useQueryParams = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const getQueryParams = useCallback((): Omit<MileageRequest, 'studentId'> => {
@@ -42,5 +43,3 @@ const useQueryParams = () => {
 
   return { queryParams: getQueryParams(), updateQueryParams };
 };
-
-export default useQueryParams;

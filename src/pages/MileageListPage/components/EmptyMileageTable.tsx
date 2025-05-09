@@ -2,7 +2,7 @@ import { EmptyBoxImg } from '@/assets';
 import { Flex, Heading } from '@/components';
 import { useTheme } from '@mui/material';
 
-const EmptyMileageTable = () => {
+export const EmptyMileageTable = () => {
   const theme = useTheme();
 
   return (
@@ -20,5 +20,3 @@ const EmptyMileageTable = () => {
     </Flex.Column>
   );
 };
-
-export default EmptyMileageTable;

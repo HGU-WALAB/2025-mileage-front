@@ -1,12 +1,11 @@
 import { Flex } from '@/components';
-import {
-  JoinedTabs,
-  SearchMileageInput,
-  SemesterDropdown,
-} from '@/components/MileageList';
 import { ErrorBoundary } from 'react-error-boundary';
 
-const MileageFilterSection = () => {
+import { JoinedTabs } from './JoinedTabs';
+import { SearchMileageInput } from './SearchMileageInput';
+import { SemesterDropdown } from './SemesterDropdown';
+
+export const MileageFilterSection = () => {
   return (
     <Flex.Column>
       <Flex.Row margin="1rem 0" align="center" gap="1rem" wrap="wrap">
@@ -21,5 +20,3 @@ const MileageFilterSection = () => {
     </Flex.Column>
   );
 };
-
-export default MileageFilterSection;

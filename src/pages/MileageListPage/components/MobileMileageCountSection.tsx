@@ -1,11 +1,12 @@
 import { Flex } from '@/components';
-import { useQueryParams } from '@/hooks';
-import { useGetMileageQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled } from '@mui/material';
 
-const MobileMileageCountSection = () => {
+import { useGetMileageQuery } from '../hooks/useGetMileageQuery';
+import { useQueryParams } from '../hooks/useQueryParams';
+
+export const MobileMileageCountSection = () => {
   const { queryParams } = useQueryParams();
   const { data: mileageList } = useGetMileageQuery({
     semester: queryParams.semester,
@@ -19,8 +20,6 @@ const MobileMileageCountSection = () => {
     </S.Container>
   );
 };
-
-export default MobileMileageCountSection;
 
 const S = {
   Container: styled(Flex.Row)`

@@ -1,10 +1,11 @@
 import { SearchIcon } from '@/assets';
 import { Flex, Input } from '@/components';
-import { useFilteredByKeyword } from '@/hooks';
 import { styled, useTheme } from '@mui/material';
 import { useState } from 'react';
 
-const SearchMileageInput = () => {
+import { useFilteredByKeyword } from '../hooks/useFilteredByKeyword';
+
+export const SearchMileageInput = () => {
   const theme = useTheme();
   const { keyword, setKeyword } = useFilteredByKeyword();
   const [localKeyword, setLocalKeyword] = useState(keyword);
@@ -32,8 +33,6 @@ const SearchMileageInput = () => {
     </Flex.Row>
   );
 };
-
-export default SearchMileageInput;
 
 const S = {
   SearchButton: styled('button')`

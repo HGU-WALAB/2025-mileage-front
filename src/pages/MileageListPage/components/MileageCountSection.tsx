@@ -1,12 +1,13 @@
 import { Flex } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useQueryParams } from '@/hooks';
-import { useGetMileageQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useMediaQuery } from '@mui/material';
 
-const MileageCountSection = () => {
+import { useGetMileageQuery } from '../hooks/useGetMileageQuery';
+import { useQueryParams } from '../hooks/useQueryParams';
+
+export const MileageCountSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   const { queryParams } = useQueryParams();
@@ -27,8 +28,6 @@ const MileageCountSection = () => {
     </S.Container>
   );
 };
-
-export default MileageCountSection;
 
 const S = {
   Container: styled(Flex.Column)`

@@ -1,9 +1,10 @@
-import { getMileageList } from '@/apis/mileage';
 import { QUERY_KEYS } from '@/constants/queryKeys';
-import { MileageRequest, MileageResponse } from '@/types/mileage';
 import { useQuery } from '@tanstack/react-query';
 
-const useGetMileageQuery = ({
+import { getMileageList } from '../apis/mileage';
+import { MileageRequest, MileageResponse } from '../types/mileage';
+
+export const useGetMileageQuery = ({
   keyword,
   category,
   semester,
@@ -21,5 +22,3 @@ const useGetMileageQuery = ({
     throwOnError: true,
   });
 };
-
-export default useGetMileageQuery;

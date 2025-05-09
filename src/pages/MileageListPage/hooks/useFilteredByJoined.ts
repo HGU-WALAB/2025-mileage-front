@@ -1,8 +1,9 @@
-import { filterJoinedItems } from '@/constants/filterItems';
-import { useQueryParams } from '@/hooks';
 import { TabItem } from '@/types/tab';
 
-const useFilteredByJoined = () => {
+import { filterJoinedItems } from '../constants/filterItems';
+import { useQueryParams } from '../hooks/useQueryParams';
+
+export const useFilteredByJoined = () => {
   const { queryParams, updateQueryParams } = useQueryParams();
   const selectedValue = queryParams.done ?? 'all';
 
@@ -26,5 +27,3 @@ const useFilteredByJoined = () => {
 
   return { selectedJoined, setSelectedJoined };
 };
-
-export default useFilteredByJoined;

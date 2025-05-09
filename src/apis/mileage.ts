@@ -1,37 +1,12 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
-import { ALL_SEMESTER } from '@/constants/system';
+import { MileageResponse } from '@/pages/MileageListPage/types/mileage';
 import {
-  MileageRequest,
-  MileageResponse,
   NewMileageRequest,
   PatchSubmittedMileageRequest,
   SubmittedMileageResponse,
 } from '@/types/mileage';
 import axios, { GenericFormData } from 'axios';
-
-export const getMileageList = async ({
-  keyword = '',
-  category = 'all',
-  semester = 'all',
-  done = 'all',
-}: MileageRequest) => {
-  if (semester === ALL_SEMESTER) semester = 'all';
-
-  const queryParams = new URLSearchParams({
-    keyword,
-    category,
-    semester,
-    done: done.toString(),
-  });
-
-  const response = await http.get<MileageResponse[]>(
-    `${ENDPOINT.MILEAGE}/search`,
-    { params: queryParams },
-  );
-
-  return response;
-};
 
 export const getEtcMileageList = async () => {
   const response = await http.get<MileageResponse[]>(`${ENDPOINT.ETC_MILEAGE}`);
@@ -63,14 +38,6 @@ export const postNewMileage = async ({
         'Content-Type': 'multipart/form-data',
       },
     },
-  );
-
-  return response;
-};
-
-export const getSubmittedMileageList = async () => {
-  const response = await http.get<SubmittedMileageResponse[]>(
-    `${ENDPOINT.ETC_MILEAGE}/get`,
   );
 
   return response;
@@ -128,6 +95,14 @@ export const getSubmittedMileageFile = async ({
     {
       responseType: 'blob',
     },
+  );
+
+  return response;
+};
+
+export const getSubmittedMileageList = async () => {
+  const response = await http.get<SubmittedMileageResponse[]>(
+    `${ENDPOINT.ETC_MILEAGE}/get`,
   );
 
   return response;

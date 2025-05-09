@@ -1,8 +1,9 @@
 import { Dropdown, Flex, Text } from '@/components';
-import { useFilteredBySemester } from '@/hooks';
 import { useAuthStore } from '@/stores';
 
-const SemesterDropdown = () => {
+import { useFilteredBySemester } from '../hooks/useFilteredBySemester';
+
+export const SemesterDropdown = () => {
   const { currentSemester } = useAuthStore();
   const { semesterList, isLoading, selectedSemester, setSelectedSemester } =
     useFilteredBySemester();
@@ -23,5 +24,3 @@ const SemesterDropdown = () => {
     </Flex.Row>
   );
 };
-
-export default SemesterDropdown;

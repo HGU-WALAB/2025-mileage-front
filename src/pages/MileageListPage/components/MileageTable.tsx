@@ -1,10 +1,11 @@
 import { EmptyBoxImg, JoinedCheckCircleIcon } from '@/assets';
 import { Flex, Heading, Table } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { MileageResponse } from '@/types/mileage';
 import { THeader } from '@/types/table';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { useMemo } from 'react';
+
+import { MileageResponse } from '../types/mileage';
 
 interface Props {
   mileageList: MileageResponse[];
@@ -18,7 +19,7 @@ const headerItems: THeader[] = [
   { text: '참여여부', value: 'done', align: 'center', width: '150px' },
 ];
 
-const MileageTable = ({ mileageList }: Props) => {
+export const MileageTable = ({ mileageList }: Props) => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   const bodyItems = useMemo(
@@ -46,8 +47,6 @@ const MileageTable = ({ mileageList }: Props) => {
     />
   );
 };
-
-export default MileageTable;
 
 const EmptyTable = () => {
   const theme = useTheme();
