@@ -1,6 +1,6 @@
 import { AlertBoxIcon, CheckBoxIcon } from '@/assets';
 import { Text } from '@/components';
-import Flex from '@/components/_common/Flex/Flex';
+import Flex from '@/components/Flex/Flex';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
 
