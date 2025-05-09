@@ -1,6 +1,6 @@
 import { LogoutIcon } from '@/assets';
 import { Text } from '@/components';
-import Flex from '@/components/_common/Flex/Flex';
+import Flex from '@/components/Flex/Flex';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
