@@ -1,11 +1,12 @@
 import { HelpIcon } from '@/assets';
 import { BoxSkeleton, Flex, Heading } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useGetUserInfoQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
 import { getDate } from '@/utils/getDate';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 import { useState } from 'react';
+
+import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
 
 import { InfoField } from './InfoField';
 import { InfoGuideSection } from './InfoGuideSection';

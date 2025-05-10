@@ -1,4 +1,4 @@
-import { CompareCapabilityResponse } from '@/types/capability';
+import { CompareCapabilityResponse } from '@/pages/DashboardPage/types/capability';
 
 export const mockCompareCapability1: CompareCapabilityResponse[] = [
   {

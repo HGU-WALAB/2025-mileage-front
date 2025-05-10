@@ -1,8 +1,9 @@
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useGetSemesterCapabilityQuery } from '@/hooks/queries';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
+import { useGetSemesterCapabilityQuery } from '@/pages/DashboardPage/hooks/useGetSemesterCapabilityQuery';
 
 export const MileageCountSection = () => {
   const navigate = useNavigate();
