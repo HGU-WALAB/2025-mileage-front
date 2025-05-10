@@ -11,7 +11,9 @@ import CheckCircleOutlineIcon from '@/assets/icons/checkCircleOutline.svg?react'
 import DashboardIcon from '@/assets/icons/dashboard.svg?react';
 import DashboardBlueIcon from '@/assets/icons/dashboardBlue.svg?react';
 import DeleteIcon from '@/assets/icons/delete.svg?react';
+import DeleteBlueIcon from '@/assets/icons/deleteBlue.svg?react';
 import EditIcon from '@/assets/icons/edit.svg?react';
+import EditBlueIcon from '@/assets/icons/editBlue.svg?react';
 import GithubIcon from '@/assets/icons/github.svg?react';
 import HelpIcon from '@/assets/icons/help.svg?react';
 import JoinedCheckCircleIcon from '@/assets/icons/joinedCheckCircle.svg?react';
@@ -65,7 +67,9 @@ export {
   CloudUploadIcon,
   DashboardBlueIcon,
   DashboardIcon,
+  DeleteBlueIcon,
   DeleteIcon,
+  EditBlueIcon,
   EditIcon,
   EmptyBoxImg,
   ExpandMoreIcon,
