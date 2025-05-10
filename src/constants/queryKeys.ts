@@ -9,4 +9,5 @@ export const QUERY_KEYS = {
   compareCapability: 'compareCapability',
   semesterCapability: 'semesterCapability',
   award: 'award',
+  project: 'project',
 };
