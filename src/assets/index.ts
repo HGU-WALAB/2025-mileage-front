@@ -3,6 +3,7 @@ import AlertBoxIcon from '@/assets/icons/alertBox.svg?react';
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
 import AwardListIcon from '@/assets/icons/awardList.svg?react';
 import AwardListBlueIcon from '@/assets/icons/awardListBlue.svg?react';
+import BlogIcon from '@/assets/icons/blog.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
 import CheckBoxIcon from '@/assets/icons/checkBox.svg?react';
 import CheckCircleIcon from '@/assets/icons/checkCircle.svg?react';
@@ -11,7 +12,10 @@ import DashboardIcon from '@/assets/icons/dashboard.svg?react';
 import DashboardBlueIcon from '@/assets/icons/dashboardBlue.svg?react';
 import DeleteIcon from '@/assets/icons/delete.svg?react';
 import EditIcon from '@/assets/icons/edit.svg?react';
+import GithubIcon from '@/assets/icons/github.svg?react';
+import HelpIcon from '@/assets/icons/help.svg?react';
 import JoinedCheckCircleIcon from '@/assets/icons/joinedCheckCircle.svg?react';
+import LinkedInIcon from '@/assets/icons/linkedin.svg?react';
 import LoadingIcon from '@/assets/icons/loading.svg?react';
 import LogoIcon from '@/assets/icons/logo.svg?react';
 import LogoutIcon from '@/assets/icons/logout.svg?react';
@@ -51,6 +55,7 @@ export {
   AwardListBlueIcon,
   AwardListIcon,
   BackgroundImg,
+  BlogIcon,
   CheckBoxIcon,
   CheckCircleIcon,
   CheckCircleOutlineIcon,
@@ -63,6 +68,8 @@ export {
   EditIcon,
   EmptyBoxImg,
   ExpandMoreIcon,
+  GithubIcon,
+  HelpIcon,
   Img1,
   Img2,
   Img3,
@@ -72,6 +79,7 @@ export {
   Img7,
   JoinedCheckCircleIcon,
   ChevronLeftIcon as LeftArrowIcon,
+  LinkedInIcon,
   LoadingIcon,
   LogoIcon,
   LogoutIcon,

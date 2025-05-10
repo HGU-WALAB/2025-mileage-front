@@ -5,11 +5,11 @@ import { useAuthStore } from '@/stores';
 import { useMutation } from '@tanstack/react-query';
 import { toast } from 'react-toastify';
 
-const usePostLoginMutation = () => {
+export const usePostLoginMutation = () => {
   const { init } = amplitudeInitializer();
   const { login } = useAuthStore();
 
-  return useMutation({
+  const { mutateAsync, ...rest } = useMutation({
     mutationFn: postLogin,
     onSuccess: res => {
       init(res.studentId);
@@ -25,6 +25,6 @@ const usePostLoginMutation = () => {
       );
     },
   });
-};
 
-export default usePostLoginMutation;
+  return { postLogin: mutateAsync, ...rest };
+};

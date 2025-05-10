@@ -3,12 +3,11 @@ import { QUERY_KEYS } from '@/constants/queryKeys';
 import { UserResponse } from '@/types/auth';
 import { useQuery } from '@tanstack/react-query';
 
-const useGetUserInfoQuery = () => {
-  return useQuery<UserResponse>({
+export const useGetUserInfoQuery = () => {
+  const { data, ...rest } = useQuery<UserResponse>({
     queryKey: [QUERY_KEYS.userInfo],
     queryFn: () => getUserInfo(),
-    throwOnError: true,
   });
-};
 
-export default useGetUserInfoQuery;
+  return { userInfo: data, ...rest };
+};

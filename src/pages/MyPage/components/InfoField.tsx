@@ -1,12 +1,13 @@
 import { Flex, Heading } from '@/components';
-import { infoLabels } from '@/components/My';
 import { styled } from '@mui/material';
+
+import { infoLabels } from '../constants/InfoLabels';
 
 interface Props {
   info: [string, string];
 }
 
-const InfoField = ({ info }: Props) => {
+export const InfoField = ({ info }: Props) => {
   const [key, value] = info;
 
   if (key.includes('major'))
@@ -37,8 +38,6 @@ const InfoField = ({ info }: Props) => {
     </S.InfoRow>
   );
 };
-
-export default InfoField;
 
 const S = {
   InfoRow: styled(Flex.Column)`

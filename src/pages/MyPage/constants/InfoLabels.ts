@@ -1,4 +1,4 @@
-const infoLabels: { [key: string]: string } = {
+export const infoLabels: { [key: string]: string } = {
   studentName: '이름',
   studentEmail: '이메일',
   studentId: '학번',
@@ -8,5 +8,3 @@ const infoLabels: { [key: string]: string } = {
   term: '학기',
   department: '소속 학부',
 };
-
-export default infoLabels;
