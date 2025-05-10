@@ -15,7 +15,7 @@ export const ProjectDetailSection = () => {
   const { project } = useGetProjectQuery(id ?? '');
 
   return (
-    <Flex.Column gap="2rem" padding="0 2rem">
+    <Flex.Column gap="2rem" padding={isMobile ? '' : '0 2rem'}>
       <Flex.Row gap=".5rem" wrap={isMobile ? 'wrap' : 'nowrap'}>
         <Flex.Column gap="1rem" height="400px" justify="space-around">
           <Flex.Column gap=".25rem">
