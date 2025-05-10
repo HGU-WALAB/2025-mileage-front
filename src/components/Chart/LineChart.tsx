@@ -1,7 +1,8 @@
-import { SemesterCapabilityResponse } from '@/types/capability';
 import { useTheme } from '@mui/material';
 import { ResponsiveLine } from '@nivo/line';
 import { useMemo } from 'react';
+// TODO: 유연한 타입으로 변경 필요
+import { SemesterCapabilityResponse } from '@/pages/DashboardPage/types/capability';
 
 const LineChart = ({ data }: { data: SemesterCapabilityResponse[] }) => {
   const theme = useTheme();
