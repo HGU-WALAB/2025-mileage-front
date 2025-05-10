@@ -1,4 +1,4 @@
-import { UserResponse } from '@/types/auth';
+import { UserResponse } from '@/pages/LoginPage/types/auth';
 
 export const mockUserData: UserResponse = {
   studentId: '22000770',
