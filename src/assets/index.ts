@@ -23,6 +23,7 @@ import MileageAddIcon from '@/assets/icons/mileageAdd.svg?react';
 import MileageAddBlueIcon from '@/assets/icons/mileageAddBlue.svg?react';
 import MileageListIcon from '@/assets/icons/mileageList.svg?react';
 import MileageListBlueIcon from '@/assets/icons/mileageListBlue.svg?react';
+import PlusIcon from '@/assets/icons/plus.svg?react';
 import ScholarshipIcon from '@/assets/icons/scholarship.svg?react';
 import ScholarshipBlueIcon from '@/assets/icons/scholarshipBlue.svg?react';
 import SearchIcon from '@/assets/icons/search.svg?react';
@@ -88,6 +89,7 @@ export {
   MileageListBlueIcon,
   MileageListIcon,
   MobileBackgroundImg,
+  PlusIcon,
   ChevronRightIcon as RightArrowIcon,
   ScholarshipBlueIcon,
   ScholarshipIcon,
