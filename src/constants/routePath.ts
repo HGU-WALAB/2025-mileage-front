@@ -7,6 +7,7 @@ export const ROUTE_PATH = {
   project: '/project',
   projectDetail: (id: number) => `/project/${id}`,
   newProject: '/project/add',
+  editProject: '/project/edit',
   scholarship: '/scholarship/apply',
   myPage: '/my',
 };
