@@ -1,14 +1,13 @@
-import { http, HttpResponse, PathParams } from 'msw';
-
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
-import { mockMileageList } from '@/mocks/fixtures/mileageList';
-import { Error400, Error401, Error500, randomMswError } from '@/utils/mswError';
-
 import { mockEtcMileageList } from '@/mocks/fixtures/etcMileageList';
+import { mockMileageList } from '@/mocks/fixtures/mileageList';
 import { mockSubmittedMileageList } from '@/mocks/fixtures/submittedMileageList';
-import { SubmittedMileageResponse } from '@/types/mileage';
+import { Error400, Error401, Error500, randomMswError } from '@/utils/mswError';
 import { LiveStorage } from '@mswjs/storage';
+import { http, HttpResponse, PathParams } from 'msw';
+
+import { SubmittedMileageResponse } from '@/pages/AddMileagePage/types/addMileage';
 
 export const MileageHandlers = [
   http.get(BASE_URL + `${ENDPOINT.MILEAGE}/search`, req => {
