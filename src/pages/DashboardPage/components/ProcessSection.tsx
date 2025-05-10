@@ -23,10 +23,10 @@ export const ProcessSection = () => {
         <Heading as="h2" margin="0 0 .5rem" color={theme.palette.primary.main}>
           마일리지 장학금 신청 절차
         </Heading>
-        <Text style={{ fontSize: '12px' }}>
+        <Text style={{ fontSize: '.75rem' }}>
           반드시 마일리지 장학금 공지사항을 정독 후 신청하세요.
         </Text>
-        <Text style={{ fontSize: '12px' }}>
+        <Text style={{ fontSize: '.75rem' }}>
           아래 절차를 모두 완료해야 신청이 완료됩니다.
         </Text>
       </Flex.Column>

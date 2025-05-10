@@ -1,9 +1,8 @@
-import { http, HttpResponse } from 'msw';
-
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
 import { mockScholarshipDuration } from '@/mocks/fixtures/scholarshipDuration';
 import { Error400, Error401, Error500, randomMswError } from '@/utils/mswError';
+import { http, HttpResponse } from 'msw';
 
 export const ScholarshipHandlers = [
   http.post(BASE_URL + `${ENDPOINT.SCHOLARSHIP_APPLY}/:studentId`, () => {
