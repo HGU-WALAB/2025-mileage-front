@@ -44,6 +44,13 @@ export const drawerItems = [
     route: ROUTE_PATH.award,
   },
   {
+    text: '프로젝트',
+    shortText: '프로젝트',
+    icon: AwardListIcon,
+    selectedIcon: AwardListBlueIcon,
+    route: ROUTE_PATH.project,
+  },
+  {
     text: '장학금 신청',
     shortText: '장학금 신청',
     icon: ScholarshipIcon,
