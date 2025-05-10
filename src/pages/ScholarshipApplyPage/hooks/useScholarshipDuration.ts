@@ -1,6 +1,6 @@
-import { getIsScholarshipDuration } from '@/utils/getIsScholarshipDuration';
 import { useMemo } from 'react';
 
+import { getIsScholarshipDuration } from '../utils/getIsScholarshipDuration';
 import { useGetScholarshipDurationQuery } from './useGetScholarshipDurationQuery';
 
 export const useScholarshipDuration = () => {
