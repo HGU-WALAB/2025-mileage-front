@@ -4,8 +4,8 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { DeleteProjectButton } from '@/pages/ProjectDetailPage/components/DeleteProjectButton';
-import { EditProjectButton } from '@/pages/ProjectDetailPage/components/EditProjectButton';
+import { DeleteProjectButton } from './components/DeleteProjectButton';
+import { EditProjectButton } from './components/EditProjectButton';
 import { ProjectDetailSection } from './components/ProjectDetailSection';
 import { ProjectDetailSkeleton } from './components/ProjectDetailSkeleton';
 

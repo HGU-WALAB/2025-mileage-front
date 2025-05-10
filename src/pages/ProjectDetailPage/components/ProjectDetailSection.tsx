@@ -65,11 +65,7 @@ export const ProjectDetailSection = () => {
           </Flex.Column>
         </Flex.Column>
 
-        {/* <S.MainImage src={`images/${project.thumbnail}`} alt="대표 이미지" /> */}
-        <S.MainImage
-          src={`https://www.hdec.kr/FileContents/EditorImg/20220307/%EC%82%AC%EC%A7%842%20copy_770.jpg`}
-          alt="대표 이미지"
-        />
+        <S.MainImage src={`images/${project.thumbnail}`} alt="대표 이미지" />
       </Flex.Row>
 
       <Flex.Column gap="4rem" margin="2rem 0 6rem">
@@ -96,6 +92,7 @@ export const ProjectDetailSection = () => {
 
 const S = {
   MainImage: styled('img')`
+    background-color: ${({ theme }) => theme.palette.primary.light};
     border-radius: 0.75rem;
     max-height: 400px;
     object-fit: cover;
