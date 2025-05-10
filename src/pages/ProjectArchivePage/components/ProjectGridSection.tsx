@@ -1,10 +1,10 @@
+import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
-
-import { ROUTE_PATH } from '@/constants/routePath';
-import { EmptyProjectSection } from '@/pages/ProjectArchivePage/components/EmptyProjectSection';
 import { useNavigate } from 'react-router-dom';
+
 import { useGetProjectsQuery } from '../hooks/useGetProjectsQuery';
+import { EmptyProjectSection } from './EmptyProjectSection';
 import { ProjectCard } from './ProjectCard';
 
 export const ProjectGridSection = () => {
