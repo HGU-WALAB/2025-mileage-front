@@ -73,10 +73,11 @@ export const ProjectAddForm = () => {
 
             <ControlledFormField<ProjectFormValues>
               name="description"
-              label="한줄 소개"
-              placeholder="간단한 요약 문구"
-              rules={{ required: '한줄 소개는 필수입니다' }}
+              label="프로젝트 소개"
+              placeholder="프로젝트에 대해서 설명해주세요!"
+              rules={{ required: '프로젝트 소개는 필수입니다' }}
               control={control}
+              multiline
             />
 
             <ControlledFormField<ProjectFormValues>
