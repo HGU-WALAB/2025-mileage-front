@@ -18,12 +18,14 @@ export const CompetencyAnalyzeChartSection = () => {
 
   return (
     <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
-      <Heading as="h3">나의 역량 비교 그래프</Heading>
+      <Flex width="100%" justify="space-between" align="center" wrap="wrap">
+        <Heading as="h3">나의 역량 비교 그래프</Heading>
 
-       <CompareOptionButtonSection
-        compareOption={compareOption}
-        setCompareOption={setCompareOption}
-      />
+        <CompareOptionButtonSection
+          compareOption={compareOption}
+          setCompareOption={setCompareOption}
+        />
+      </Flex>
 
       <Flex height="70%" width="100%" justify="center" align="center">
         <ErrorBoundary FallbackComponent={ErrorBox}>
