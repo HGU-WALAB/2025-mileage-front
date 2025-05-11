@@ -1,4 +1,4 @@
-import { ScholarshipDurationResponse } from '@/types/scholarship';
+import { ScholarshipDurationResponse } from '@/pages/ScholarshipApplyPage/types/scholarship';
 
 export const mockScholarshipDuration: ScholarshipDurationResponse = {
   regStart: new Date(new Date().setDate(new Date().getDate())).toString(),

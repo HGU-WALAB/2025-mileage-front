@@ -3,6 +3,11 @@ export const ROUTE_PATH = {
   dashboard: '/dashboard',
   mileageList: '/mileage',
   newMileage: '/mileage/add',
+  award: '/award',
+  project: '/project',
+  projectDetail: (id: number) => `/project/${id}`,
+  newProject: '/project/add',
+  editProject: '/project/edit',
   scholarship: '/scholarship/apply',
   myPage: '/my',
 };

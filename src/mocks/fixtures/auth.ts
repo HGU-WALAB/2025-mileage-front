@@ -1,4 +1,4 @@
-import { UserResponse } from '@/types/auth';
+import { UserResponse } from '@/pages/LoginPage/types/auth';
 
 export const mockUserData: UserResponse = {
   studentId: '22000770',
@@ -12,4 +12,11 @@ export const mockUserData: UserResponse = {
   currentSemester: '2025-01',
   modDate: new Date().toString(),
   studentType: '전공',
+
+  // profile
+  imgUrl: 'https://img.segye.com/content/image/2019/05/22/20190522511197.jpg',
+  githubLink: 'https://github.com/healim01',
+  blogLink: 'https://healim01.tistory.com/',
+  linkedInLink: 'https://www.linkedin.com/in/hyelim-choi01/',
+  job: '프론트엔드',
 };

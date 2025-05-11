@@ -1,4 +1,4 @@
-import { SemesterCapabilityResponse } from '@/types/capability';
+import { SemesterCapabilityResponse } from '@/pages/DashboardPage/types/capability';
 
 export const mockSemesterCapability: SemesterCapabilityResponse[] = [
   {
