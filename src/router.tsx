@@ -11,6 +11,7 @@ const ProjectListPage = React.lazy(() => import('@project/ProjectListPage'));
 const ProjectDetailPage = React.lazy(
   () => import('@project/ProjectDetailPage'),
 );
+const ProjectAddPage = React.lazy(() => import('@project/ProjectAddPage'));
 const ScholarshipApplyPage = React.lazy(
   () => import('@/pages/ScholarshipApplyPage'),
 );
@@ -52,6 +53,10 @@ const router = createBrowserRouter(
         {
           path: `${ROUTE_PATH.project}/:id`,
           element: <ProjectDetailPage />,
+        },
+        {
+          path: ROUTE_PATH.newProject,
+          element: <ProjectAddPage />,
         },
         {
           path: ROUTE_PATH.scholarship,

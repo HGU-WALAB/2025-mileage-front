@@ -20,3 +20,18 @@ export interface ProjectResponse {
     techStack: string[]; // 사용한 기술 스택 리스트
   };
 }
+
+export interface ProjectFormValues {
+  name: string;
+  role: string;
+  description: string;
+  content: string;
+  start_date: string;
+  end_date: string;
+  deployed_link: string;
+  github_link: string;
+  blog_link: string;
+  achievement: string;
+  techStack: string[];
+  thumbnail: FileList;
+}
