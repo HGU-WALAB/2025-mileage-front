@@ -6,7 +6,7 @@ import { ProjectResponse } from '../types/project';
 
 export const useGetProjectsQuery = () => {
   const { data, ...rest } = useSuspenseQuery<ProjectResponse[]>({
-    queryKey: [QUERY_KEYS.award],
+    queryKey: [QUERY_KEYS.project],
     queryFn: getProjectList,
   });
 

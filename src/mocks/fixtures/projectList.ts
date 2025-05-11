@@ -1,4 +1,4 @@
-import { ProjectResponse } from '@/pages/ProjectDetailPage/types/project';
+import { ProjectResponse } from '@project/types/project';
 
 export const mockProjectList: ProjectResponse[] = [
   {

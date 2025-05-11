@@ -14,7 +14,7 @@ export const ProjectCard = ({
   return (
     <S.Card width="100%" height="320px" onClick={onClick}>
       <S.Thumbnail
-        src={`/images/${project.mainImageName}`}
+        src={`/images/${project.thumbnail}`}
         alt="프로젝트 대표 이미지"
       />
       <Flex.Column gap=".5rem" padding="1rem">
