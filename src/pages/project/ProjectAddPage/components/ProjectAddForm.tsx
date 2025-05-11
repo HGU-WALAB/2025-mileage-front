@@ -8,10 +8,16 @@ import {
 import { Autocomplete, styled, Typography } from '@mui/material';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
 
+import { ROUTE_PATH } from '@/constants/routePath';
+import { usePostProjectMutation } from '@/pages/project/hooks/usePostProjectMutation';
+import { useAuthStore } from '@/stores';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { TECH_OPTIONS } from '../../constants/techOptions';
 import { ProjectFormValues } from '../../types/project';
 
 export const ProjectAddForm = () => {
+  const navigate = useNavigate();
   const methods = useForm<ProjectFormValues>({
     defaultValues: {
       name: '',
@@ -30,23 +36,22 @@ export const ProjectAddForm = () => {
   });
 
   const { control, register, handleSubmit } = methods;
+  const { user } = useAuthStore();
+  const { postProject } = usePostProjectMutation();
 
-  const onSubmit = (data: ProjectFormValues) => {
-    const formData = new FormData();
+  const onSubmit = async (formValues: ProjectFormValues) => {
+    try {
+      await postProject({
+        studentId: user.studentId,
+        formValues,
+      });
 
-    Object.entries(data).forEach(([key, value]) => {
-      if (key === 'image_url') {
-        if (value && value.length > 0) {
-          formData.append(key, value[0]);
-        }
-      } else if (key === 'techStack') {
-        formData.append('techStack', JSON.stringify({ techStack: value }));
-      } else {
-        formData.append(key, value as string);
-      }
-    });
-
-    console.log('[폼 제출 데이터]', [...formData.entries()]);
+      toast.success('프로젝트가 등록되었습니다!');
+      navigate(ROUTE_PATH.project);
+    } catch (error) {
+      toast.error('등록 중 문제가 발생했어요.');
+      console.error(error);
+    }
   };
 
   return (
@@ -88,7 +93,12 @@ export const ProjectAddForm = () => {
                   name="start_date"
                   control={control}
                   render={({ field }) => (
-                    <FormField.Input type="date" {...field} fullWidth />
+                    <FormField.Input
+                      type="date"
+                      {...field}
+                      fullWidth
+                      required
+                    />
                   )}
                 />
                 <Controller
