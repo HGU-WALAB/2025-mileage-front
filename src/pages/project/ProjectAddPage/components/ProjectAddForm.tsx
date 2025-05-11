@@ -4,6 +4,7 @@ import {
   Flex,
   FormField,
   Text,
+  UploadButton,
 } from '@/components';
 import { Autocomplete, styled, Typography } from '@mui/material';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
@@ -11,6 +12,7 @@ import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { usePostProjectMutation } from '@/pages/project/hooks/usePostProjectMutation';
 import { useAuthStore } from '@/stores';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { TECH_OPTIONS } from '../../constants/techOptions';
@@ -38,6 +40,7 @@ export const ProjectAddForm = () => {
   const { control, register, handleSubmit } = methods;
   const { user } = useAuthStore();
   const { postProject } = usePostProjectMutation();
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
@@ -160,22 +163,42 @@ export const ProjectAddForm = () => {
             <ControlledFormField<ProjectFormValues>
               name="achievement"
               label="성과 설명"
-              placeholder="예시 - 사용자 수 2배 증가"
+              placeholder="예시 - 교내 대회 우수상 수상, 사용자 수 2배 증가"
               control={control}
               multiline
             />
 
             <FormField direction="column">
-              <FormField.Label label="대표 이미지 업로드" />
+              <FormField.Label label="프로젝트 이미지 업로드" />
               <Controller
                 name="thumbnail"
                 control={control}
                 render={({ field }) => (
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={e => field.onChange(e.target.files)}
-                  />
+                  <Flex.Row gap="1rem" align="center" justify="space-between">
+                    <UploadButton
+                      label="대표 이미지 업로드"
+                      onUpload={(file: File) => {
+                        const fileList = new DataTransfer();
+                        fileList.items.add(file);
+                        field.onChange(fileList.files);
+
+                        const url = URL.createObjectURL(file);
+                        setPreviewUrl(url);
+                      }}
+                    />
+
+                    {previewUrl && (
+                      <img
+                        src={previewUrl}
+                        alt="이미지 미리보기"
+                        style={{
+                          marginTop: '1rem',
+                          maxWidth: '200px',
+                          borderRadius: '0.5rem',
+                        }}
+                      />
+                    )}
+                  </Flex.Row>
                 )}
               />
             </FormField>
