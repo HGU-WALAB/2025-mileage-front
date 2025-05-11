@@ -18,7 +18,6 @@ export { default as FormField } from './FormField/FormField';
 export { default as Header } from './Header/Header';
 export { default as HeaderMobile } from './Header/HeaderMobile';
 export { default as Heading } from './Heading/Heading';
-export { default as Input } from './Input/Input';
 export { default as AuthGuard } from './Layout/AuthGuard';
 export { default as DrawerLayout } from './Layout/DrawerLayout';
 export { default as Layout } from './Layout/Layout';
@@ -37,4 +36,6 @@ export { default as ToggleButton } from './ToggleButton/ToggleButton';
 export { default as UploadButton } from './UploadButton/UploadButton';
 
 export * from './Deferred/DeferredComponent';
+export * from './FormField/ControlledFormField';
+export * from './Input/Input';
 export * from './Spinner/Spinner';
