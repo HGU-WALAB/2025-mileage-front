@@ -9,6 +9,9 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
 
   return (
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 261a4ac (fix: 오각혁 그래프 사이즈 크게)
     <S.RadarChartWrapper>
       <ResponsiveRadar
         data={data}
@@ -40,6 +43,7 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
                 style: {
                   itemTextColor: '#000',
                 },
+<<<<<<< HEAD
 =======
     <ResponsiveRadar
       data={data}
@@ -71,6 +75,8 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
               style: {
                 itemTextColor: '#000',
 >>>>>>> 118cd6a (fix: compareOption 1/2 전공 -> 전공 구분으로 통합 및 API 변경 사항 반영, 일부 워딩 수정)
+=======
+>>>>>>> 261a4ac (fix: 오각혁 그래프 사이즈 크게)
               },
             ],
           },
