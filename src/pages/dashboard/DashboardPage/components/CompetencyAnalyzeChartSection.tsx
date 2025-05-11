@@ -27,6 +27,11 @@ export const CompetencyAnalyzeChartSection = () => {
         />
       </Flex>
 
+       <CompareOptionButtonSection
+        compareOption={compareOption}
+        setCompareOption={setCompareOption}
+      />
+
       <Flex height="70%" width="100%" justify="center" align="center">
         <ErrorBoundary FallbackComponent={ErrorBox}>
           <Suspense
