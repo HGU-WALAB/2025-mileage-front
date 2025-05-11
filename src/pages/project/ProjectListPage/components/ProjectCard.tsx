@@ -35,7 +35,7 @@ export const ProjectCard = ({
           gap=".5rem"
           style={{ maxHeight: '50px', overflow: 'hidden' }}
         >
-          {project.techStack.techStack.map((tech, index) => (
+          {project.techStack.techStack?.map((tech, index) => (
             <TechStackBadge key={index} tech={tech} />
           ))}
         </Flex.Row>
