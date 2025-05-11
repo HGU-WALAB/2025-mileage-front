@@ -19,8 +19,7 @@ export const RadarChartSection = ({
     entryYear: compareOption.includes('entryYear')
       ? userInfo?.studentId.slice(1, 3)
       : undefined,
-    major1: compareOption.includes('major1') ? userInfo?.major1 : undefined,
-    major2: compareOption.includes('major2') ? userInfo?.major2 : undefined,
+    studentType: compareOption.includes('studentType') ? userInfo?.studentType : undefined,
   });
 
   const capabilityData: RadarCapability[] = (capability ?? []).map(cap => {
@@ -38,7 +37,7 @@ export const RadarChartSection = ({
       capabilityId: cap.capabilityId,
       capabilityName: cap.capabilityName,
       '나의 마일리지': myMileagePercent,
-      '다른사람 평균': otherMileagePercent,
+      '비교 대상 평균 마일리지': otherMileagePercent,
     };
   });
 

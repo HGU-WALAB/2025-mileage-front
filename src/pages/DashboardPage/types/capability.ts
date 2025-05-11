@@ -8,8 +8,7 @@ export interface CapabilityResponse {
 export interface CompareCapabilityRequest {
   term?: string;
   entryYear?: string;
-  major1?: string;
-  major2?: string;
+  studentType?: string;
 }
 
 export interface CompareCapabilityResponse {

@@ -10,7 +10,7 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
     <ResponsiveRadar
       data={data}
       maxValue={100}
-      keys={['나의 마일리지', '다른사람 평균']}
+      keys={['나의 마일리지', '비교 대상 평균 마일리지']}
       indexBy="capabilityName"
       margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
       borderColor={{ from: 'color', modifiers: [] }}
