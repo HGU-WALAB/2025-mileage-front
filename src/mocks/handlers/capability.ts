@@ -1,5 +1,3 @@
-import { http, HttpResponse } from 'msw';
-
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
 import { mockCapability } from '@/mocks/fixtures/capability';
@@ -9,6 +7,7 @@ import {
 } from '@/mocks/fixtures/compareCapability';
 import { mockSemesterCapability } from '@/mocks/fixtures/semesterCapability';
 import { Error401, Error500, randomMswError } from '@/utils/mswError';
+import { http, HttpResponse } from 'msw';
 
 export const CapabilityHandlers = [
   http.get(BASE_URL + `${ENDPOINT.CAPABILITY}/milestone`, () => {
@@ -25,8 +24,9 @@ export const CapabilityHandlers = [
     const url = new URL(req.request.url);
 
     const term = url.searchParams.get('term');
+    const studentType = url.searchParams.get('studentType');
 
-    if (term) return HttpResponse.json(mockCompareCapability1, { status: 200 });
+    if (term || studentType) return HttpResponse.json(mockCompareCapability1, { status: 200 });
     return HttpResponse.json(mockCompareCapability2, { status: 200 });
   }),
 
