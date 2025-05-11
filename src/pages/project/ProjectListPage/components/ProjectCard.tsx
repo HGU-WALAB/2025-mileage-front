@@ -2,6 +2,7 @@ import { Flex, Heading, Text } from '@/components';
 import { getFormattedDateFullYear } from '@/utils/getDate';
 import { styled } from '@mui/material';
 
+import { TechStackBadge } from '@/pages/project/components/TechStackBadge';
 import { ProjectResponse } from '../../types/project';
 
 export const ProjectCard = ({
@@ -35,9 +36,7 @@ export const ProjectCard = ({
           style={{ maxHeight: '50px', overflow: 'hidden' }}
         >
           {project.techStack.techStack.map((tech, index) => (
-            <S.TechBadge as="span" key={index}>
-              {tech}
-            </S.TechBadge>
+            <TechStackBadge key={index} tech={tech} />
           ))}
         </Flex.Row>
       </Flex.Column>
@@ -67,13 +66,6 @@ const S = {
   `,
   DateText: styled(Text)`
     background-color: ${({ theme }) => theme.palette.grey100};
-    padding: 0.125rem 0.5rem;
-  `,
-  TechBadge: styled(Text)`
-    background-color: ${({ theme }) => theme.palette.primary.light};
-    border-radius: 24px;
-    color: ${({ theme }) => theme.palette.primary.main};
-    font-size: 0.75rem;
     padding: 0.125rem 0.5rem;
   `,
 };
