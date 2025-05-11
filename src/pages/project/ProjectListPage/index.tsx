@@ -4,9 +4,9 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { AddProjectButton } from '../components/AddProjectButton';
-import { ProjectGridSection } from '../components/ProjectGridSection';
-import { ProjectGridSkeleton } from '../components/ProjectGridSkeleton';
+import { AddProjectButton } from './components/AddProjectButton';
+import { ProjectGridSection } from './components/ProjectGridSection';
+import { ProjectGridSkeleton } from './components/ProjectGridSkeleton';
 
 const ProjectListPage = () => {
   useTrackPageView({ eventName: '[View] 프로젝트 조회 페이지' });

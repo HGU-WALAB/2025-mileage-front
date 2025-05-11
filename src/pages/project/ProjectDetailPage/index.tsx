@@ -4,10 +4,10 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { DeleteProjectButton } from '../components/DeleteProjectButton';
-import { EditProjectButton } from '../components/EditProjectButton';
-import { ProjectDetailSection } from '../components/ProjectDetailSection';
-import { ProjectDetailSkeleton } from '../components/ProjectDetailSkeleton';
+import { DeleteProjectButton } from './components/DeleteProjectButton';
+import { EditProjectButton } from './components/EditProjectButton';
+import { ProjectDetailSection } from './components/ProjectDetailSection';
+import { ProjectDetailSkeleton } from './components/ProjectDetailSkeleton';
 
 const ProjectDetailPage = () => {
   useTrackPageView({ eventName: '[View] 프로젝트 디테일 페이지' });

@@ -2,7 +2,7 @@ import { Flex, Heading, Text } from '@/components';
 import { getFormattedDateFullYear } from '@/utils/getDate';
 import { styled } from '@mui/material';
 
-import { ProjectResponse } from '../types/project';
+import { ProjectResponse } from '../../types/project';
 
 export const ProjectCard = ({
   project,
