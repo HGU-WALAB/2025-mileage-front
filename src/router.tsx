@@ -7,6 +7,10 @@ const DashboardPage = React.lazy(() => import('@/pages/DashboardPage'));
 const MileageListPage = React.lazy(() => import('@/pages/MileageListPage'));
 const AddMileagePage = React.lazy(() => import('@/pages/AddMileagePage'));
 const AwardArchivePage = React.lazy(() => import('@/pages/AwardArchivePage'));
+const ProjectArchivePage = React.lazy(
+  () => import('@/pages/ProjectArchivePage'),
+);
+const ProjectDetailPage = React.lazy(() => import('@/pages/ProjectDetailPage'));
 const ScholarshipApplyPage = React.lazy(
   () => import('@/pages/ScholarshipApplyPage'),
 );
@@ -40,6 +44,14 @@ const router = createBrowserRouter(
         {
           path: ROUTE_PATH.award,
           element: <AwardArchivePage />,
+        },
+        {
+          path: ROUTE_PATH.project,
+          element: <ProjectArchivePage />,
+        },
+        {
+          path: `${ROUTE_PATH.project}/:id`,
+          element: <ProjectDetailPage />,
         },
         {
           path: ROUTE_PATH.scholarship,

@@ -26,7 +26,7 @@ const Button = ({
   children,
   ...props
 }: Props) => {
-  const { baseColor, hoverColor } = getColor(color);
+  const { baseColor, lightColor, hoverColor } = getColor(color);
 
   return (
     <MuiButton
@@ -37,10 +37,10 @@ const Button = ({
         backgroundColor: variant === 'contained' ? baseColor : 'transparent',
         borderColor: variant === 'outlined' ? baseColor : 'transparent',
         '&:hover': {
-          backgroundColor: variant === 'contained' ? hoverColor : 'transparent',
+          backgroundColor: variant === 'contained' ? hoverColor : lightColor,
           borderColor: variant === 'outlined' ? hoverColor : 'transparent',
         },
-        borderRadius: isRound ? '2.4rem' : '.75rem',
+        borderRadius: isRound ? '2.4rem' : '.5rem',
         width: size === 'full' ? '100%' : 'auto',
         height: size === 'small' ? '30px' : size === 'medium' ? '36px' : '42px',
       }}
