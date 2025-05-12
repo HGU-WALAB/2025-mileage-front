@@ -4,8 +4,8 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 const DashboardPage = React.lazy(() => import('@dashboard/DashboardPage'));
-const MileageListPage = React.lazy(() => import('@/pages/MileageListPage'));
-const AddMileagePage = React.lazy(() => import('@/pages/AddMileagePage'));
+const MileageListPage = React.lazy(() => import('@mileage/MileageListPage'));
+const MileageAddPage = React.lazy(() => import('@mileage/MileageAddPage'));
 const AwardArchivePage = React.lazy(() => import('@award/AwardArchivePage'));
 const ProjectListPage = React.lazy(() => import('@project/ProjectListPage'));
 const ProjectDetailPage = React.lazy(
@@ -13,7 +13,7 @@ const ProjectDetailPage = React.lazy(
 );
 const ProjectAddPage = React.lazy(() => import('@project/ProjectAddPage'));
 const ScholarshipApplyPage = React.lazy(
-  () => import('@/pages/ScholarshipApplyPage'),
+  () => import('@mileage/ScholarshipApplyPage'),
 );
 const MyPage = React.lazy(() => import('@/pages/MyPage'));
 const LoginPage = React.lazy(() => import('@/pages/LoginPage'));
@@ -40,7 +40,7 @@ const router = createBrowserRouter(
         },
         {
           path: ROUTE_PATH.newMileage,
-          element: <AddMileagePage />,
+          element: <MileageAddPage />,
         },
         {
           path: ROUTE_PATH.award,
