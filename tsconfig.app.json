@@ -33,7 +33,8 @@
       "@dashboard/*": ["pages/dashboard/*"],
       "@award/*": ["pages/award/*"],
       "@auth/*": ["pages/auth/*"],
-      "@profile/*": ["pages/profile/*"]
+      "@profile/*": ["pages/profile/*"],
+      "@etc/*": ["pages/etc/*"]
     }
   },
   "include": ["src/**/*", "src/types/svg.d.ts"]

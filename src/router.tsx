@@ -17,8 +17,8 @@ const ProjectDetailPage = React.lazy(
 const ProjectAddPage = React.lazy(() => import('@project/ProjectAddPage'));
 const ProfilePage = React.lazy(() => import('@profile/ProfilePage'));
 const LoginPage = React.lazy(() => import('@auth/LoginPage'));
-const ErrorPage = React.lazy(() => import('@/pages/ErrorPage'));
-const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
+const ErrorPage = React.lazy(() => import('@etc/ErrorPage'));
+const NotFoundPage = React.lazy(() => import('@etc/NotFoundPage'));
 
 const router = createBrowserRouter(
   [
