@@ -7,7 +7,7 @@ import { getFormattedDate } from '@/utils/getDate';
 import { styled, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { useScholarshipDuration } from '@/pages/ScholarshipApplyPage/hooks/useScholarshipDuration';
+import { useScholarshipDuration } from '@mileage/hooks/useScholarshipDuration';
 
 export const ScholarshipDurationSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);

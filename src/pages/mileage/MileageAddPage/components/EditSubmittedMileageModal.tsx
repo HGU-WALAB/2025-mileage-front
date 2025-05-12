@@ -13,8 +13,8 @@ import { useOpenModal } from '@/hooks';
 import { trackSubmittedMileageModalEditButton } from '@/service/amplitude/trackEvent';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
-import { useEditMileageForm } from '../hooks/useEditMileageForm';
-import { SubmittedMileageResponse } from '../types/addMileage';
+import { useEditMileageForm } from '../../hooks/useEditMileageForm';
+import { SubmittedMileageResponse } from '../../types/mileage';
 import { GuideDescSection } from './GuideDescSection';
 
 interface Props {
