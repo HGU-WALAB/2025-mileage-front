@@ -27,7 +27,9 @@
 
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["*"]
+      "@/*": ["*"],
+      "@project/*": ["pages/project/*"],
+      "@mileage/*": ["pages/mileage/*"]
     }
   },
   "include": ["src/**/*", "src/types/svg.d.ts"]

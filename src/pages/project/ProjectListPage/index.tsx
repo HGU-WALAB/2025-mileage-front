@@ -8,7 +8,7 @@ import { AddProjectButton } from './components/AddProjectButton';
 import { ProjectGridSection } from './components/ProjectGridSection';
 import { ProjectGridSkeleton } from './components/ProjectGridSkeleton';
 
-const ProjectArchivePage = () => {
+const ProjectListPage = () => {
   useTrackPageView({ eventName: '[View] 프로젝트 조회 페이지' });
 
   return (
@@ -36,4 +36,4 @@ const ProjectArchivePage = () => {
   );
 };
 
-export default ProjectArchivePage;
+export default ProjectListPage;

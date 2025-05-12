@@ -11,7 +11,7 @@ export const useNewMileageForm = (
   subitemId: number,
   toggleModal: () => void,
 ) => {
-  const { student } = useAuthStore();
+  const { user } = useAuthStore();
   const {
     value: description1,
     handleChange: handleDesc1,
@@ -60,7 +60,7 @@ export const useNewMileageForm = (
   const submitForm = async () => {
     try {
       await postNewMileage({
-        studentId: student.studentId,
+        studentId: user.studentId,
         subitemId,
         semester,
         description1,

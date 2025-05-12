@@ -12,7 +12,7 @@ import { ScholarshipStudentTypeSection } from './components/ScholarshipStudentTy
 const DashboardPage = () => {
   useTrackPageView({ eventName: '[View] 대시보드 페이지' });
 
-  const { student } = useAuthStore();
+  const { user } = useAuthStore();
 
   return (
     <Flex.Column margin="1rem 1rem 2rem" gap="1rem">
@@ -27,7 +27,7 @@ const DashboardPage = () => {
 
       <FAQSection />
 
-      {student.studentType === '기타' && <NoAccessLogoutModal />}
+      {user.studentType === '기타' && <NoAccessLogoutModal />}
     </Flex.Column>
   );
 };

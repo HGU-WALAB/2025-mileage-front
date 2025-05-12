@@ -36,9 +36,15 @@ const S = {
     display: flex;
     flex-shrink: 0;
     gap: 1.5rem;
+    height: 50px;
     justify-content: center;
     padding: 0.5rem 1rem;
+    width: 200px;
     ${({ theme }) => theme.typography.body1}
+
+    &:hover, &:active {
+      background-color: ${({ theme }) => theme.palette.primary.dark};
+    }
   `,
   HiddenInput: styled('input')`
     bottom: 0;

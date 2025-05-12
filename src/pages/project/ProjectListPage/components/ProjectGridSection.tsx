@@ -3,7 +3,7 @@ import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { useGetProjectsQuery } from '../hooks/useGetProjectsQuery';
+import { useGetProjectsQuery } from '../../hooks/useGetProjectsQuery';
 import { EmptyProjectSection } from './EmptyProjectSection';
 import { ProjectCard } from './ProjectCard';
 

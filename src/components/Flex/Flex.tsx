@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { ElementType, HTMLAttributes } from 'react';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
@@ -18,6 +18,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   margin?: string;
   backgroundColor?: string;
   pointer?: boolean;
+  as?: ElementType;
 }
 
 const Flex = ({
@@ -34,10 +35,11 @@ const Flex = ({
   backgroundColor,
   pointer,
   style,
+  as: Tag = 'div',
   ...props
 }: Props) => {
   return (
-    <div
+    <Tag
       style={{
         display: 'flex',
         flexDirection: direction,
@@ -57,7 +59,7 @@ const Flex = ({
       {...props}
     >
       {children}
-    </div>
+    </Tag>
   );
 };
 
