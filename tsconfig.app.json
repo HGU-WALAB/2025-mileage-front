@@ -29,7 +29,8 @@
     "paths": {
       "@/*": ["*"],
       "@project/*": ["pages/project/*"],
-      "@mileage/*": ["pages/mileage/*"]
+      "@mileage/*": ["pages/mileage/*"],
+      "@dashboard/*": ["pages/dashboard/*"]
     }
   },
   "include": ["src/**/*", "src/types/svg.d.ts"]
