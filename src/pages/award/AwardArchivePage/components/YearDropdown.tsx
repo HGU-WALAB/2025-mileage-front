@@ -1,6 +1,6 @@
 import { Dropdown, Flex, Text } from '@/components';
 
-import { useFilteredByAwardYear } from '../hooks/useFilteredByAwardYear';
+import { useFilteredByAwardYear } from '../../hooks/useFilteredByAwardYear';
 
 export const YearDropdown = () => {
   const { yearList, selectedYear, setSelectedNewYear } =

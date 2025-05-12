@@ -1,8 +1,8 @@
 import { Flex, Title } from '@/components';
 
-import { EmptyTable } from '../components/EmptyTable';
-import { useGroupedAwardList } from '../hooks/useGroupedAwardList';
+import { useGroupedAwardList } from '../../hooks/useGroupedAwardList';
 import { AwardTable } from './AwardTable';
+import { EmptyTable } from './EmptyTable';
 
 export const AwardTableListSection = () => {
   const { groupedAwardList } = useGroupedAwardList();

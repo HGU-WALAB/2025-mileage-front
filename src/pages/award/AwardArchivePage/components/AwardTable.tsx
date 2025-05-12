@@ -1,7 +1,7 @@
 import { Table } from '@/components';
 import { THeader } from '@/types/table';
 
-import { AwardResponse } from '../types/award';
+import { AwardResponse } from '../../types/award';
 
 interface Props {
   awardList: AwardResponse[];

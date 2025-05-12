@@ -1,8 +1,8 @@
 import { Tabs } from '@/components';
 import { TabItem } from '@/types/tab';
 
-import { awardTypeLabels } from '../constants/awardTypeLabels';
-import { useFilteredByAwardType } from '../hooks/useFilteredByAwardType';
+import { awardTypeLabels } from '../../constants/awardTypeLabels';
+import { useFilteredByAwardType } from '../../hooks/useFilteredByAwardType';
 
 export const AwardTypeTabs = () => {
   const { selectedAwardType, setSelectedAwardType } = useFilteredByAwardType();

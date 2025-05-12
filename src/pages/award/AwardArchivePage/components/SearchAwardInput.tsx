@@ -3,7 +3,7 @@ import { Flex, Input } from '@/components';
 import { styled, useTheme } from '@mui/material';
 import { useState } from 'react';
 
-import { useFilteredByKeyword } from '../hooks/useFilteredByKeyword';
+import { useFilteredByKeyword } from '../../hooks/useFilteredByKeyword';
 
 export const SearchAwardInput = () => {
   const theme = useTheme();
