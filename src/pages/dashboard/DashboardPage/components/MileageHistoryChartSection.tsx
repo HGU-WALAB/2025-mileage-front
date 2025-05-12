@@ -5,8 +5,8 @@ import { styled } from '@mui/material';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { useGetSemesterCapabilityQuery } from '../hooks/useGetSemesterCapabilityQuery';
-import { SemesterCapabilityResponse } from '../types/capability';
+import { useGetSemesterCapabilityQuery } from '../../hooks/useGetSemesterCapabilityQuery';
+import { SemesterCapabilityResponse } from '../../types/capability';
 
 export const MileageHistoryChartSection = () => {
   return (

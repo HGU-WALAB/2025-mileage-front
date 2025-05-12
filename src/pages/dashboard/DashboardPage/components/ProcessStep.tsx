@@ -3,7 +3,7 @@ import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useMediaQuery } from '@mui/material';
 
-import { processStep } from '../constants/processStep';
+import { processStep } from '../../constants/processStep';
 
 export const ProcessStep = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);

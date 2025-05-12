@@ -3,10 +3,10 @@ import { ROUTE_PATH } from '@/constants/routePath';
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-const DashboardPage = React.lazy(() => import('@/pages/DashboardPage'));
+const DashboardPage = React.lazy(() => import('@dashboard/DashboardPage'));
 const MileageListPage = React.lazy(() => import('@/pages/MileageListPage'));
 const AddMileagePage = React.lazy(() => import('@/pages/AddMileagePage'));
-const AwardArchivePage = React.lazy(() => import('@/pages/AwardArchivePage'));
+const AwardArchivePage = React.lazy(() => import('@award/AwardArchivePage'));
 const ProjectListPage = React.lazy(() => import('@project/ProjectListPage'));
 const ProjectDetailPage = React.lazy(
   () => import('@project/ProjectDetailPage'),

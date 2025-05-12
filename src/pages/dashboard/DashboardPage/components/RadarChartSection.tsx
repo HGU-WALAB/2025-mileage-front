@@ -2,9 +2,9 @@ import { RadarChart } from '@/components';
 
 import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
 
-import { useGetCapabilityQuery } from '../hooks/useGetCapabilityQuery';
-import { useGetCompareCapabilityQuery } from '../hooks/useGetCompareCapabilityQuery';
-import { RadarCapability } from '../types/capability';
+import { useGetCapabilityQuery } from '../../hooks/useGetCapabilityQuery';
+import { useGetCompareCapabilityQuery } from '../../hooks/useGetCompareCapabilityQuery';
+import { RadarCapability } from '../../types/capability';
 
 export const RadarChartSection = ({
   compareOption,

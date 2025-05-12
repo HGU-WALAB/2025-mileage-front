@@ -3,8 +3,8 @@ import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { boxShadow } from '@/styles/common';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 
-import { FAQ } from '../constants/faq';
-import { FAQListItem } from '../types/faq';
+import { FAQ } from '../../constants/faq';
+import { FAQListItem } from '../../types/faq';
 
 export const FAQSection = () => {
   const theme = useTheme();

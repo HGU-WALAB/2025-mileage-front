@@ -1,6 +1,6 @@
 import { Flex, ToggleButton } from '@/components';
 
-import { compareOptionLabel } from '../constants/compareOptionLabel';
+import { compareOptionLabel } from '../../constants/compareOptionLabel';
 
 export const CompareOptionButtonSection = ({
   compareOption,
