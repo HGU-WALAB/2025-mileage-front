@@ -1,7 +1,7 @@
 import { Button } from '@/components';
 import { styled } from '@mui/material';
 
-import { useLogin } from '../hooks/useLogin';
+import { useLogin } from '../../hooks/useLogin';
 
 export const HisnetLoginButton = () => {
   const { handleHisnetAuth } = useLogin();
