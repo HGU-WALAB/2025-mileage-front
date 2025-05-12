@@ -6,21 +6,24 @@ import {
   Text,
   UploadButton,
 } from '@/components';
-import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
-import { Controller, FormProvider, useForm } from 'react-hook-form';
-
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { usePostProjectMutation } from '@/pages/project/hooks/usePostProjectMutation';
 import { useAuthStore } from '@/stores';
+import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
+import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+
+import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { TECH_OPTIONS } from '../../constants/techOptions';
+import { usePostProjectMutation } from '../../hooks/usePostProjectMutation';
 import { ProjectFormValues } from '../../types/project';
 
 export const ProjectAddForm = () => {
   const navigate = useNavigate();
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+
   const methods = useForm<ProjectFormValues>({
     defaultValues: {
       name: '',
@@ -37,12 +40,10 @@ export const ProjectAddForm = () => {
       thumbnail: undefined,
     },
   });
-
   const { control, register, handleSubmit } = methods;
   const { user } = useAuthStore();
   const { postProject } = usePostProjectMutation();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
-  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
@@ -51,10 +52,10 @@ export const ProjectAddForm = () => {
         formValues,
       });
 
-      toast.success('프로젝트가 등록되었습니다!');
+      toast.success(TOAST_MESSAGES.addProject.succeed);
       navigate(ROUTE_PATH.project);
     } catch (error) {
-      toast.error('등록 중 문제가 발생했어요.');
+      toast.error(TOAST_MESSAGES.addProject.failed);
       console.error(error);
     }
   };
