@@ -6,10 +6,11 @@ import {
   Text,
   UploadButton,
 } from '@/components';
-import { Autocomplete, styled, Typography } from '@mui/material';
+import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
 
 import { ROUTE_PATH } from '@/constants/routePath';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { usePostProjectMutation } from '@/pages/project/hooks/usePostProjectMutation';
 import { useAuthStore } from '@/stores';
 import { useState } from 'react';
@@ -41,6 +42,7 @@ export const ProjectAddForm = () => {
   const { user } = useAuthStore();
   const { postProject } = usePostProjectMutation();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
@@ -58,7 +60,7 @@ export const ProjectAddForm = () => {
   };
 
   return (
-    <S.Container>
+    <S.Container isMobile={isMobile}>
       <Typography variant="body1" color="text.secondary" mb={3}>
         나의 멋진 프로젝트를 공유해봐요!
       </Typography>
@@ -214,12 +216,12 @@ export const ProjectAddForm = () => {
 };
 
 const S = {
-  Container: styled(Flex.Column)`
+  Container: styled(Flex.Column)<{ isMobile: boolean }>`
     background-color: ${({ theme }) => theme.palette.white};
     border: 1px solid ${({ theme }) => theme.palette.grey200};
-    border-radius: 1rem;
-    margin: 1rem auto;
+    border-radius: ${({ isMobile }) => (isMobile ? `0` : `1rem`)};
+    margin: ${({ isMobile }) => (isMobile ? `0 auto` : `1rem auto`)};
     max-width: 1000px;
-    padding: 2rem 4rem;
+    padding: ${({ isMobile }) => (isMobile ? `1rem` : `2rem 4rem`)};
   `,
 };
