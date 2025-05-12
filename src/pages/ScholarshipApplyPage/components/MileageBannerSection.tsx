@@ -8,13 +8,13 @@ import { MileageCountBox } from './MileageCountBox';
 
 export const MileageBannerSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  const { student, currentSemester } = useAuthStore();
+  const { user, currentSemester } = useAuthStore();
 
   return (
     <S.Wrapper justify="center" align="center" padding="1rem">
       <S.Container justify="center" isMobile={isMobile}>
         <Text as="h2" style={{ fontSize: isMobile ? '16px' : '24px' }}>
-          현재 {student?.studentName} 학부생님의
+          현재 {user?.studentName} 학부생님의
         </Text>
         <Text as="h2" style={{ fontSize: isMobile ? '16px' : '24px' }}>
           <span style={{ fontWeight: 'bold' }}>{currentSemester} 학기 </span>
