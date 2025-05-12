@@ -108,6 +108,7 @@ export const ProjectAddForm = () => {
                     />
                   )}
                 />
+                -
                 <Controller
                   name="end_date"
                   control={control}
