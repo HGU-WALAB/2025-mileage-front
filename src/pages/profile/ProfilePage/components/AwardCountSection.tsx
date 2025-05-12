@@ -1,8 +1,9 @@
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useGetAwardsQuery } from '@/pages/AwardArchivePage/hooks/useGetAwardsQuery';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+
+import { useGetAwardsQuery } from '@award/hooks/useGetAwardsQuery';
 
 export const AwardCountSection = () => {
   const navigate = useNavigate();

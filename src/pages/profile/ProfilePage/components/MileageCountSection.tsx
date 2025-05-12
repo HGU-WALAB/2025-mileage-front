@@ -3,7 +3,7 @@ import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { useGetSemesterCapabilityQuery } from '@/pages/DashboardPage/hooks/useGetSemesterCapabilityQuery';
+import { useGetSemesterCapabilityQuery } from '@dashboard/hooks/useGetSemesterCapabilityQuery';
 
 export const MileageCountSection = () => {
   const navigate = useNavigate();

@@ -9,7 +9,7 @@ import { MileageCountSection } from './components/MileageCountSection';
 import { ProfileSection } from './components/ProfileSection';
 import { UserInfoSection } from './components/UserInfoSection';
 
-const MyPage = () => {
+const ProfilePage = () => {
   useTrackPageView({ eventName: '[View] 마이페이지' });
 
   return (
@@ -38,4 +38,4 @@ const MyPage = () => {
   );
 };
 
-export default MyPage;
+export default ProfilePage;

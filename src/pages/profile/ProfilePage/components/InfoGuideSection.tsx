@@ -3,7 +3,7 @@ import { Flex, Text } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
-import { guides } from '../constants/infoGuide';
+import { guides } from '../../constants/infoGuide';
 
 export const InfoGuideSection = () => {
   const theme = useTheme();

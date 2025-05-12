@@ -6,7 +6,7 @@ import { getDate } from '@/utils/getDate';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 import { useState } from 'react';
 
-import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
+import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
 
 import { InfoField } from './InfoField';
 import { InfoGuideSection } from './InfoGuideSection';

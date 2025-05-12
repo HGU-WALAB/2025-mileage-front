@@ -1,7 +1,7 @@
 import { Flex, Heading } from '@/components';
 import { styled } from '@mui/material';
 
-import { infoLabels } from '../constants/InfoLabels';
+import { infoLabels } from '../../constants/InfoLabels';
 
 interface Props {
   info: [string, string];

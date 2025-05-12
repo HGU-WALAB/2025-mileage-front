@@ -1,7 +1,8 @@
 import { Button, Flex } from '@/components';
 import { styled } from '@mui/material';
 
-import { useLogin } from '@/pages/LoginPage/hooks/useLogin';
+import { useLogin } from '@auth/hooks/useLogin';
+
 import { UpdateSucceedModal } from '../components/UpdateSucceedModal';
 
 export const RefreshUserInfoButton = () => {

@@ -31,7 +31,9 @@
       "@project/*": ["pages/project/*"],
       "@mileage/*": ["pages/mileage/*"],
       "@dashboard/*": ["pages/dashboard/*"],
-      "@award/*": ["pages/award/*"]
+      "@award/*": ["pages/award/*"],
+      "@auth/*": ["pages/auth/*"],
+      "@profile/*": ["pages/profile/*"]
     }
   },
   "include": ["src/**/*", "src/types/svg.d.ts"]

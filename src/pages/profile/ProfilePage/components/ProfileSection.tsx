@@ -3,7 +3,7 @@ import { Flex, Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
-import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
+import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
 
 export const ProfileSection = () => {
   const theme = useTheme();

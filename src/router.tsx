@@ -6,17 +6,17 @@ import { createBrowserRouter } from 'react-router-dom';
 const DashboardPage = React.lazy(() => import('@dashboard/DashboardPage'));
 const MileageListPage = React.lazy(() => import('@mileage/MileageListPage'));
 const MileageAddPage = React.lazy(() => import('@mileage/MileageAddPage'));
+const ScholarshipApplyPage = React.lazy(
+  () => import('@mileage/ScholarshipApplyPage'),
+);
 const AwardArchivePage = React.lazy(() => import('@award/AwardArchivePage'));
 const ProjectListPage = React.lazy(() => import('@project/ProjectListPage'));
 const ProjectDetailPage = React.lazy(
   () => import('@project/ProjectDetailPage'),
 );
 const ProjectAddPage = React.lazy(() => import('@project/ProjectAddPage'));
-const ScholarshipApplyPage = React.lazy(
-  () => import('@mileage/ScholarshipApplyPage'),
-);
-const MyPage = React.lazy(() => import('@/pages/MyPage'));
-const LoginPage = React.lazy(() => import('@/pages/LoginPage'));
+const ProfilePage = React.lazy(() => import('@profile/ProfilePage'));
+const LoginPage = React.lazy(() => import('@auth/LoginPage'));
 const ErrorPage = React.lazy(() => import('@/pages/ErrorPage'));
 const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
 
@@ -63,8 +63,8 @@ const router = createBrowserRouter(
           element: <ScholarshipApplyPage />,
         },
         {
-          path: ROUTE_PATH.myPage,
-          element: <MyPage />,
+          path: ROUTE_PATH.profile,
+          element: <ProfilePage />,
         },
         {
           path: '*',
