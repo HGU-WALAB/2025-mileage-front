@@ -16,6 +16,7 @@ import DeleteIcon from '@/assets/icons/delete.svg?react';
 import DeleteBlueIcon from '@/assets/icons/deleteBlue.svg?react';
 import EditIcon from '@/assets/icons/edit.svg?react';
 import EditBlueIcon from '@/assets/icons/editBlue.svg?react';
+import FilterIcon from '@/assets/icons/filter.svg?react';
 import GithubIcon from '@/assets/icons/github.svg?react';
 import HelpIcon from '@/assets/icons/help.svg?react';
 import InstagramIcon from '@/assets/icons/instagram.svg?react';
@@ -80,6 +81,7 @@ export {
   EditIcon,
   EmptyBoxImg,
   ExpandMoreIcon,
+  FilterIcon,
   GithubIcon,
   HelpIcon,
   Img1,

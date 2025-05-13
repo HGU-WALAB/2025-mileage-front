@@ -9,6 +9,7 @@ import { GithubGraphSection } from './components/GithubGraphSection';
 import { ProfileSection } from './components/ProfileSection';
 import { SectionGrid } from './components/SectionGrid';
 import { UserInfoSection } from './components/UserInfoSection';
+import { SkillSection } from './components/SkillSection';
 
 const ProfilePage = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);

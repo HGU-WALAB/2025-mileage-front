@@ -30,7 +30,11 @@ const S = {
     justify-content: center;
     padding: 2rem;
     ${boxShadow};
+<<<<<<< HEAD
     width: 100%;
+=======
+    width: 48%;
+>>>>>>> 0e32081 (feat: skill section 추가)
 
     &:hover,
     &:active {
