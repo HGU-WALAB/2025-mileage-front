@@ -12,7 +12,7 @@ interface Props {
 }
 
 export const useEditMileageForm = ({ item, toggleModal }: Props) => {
-  const { student } = useAuthStore();
+  const { user } = useAuthStore();
   const {
     value: description1,
     handleChange: handleDesc1,
@@ -62,7 +62,7 @@ export const useEditMileageForm = ({ item, toggleModal }: Props) => {
   const submitForm = () => {
     patchSubmittedMileage(
       {
-        studentId: student.studentId,
+        studentId: user.studentId,
         recordId: item.recordId,
         subitemId: item.subitemId,
         description1,

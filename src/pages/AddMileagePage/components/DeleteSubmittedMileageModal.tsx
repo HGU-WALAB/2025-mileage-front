@@ -14,7 +14,7 @@ interface Props {
 
 export const DeleteSubmittedMileageModal = ({ item }: Props) => {
   const theme = useTheme();
-  const { student } = useAuthStore();
+  const { user } = useAuthStore();
   const { open, toggleModal } = useOpenModal();
 
   const { deleteMileage } = useDeleteSubmittedMileageMutation();
@@ -22,7 +22,7 @@ export const DeleteSubmittedMileageModal = ({ item }: Props) => {
   const handleClickDelete = () => {
     deleteMileage(
       {
-        studentId: student.studentId,
+        studentId: user.studentId,
         recordId: item.recordId,
       },
       {

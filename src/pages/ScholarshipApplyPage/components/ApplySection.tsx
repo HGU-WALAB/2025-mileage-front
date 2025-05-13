@@ -13,7 +13,7 @@ import { ApplySucceedModal } from './ApplySucceedModal';
 export const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
   const { isApplied } = useGetIsAppliedScholarshipQuery();
 
-  const { student } = useAuthStore();
+  const { user } = useAuthStore();
   const { open, toggleModal } = useOpenModal(false);
   const { mutate: postScholarship } = usePostScholarshipApplyMutation();
 
@@ -26,7 +26,7 @@ export const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
     trackScholarshipApplyButton();
     postScholarship(
       {
-        studentId: student.studentId,
+        studentId: user.studentId,
         isAgree,
       },
       {
@@ -47,7 +47,7 @@ export const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
         />
       ) : (
         <S.ApplyButton
-          label={`${student.studentType} 마일리지 장학금 신청하기`}
+          label={`${user.studentType} 마일리지 장학금 신청하기`}
           onClick={handleApply}
           disabled={!isAgree}
         />

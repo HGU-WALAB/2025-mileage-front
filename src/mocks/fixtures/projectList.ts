@@ -1,4 +1,4 @@
-import { ProjectResponse } from '@/pages/ProjectDetailPage/types/project';
+import { ProjectResponse } from '@project/types/project';
 
 export const mockProjectList: ProjectResponse[] = [
   {
@@ -27,7 +27,6 @@ export const mockProjectList: ProjectResponse[] = [
     start_date: '2024-02-01',
     end_date: '2024-02-20',
     thumbnail: 'web_site_7.jpg',
-    image_url: 'web_site_7.jpg',
     techStack: {
       techStack: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Supabase'],
     },
@@ -47,7 +46,6 @@ export const mockProjectList: ProjectResponse[] = [
     start_date: '2024-11-01',
     end_date: '2024-12-31',
     thumbnail: 'image033.png',
-    image_url: 'image033.png',
     techStack: {
       techStack: ['React', 'Zustand', 'TanStack Query', 'Emotion', 'MSW'],
     },
@@ -66,7 +64,6 @@ export const mockProjectList: ProjectResponse[] = [
     start_date: '2023-07-31',
     end_date: '2023-08-18',
     thumbnail: 'fm=pjpg',
-    image_url: 'fm=pjpg',
     techStack: {
       techStack: ['React', 'TypeScript', 'React Router', 'Firebase'],
     },
@@ -86,7 +83,6 @@ export const mockProjectList: ProjectResponse[] = [
     start_date: '2023-09-01',
     end_date: '',
     thumbnail: 'img1.jpg',
-    image_url: 'img1.jpg',
     techStack: {
       techStack: [
         'React',
@@ -112,7 +108,6 @@ export const mockProjectList: ProjectResponse[] = [
     start_date: '2024-08-01',
     end_date: '2024-08-31',
     thumbnail: '8e2d9579.png',
-    image_url: '8e2d9579.png',
     techStack: {
       techStack: ['Next.js', 'TypeScript', 'Zustand', 'Emotion', 'MSW'],
     },
@@ -132,7 +127,6 @@ export const mockProjectList: ProjectResponse[] = [
     start_date: '2024-05-15',
     end_date: '2024-06-10',
     thumbnail: '9C%EC%8B%9C.jpg',
-    image_url: '9C%EC%8B%9C.jpg',
     techStack: {
       techStack: ['React', 'Next.js', 'TailwindCSS', 'Gray-Matter', 'Vercel'],
     },
@@ -152,8 +146,6 @@ export const mockProjectList: ProjectResponse[] = [
     end_date: '2023-06-10',
     thumbnail:
       'https://qshop.ai/blog/wp-content/uploads/2024/05/%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%A2%85%EB%A5%98-5%EA%B0%80%EC%A7%80%EC%99%80-%EB%AC%B4%EB%A3%8C-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-4-1024x683.jpg',
-    image_url:
-      'https://qshop.ai/blog/wp-content/uploads/2024/05/%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EC%A2%85%EB%A5%98-5%EA%B0%80%EC%A7%80%EC%99%80-%EB%AC%B4%EB%A3%8C-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-4-1024x683.jpg',
     techStack: {
       techStack: ['Vue.js', 'TypeScript', 'SCSS'],
     },
@@ -172,7 +164,6 @@ export const mockProjectList: ProjectResponse[] = [
     start_date: '2023-10-01',
     end_date: '2023-10-20',
     thumbnail: 'https://www.inodea.com/ino_rp/main/img/main_rpn02.jpg',
-    image_url: 'https://www.inodea.com/ino_rp/main/img/main_rpn02.jpg',
     techStack: {
       techStack: ['React', 'TypeScript', 'IndexedDB', 'Styled-Components'],
     },

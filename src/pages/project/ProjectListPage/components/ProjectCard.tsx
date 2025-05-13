@@ -2,7 +2,8 @@ import { Flex, Heading, Text } from '@/components';
 import { getFormattedDateFullYear } from '@/utils/getDate';
 import { styled } from '@mui/material';
 
-import { ProjectResponse } from '../types/project';
+import { TechStackBadge } from '@/pages/project/components/TechStackBadge';
+import { ProjectResponse } from '../../types/project';
 
 export const ProjectCard = ({
   project,
@@ -14,7 +15,7 @@ export const ProjectCard = ({
   return (
     <S.Card width="100%" height="320px" onClick={onClick}>
       <S.Thumbnail
-        src={`/images/${project.mainImageName}`}
+        src={`/images/${project.thumbnail}`}
         alt="프로젝트 대표 이미지"
       />
       <Flex.Column gap=".5rem" padding="1rem">
@@ -34,10 +35,8 @@ export const ProjectCard = ({
           gap=".5rem"
           style={{ maxHeight: '50px', overflow: 'hidden' }}
         >
-          {project.techStack.techStack.map((tech, index) => (
-            <S.TechBadge as="span" key={index}>
-              {tech}
-            </S.TechBadge>
+          {project.techStack.techStack?.map((tech, index) => (
+            <TechStackBadge key={index} tech={tech} />
           ))}
         </Flex.Row>
       </Flex.Column>
@@ -67,13 +66,6 @@ const S = {
   `,
   DateText: styled(Text)`
     background-color: ${({ theme }) => theme.palette.grey100};
-    padding: 0.125rem 0.5rem;
-  `,
-  TechBadge: styled(Text)`
-    background-color: ${({ theme }) => theme.palette.primary.light};
-    border-radius: 24px;
-    color: ${({ theme }) => theme.palette.primary.main};
-    font-size: 0.75rem;
     padding: 0.125rem 0.5rem;
   `,
 };
