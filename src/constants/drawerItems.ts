@@ -55,6 +55,6 @@ export const drawerItems = [
     shortText: '프로필',
     icon: UserIcon,
     selectedIcon: UserBlueIcon,
-    route: ROUTE_PATH.myPage,
+    route: ROUTE_PATH.profile,
   },
 ];

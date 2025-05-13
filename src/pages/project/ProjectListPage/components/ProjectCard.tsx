@@ -2,7 +2,7 @@ import { Flex, Heading, Text } from '@/components';
 import { getFormattedDateFullYear } from '@/utils/getDate';
 import { styled } from '@mui/material';
 
-import { TechStackBadge } from '@/pages/project/components/TechStackBadge';
+import { TechStackBadge } from '../../components/TechStackBadge';
 import { ProjectResponse } from '../../types/project';
 
 export const ProjectCard = ({

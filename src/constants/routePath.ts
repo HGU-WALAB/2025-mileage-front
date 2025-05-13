@@ -10,5 +10,5 @@ export const ROUTE_PATH = {
   newProject: '/archive/project/add',
   editProject: '/archive/project/edit',
   scholarship: '/scholarship/apply',
-  myPage: '/my',
+  profile: '/profile',
 };

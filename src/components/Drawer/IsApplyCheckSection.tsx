@@ -4,8 +4,8 @@ import Flex from '@/components/Flex/Flex';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
 
-import { useGetIsAppliedScholarshipQuery } from '@/pages/ScholarshipApplyPage/hooks/useGetIsAppliedScholarshipQuery';
-import { useScholarshipDuration } from '@/pages/ScholarshipApplyPage/hooks/useScholarshipDuration';
+import { useGetIsAppliedScholarshipQuery } from '@mileage/hooks/useGetIsAppliedScholarshipQuery';
+import { useScholarshipDuration } from '@mileage/hooks/useScholarshipDuration';
 
 const applyCheck = {
   completed: {

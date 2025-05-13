@@ -7,7 +7,7 @@ import { Error400, Error401, Error500, randomMswError } from '@/utils/mswError';
 import { LiveStorage } from '@mswjs/storage';
 import { http, HttpResponse, PathParams } from 'msw';
 
-import { SubmittedMileageResponse } from '@/pages/AddMileagePage/types/addMileage';
+import { SubmittedMileageResponse } from '@mileage/types/mileage';
 
 export const MileageHandlers = [
   http.get(BASE_URL + `${ENDPOINT.MILEAGE}/search`, req => {

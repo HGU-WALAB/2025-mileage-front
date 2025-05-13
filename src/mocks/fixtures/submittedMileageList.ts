@@ -1,4 +1,4 @@
-import { SubmittedMileageResponse } from '@/pages/AddMileagePage/types/addMileage';
+import { SubmittedMileageResponse } from '@mileage/types/mileage';
 
 export const mockSubmittedMileageList: SubmittedMileageResponse[] = [
   {

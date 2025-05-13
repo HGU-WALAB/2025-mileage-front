@@ -1,8 +1,9 @@
 import { useTheme } from '@mui/material';
 import { ResponsiveRadar } from '@nivo/radar';
-// TODO: 유연한 타입으로 변경 필요
-import { RadarCapability } from '@/pages/DashboardPage/types/capability';
 
+import { RadarCapability } from '@dashboard/types/capability';
+
+// TODO: 유연한 타입으로 변경 필요
 const RadarChart = ({ data }: { data: RadarCapability[] }) => {
   const theme = useTheme();
 
