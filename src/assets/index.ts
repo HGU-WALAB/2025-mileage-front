@@ -9,6 +9,7 @@ import CheckIcon from '@/assets/icons/check.svg?react';
 import CheckBoxIcon from '@/assets/icons/checkBox.svg?react';
 import CheckCircleIcon from '@/assets/icons/checkCircle.svg?react';
 import CheckCircleOutlineIcon from '@/assets/icons/checkCircleOutline.svg?react';
+import ComputerIcon from '@/assets/icons/computer.svg?react';
 import DashboardIcon from '@/assets/icons/dashboard.svg?react';
 import DashboardBlueIcon from '@/assets/icons/dashboardBlue.svg?react';
 import DeleteIcon from '@/assets/icons/delete.svg?react';
@@ -69,6 +70,7 @@ export {
   CheckIcon,
   CloseIcon,
   CloudUploadIcon,
+  ComputerIcon,
   DashboardBlueIcon,
   DashboardIcon,
   DeleteBlueIcon,

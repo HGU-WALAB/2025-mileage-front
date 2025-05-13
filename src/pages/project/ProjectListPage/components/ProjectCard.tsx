@@ -1,19 +1,20 @@
 import { Flex, Heading, Text } from '@/components';
+import { ROUTE_PATH } from '@/constants/routePath';
 import { getFormattedDateFullYear } from '@/utils/getDate';
 import { styled } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 import { TechStackBadge } from '../../components/TechStackBadge';
 import { ProjectResponse } from '../../types/project';
 
-export const ProjectCard = ({
-  project,
-  onClick,
-}: {
-  project: ProjectResponse;
-  onClick: () => void;
-}) => {
+export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(ROUTE_PATH.projectDetail(project.projectId));
+  };
+
   return (
-    <S.Card width="100%" height="320px" onClick={onClick}>
+    <S.Card width="100%" height="320px" onClick={handleClick}>
       <S.Thumbnail
         src={`/images/${project.thumbnail}`}
         alt="프로젝트 대표 이미지"

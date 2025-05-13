@@ -8,7 +8,7 @@ import { ProjectArchiveSection } from './components/ProjectArchiveSection';
 
 const ArchiveDashboardPage = () => {
   return (
-    <Flex.Column margin="1rem" gap="1rem">
+    <Flex.Column margin="1rem" gap="5rem">
       <QueryErrorResetBoundary>
         {({ reset }) => (
           <ErrorBoundary
