@@ -1,10 +1,11 @@
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
 import { mockProjectList } from '@/mocks/fixtures/projectList';
-import { ProjectResponse } from '@/pages/project/types/project';
 import { Error500, randomMswError } from '@/utils/mswError';
 import { LiveStorage } from '@mswjs/storage';
 import { http, HttpResponse } from 'msw';
+
+import { ProjectResponse } from '@project/types/project';
 
 const projectStorage = new LiveStorage<ProjectResponse[]>(
   'projectList',

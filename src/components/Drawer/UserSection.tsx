@@ -3,7 +3,7 @@ import { useAuthStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
 
-import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
+import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
 
 const UserSection = () => {
   const theme = useTheme();

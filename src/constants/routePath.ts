@@ -9,5 +9,5 @@ export const ROUTE_PATH = {
   newProject: '/project/add',
   editProject: '/project/edit',
   scholarship: '/scholarship/apply',
-  myPage: '/my',
+  profile: '/profile',
 };

@@ -1,4 +1,4 @@
-import { AwardResponse } from '@/pages/AwardArchivePage/types/award';
+import { AwardResponse } from '@award/types/award';
 
 export const mockAwardList: AwardResponse[] = [
   {

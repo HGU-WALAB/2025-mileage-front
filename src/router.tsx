@@ -3,22 +3,22 @@ import { ROUTE_PATH } from '@/constants/routePath';
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-const DashboardPage = React.lazy(() => import('@/pages/DashboardPage'));
-const MileageListPage = React.lazy(() => import('@/pages/MileageListPage'));
-const AddMileagePage = React.lazy(() => import('@/pages/AddMileagePage'));
-const AwardArchivePage = React.lazy(() => import('@/pages/AwardArchivePage'));
+const DashboardPage = React.lazy(() => import('@dashboard/DashboardPage'));
+const MileageListPage = React.lazy(() => import('@mileage/MileageListPage'));
+const MileageAddPage = React.lazy(() => import('@mileage/MileageAddPage'));
+const ScholarshipApplyPage = React.lazy(
+  () => import('@mileage/ScholarshipApplyPage'),
+);
+const AwardArchivePage = React.lazy(() => import('@award/AwardArchivePage'));
 const ProjectListPage = React.lazy(() => import('@project/ProjectListPage'));
 const ProjectDetailPage = React.lazy(
   () => import('@project/ProjectDetailPage'),
 );
 const ProjectAddPage = React.lazy(() => import('@project/ProjectAddPage'));
-const ScholarshipApplyPage = React.lazy(
-  () => import('@/pages/ScholarshipApplyPage'),
-);
-const MyPage = React.lazy(() => import('@/pages/MyPage'));
-const LoginPage = React.lazy(() => import('@/pages/LoginPage'));
-const ErrorPage = React.lazy(() => import('@/pages/ErrorPage'));
-const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
+const ProfilePage = React.lazy(() => import('@profile/ProfilePage'));
+const LoginPage = React.lazy(() => import('@auth/LoginPage'));
+const ErrorPage = React.lazy(() => import('@etc/ErrorPage'));
+const NotFoundPage = React.lazy(() => import('@etc/NotFoundPage'));
 
 const router = createBrowserRouter(
   [
@@ -40,7 +40,7 @@ const router = createBrowserRouter(
         },
         {
           path: ROUTE_PATH.newMileage,
-          element: <AddMileagePage />,
+          element: <MileageAddPage />,
         },
         {
           path: ROUTE_PATH.award,
@@ -63,8 +63,8 @@ const router = createBrowserRouter(
           element: <ScholarshipApplyPage />,
         },
         {
-          path: ROUTE_PATH.myPage,
-          element: <MyPage />,
+          path: ROUTE_PATH.profile,
+          element: <ProfilePage />,
         },
         {
           path: '*',
