@@ -45,7 +45,7 @@ export const drawerItems = [
   },
   {
     text: '장학금 신청',
-    shortText: '장학금 신청',
+    shortText: '장학금',
     icon: ScholarshipIcon,
     selectedIcon: ScholarshipBlueIcon,
     route: ROUTE_PATH.scholarship,

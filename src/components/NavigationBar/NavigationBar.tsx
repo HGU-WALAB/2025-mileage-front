@@ -6,7 +6,7 @@ import { styled } from '@mui/material';
 import { useMemo } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-const customOrder = ['조회', '등록', '대시보드', '장학금 신청', '프로필'];
+const customOrder = ['조회', '등록', '대시보드', '활동', '장학금', '프로필'];
 
 const NavigationBar = () => {
   const navigate = useNavigate();
