@@ -41,7 +41,7 @@ export const mockAwardList: AwardResponse[] = [
     awardId: 4,
     awardYear: '2023',
     awardDate: '2023-04-22',
-    awardType: '교외',
+    awardType: '교내',
     contestName: 'SW 마에스트로 경진대회',
     awardName: '최우수상',
     organization: '정보통신산업진흥원',
