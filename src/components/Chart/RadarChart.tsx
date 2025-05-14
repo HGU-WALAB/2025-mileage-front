@@ -8,10 +8,6 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
   const theme = useTheme();
 
   return (
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 261a4ac (fix: 오각혁 그래프 사이즈 크게)
     <S.RadarChartWrapper>
       <ResponsiveRadar
         data={data}
@@ -43,41 +39,7 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
                 style: {
                   itemTextColor: '#000',
                 },
-<<<<<<< HEAD
-=======
-    <ResponsiveRadar
-      data={data}
-      maxValue={100}
-      keys={['나의 마일리지', '비교 대상 평균 마일리지']}
-      indexBy="capabilityName"
-      margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
-      borderColor={{ from: 'color', modifiers: [] }}
-      gridLabelOffset={36}
-      dotSize={5}
-      dotBorderWidth={2}
-      colors={[theme.palette.primary.main, theme.palette.secondary.main]}
-      blendMode="multiply"
-      motionConfig="wobbly"
-      legends={[
-        {
-          anchor: 'bottom-left',
-          direction: 'column',
-          translateX: -40,
-          translateY: -60,
-          itemWidth: 80,
-          itemHeight: 20,
-          itemTextColor: '#999',
-          symbolSize: 12,
-          symbolShape: 'circle',
-          effects: [
-            {
-              on: 'hover',
-              style: {
-                itemTextColor: '#000',
->>>>>>> 118cd6a (fix: compareOption 1/2 전공 -> 전공 구분으로 통합 및 API 변경 사항 반영, 일부 워딩 수정)
-=======
->>>>>>> 261a4ac (fix: 오각혁 그래프 사이즈 크게)
-              },
+              }
             ],
           },
         ]}
