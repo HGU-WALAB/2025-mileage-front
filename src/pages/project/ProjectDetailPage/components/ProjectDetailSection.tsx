@@ -64,7 +64,8 @@ export const ProjectDetailSection = () => {
           </Flex.Column>
         </Flex.Column>
 
-        <S.MainImage src={`images/${project.thumbnail}`} alt="대표 이미지" />
+        {/* <S.MainImage src={`images/${project.thumbnail}`} alt="대표 이미지" /> */}
+        <S.MainImage src={`${project.thumbnail}`} alt="대표 이미지" />
       </Flex.Row>
 
       <Flex.Column gap="4rem" margin="2rem 0 6rem">

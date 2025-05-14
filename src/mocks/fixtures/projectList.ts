@@ -26,7 +26,8 @@ export const mockProjectList: ProjectResponse[] = [
     deployed_link: 'https://toaster-booth.vercel.app/',
     start_date: '2024-02-01',
     end_date: '2024-02-20',
-    thumbnail: 'web_site_7.jpg',
+    thumbnail:
+      'https://velog.velcdn.com/images/healim01/post/7866fa2b-8d93-47b9-b16c-6667124ea191/image.png',
     techStack: {
       techStack: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Supabase'],
     },
@@ -45,57 +46,15 @@ export const mockProjectList: ProjectResponse[] = [
     deployed_link: 'https://milestone.handong.edu/',
     start_date: '2024-11-01',
     end_date: '2024-12-31',
-    thumbnail: 'image033.png',
+    thumbnail:
+      'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FWepTo%2FbtsMQT0RaiY%2FkFYvJcBKT55agYUvkHmRk1%2Fimg.png',
     techStack: {
       techStack: ['React', 'Zustand', 'TanStack Query', 'Emotion', 'MSW'],
     },
   },
   {
-    projectId: 3,
-    name: 'Curio Quest',
-    role: '프론트엔드',
-    description:
-      '질문을 통해 진로를 탐색할 수 있는 진로 설계 서비스입니다. 퀴즈 기반 UX와 결과 분석 화면을 구현했습니다.',
-    content: '진로 탐색 퀴즈 서비스',
-    achievement: '교내 경진대회 최우수상 수상, 사용자 평균 참여율 87%',
-    github_link: 'https://github.com/yourname/curio-quest',
-    blog_link: 'https://velog.io/@yourname/curio-quest-review',
-    deployed_link: 'https://curio.quest.app/',
-    start_date: '2023-07-31',
-    end_date: '2023-08-18',
-    thumbnail: 'fm=pjpg',
-    techStack: {
-      techStack: ['React', 'TypeScript', 'React Router', 'Firebase'],
-    },
-  },
-  {
-    projectId: 4,
-    name: 'Hanspace',
-    role: '프론트엔드',
-    description:
-      '학교 공간 예약 시스템입니다. 카카오 로그인, 공간 필터링, 예약 내역 확인 등의 기능을 제공합니다.',
-    content: '학교 공간 예약 시스템',
-    achievement:
-      '2023 한동대학교 교내 공모전 최우수상 수상, 4개 부서 실사용 도입',
-    github_link: 'https://github.com/yourname/hanspace',
-    blog_link: 'https://velog.io/@yourname/hanspace-log',
-    deployed_link: 'https://hanspace.handong.edu/',
-    start_date: '2023-09-01',
-    end_date: '',
-    thumbnail: 'img1.jpg',
-    techStack: {
-      techStack: [
-        'React',
-        'TypeScript',
-        'Recoil',
-        'Styled-Components',
-        'Kakao Auth',
-      ],
-    },
-  },
-  {
     projectId: 5,
-    name: 'RentCheck 방끗',
+    name: '방끗: 자취 체크리스트 서비스',
     role: 'UX 설계 및 프론트엔드',
     description:
       '처음 자취하는 사람들을 위한 체크리스트 기반 방 점검 서비스입니다. 사용자가 직접 문항을 선택하고, 점검을 하며 방 상태를 기록할 수 있습니다.',
@@ -107,14 +66,59 @@ export const mockProjectList: ProjectResponse[] = [
     deployed_link: 'https://bangkkeut.vercel.app/',
     start_date: '2024-08-01',
     end_date: '2024-08-31',
-    thumbnail: '8e2d9579.png',
+    thumbnail: 'https://bang-ggood.com/static/images/bang-ggood-thumbnail.png',
     techStack: {
       techStack: ['Next.js', 'TypeScript', 'Zustand', 'Emotion', 'MSW'],
     },
   },
   {
+    projectId: 3,
+    name: 'Curio Quest; 질문을 통해 원하는 전문성을 갖추다',
+    role: '프론트엔드',
+    description:
+      '질문을 통해 진로를 탐색할 수 있는 진로 설계 서비스입니다. 퀴즈 기반 UX와 결과 분석 화면을 구현했습니다.',
+    content: '진로 탐색 퀴즈 서비스',
+    achievement: '교내 경진대회 최우수상 수상, 사용자 평균 참여율 87%',
+    github_link: 'https://github.com/yourname/curio-quest',
+    blog_link: 'https://velog.io/@yourname/curio-quest-review',
+    deployed_link: 'https://curio.quest.app/',
+    start_date: '2023-07-31',
+    end_date: '2023-08-18',
+    thumbnail:
+      'https://private-user-images.githubusercontent.com/74346290/309473845-568c1643-9eba-4bdf-a5aa-ba04c24b7830.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDcyMTU0NjcsIm5iZiI6MTc0NzIxNTE2NywicGF0aCI6Ii83NDM0NjI5MC8zMDk0NzM4NDUtNTY4YzE2NDMtOWViYS00YmRmLWE1YWEtYmEwNGMyNGI3ODMwLmpwZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTE0VDA5MzI0N1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTQxYzc0MWJlOGQwNTBlZWY2MzczNTc0ZWJkNjFlMWRmZDQ0ZWQ3NzM5ZmM2MzhlOGQxN2Q5YWRiYjVkNDEyNGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.Oa00zRHydywsUAxmjrCJhQvvfi-NUd5BO13NhTnz0e4',
+    techStack: {
+      techStack: ['React', 'TypeScript', 'React Router', 'Firebase'],
+    },
+  },
+  {
+    projectId: 4,
+    name: 'ITABLE',
+    role: '프론트엔드',
+    description:
+      '학교 공간 예약 시스템입니다. 카카오 로그인, 공간 필터링, 예약 내역 확인 등의 기능을 제공합니다.',
+    content: '학교 공간 예약 시스템',
+    achievement:
+      '2023 한동대학교 교내 공모전 최우수상 수상, 4개 부서 실사용 도입',
+    github_link: 'https://github.com/yourname/hanspace',
+    blog_link: 'https://velog.io/@yourname/hanspace-log',
+    deployed_link: 'https://hanspace.handong.edu/',
+    start_date: '2023-09-01',
+    end_date: '',
+    thumbnail:
+      'https://private-user-images.githubusercontent.com/74346290/256971512-9087c554-63af-4513-b00c-a820ecb81568.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDcyMTUzOTIsIm5iZiI6MTc0NzIxNTA5MiwicGF0aCI6Ii83NDM0NjI5MC8yNTY5NzE1MTItOTA4N2M1NTQtNjNhZi00NTEzLWIwMGMtYTgyMGVjYjgxNTY4LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTE0VDA5MzEzMlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWVlYTM3MmZlYWYwOWNmNTQzMTk4ODUzYWRjNGEzNGM0NGY2NzA0ZDMyOTg4NTZjMWU0NWU1YzU0MzRiNDlmZjYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.57acnQdkcKKOxMAAsun0BFttZMqHpT3rWXF5XGKmDNc',
+    techStack: {
+      techStack: [
+        'React',
+        'TypeScript',
+        'Recoil',
+        'Styled-Components',
+        'Kakao Auth',
+      ],
+    },
+  },
+  {
     projectId: 6,
-    name: 'DevLog.me',
+    name: '코드잽',
     role: '프론트엔드 단독 개발',
     description:
       '개발자의 커리어와 프로젝트를 소개할 수 있는 미니 포트폴리오 사이트 빌더입니다. Markdown 기반 글쓰기와 다크모드 테마 전환 기능을 제공합니다.',
@@ -126,7 +130,8 @@ export const mockProjectList: ProjectResponse[] = [
     deployed_link: 'https://devlog.me/',
     start_date: '2024-05-15',
     end_date: '2024-06-10',
-    thumbnail: '9C%EC%8B%9C.jpg',
+    thumbnail:
+      'https://private-user-images.githubusercontent.com/78201530/379972130-969d44d2-efe6-4fca-a6bc-3856d62ac5f0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDcyMTUzNDgsIm5iZiI6MTc0NzIxNTA0OCwicGF0aCI6Ii83ODIwMTUzMC8zNzk5NzIxMzAtOTY5ZDQ0ZDItZWZlNi00ZmNhLWE2YmMtMzg1NmQ2MmFjNWYwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MTQlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTE0VDA5MzA0OFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWZlNmNhZWM0YTgzN2VkZDk2NmE3NmJhZGIyZDEzNzIwNmMzZGRmMTdkNWU3MzMxNmEyODM2YzQ4OGU4YWYyZGUmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.LSg_ms5-MyfQys2rovgBsdsx-BtqymjPs4MXfu_OYI8',
     techStack: {
       techStack: ['React', 'Next.js', 'TailwindCSS', 'Gray-Matter', 'Vercel'],
     },

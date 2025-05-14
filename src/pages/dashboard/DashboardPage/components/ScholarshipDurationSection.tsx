@@ -3,7 +3,7 @@ import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useAuthStore } from '@/stores';
 import { boxShadow } from '@/styles/common';
-import { getFormattedDate } from '@/utils/getDate';
+import { getFormattedDateFullYear } from '@/utils/getDate';
 import { styled, useMediaQuery } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -31,7 +31,7 @@ export const ScholarshipDurationSection = () => {
         <Flex.Column>
           <Text>{`${currentSemester} 마일리지 장학금 신청`}</Text>
           <Text>
-            {`${getFormattedDate(scholarshipDuration?.regStart ?? '')} ~ ${getFormattedDate(scholarshipDuration?.regEnd ?? '')}`}
+            {`${getFormattedDateFullYear(scholarshipDuration?.regStart ?? '')} ~ ${getFormattedDateFullYear(scholarshipDuration?.regEnd ?? '')}`}
           </Text>
         </Flex.Column>
       ) : (

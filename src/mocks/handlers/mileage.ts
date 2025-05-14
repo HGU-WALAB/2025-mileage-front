@@ -30,8 +30,7 @@ export const MileageHandlers = [
         mileageList =>
           mileageList.subitemName.includes(keyword) ||
           mileageList.categoryName.includes(keyword) ||
-          mileageList.capabilityName.includes(keyword) ||
-          mileageList.description1.includes(keyword),
+          mileageList.description1?.includes(keyword),
       );
     }
 
