@@ -3,11 +3,11 @@ import { useAuthStore } from '@/stores';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
 
-import { useGetUserInfoQuery } from '@/pages/LoginPage/hooks/useGetUserInfoQuery';
+import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
 
 const UserSection = () => {
   const theme = useTheme();
-  const { student } = useAuthStore();
+  const { user } = useAuthStore();
   const { userInfo, isLoading } = useGetUserInfoQuery();
 
   return (
@@ -25,9 +25,9 @@ const UserSection = () => {
       <Flex.Column align="center" width="100%">
         <S.UserBox align="center">
           <Heading as="h3" color={theme.palette.white}>
-            {student?.studentName}
+            {user?.studentName}
           </Heading>
-          <Text color={theme.palette.white}>{student?.studentId}</Text>
+          <Text color={theme.palette.white}>{user?.studentId}</Text>
         </S.UserBox>
         <Text
           style={{

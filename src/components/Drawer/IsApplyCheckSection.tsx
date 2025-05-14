@@ -4,8 +4,8 @@ import Flex from '@/components/Flex/Flex';
 import { useAuthStore } from '@/stores';
 import { styled } from '@mui/material';
 
-import { useGetIsAppliedScholarshipQuery } from '@/pages/ScholarshipApplyPage/hooks/useGetIsAppliedScholarshipQuery';
-import { useScholarshipDuration } from '@/pages/ScholarshipApplyPage/hooks/useScholarshipDuration';
+import { useGetIsAppliedScholarshipQuery } from '@mileage/hooks/useGetIsAppliedScholarshipQuery';
+import { useScholarshipDuration } from '@mileage/hooks/useScholarshipDuration';
 
 const applyCheck = {
   completed: {
@@ -19,11 +19,11 @@ const applyCheck = {
 };
 
 const IsApplyCheckSection = () => {
-  const { student } = useAuthStore();
+  const { user } = useAuthStore();
   const { isApplied } = useGetIsAppliedScholarshipQuery();
   const { isScholarshipDuration } = useScholarshipDuration();
 
-  if (student.studentType === '기타') return;
+  if (user.studentType === '기타') return;
 
   const { title, desc } =
     applyCheck[isApplied?.isApply ? 'completed' : 'uncompleted'];

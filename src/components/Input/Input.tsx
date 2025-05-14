@@ -1,27 +1,34 @@
 import { InputVariant, Size } from '@/types/style';
 import TextField, { TextFieldProps } from '@mui/material/TextField';
+import { forwardRef } from 'react';
 
 interface Props extends Omit<TextFieldProps, 'variant'> {
   size?: Exclude<Size, 'large'>;
   variant?: InputVariant;
 }
 
-const Input = ({
-  label = '',
-  size = 'small',
-  variant = 'outlined',
-  fullWidth = false,
-  ...props
-}: Props) => {
-  return (
-    <TextField
-      label={label}
-      size={size}
-      variant={variant}
-      fullWidth={fullWidth}
-      {...props}
-    />
-  );
-};
+export const Input = forwardRef<HTMLInputElement, Props>(
+  (
+    {
+      label = '',
+      size = 'small',
+      variant = 'outlined',
+      fullWidth = false,
+      ...props
+    },
+    ref,
+  ) => {
+    return (
+      <TextField
+        label={label}
+        size={size}
+        variant={variant}
+        fullWidth={fullWidth}
+        inputRef={ref}
+        {...props}
+      />
+    );
+  },
+);
 
-export default Input;
+Input.displayName = 'Input';

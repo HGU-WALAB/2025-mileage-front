@@ -7,7 +7,7 @@ import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
 
-import { usePostLogoutMutation } from '@/pages/LoginPage/hooks/usePostLogoutMutation';
+import { usePostLogoutMutation } from '@auth/hooks/usePostLogoutMutation';
 
 const HeaderMobile = () => {
   const theme = useTheme();

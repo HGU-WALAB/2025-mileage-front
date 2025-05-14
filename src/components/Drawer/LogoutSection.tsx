@@ -6,7 +6,7 @@ import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
-import { usePostLogoutMutation } from '@/pages/LoginPage/hooks/usePostLogoutMutation';
+import { usePostLogoutMutation } from '@auth/hooks/usePostLogoutMutation';
 
 const LogoutSection = () => {
   const theme = useTheme();

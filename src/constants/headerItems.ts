@@ -6,6 +6,7 @@ export const headerItems = {
   [ROUTE_PATH.newMileage]: '마일리지 등록',
   [ROUTE_PATH.award]: '상장 조회',
   [ROUTE_PATH.project]: '프로젝트',
+  [ROUTE_PATH.newProject]: '프로젝트 추가',
   [ROUTE_PATH.scholarship]: '장학금 신청',
-  [ROUTE_PATH.myPage]: '마이페이지',
+  [ROUTE_PATH.profile]: '프로필',
 };
