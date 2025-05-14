@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { BlogIcon, GithubIcon, InstagramIcon, LinkedInIcon } from '@/assets';
+=======
+import { BlogIcon, InstagramIcon, GithubIcon, LinkedInIcon } from '@/assets';
+>>>>>>> 796bdc9 (fix: instagram link 추가 및 skill section UI 변경)
 import { Flex, Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
@@ -21,7 +25,7 @@ export const ProfileSection = () => {
       margin="auto 0"
     >
       <Flex.Row align="center" gap="5rem">
-        <S.ProfileImg src={userInfo?.imgUrl} alt="user profile image" />
+        <S.ProfileImg src={userInfo?.imgUrl ? userInfo.imgUrl : "https://i0.wp.com/passivesills.com/wp-content/uploads/2020/06/User-Icon-Grey.png?ssl=1"} alt="user profile image" />
         <Flex.Column style={{ color: theme.palette.primary.main }}>
           <Heading as="h1">
             {userInfo?.studentName} | {userInfo?.job}
@@ -29,8 +33,13 @@ export const ProfileSection = () => {
         </Flex.Column>
       </Flex.Row>
 
+<<<<<<< HEAD
       <Flex.Row gap=".5rem">
         <Flex.Column style={{ color: theme.palette.primary.main }}>
+=======
+      <Flex.Column style={{ color: theme.palette.primary.main }}>
+        <S.LinksContainer>
+>>>>>>> 796bdc9 (fix: instagram link 추가 및 skill section UI 변경)
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
               href={userInfo?.githubLink}
@@ -41,7 +50,10 @@ export const ProfileSection = () => {
               GitHub
             </S.Link>
           </S.LinkWrapper>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 796bdc9 (fix: instagram link 추가 및 skill section UI 변경)
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
               href={userInfo?.blogLink}
@@ -52,9 +64,12 @@ export const ProfileSection = () => {
               Blog
             </S.Link>
           </S.LinkWrapper>
+<<<<<<< HEAD
         </Flex.Column>
 
         <Flex.Column>
+=======
+>>>>>>> 796bdc9 (fix: instagram link 추가 및 skill section UI 변경)
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
               href={userInfo?.linkedInLink}
@@ -75,8 +90,13 @@ export const ProfileSection = () => {
               Instagram
             </S.Link>
           </S.LinkWrapper>
+<<<<<<< HEAD
         </Flex.Column>
       </Flex.Row>
+=======
+        </S.LinksContainer>
+      </Flex.Column>
+>>>>>>> 796bdc9 (fix: instagram link 추가 및 skill section UI 변경)
 
       <S.EditButton onClick={() => {}}>편집하기</S.EditButton>
     </S.Section>
@@ -95,11 +115,17 @@ const S = {
     object-fit: cover;
     width: 120px;
   `,
+  LinksContainer: styled(Flex.Column)`
+    height: 8rem;
+    gap: 0.25rem;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+  `,
   LinkWrapper: styled(Flex.Column)`
     background-color: ${({ theme }) => theme.palette.primary.light};
     border: 1px solid ${({ theme }) => theme.palette.primary.dark};
     border-radius: 0.4rem;
-    margin-bottom: 0.5rem;
   `,
   Link: styled('a')`
     color: ${({ theme }) => theme.palette.primary.dark};

@@ -22,7 +22,10 @@ export interface UserResponse {
   blogLink?: string;
   linkedInLink?: string;
   instagramLink?: string;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 796bdc9 (fix: instagram link 추가 및 skill section UI 변경)
   job?: string;
 }
 
