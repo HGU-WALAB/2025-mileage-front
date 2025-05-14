@@ -24,8 +24,9 @@ export const CapabilityHandlers = [
     const url = new URL(req.request.url);
 
     const term = url.searchParams.get('term');
+    const studentType = url.searchParams.get('studentType');
 
-    if (term) return HttpResponse.json(mockCompareCapability1, { status: 200 });
+    if (term || studentType) return HttpResponse.json(mockCompareCapability1, { status: 200 });
     return HttpResponse.json(mockCompareCapability2, { status: 200 });
   }),
 
