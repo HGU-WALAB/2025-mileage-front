@@ -15,11 +15,10 @@ export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
 
   return (
     <S.Card width="100%" height="320px" onClick={handleClick}>
-      {/* <S.Thumbnail
+      <S.Thumbnail
         src={`/images/${project.thumbnail}`}
         alt="프로젝트 대표 이미지"
-      /> */}
-      <S.Thumbnail src={`${project.thumbnail}`} alt="프로젝트 대표 이미지" />
+      />
       <Flex.Column gap=".5rem" padding="1rem">
         <Flex.Row>
           <Heading as={'h3'}>{project.name}</Heading>

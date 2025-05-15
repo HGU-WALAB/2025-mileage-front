@@ -10,7 +10,7 @@ export const TopProjectSection = () => {
     <S.Section>
       <S.LabelText>대표 프로젝트</S.LabelText>
       <S.Thumbnail
-        src={`${projects[0].thumbnail}`}
+        src={`/images/${projects[0].thumbnail}`}
         alt="프로젝트 대표 이미지"
       />
       <Heading as={'h4'}>{projects[0].name}</Heading>
