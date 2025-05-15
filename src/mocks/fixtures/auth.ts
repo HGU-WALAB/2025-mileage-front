@@ -1,4 +1,3 @@
-import profile from '@/assets/imgs/3x4.jpg';
 import { UserResponse } from '@auth/types/auth';
 
 export const mockUserData: UserResponse = {
@@ -15,7 +14,7 @@ export const mockUserData: UserResponse = {
   studentType: '전공',
 
   // profile
-  imgUrl: profile,
+  imgUrl: 'Img.png',
   githubLink: 'https://github.com/healim01',
   blogLink: 'https://healim01.tistory.com/',
   linkedInLink: 'https://www.linkedin.com/in/hyelim-choi01/',
