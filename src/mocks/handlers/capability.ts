@@ -4,6 +4,7 @@ import { mockCapability } from '@/mocks/fixtures/capability';
 import {
   mockCompareCapability1,
   mockCompareCapability2,
+  mockCompareCapability3,
 } from '@/mocks/fixtures/compareCapability';
 import { mockSemesterCapability } from '@/mocks/fixtures/semesterCapability';
 import { Error401, Error500, randomMswError } from '@/utils/mswError';
@@ -26,7 +27,10 @@ export const CapabilityHandlers = [
     const term = url.searchParams.get('term');
     const studentType = url.searchParams.get('studentType');
 
-    if (term || studentType) return HttpResponse.json(mockCompareCapability1, { status: 200 });
+    if (term && !studentType)
+      return HttpResponse.json(mockCompareCapability1, { status: 200 });
+    if (studentType)
+      return HttpResponse.json(mockCompareCapability3, { status: 200 });
     return HttpResponse.json(mockCompareCapability2, { status: 200 });
   }),
 
