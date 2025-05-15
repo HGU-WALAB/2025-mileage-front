@@ -30,7 +30,7 @@ const S = {
     justify-content: center;
     padding: 2rem;
     ${boxShadow};
-    width: 25%;
+    width: 100%;
 
     &:hover,
     &:active {
