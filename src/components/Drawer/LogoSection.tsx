@@ -11,7 +11,7 @@ const LogoSection = () => {
       <Flex.Row gap="0.5rem" margin="0 0 1rem" align="center" pointer>
         <LogoIcon />
         <Heading as="h3" color={theme.palette.white}>
-          CSEE Mileage
+          CSEE Milestone
         </Heading>
       </Flex.Row>
     </Link>

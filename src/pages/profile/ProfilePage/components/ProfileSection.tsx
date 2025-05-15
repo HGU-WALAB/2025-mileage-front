@@ -1,4 +1,4 @@
-import { BlogIcon, GithubIcon, LinkedInIcon } from '@/assets';
+import { BlogIcon, GithubIcon, InstagramIcon, LinkedInIcon } from '@/assets';
 import { Flex, Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
@@ -29,38 +29,54 @@ export const ProfileSection = () => {
         </Flex.Column>
       </Flex.Row>
 
-      <Flex.Column style={{ color: theme.palette.primary.main }}>
-        <S.LinkWrapper padding=".5rem 1rem">
-          <S.Link
-            href={userInfo?.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <GithubIcon />
-            GitHub
-          </S.Link>
-        </S.LinkWrapper>
-        <S.LinkWrapper padding=".5rem 1rem">
-          <S.Link
-            href={userInfo?.blogLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <BlogIcon />
-            Blog
-          </S.Link>
-        </S.LinkWrapper>
-        <S.LinkWrapper padding=".5rem 1rem">
-          <S.Link
-            href={userInfo?.linkedInLink}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <LinkedInIcon />
-            LinkedIn
-          </S.Link>
-        </S.LinkWrapper>
-      </Flex.Column>
+      <Flex.Row gap=".5rem">
+        <Flex.Column style={{ color: theme.palette.primary.main }}>
+          <S.LinkWrapper padding=".5rem 1rem">
+            <S.Link
+              href={userInfo?.githubLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon />
+              GitHub
+            </S.Link>
+          </S.LinkWrapper>
+
+          <S.LinkWrapper padding=".5rem 1rem">
+            <S.Link
+              href={userInfo?.blogLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <BlogIcon />
+              Blog
+            </S.Link>
+          </S.LinkWrapper>
+        </Flex.Column>
+
+        <Flex.Column>
+          <S.LinkWrapper padding=".5rem 1rem">
+            <S.Link
+              href={userInfo?.linkedInLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <LinkedInIcon />
+              LinkedIn
+            </S.Link>
+          </S.LinkWrapper>
+          <S.LinkWrapper padding=".5rem 1rem">
+            <S.Link
+              href={userInfo?.instagramLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <InstagramIcon />
+              Instagram
+            </S.Link>
+          </S.LinkWrapper>
+        </Flex.Column>
+      </Flex.Row>
 
       <S.EditButton onClick={() => {}}>편집하기</S.EditButton>
     </S.Section>

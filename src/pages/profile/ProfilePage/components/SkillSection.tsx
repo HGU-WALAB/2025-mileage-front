@@ -1,18 +1,20 @@
-import { ROUTE_PATH } from '@/constants/routePath';
+import { Flex } from '@/components';
+import { mockSkills } from '@/mocks/fixtures/skills';
+import { TechStackBadge } from '@/pages/project/components/TechStackBadge';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 
-import { useGetAwardsQuery } from '@award/hooks/useGetAwardsQuery';
-
-export const AwardCountSection = () => {
-  const navigate = useNavigate();
-  const { awards } = useGetAwardsQuery();
+export const SkillSection = () => {
+  const mockSkill = mockSkills.techStack;
 
   return (
-    <S.Section onClick={() => navigate(ROUTE_PATH.award)}>
-      <S.LabelText>수상 개수</S.LabelText>
-      <S.MileageNumber>{awards.length}</S.MileageNumber>
+    <S.Section>
+      <S.LabelText>나의 스킬</S.LabelText>
+      <Flex.Row justify="center" wrap="wrap" gap=".5rem" width="100%">
+        {mockSkill.map(skill => (
+          <TechStackBadge key={skill} tech={skill} />
+        ))}
+      </Flex.Row>
     </S.Section>
   );
 };

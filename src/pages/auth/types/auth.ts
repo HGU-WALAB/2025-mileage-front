@@ -21,6 +21,8 @@ export interface UserResponse {
   githubLink?: string;
   blogLink?: string;
   linkedInLink?: string;
+  instagramLink?: string;
+
   job?: string;
 }
 

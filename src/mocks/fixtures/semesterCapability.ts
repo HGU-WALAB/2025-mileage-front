@@ -3,26 +3,26 @@ import { SemesterCapabilityResponse } from '@dashboard/types/capability';
 export const mockSemesterCapability: SemesterCapabilityResponse[] = [
   {
     semester: '2023-01',
-    userMilestoneCount: 253,
+    userMilestoneCount: 13,
   },
   {
     semester: '2023-02',
-    userMilestoneCount: 283,
+    userMilestoneCount: 21,
   },
   {
     semester: '2024-01',
-    userMilestoneCount: 356,
+    userMilestoneCount: 36,
   },
   {
     semester: '2024-02',
-    userMilestoneCount: 543,
+    userMilestoneCount: 43,
   },
   {
     semester: '2025-01',
-    userMilestoneCount: 213,
+    userMilestoneCount: 53,
   },
   {
     semester: '2025-02',
-    userMilestoneCount: 235,
+    userMilestoneCount: 76,
   },
 ];

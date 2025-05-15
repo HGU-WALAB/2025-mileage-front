@@ -27,7 +27,7 @@ export const AwardPageForwardButton = () => {
         }}
       >
         <Text as="p" style={{ fontSize: '1.25rem' }}>
-          전체 상장 조회하기
+          전체 수상 내역 조회하기
         </Text>
       </Flex.Row>
       <Flex direction="row-reverse" style={{ zIndex: 1 }}>

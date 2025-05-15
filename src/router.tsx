@@ -4,13 +4,13 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 const DashboardPage = React.lazy(() => import('@dashboard/DashboardPage'));
+const ArchiveDashboardPage = React.lazy(
+  () => import('@dashboard/ArchiveDashboardPage'),
+);
 const MileageListPage = React.lazy(() => import('@mileage/MileageListPage'));
 const MileageAddPage = React.lazy(() => import('@mileage/MileageAddPage'));
 const ScholarshipApplyPage = React.lazy(
   () => import('@mileage/ScholarshipApplyPage'),
-);
-const ArchiveDashboardPage = React.lazy(
-  () => import('@dashboard/ArchiveDashboardPage'),
 );
 const AwardArchivePage = React.lazy(() => import('@award/AwardArchivePage'));
 const ProjectListPage = React.lazy(() => import('@project/ProjectListPage'));

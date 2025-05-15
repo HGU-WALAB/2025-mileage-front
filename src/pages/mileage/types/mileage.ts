@@ -1,9 +1,4 @@
 export interface MileageResponse {
-  // 역량
-  capabilityId: number;
-  capabilityName: string;
-  milestoneCount: number;
-
   // 카테고리
   categoryId: number;
   categoryName: string;
@@ -14,10 +9,8 @@ export interface MileageResponse {
 
   semester: string;
   done: boolean;
-  description1: string;
-
-  // 등록한 카테고리에 대한 관리자 처리
-  isEtcActioned: boolean;
+  recordId: number | null;
+  description1: string | null;
 }
 
 export interface MileageRequest {

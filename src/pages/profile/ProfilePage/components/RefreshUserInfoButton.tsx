@@ -27,8 +27,8 @@ export const RefreshUserInfoButton = () => {
 const S = {
   RefreshButton: styled(Button)`
     box-sizing: border-box;
-    height: 4rem;
-    padding: 1rem 4rem;
+    height: 3rem;
+    padding: 1rem;
     ${({ theme }) => theme.typography.h4}
   `,
 };

@@ -37,7 +37,7 @@ export const drawerItems = [
     route: ROUTE_PATH.newMileage,
   },
   {
-    text: '활동 아카이빙',
+    text: '활동 아카이브',
     shortText: '활동',
     icon: AwardListIcon,
     selectedIcon: AwardListBlueIcon,

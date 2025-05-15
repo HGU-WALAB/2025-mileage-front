@@ -41,7 +41,7 @@ export const ProjectHandlers = [
       const description = formData.get('description') as string;
       const content = formData.get('content') as string | null;
       const achievement = formData.get('achievement') as string | null;
-      const image = formData.get('thumbnail') as string;
+      const thumbnail = formData.get('thumbnail') as string;
       const deployed_link = formData.get('deployed_link') as string | null;
       const github_link = formData.get('github_link') as string | null;
       const blog_link = formData.get('blog_link') as string | null;
@@ -64,7 +64,7 @@ export const ProjectHandlers = [
         techStack,
         start_date,
         end_date,
-        thumbnail: image ?? null,
+        thumbnail: thumbnail ?? null,
       };
 
       projectStorage.update(prev => [...prev, newProject]);

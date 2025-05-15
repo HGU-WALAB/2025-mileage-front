@@ -1,15 +1,17 @@
 import { Flex, PageErrorFallback } from '@/components';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
+import { useMediaQuery } from '@mui/material';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { AwardCountSection } from './components/AwardCountSection';
 import { GithubGraphSection } from './components/GithubGraphSection';
-import { MileageCountSection } from './components/MileageCountSection';
 import { ProfileSection } from './components/ProfileSection';
+import { SectionGrid } from './components/SectionGrid';
 import { UserInfoSection } from './components/UserInfoSection';
 
 const ProfilePage = () => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   useTrackPageView({ eventName: '[View] 마이페이지' });
 
   return (
@@ -19,20 +21,27 @@ const ProfilePage = () => {
         <GithubGraphSection />
       </ErrorBoundary>
 
-      <Flex.Row align="flex-start" gap="1rem">
-        <MileageCountSection />
+      <Flex.Row
+        align="flex-start"
+        gap="1rem"
+        wrap={isMobile ? 'wrap' : 'nowrap'}
+      >
+        <Flex.Row width="60%">
+          <SectionGrid />
+        </Flex.Row>
 
-        <AwardCountSection />
-        <QueryErrorResetBoundary>
-          {({ reset }) => (
-            <ErrorBoundary
-              FallbackComponent={PageErrorFallback}
-              onReset={reset}
-            >
-              <UserInfoSection />
-            </ErrorBoundary>
-          )}
-        </QueryErrorResetBoundary>
+        <Flex.Row width="40%">
+          <QueryErrorResetBoundary>
+            {({ reset }) => (
+              <ErrorBoundary
+                FallbackComponent={PageErrorFallback}
+                onReset={reset}
+              >
+                <UserInfoSection />
+              </ErrorBoundary>
+            )}
+          </QueryErrorResetBoundary>
+        </Flex.Row>
       </Flex.Row>
     </Flex.Column>
   );

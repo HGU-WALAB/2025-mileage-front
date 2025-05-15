@@ -17,7 +17,7 @@ export const LogoSection = () => {
     >
       <LogoIcon width={60} height={60} />
       <S.LogoTitle as="h1" isMobile={isMobile}>
-        CSEE Mileage
+        CSEE Milestone
       </S.LogoTitle>
     </Flex.Row>
   );

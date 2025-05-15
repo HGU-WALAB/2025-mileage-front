@@ -13,7 +13,7 @@ export const ProjectArchiveSection = () => {
 
   return (
     <Flex.Column as="section">
-      <Title label="프로젝트 아카이빙" />
+      <Title label="프로젝트" />
 
       <S.GridLayout isMobile={isMobile}>
         {projects.slice(0, isMobile ? 2 : 3).map(project => (

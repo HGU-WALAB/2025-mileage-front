@@ -1,18 +1,19 @@
-import { ROUTE_PATH } from '@/constants/routePath';
+import { Heading } from '@/components';
+import { useGetProjectsQuery } from '@/pages/project/hooks/useGetProjectsQuery';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
 
-import { useGetAwardsQuery } from '@award/hooks/useGetAwardsQuery';
-
-export const AwardCountSection = () => {
-  const navigate = useNavigate();
-  const { awards } = useGetAwardsQuery();
+export const TopProjectSection = () => {
+  const { projects } = useGetProjectsQuery();
 
   return (
-    <S.Section onClick={() => navigate(ROUTE_PATH.award)}>
-      <S.LabelText>수상 개수</S.LabelText>
-      <S.MileageNumber>{awards.length}</S.MileageNumber>
+    <S.Section>
+      <S.LabelText>대표 프로젝트</S.LabelText>
+      <S.Thumbnail
+        src={`/images/${projects[0].thumbnail}`}
+        alt="프로젝트 대표 이미지"
+      />
+      <Heading as={'h4'}>{projects[0].name}</Heading>
     </S.Section>
   );
 };
@@ -25,7 +26,7 @@ const S = {
     cursor: pointer;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
     height: 250px;
     justify-content: center;
     padding: 2rem;
@@ -36,6 +37,13 @@ const S = {
     &:active {
       background-color: ${({ theme }) => theme.palette.variant.grey};
     }
+  `,
+  Thumbnail: styled('img')`
+    background-color: ${({ theme }) => theme.palette.primary.light};
+    border-radius: 1rem;
+    height: 100px;
+    object-fit: cover;
+    width: 200px;
   `,
   LabelText: styled('p')`
     color: ${({ theme }) => theme.palette.primary.main};
