@@ -67,7 +67,7 @@ export const ProfileSection = () => {
           </S.LinkWrapper>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.linkedInLink}
+              href={userInfo?.instagramLink}
               target="_blank"
               rel="noopener noreferrer"
             >
