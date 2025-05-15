@@ -1,7 +1,8 @@
-# 2025 Mileage front
-### 한동대학교 전산전자공학부 마일리지 장학금 신청 서비스 
+# 2025 Milestone front
 
-[로그인 페이지]   
+### 한동대학교 전산전자공학부 마일리지 장학금 신청 서비스
+
+[로그인 페이지]  
 ![2025-03-204 19 13-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/9636a54c-956d-411e-95cd-333928c9086c)
 
 [대시보드 페이지]  
@@ -16,5 +17,5 @@
 [장학금 신청 페이지]  
 ![ezgif com-video-to-gif-converter (3)](https://github.com/user-attachments/assets/6471f5aa-7324-461e-93f0-a570b64b682f)
 
-[모바일 대응]   
+[모바일 대응]  
 ![ezgif com-video-to-gif-converter (4)](https://github.com/user-attachments/assets/1258560e-ae98-4dd7-b1c1-5a31e9b05a9d)

@@ -11,7 +11,7 @@ import { SemesterCapabilityResponse } from '../../types/capability';
 export const MileageHistoryChartSection = () => {
   return (
     <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
-      <Heading as="h3">나의 누적 마일리지 활동 개수</Heading>
+      <Heading as="h3">나의 누적 마일리지(건)</Heading>
       <Flex height="90%" width="100%" justify="center" align="center">
         <ErrorBoundary FallbackComponent={ErrorBox}>
           <Suspense fallback={<LoadingIcon width={100} height={100} />}>
