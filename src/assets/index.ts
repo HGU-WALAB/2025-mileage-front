@@ -1,5 +1,6 @@
 // icons
 import AlertBoxIcon from '@/assets/icons/alertBox.svg?react';
+import ArrowRightIcon from '@/assets/icons/arrow-right.svg?react';
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
 import AwardListIcon from '@/assets/icons/awardList.svg?react';
 import AwardListBlueIcon from '@/assets/icons/awardListBlue.svg?react';
@@ -8,6 +9,7 @@ import CheckIcon from '@/assets/icons/check.svg?react';
 import CheckBoxIcon from '@/assets/icons/checkBox.svg?react';
 import CheckCircleIcon from '@/assets/icons/checkCircle.svg?react';
 import CheckCircleOutlineIcon from '@/assets/icons/checkCircleOutline.svg?react';
+import ComputerIcon from '@/assets/icons/computer.svg?react';
 import DashboardIcon from '@/assets/icons/dashboard.svg?react';
 import DashboardBlueIcon from '@/assets/icons/dashboardBlue.svg?react';
 import DeleteIcon from '@/assets/icons/delete.svg?react';
@@ -25,9 +27,11 @@ import MileageAddIcon from '@/assets/icons/mileageAdd.svg?react';
 import MileageAddBlueIcon from '@/assets/icons/mileageAddBlue.svg?react';
 import MileageListIcon from '@/assets/icons/mileageList.svg?react';
 import MileageListBlueIcon from '@/assets/icons/mileageListBlue.svg?react';
+import BuildingIcon from '@/assets/icons/other.svg?react';
 import PlusIcon from '@/assets/icons/plus.svg?react';
 import ScholarshipIcon from '@/assets/icons/scholarship.svg?react';
 import ScholarshipBlueIcon from '@/assets/icons/scholarshipBlue.svg?react';
+import SchoolIcon from '@/assets/icons/school.svg?react';
 import SearchIcon from '@/assets/icons/search.svg?react';
 import ThemeIcon from '@/assets/icons/theme.svg?react';
 import UserIcon from '@/assets/icons/user.svg?react';
@@ -47,24 +51,26 @@ import MobileBackgroundImg from '@/assets/imgs/mobile-background.png';
 
 // mui
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import CloseIcon from '@mui/icons-material/Close';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export {
   AlertBoxIcon,
+  ArrowRightIcon,
   AsteriskIcon,
   AwardListBlueIcon,
   AwardListIcon,
   BackgroundImg,
   BlogIcon,
+  BuildingIcon,
   CheckBoxIcon,
   CheckCircleIcon,
   CheckCircleOutlineIcon,
   CheckIcon,
   CloseIcon,
   CloudUploadIcon,
+  ComputerIcon,
   DashboardBlueIcon,
   DashboardIcon,
   DeleteBlueIcon,
@@ -94,9 +100,9 @@ export {
   MileageListIcon,
   MobileBackgroundImg,
   PlusIcon,
-  ChevronRightIcon as RightArrowIcon,
   ScholarshipBlueIcon,
   ScholarshipIcon,
+  SchoolIcon,
   SearchIcon,
   ThemeIcon,
   UserBlueIcon,
