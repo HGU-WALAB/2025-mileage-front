@@ -18,6 +18,7 @@ import EditIcon from '@/assets/icons/edit.svg?react';
 import EditBlueIcon from '@/assets/icons/editBlue.svg?react';
 import GithubIcon from '@/assets/icons/github.svg?react';
 import HelpIcon from '@/assets/icons/help.svg?react';
+import InstagramIcon from '@/assets/icons/instagram.svg?react';
 import JoinedCheckCircleIcon from '@/assets/icons/joinedCheckCircle.svg?react';
 import LinkedInIcon from '@/assets/icons/linkedin.svg?react';
 import LoadingIcon from '@/assets/icons/loading.svg?react';
@@ -88,6 +89,7 @@ export {
   Img5,
   Img6,
   Img7,
+  InstagramIcon,
   JoinedCheckCircleIcon,
   ChevronLeftIcon as LeftArrowIcon,
   LinkedInIcon,
