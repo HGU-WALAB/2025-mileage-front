@@ -4,6 +4,9 @@ import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
 const DashboardPage = React.lazy(() => import('@dashboard/DashboardPage'));
+const ArchiveDashboardPage = React.lazy(
+  () => import('@dashboard/ArchiveDashboardPage'),
+);
 const MileageListPage = React.lazy(() => import('@mileage/MileageListPage'));
 const MileageAddPage = React.lazy(() => import('@mileage/MileageAddPage'));
 const ScholarshipApplyPage = React.lazy(
@@ -41,6 +44,10 @@ const router = createBrowserRouter(
         {
           path: ROUTE_PATH.newMileage,
           element: <MileageAddPage />,
+        },
+        {
+          path: ROUTE_PATH.archive,
+          element: <ArchiveDashboardPage />,
         },
         {
           path: ROUTE_PATH.award,
