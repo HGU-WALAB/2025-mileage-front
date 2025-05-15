@@ -33,7 +33,7 @@ export const UserInfoSection = () => {
   if (isLoading) return <BoxSkeleton height={400} />;
   return (
     <S.Section
-      width="50%"
+      width="100%"
       justify="space-around"
       align="center"
       padding="1rem"
@@ -45,7 +45,7 @@ export const UserInfoSection = () => {
       <Flex.Row
         width="100%"
         justify="space-between"
-        padding="0 1rem"
+        padding="0 .5rem"
         style={{ color: theme.palette.primary.main }}
       >
         <Heading as="h2">나의 정보 확인하기</Heading>
@@ -73,8 +73,10 @@ export const UserInfoSection = () => {
             {getDate(userInfo?.modDate ?? '')} 마지막으로 업데이트됨
           </S.modDateBox>
         </Flex.Column>
+
         <RefreshUserInfoButton />
       </S.Grid>
+
       {showGuide && (
         <S.ShowGuide>
           <InfoGuideSection />
