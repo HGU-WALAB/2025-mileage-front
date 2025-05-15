@@ -13,7 +13,7 @@ export const AwardArchiveSection = () => {
 
   return (
     <Flex.Column as="section">
-      <Title label="상장 아카이빙" />
+      <Title label="수상 내역" />
 
       <S.GridLayout isMobile={isMobile}>
         {groupedAwardList.map(group => (

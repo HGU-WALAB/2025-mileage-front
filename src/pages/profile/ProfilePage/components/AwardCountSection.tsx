@@ -11,7 +11,7 @@ export const AwardCountSection = () => {
 
   return (
     <S.Section onClick={() => navigate(ROUTE_PATH.award)}>
-      <S.LabelText>상장 개수</S.LabelText>
+      <S.LabelText>수상 개수</S.LabelText>
       <S.MileageNumber>{awards.length}</S.MileageNumber>
     </S.Section>
   );
