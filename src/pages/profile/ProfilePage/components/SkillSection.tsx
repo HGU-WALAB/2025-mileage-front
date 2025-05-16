@@ -1,8 +1,9 @@
 import { Flex } from '@/components';
 import { mockSkills } from '@/mocks/fixtures/skills';
-import { TechStackBadge } from '@/pages/project/components/TechStackBadge';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
+
+import { TechStackBadge } from '@project/components/TechStackBadge';
 
 export const SkillSection = () => {
   const mockSkill = mockSkills.techStack;
