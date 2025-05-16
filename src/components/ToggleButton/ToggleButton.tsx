@@ -17,7 +17,7 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
 const ToggleButton = ({
   label,
   value = '',
-  variant = 'contained',
+  variant = 'outlined',
   disabled = false,
   selected = false,
   color = 'blue',
@@ -26,10 +26,11 @@ const ToggleButton = ({
   ...props
 }: Props) => {
   const theme = useTheme();
-  const { baseColor, hoverColor } = getColor(color);
+  const { lightColor, baseColor, hoverColor } = getColor(color);
 
   return (
     <MuiButton
+      type="button"
       variant={variant}
       value={value}
       disabled={disabled}
@@ -50,6 +51,16 @@ const ToggleButton = ({
         height: size === 'small' ? '30px' : size === 'medium' ? '36px' : '42px',
         boxShadow: 'none',
         transition: 'none',
+
+        '&:hover': {
+          backgroundColor:
+            variant === 'contained'
+              ? hoverColor
+              : selected
+                ? baseColor
+                : lightColor,
+          borderColor: variant === 'outlined' ? hoverColor : 'transparent',
+        },
       }}
       {...props}
     >

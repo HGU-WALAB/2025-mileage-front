@@ -22,7 +22,6 @@ export const CompareOptionButtonSection = ({
           key={key}
           selected={compareOption.includes(key)}
           label={value}
-          variant="outlined"
           value={key}
           onClick={() => handleToggleCompareOption(key)}
         />
