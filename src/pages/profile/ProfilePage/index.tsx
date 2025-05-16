@@ -30,11 +30,11 @@ const ProfilePage = () => {
         gap="1rem"
         wrap={isMobile ? 'wrap' : 'nowrap'}
       >
-        <Flex.Row width="60%">
+        <Flex.Row width={isMobile ? '100%' : '60%'}>
           <SectionGrid />
         </Flex.Row>
 
-        <Flex.Row width="40%">
+        <Flex.Row width={isMobile ? '100%' : '40%'}>
           <QueryErrorResetBoundary>
             {({ reset }) => (
               <ErrorBoundary
