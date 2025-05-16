@@ -1,4 +1,4 @@
-import { Flex } from '@/components';
+import { Flex, Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
@@ -11,13 +11,17 @@ export const IntroduceSection = () => {
   return (
     <S.Section
       width="100%"
-      align="center"
+      justify="center"
       padding="1rem"
       gap="1rem"
       backgroundColor={theme.palette.variant.default}
       wrap="wrap"
       margin="auto 0"
     >
+      <Heading as="h2" color={theme.palette.primary.main}>
+        About Me
+      </Heading>
+
       <S.Content align="center" gap="1rem">
         <S.Bar />
         {profile?.self_description}
@@ -29,18 +33,17 @@ export const IntroduceSection = () => {
 };
 
 const S = {
-  Section: styled(Flex.Row)`
+  Section: styled(Flex.Column)`
     border-radius: 1rem;
     ${boxShadow}
     position: relative;
   `,
   Content: styled(Flex.Row)`
     height: fit-content;
-    padding: 1rem 2rem;
   `,
   Bar: styled('div')`
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    border-radius: 1rem;
+    background-color: ${({ theme }) => theme.palette.primary.light};
+    border-radius: 0.25rem;
     height: 50px;
     width: 10px;
   `,

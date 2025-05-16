@@ -19,7 +19,9 @@ const ProfilePage = () => {
     <Flex.Column margin="1rem" gap="1rem">
       <ErrorBoundary FallbackComponent={PageErrorFallback}>
         <ProfileSection />
+
         <IntroduceSection />
+
         <GithubGraphSection />
       </ErrorBoundary>
 

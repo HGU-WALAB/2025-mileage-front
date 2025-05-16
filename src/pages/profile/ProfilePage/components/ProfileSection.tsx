@@ -25,15 +25,18 @@ export const ProfileSection = () => {
           src={profile?.profile_image_url ?? ''}
           alt="user profile image"
         />
-        <Flex.Column style={{ color: theme.palette.primary.main }}>
-          <Heading as="h1">
-            {profile?.studentName} | {profile?.job}
-          </Heading>
-        </Flex.Column>
+        <Flex.Row
+          style={{ color: theme.palette.primary.main }}
+          wrap="wrap"
+          gap=".25rem"
+        >
+          <Heading as="h1">{profile?.studentName} |</Heading>
+          <Heading as="h1">{profile?.job}</Heading>
+        </Flex.Row>
       </Flex.Row>
 
-      <Flex.Row gap=".5rem">
-        <Flex.Column style={{ color: theme.palette.primary.main }}>
+      <Flex.Row gap="1rem">
+        <Flex.Column gap="1rem">
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
               href={profile?.github_link ?? ''}
@@ -58,7 +61,7 @@ export const ProfileSection = () => {
           </S.LinkWrapper>
         </Flex.Column>
 
-        <Flex.Column>
+        <Flex.Column gap="1rem">
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
               href={profile?.linkedin_link ?? ''}
@@ -69,6 +72,7 @@ export const ProfileSection = () => {
               LinkedIn
             </S.Link>
           </S.LinkWrapper>
+
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
               href={profile?.instagram_link ?? ''}
@@ -103,7 +107,6 @@ const S = {
     background-color: ${({ theme }) => theme.palette.primary.light};
     border: 1px solid ${({ theme }) => theme.palette.primary.dark};
     border-radius: 0.4rem;
-    margin-bottom: 0.5rem;
   `,
   Link: styled('a')<{ noLink?: boolean }>`
     color: ${({ theme }) => theme.palette.primary.dark};
