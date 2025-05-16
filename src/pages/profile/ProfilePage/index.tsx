@@ -12,8 +12,8 @@ import { SectionGrid } from './components/SectionGrid';
 import { UserInfoSection } from './components/UserInfoSection';
 
 const ProfilePage = () => {
+  useTrackPageView({ eventName: '[View] 프로필 페이지' });
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  useTrackPageView({ eventName: '[View] 마이페이지' });
 
   return (
     <Flex.Column margin="1rem" gap="1rem">
