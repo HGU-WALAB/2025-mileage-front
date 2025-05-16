@@ -10,4 +10,5 @@ export const QUERY_KEYS = {
   semesterCapability: 'semesterCapability',
   award: 'award',
   project: 'project',
+  profile: 'profile',
 };

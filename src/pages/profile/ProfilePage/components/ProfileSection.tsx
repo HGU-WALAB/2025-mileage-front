@@ -3,11 +3,11 @@ import { Flex, Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
-import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
+import { useGetProfileQuery } from '../../hooks/useGetProfileQuery';
 
 export const ProfileSection = () => {
   const theme = useTheme();
-  const { userInfo } = useGetUserInfoQuery();
+  const { profile } = useGetProfileQuery();
 
   return (
     <S.Section
@@ -21,10 +21,13 @@ export const ProfileSection = () => {
       margin="auto 0"
     >
       <Flex.Row align="center" gap="5rem">
-        <S.ProfileImg src={userInfo?.imgUrl} alt="user profile image" />
+        <S.ProfileImg
+          src={profile?.profile_image_url ?? ''}
+          alt="user profile image"
+        />
         <Flex.Column style={{ color: theme.palette.primary.main }}>
           <Heading as="h1">
-            {userInfo?.studentName} | {userInfo?.job}
+            {profile?.studentName} | {profile?.job}
           </Heading>
         </Flex.Column>
       </Flex.Row>
@@ -33,9 +36,10 @@ export const ProfileSection = () => {
         <Flex.Column style={{ color: theme.palette.primary.main }}>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.githubLink}
+              href={profile?.github_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
+              noLink={!!profile?.github_link}
             >
               <GithubIcon />
               GitHub
@@ -44,7 +48,7 @@ export const ProfileSection = () => {
 
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.blogLink}
+              href={profile?.blog_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -57,7 +61,7 @@ export const ProfileSection = () => {
         <Flex.Column>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.linkedInLink}
+              href={profile?.linkedin_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -67,7 +71,7 @@ export const ProfileSection = () => {
           </S.LinkWrapper>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.instagramLink}
+              href={profile?.instagram_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -101,7 +105,7 @@ const S = {
     border-radius: 0.4rem;
     margin-bottom: 0.5rem;
   `,
-  Link: styled('a')`
+  Link: styled('a')<{ noLink?: boolean }>`
     color: ${({ theme }) => theme.palette.primary.dark};
     cursor: pointer;
     display: flex;
@@ -109,7 +113,11 @@ const S = {
     font-weight: 500;
     gap: 0.5rem;
     justify-content: space-between;
-    text-decoration: underline;
+    ${({ noLink }) =>
+      !noLink &&
+      `
+       text-decoration: underline;
+    `}
 
     &:hover {
       color: ${({ theme }) => theme.palette.primary.main};
