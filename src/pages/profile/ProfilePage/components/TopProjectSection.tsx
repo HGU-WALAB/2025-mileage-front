@@ -1,7 +1,8 @@
 import { Heading } from '@/components';
-import { useGetProjectsQuery } from '@/pages/project/hooks/useGetProjectsQuery';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
+
+import { useGetProjectsQuery } from '@project/hooks/useGetProjectsQuery';
 
 export const TopProjectSection = () => {
   const { projects } = useGetProjectsQuery();

@@ -18,8 +18,10 @@ axiosInstance.interceptors.response.use(
     }
 
     if (error.response && error.response.status === 401) {
-      toast.error(TOAST_MESSAGES.failedAuth);
       useAuthStore.getState().logout();
+      toast.error(TOAST_MESSAGES.failedAuth, {
+        toastId: 'auth-error-toast',
+      });
     }
 
     return Promise.reject(error);

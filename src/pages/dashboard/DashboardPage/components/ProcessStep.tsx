@@ -2,6 +2,7 @@ import { Flex, Heading } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useMediaQuery } from '@mui/material';
+import React from 'react';
 
 import { processStep } from '../../constants/processStep';
 
@@ -11,9 +12,9 @@ export const ProcessStep = () => {
   return (
     <>
       {processStep.map((step, index) => (
-        <>
+        <React.Fragment key={`step-group-${index}`}>
           <S.StepBox
-            key={`step-${step}`}
+            key={`step-${index}-${step}`}
             justify="center"
             align="center"
             isMobile={isMobile}
@@ -33,7 +34,7 @@ export const ProcessStep = () => {
             ) : (
               <S.RightArrowBox key={`right-arrow-${index}-${step}`} />
             ))}
-        </>
+        </React.Fragment>
       ))}
     </>
   );
