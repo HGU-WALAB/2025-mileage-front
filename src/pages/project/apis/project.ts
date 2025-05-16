@@ -35,3 +35,9 @@ export const postProject = async ({
 
   return response;
 };
+
+export const getTopProject = async () => {
+  const response = await http.get<ProjectResponse>(`${ENDPOINT.PROJECT}/top`);
+  return response;
+};
+

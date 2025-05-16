@@ -72,4 +72,12 @@ export const ProjectHandlers = [
       return HttpResponse.json(newProject, { status: 201 });
     },
   ),
+
+  http.get(BASE_URL + `${ENDPOINT.PROJECT}/top`, () => {
+    const { is500Error } = randomMswError();
+    if (is500Error) return Error500();
+
+    const topProject = projectStorage.getValue()[0];
+    return HttpResponse.json(topProject, { status: 200 });
+  }),
 ];
