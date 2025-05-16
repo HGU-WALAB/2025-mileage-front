@@ -6,6 +6,7 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { GithubGraphSection } from './components/GithubGraphSection';
+import { IntroduceSection } from './components/IntroduceSection';
 import { ProfileSection } from './components/ProfileSection';
 import { SectionGrid } from './components/SectionGrid';
 import { UserInfoSection } from './components/UserInfoSection';
@@ -18,6 +19,7 @@ const ProfilePage = () => {
     <Flex.Column margin="1rem" gap="1rem">
       <ErrorBoundary FallbackComponent={PageErrorFallback}>
         <ProfileSection />
+        <IntroduceSection />
         <GithubGraphSection />
       </ErrorBoundary>
 

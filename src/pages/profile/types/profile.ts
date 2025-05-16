@@ -3,7 +3,7 @@ export interface ProfileResponse {
   studentName: string;
 
   job: string | null;
-  introduce: string | null;
+  self_description: string | null;
 
   profile_image_url: string | null;
 

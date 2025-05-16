@@ -5,7 +5,8 @@ export const mockProfile: ProfileResponse = {
   studentName: '최혜림',
 
   job: '프론트엔드',
-  introduce: '가나다라마바사아자차카 타파하 아흐하핳하ㅏ아 ',
+  self_description:
+    'WHY NOT CHANGE THE WORLD! 문제 해결을 통해 세상을 바꾸는 개발자',
 
   profile_image_url: 'Img.png',
   github_link: 'https://github.com/healim01',
