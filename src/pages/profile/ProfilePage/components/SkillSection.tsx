@@ -1,18 +1,19 @@
 import { Flex } from '@/components';
-import { mockSkills } from '@/mocks/fixtures/skills';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 
 import { TechStackBadge } from '@project/components/TechStackBadge';
 
+import { useGetTechStackQuery } from '../../hooks/useGetTechStackQuery';
+
 export const SkillSection = () => {
-  const mockSkill = mockSkills.techStack;
+  const { techStack } = useGetTechStackQuery();
 
   return (
     <S.Section>
       <S.LabelText>나의 스킬</S.LabelText>
       <Flex.Row justify="center" wrap="wrap" gap=".5rem" width="100%">
-        {mockSkill.map(skill => (
+        {techStack.map(skill => (
           <TechStackBadge key={skill} tech={skill} />
         ))}
       </Flex.Row>

@@ -15,4 +15,11 @@ export const ProfileHandlers = [
     return HttpResponse.json(mockProfile, { status: 200 });
   }),
 
+  http.get(BASE_URL + `${ENDPOINT.PROFILE}/techStack`, () => {
+    const { is500Error } = randomMswError();
+
+    if (is500Error) return Error500();
+
+    return HttpResponse.json(mockSkills, { status: 200 });
+  }),
 ];

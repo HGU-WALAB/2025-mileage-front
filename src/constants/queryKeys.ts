@@ -11,4 +11,5 @@ export const QUERY_KEYS = {
   award: 'award',
   project: 'project',
   profile: 'profile',
+  techStack: 'techStack',
 };
