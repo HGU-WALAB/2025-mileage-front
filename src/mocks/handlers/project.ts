@@ -18,6 +18,13 @@ const topProjectStorage = new LiveStorage<ProjectResponse>(
 );
 
 export const ProjectHandlers = [
+  http.get(BASE_URL + `${ENDPOINT.PROJECT}/top`, () => {
+    const { is500Error } = randomMswError();
+    if (is500Error) return Error500();
+
+    return HttpResponse.json(topProjectStorage.getValue(), { status: 200 });
+  }),
+
   http.get(BASE_URL + `${ENDPOINT.PROJECT}`, () => {
     const { is500Error } = randomMswError();
     if (is500Error) return Error500();
@@ -77,13 +84,6 @@ export const ProjectHandlers = [
       return HttpResponse.json(newProject, { status: 201 });
     },
   ),
-
-  http.get(BASE_URL + `${ENDPOINT.PROJECT}/top`, () => {
-    const { is500Error } = randomMswError();
-    if (is500Error) return Error500();
-
-    return HttpResponse.json(topProjectStorage, { status: 200 });
-  }),
 
   http.patch(BASE_URL + `${ENDPOINT.PROJECT}/top`, async ({ request }) => {
     const { projectId } = (await request.json()) as { projectId: number };
