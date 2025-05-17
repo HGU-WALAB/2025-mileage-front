@@ -1,8 +1,8 @@
 import { ProfileResponse } from '@/pages/profile/types/profile';
 
 export const mockProfile: ProfileResponse = {
-  studentId: '22000770',
-  studentName: '최혜림',
+  studentId: '2200000',
+  studentName: '김한동',
 
   job: '프론트엔드',
   self_description:
