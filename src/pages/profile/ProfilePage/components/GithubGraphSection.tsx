@@ -1,15 +1,15 @@
-import { Flex } from '@/components';
+import { Flex, Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
-import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
+import { useGetProfileQuery } from '../../hooks/useGetProfileQuery';
 
 export const GithubGraphSection = () => {
   const theme = useTheme();
-  const { userInfo } = useGetUserInfoQuery();
+  const { profile } = useGetProfileQuery();
 
-  const githubID = userInfo?.githubLink
-    ? userInfo.githubLink.split('/').filter(Boolean).pop()
+  const githubID = profile?.github_link
+    ? profile.github_link.split('/').filter(Boolean).pop()
     : undefined;
   const graphColor = theme.palette.primary.main.split('#').pop();
 
@@ -22,8 +22,12 @@ export const GithubGraphSection = () => {
       gap="1rem"
       backgroundColor={theme.palette.variant.default}
       wrap="wrap"
-      margin="auto 0"
     >
+      <Flex.Row width="100%" justify="flex-start">
+        <Heading as="h2" color={theme.palette.primary.main}>
+          Github Contributions
+        </Heading>
+      </Flex.Row>
       <S.Graph src={`https://ghchart.rshah.org/${graphColor}/${githubID}`} />
     </S.Section>
   );

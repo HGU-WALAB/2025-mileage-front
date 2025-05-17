@@ -14,4 +14,6 @@ export const ENDPOINT = {
   AWARD: `/api/mileage/award`,
   // project
   PROJECT: `/api/mileage/project`,
+  // profile
+  PROFILE: `/api/mileage/profile`,
 };

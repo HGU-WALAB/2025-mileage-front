@@ -27,7 +27,7 @@ const Modal = ({
 }: Props) => {
   return (
     <>
-      <div onClick={toggleModal}>{trigger}</div>
+      {trigger && <div onClick={toggleModal}>{trigger}</div>}
       {open &&
         createPortal(
           <Dialog
@@ -37,7 +37,7 @@ const Modal = ({
             maxWidth={size === 'large' ? 'md' : size === 'medium' ? 'sm' : 'xs'}
             PaperProps={{ sx: { borderRadius: '.75rem' } }}
           >
-            <DialogContent {...props}>
+            <DialogContent {...props} onClick={e => e.stopPropagation()}>
               {children}
 
               {hasCloseButton && (

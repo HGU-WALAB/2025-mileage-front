@@ -35,3 +35,13 @@ export const postProject = async ({
 
   return response;
 };
+
+export const getTopProject = async () => {
+  const response = await http.get<ProjectResponse>(`${ENDPOINT.PROJECT}/top`);
+  return response;
+};
+
+export const patchTopProject = async ({ projectId }: { projectId: number }) => {
+  const response = await http.patch(`${ENDPOINT.PROJECT}/top`, { projectId });
+  return response;
+};

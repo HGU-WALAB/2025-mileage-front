@@ -1,20 +1,35 @@
-import { Heading } from '@/components';
+import { Flex, Heading } from '@/components';
+import { useOpenModal } from '@/hooks';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 
-import { useGetProjectsQuery } from '@project/hooks/useGetProjectsQuery';
+import { useGetTopProjectQuery } from '@project/hooks/useGetTopProjectQuery';
+import { TopProjectEditModal } from './TopProjectEditModal';
 
 export const TopProjectSection = () => {
-  const { projects } = useGetProjectsQuery();
+  const { topProject } = useGetTopProjectQuery();
+  const { open, toggleModal } = useOpenModal(false);
 
   return (
-    <S.Section>
+    <S.Section onClick={toggleModal}>
       <S.LabelText>대표 프로젝트</S.LabelText>
-      <S.Thumbnail
-        src={`/images/${projects[0].thumbnail}`}
-        alt="프로젝트 대표 이미지"
+      {topProject ? (
+        <>
+          <S.Thumbnail
+            src={`/images/${topProject.thumbnail}`}
+            alt="프로젝트 대표 이미지"
+          />
+          <Heading as="h4">{topProject.name}</Heading>
+        </>
+      ) : (
+        <Flex.Column>대표 프로젝트를 선택해주세요!</Flex.Column>
+      )}
+
+      <TopProjectEditModal
+        open={open}
+        toggleModal={toggleModal}
+        selectedProject={topProject}
       />
-      <Heading as={'h4'}>{projects[0].name}</Heading>
     </S.Section>
   );
 };
