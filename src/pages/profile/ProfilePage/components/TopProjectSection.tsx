@@ -13,7 +13,6 @@ export const TopProjectSection = () => {
   return (
     <S.Section onClick={toggleModal}>
       <S.LabelText>대표 프로젝트</S.LabelText>
-      {/* 없을때 처리 */}
       {topProject ? (
         <>
           <S.Thumbnail

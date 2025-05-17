@@ -1,9 +1,10 @@
 import { Button, Flex, Heading, Modal, ToggleButton } from '@/components';
+import { ROUTE_PATH } from '@/constants/routePath';
 import { useGetProjectsQuery } from '@/pages/project/hooks/useGetProjectsQuery';
 import { usePatchTopProjectQuery } from '@/pages/project/hooks/usePatchTopProjectQuery';
 import { ProjectResponse } from '@/pages/project/types/project';
-import { styled } from '@mui/material';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   open: boolean;
@@ -16,14 +17,15 @@ export const TopProjectEditModal = ({
   toggleModal,
   selectedProject,
 }: Props) => {
+  const navigate = useNavigate();
   const [selectedProjectId, setSelectedProjectId] = useState<
     number | undefined
   >(selectedProject?.projectId);
+
   const { projects } = useGetProjectsQuery();
   const { patchTopProject } = usePatchTopProjectQuery();
 
-  const handleSetTopProject = async (e: React.MouseEvent) => {
-    e.stopPropagation();
+  const handleSetTopProject = async () => {
     if (!selectedProjectId) return;
 
     await patchTopProject({ projectId: selectedProjectId });
@@ -39,52 +41,37 @@ export const TopProjectEditModal = ({
           gap: '2rem',
         }}
       >
-        <Heading>프로필에 표시할 대표 프로젝트를 선택해주세요 !</Heading>
+        <Heading as="h2">
+          프로필에 표시할 대표 프로젝트를 선택해주세요 !
+        </Heading>
         <Flex.Row justify="center" wrap="wrap" gap="1rem">
-          {projects.map(project => (
-            <ToggleButton
-              key={project.name}
-              label={project.name}
-              selected={project.projectId === selectedProjectId}
-              onClick={e => {
-                e.stopPropagation();
-                setSelectedProjectId(project.projectId);
-              }}
-            />
-          ))}
+          {projects.length ? (
+            projects.map(project => (
+              <ToggleButton
+                key={project.name}
+                label={project.name}
+                selected={project.projectId === selectedProjectId}
+                onClick={() => setSelectedProjectId(project.projectId)}
+              />
+            ))
+          ) : (
+            <Flex.Column gap="1rem">
+              아직 등록된 프로젝트가 없어요! 🥲
+              <Button
+                label="프로젝트 추가하러 가기"
+                onClick={() => navigate(ROUTE_PATH.project)}
+              />
+            </Flex.Column>
+          )}
         </Flex.Row>
       </Modal.Body>
 
       <Modal.Footer>
         <Flex.Row width="100%" justify="center" gap="2rem">
-          <S.CloseButton
-            label="닫기"
-            onClick={toggleModal}
-            size="large"
-            color="grey"
-          />
-          <S.SubmitButton
-            label="저장하기"
-            size="large"
-            onClick={handleSetTopProject}
-          />
+          <Button label="닫기" onClick={toggleModal} size="full" color="grey" />
+          <Button label="저장하기" size="full" onClick={handleSetTopProject} />
         </Flex.Row>
       </Modal.Footer>
     </Modal>
   );
-};
-
-const S = {
-  SubmitButton: styled(Button)`
-    width: 200px;
-  `,
-  CloseButton: styled(Button)`
-    background-color: ${({ theme }) => theme.palette.grey300};
-    width: 200px;
-
-    &:hover,
-    &:active {
-      background-color: ${({ theme }) => theme.palette.grey400};
-    }
-  `,
 };

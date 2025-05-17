@@ -12,6 +12,11 @@ const projectStorage = new LiveStorage<ProjectResponse[]>(
   mockProjectList,
 );
 
+const topProjectStorage = new LiveStorage<ProjectResponse>(
+  'topProject',
+  mockProjectList[0],
+);
+
 export const ProjectHandlers = [
   http.get(BASE_URL + `${ENDPOINT.PROJECT}`, () => {
     const { is500Error } = randomMswError();
@@ -77,7 +82,33 @@ export const ProjectHandlers = [
     const { is500Error } = randomMswError();
     if (is500Error) return Error500();
 
-    const topProject = projectStorage.getValue()[0];
-    return HttpResponse.json(topProject, { status: 200 });
+    return HttpResponse.json(topProjectStorage, { status: 200 });
+  }),
+
+  http.patch(BASE_URL + `${ENDPOINT.PROJECT}/top`, async ({ request }) => {
+    const { projectId } = (await request.json()) as { projectId: number };
+    const { is500Error } = randomMswError();
+
+    if (is500Error) return Error500();
+
+    const project = projectStorage
+      .getValue()
+      .find(p => p.projectId === projectId);
+
+    if (!project) {
+      return HttpResponse.json(
+        { message: '해당 프로젝트를 찾을 수 없습니다.' },
+        { status: 404 },
+      );
+    }
+
+    topProjectStorage.update(() => project);
+
+    return HttpResponse.json(
+      {
+        message: '대표 프로젝트가 수정되었습니다.',
+      },
+      { status: 200 },
+    );
   }),
 ];
