@@ -9,6 +9,7 @@ import { GithubGraphSection } from './components/GithubGraphSection';
 import { IntroduceSection } from './components/IntroduceSection';
 import { ProfileSection } from './components/ProfileSection';
 import { SectionGrid } from './components/SectionGrid';
+import { ShareProfileButton } from './components/ShareProfileButton';
 import { UserInfoSection } from './components/UserInfoSection';
 
 const ProfilePage = () => {
@@ -17,6 +18,9 @@ const ProfilePage = () => {
 
   return (
     <Flex.Column margin="1rem" gap="1rem">
+      <Flex.Row justify="flex-end">
+        <ShareProfileButton />
+      </Flex.Row>
       <ErrorBoundary FallbackComponent={PageErrorFallback}>
         <ProfileSection />
 
