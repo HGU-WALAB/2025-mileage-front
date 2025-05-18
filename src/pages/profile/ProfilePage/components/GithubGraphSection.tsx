@@ -2,14 +2,14 @@ import { Flex } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
-import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
+import { useGetProfileQuery } from '@profile/hooks/useGetProfileQuery';
 
 export const GithubGraphSection = () => {
   const theme = useTheme();
-  const { userInfo } = useGetUserInfoQuery();
+  const { profile } = useGetProfileQuery();
 
-  const githubID = userInfo?.githubLink
-    ? userInfo.githubLink.split('/').filter(Boolean).pop()
+  const githubID = profile?.github_link
+    ? profile.github_link.split('/').filter(Boolean).pop()
     : undefined;
   const graphColor = theme.palette.primary.main.split('#').pop();
 
