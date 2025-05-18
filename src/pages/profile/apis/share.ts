@@ -1,6 +1,7 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
 
+import { ProjectResponse } from '@/pages/project/types/project';
 import { ProfileResponse, TechStack } from '../types/profile';
 
 export const getShareProfile = async (id: string) => {
@@ -21,5 +22,17 @@ export const getShareTopProject = async (id: string) => {
   );
   return response;
 };
+
+export const getShareAwardCount = async (id: string) => {
+  const response = await http.get<{ awardCount: number }>(
+    `${ENDPOINT.SHARE}/${id}/award`,
+  );
+  return response;
+};
+
+export const getShareMileageCount = async (id: string) => {
+  const response = await http.get<{ mileageCount: number }>(
+    `${ENDPOINT.SHARE}/${id}/mileage`,
+  );
   return response;
 };

@@ -21,6 +21,13 @@ export const ShareHandlers = [
     return HttpResponse.json(mockProjectList[1], { status: 200 });
   }),
 
+  http.get(BASE_URL + `${ENDPOINT.SHARE}/:id/award`, () => {
+    const { is500Error } = randomMswError();
+    if (is500Error) return Error500();
+
+    return HttpResponse.json({ awardCount: 10 }, { status: 200 });
+  }),
+
   http.get(BASE_URL + `${ENDPOINT.SHARE}/:id/mileage`, () => {
     const { is500Error } = randomMswError();
     if (is500Error) return Error500();
@@ -35,5 +42,4 @@ export const ShareHandlers = [
 
     return HttpResponse.json(mockProfile, { status: 200 });
   }),
-
 ];

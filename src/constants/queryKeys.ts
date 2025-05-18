@@ -16,4 +16,5 @@ export const QUERY_KEYS = {
   techStack: 'techStack',
   techStackShare: 'techStackShare',
   mileageCountShare: 'mileageCountShare',
+  awardCountShare: 'awardCountShare',
 };
