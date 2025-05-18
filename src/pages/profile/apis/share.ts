@@ -3,7 +3,9 @@ import { http } from '@/apis/http';
 
 import { ProfileResponse, TechStack } from '../types/profile';
 
-export const getShareProfile = async () => {
-  const response = await http.get<ProfileResponse>(`${ENDPOINT.SHARE}/myinfo`);
+export const getShareProfile = async (id: string) => {
+  const response = await http.get<ProfileResponse>(`${ENDPOINT.SHARE}/${id}`);
+  return response;
+};
   return response;
 };
