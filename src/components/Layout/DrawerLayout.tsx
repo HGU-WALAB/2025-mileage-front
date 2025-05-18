@@ -35,7 +35,7 @@ const MobileDrawerLayout = () => {
   return (
     <Flex.Column>
       <HeaderMobile />
-      <Main open={false}>
+      <Main open={false} isMobile={true}>
         <ErrorResetBoundary />
       </Main>
       <NavigationBar />

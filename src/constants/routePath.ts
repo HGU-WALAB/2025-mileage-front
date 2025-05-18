@@ -11,4 +11,5 @@ export const ROUTE_PATH = {
   editProject: '/archive/project/edit',
   scholarship: '/scholarship/apply',
   profile: '/profile',
+  profileShare: (id: number) => `profile/${id}`,
 };
