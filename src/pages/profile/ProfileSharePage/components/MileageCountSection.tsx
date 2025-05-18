@@ -1,21 +1,17 @@
 import { Flex } from '@/components';
-import { ROUTE_PATH } from '@/constants/routePath';
 import { styled } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-
-import { useGetAwardsQuery } from '@award/hooks/useGetAwardsQuery';
 
 import { GridSectionCard } from '../../components/GridSectionCard';
+import { useGetShareMileageCountQuery } from '../../hooks/useGetShareMileageCountQuery';
 
-export const AwardCountSection = () => {
-  const navigate = useNavigate();
-  const { awards } = useGetAwardsQuery();
+export const MileageCountSection = () => {
+  const { mileageCount } = useGetShareMileageCountQuery();
 
   return (
-    <GridSectionCard onClick={() => navigate(ROUTE_PATH.award)}>
+    <GridSectionCard>
       <Flex.Column height="100%" justify="center" align="center">
-        <S.LabelText>수상 개수</S.LabelText>
-        <S.AwardNumber>{awards.length}</S.AwardNumber>
+        <S.LabelText>누적 마일리지 건수</S.LabelText>
+        <S.MileageNumber>{mileageCount}</S.MileageNumber>
       </Flex.Column>
     </GridSectionCard>
   );
@@ -28,7 +24,7 @@ const S = {
     font-weight: 600;
     margin: 0;
   `,
-  AwardNumber: styled('p')`
+  MileageNumber: styled('p')`
     color: ${({ theme }) => theme.palette.primary.dark};
     font-size: 4rem;
     font-weight: 700;

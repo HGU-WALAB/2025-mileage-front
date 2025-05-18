@@ -16,4 +16,6 @@ export const ENDPOINT = {
   PROJECT: `/api/mileage/project`,
   // profile
   PROFILE: `/api/mileage/profile`,
+  // share
+  SHARE: `/api/mileage/share`,
 };

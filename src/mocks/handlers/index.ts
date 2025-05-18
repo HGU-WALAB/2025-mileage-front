@@ -6,6 +6,7 @@ import { MileageHandlers } from '@/mocks/handlers/mileage';
 import { ProfileHandlers } from '@/mocks/handlers/profile';
 import { ProjectHandlers } from '@/mocks/handlers/project';
 import { ScholarshipHandlers } from '@/mocks/handlers/scholarship';
+import { ShareHandlers } from '@/mocks/handlers/share';
 
 export const handlers = [
   ...MileageHandlers,
@@ -15,5 +16,6 @@ export const handlers = [
   ...AwardHandlers,
   ...ProjectHandlers,
   ...ProfileHandlers,
+  ...ShareHandlers,
   ...CommonHandlers,
 ];

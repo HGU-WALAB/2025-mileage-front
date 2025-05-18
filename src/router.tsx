@@ -19,6 +19,7 @@ const ProjectDetailPage = React.lazy(
 );
 const ProjectAddPage = React.lazy(() => import('@project/ProjectAddPage'));
 const ProfilePage = React.lazy(() => import('@profile/ProfilePage'));
+const ProfileSharePage = React.lazy(() => import('@profile/ProfileSharePage'));
 const LoginPage = React.lazy(() => import('@auth/LoginPage'));
 const ErrorPage = React.lazy(() => import('@etc/ErrorPage'));
 const NotFoundPage = React.lazy(() => import('@etc/NotFoundPage'));
@@ -85,6 +86,10 @@ const router = createBrowserRouter(
         {
           path: ROUTE_PATH.login,
           element: <LoginPage />,
+        },
+        {
+          path: `${ROUTE_PATH.profile}/:id`,
+          element: <ProfileSharePage />,
         },
       ],
     },

@@ -36,6 +36,7 @@ export { default as ToggleButton } from './ToggleButton/ToggleButton';
 export { default as UploadButton } from './UploadButton/UploadButton';
 
 export * from './Deferred/DeferredComponent';
+export * from './Footer/Footer';
 export * from './FormField/ControlledFormField';
 export * from './Input/Input';
 export * from './Spinner/Spinner';

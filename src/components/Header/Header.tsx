@@ -4,9 +4,9 @@ import { headerHeight } from '@/constants/layoutSize';
 import { useTheme } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ headerTitle }: { headerTitle?: string }) => {
   const location = useLocation();
-  const title = headerItems[location.pathname];
+  const title = headerTitle ?? headerItems[location.pathname];
 
   const theme = useTheme();
   // const toggleTheme = useThemeStore(state => state.toggleTheme);

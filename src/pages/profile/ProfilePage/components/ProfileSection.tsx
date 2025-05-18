@@ -1,8 +1,8 @@
-import { BlogIcon, GithubIcon, InstagramIcon, LinkedInIcon } from '@/assets';
-import { Flex, Heading } from '@/components';
+import { Flex } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
+import { ProfileContent } from '../../components/ProfileContent';
 import { useGetProfileQuery } from '../../hooks/useGetProfileQuery';
 
 export const ProfileSection = () => {
@@ -20,71 +20,7 @@ export const ProfileSection = () => {
       wrap="wrap"
       margin="auto 0"
     >
-      <Flex.Row align="center" gap="5rem">
-        <S.ProfileImg
-          src={profile?.profile_image_url ?? ''}
-          alt="user profile image"
-        />
-        <Flex.Row
-          style={{ color: theme.palette.primary.main }}
-          wrap="wrap"
-          gap=".25rem"
-        >
-          <Heading as="h1">{profile?.studentName} |</Heading>
-          <Heading as="h1">{profile?.job}</Heading>
-        </Flex.Row>
-      </Flex.Row>
-
-      <Flex.Row gap="1rem">
-        <Flex.Column gap="1rem">
-          <S.LinkWrapper padding=".5rem 1rem">
-            <S.Link
-              href={profile?.github_link ?? ''}
-              target="_blank"
-              rel="noopener noreferrer"
-              noLink={!!profile?.github_link}
-            >
-              <GithubIcon />
-              GitHub
-            </S.Link>
-          </S.LinkWrapper>
-
-          <S.LinkWrapper padding=".5rem 1rem">
-            <S.Link
-              href={profile?.blog_link ?? ''}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <BlogIcon />
-              Blog
-            </S.Link>
-          </S.LinkWrapper>
-        </Flex.Column>
-
-        <Flex.Column gap="1rem">
-          <S.LinkWrapper padding=".5rem 1rem">
-            <S.Link
-              href={profile?.linkedin_link ?? ''}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <LinkedInIcon />
-              LinkedIn
-            </S.Link>
-          </S.LinkWrapper>
-
-          <S.LinkWrapper padding=".5rem 1rem">
-            <S.Link
-              href={profile?.instagram_link ?? ''}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <InstagramIcon />
-              Instagram
-            </S.Link>
-          </S.LinkWrapper>
-        </Flex.Column>
-      </Flex.Row>
+      <ProfileContent profile={profile} />
 
       <S.EditButton onClick={() => {}}>편집하기</S.EditButton>
     </S.Section>

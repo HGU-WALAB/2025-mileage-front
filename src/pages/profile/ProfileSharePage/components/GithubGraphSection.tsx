@@ -1,10 +1,10 @@
 import { GithubGraph } from '../../components/GithubGraph';
-import { useGetProfileQuery } from '../../hooks/useGetProfileQuery';
+import { useGetShareProfileQuery } from '../../hooks/useGetShareProfileQuery';
 
 export const GithubGraphSection = () => {
-  const { profile } = useGetProfileQuery();
+  const { profile } = useGetShareProfileQuery();
 
-  const githubID = profile.github_link
+  const githubID = profile?.github_link
     ? profile.github_link.split('/').filter(Boolean).pop()
     : undefined;
 
