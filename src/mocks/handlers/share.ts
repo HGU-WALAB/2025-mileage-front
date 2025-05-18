@@ -20,6 +20,14 @@ export const ShareHandlers = [
 
     return HttpResponse.json(mockProjectList[1], { status: 200 });
   }),
+
+  http.get(BASE_URL + `${ENDPOINT.SHARE}/:id/mileage`, () => {
+    const { is500Error } = randomMswError();
+    if (is500Error) return Error500();
+
+    return HttpResponse.json({ mileageCount: 45 }, { status: 200 });
+  }),
+
   http.get(BASE_URL + `${ENDPOINT.SHARE}/:id`, () => {
     const { is401Error, is500Error } = randomMswError();
     if (is401Error) return Error401();

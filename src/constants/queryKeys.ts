@@ -15,4 +15,5 @@ export const QUERY_KEYS = {
   profileShare: 'profileShare',
   techStack: 'techStack',
   techStackShare: 'techStackShare',
+  mileageCountShare: 'mileageCountShare',
 };

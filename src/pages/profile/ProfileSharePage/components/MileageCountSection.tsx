@@ -1,23 +1,17 @@
 import { Flex } from '@/components';
-import { ROUTE_PATH } from '@/constants/routePath';
 import { styled } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-
-import { useGetSemesterCapabilityQuery } from '@dashboard/hooks/useGetSemesterCapabilityQuery';
 
 import { GridSectionCard } from '../../components/GridSectionCard';
+import { useGetShareMileageCountQuery } from '../../hooks/useGetShareMileageCountQuery';
 
 export const MileageCountSection = () => {
-  const navigate = useNavigate();
-  const { data: semesterCapability } = useGetSemesterCapabilityQuery();
+  const { mileageCount } = useGetShareMileageCountQuery();
 
   return (
-    <GridSectionCard onClick={() => navigate(ROUTE_PATH.mileageList)}>
+    <GridSectionCard>
       <Flex.Column height="100%" justify="center" align="center">
         <S.LabelText>누적 마일리지 건수</S.LabelText>
-        <S.MileageNumber>
-          {semesterCapability?.pop()?.userMilestoneCount ?? 0}
-        </S.MileageNumber>
+        <S.MileageNumber>{mileageCount}</S.MileageNumber>
       </Flex.Column>
     </GridSectionCard>
   );
