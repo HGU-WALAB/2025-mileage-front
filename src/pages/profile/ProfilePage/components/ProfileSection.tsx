@@ -4,10 +4,17 @@ import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
 import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
+import { useOpenModal } from '@/hooks';
+import { EditProfileModal } from './EditProfileModal';
+import { useGetProfileQuery } from '@profile/hooks/useGetProfileQuery';
 
 export const ProfileSection = () => {
   const theme = useTheme();
   const { userInfo } = useGetUserInfoQuery();
+  const { profile } = useGetProfileQuery();
+  const { open, toggleModal } = useOpenModal(false);
+
+  if(!profile) return null;
 
   return (
     <S.Section
@@ -21,10 +28,13 @@ export const ProfileSection = () => {
       margin="auto 0"
     >
       <Flex.Row align="center" gap="5rem">
-        <S.ProfileImg src={userInfo?.imgUrl} alt="user profile image" />
+        <S.ProfileImg src={profile?.profile_image_url ? profile.profile_image_url : "https://i0.wp.com/passivesills.com/wp-content/uploads/2020/06/User-Icon-Grey.png?ssl=1"} alt="user profile image" />
         <Flex.Column style={{ color: theme.palette.primary.main }}>
           <Heading as="h1">
-            {userInfo?.studentName} | {userInfo?.job}
+            {userInfo?.studentName} | {profile?.job}
+          </Heading>
+          <Heading as="h3">
+            {profile?.self_description}
           </Heading>
         </Flex.Column>
       </Flex.Row>
@@ -33,7 +43,7 @@ export const ProfileSection = () => {
         <Flex.Column style={{ color: theme.palette.primary.main }}>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.githubLink}
+              href={profile?.github_link}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -44,7 +54,7 @@ export const ProfileSection = () => {
 
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.blogLink}
+              href={profile?.blog_link}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -57,7 +67,7 @@ export const ProfileSection = () => {
         <Flex.Column>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.linkedInLink}
+              href={profile?.linkedin_link}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -67,7 +77,7 @@ export const ProfileSection = () => {
           </S.LinkWrapper>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={userInfo?.instagramLink}
+              href={profile?.instagram_link}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -78,7 +88,8 @@ export const ProfileSection = () => {
         </Flex.Column>
       </Flex.Row>
 
-      <S.EditButton onClick={() => {}}>편집하기</S.EditButton>
+      <S.EditButton onClick={toggleModal}>편집하기</S.EditButton>
+      <EditProfileModal open={open} onClose={toggleModal} profile={profile} />
     </S.Section>
   );
 };
