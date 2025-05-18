@@ -18,6 +18,8 @@ const ProfileSharePage = () => {
           <ErrorBoundary FallbackComponent={PageErrorFallback}>
 
             <Flex.Row wrap={isMobile ? 'wrap' : 'nowrap'} gap="1rem">
+              <IntroduceSection />
+
               <GithubGraphSection />
             </Flex.Row>
           </ErrorBoundary>
