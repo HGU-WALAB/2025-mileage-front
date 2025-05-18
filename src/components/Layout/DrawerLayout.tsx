@@ -2,6 +2,7 @@ import {
   Drawer,
   ErrorResetBoundary,
   Flex,
+  Footer,
   Header,
   HeaderMobile,
   Main,
@@ -23,6 +24,7 @@ const DrawerLayout = () => {
         <Main open={isDrawerOpen}>
           <Header />
           <ErrorResetBoundary />
+          <Footer />
         </Main>
       </Flex.Row>
     </Flex.Column>

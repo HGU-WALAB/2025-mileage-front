@@ -1,4 +1,4 @@
-import { Flex, Header, Main, PageErrorFallback } from '@/components';
+import { Flex, Footer, Header, Main, PageErrorFallback } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
@@ -14,7 +14,7 @@ const ProfileSharePage = () => {
   return (
     <Flex.Row justify="center">
       <Main open={false}>
-        <Header />
+        <Header headerTitle={'프로필'} />
 
         <Flex.Column padding="1rem" gap="1rem">
           <ErrorBoundary FallbackComponent={PageErrorFallback}>
@@ -37,6 +37,8 @@ const ProfileSharePage = () => {
             <SectionGrid />
           </Flex.Row>
         </Flex.Column>
+
+        <Footer />
       </Main>
     </Flex.Row>
   );
