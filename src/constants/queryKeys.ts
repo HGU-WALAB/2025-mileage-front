@@ -14,4 +14,5 @@ export const QUERY_KEYS = {
   profile: 'profile',
   profileShare: 'profileShare',
   techStack: 'techStack',
+  techStackShare: 'techStackShare',
 };
