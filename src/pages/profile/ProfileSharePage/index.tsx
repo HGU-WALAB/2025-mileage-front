@@ -14,6 +14,14 @@ const ProfileSharePage = () => {
       <Main open={false}>
         <Header />
 
+        <Flex.Column padding="1rem" gap="1rem">
+          <ErrorBoundary FallbackComponent={PageErrorFallback}>
+
+            <Flex.Row wrap={isMobile ? 'wrap' : 'nowrap'} gap="1rem">
+              <GithubGraphSection />
+            </Flex.Row>
+          </ErrorBoundary>
+        </Flex.Column>
       </Main>
     </Flex.Row>
   );

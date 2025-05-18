@@ -12,5 +12,6 @@ export const QUERY_KEYS = {
   project: 'project',
   topProject: 'topProject',
   profile: 'profile',
+  profileShare: 'profileShare',
   techStack: 'techStack',
 };
