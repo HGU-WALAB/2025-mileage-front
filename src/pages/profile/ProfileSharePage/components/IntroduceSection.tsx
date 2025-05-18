@@ -1,6 +1,6 @@
-import { IntroduceContent } from '@/pages/profile/components/IntroduceContent';
-import { SectionBox } from '@/pages/profile/components/SectionBox';
-import { useGetShareProfileQuery } from '@/pages/profile/hooks/useGetShareProfileQuery';
+import { IntroduceContent } from '../../components/IntroduceContent';
+import { SectionBox } from '../../components/SectionBox';
+import { useGetShareProfileQuery } from '../../hooks/useGetShareProfileQuery';
 
 export const IntroduceSection = () => {
   const { profile } = useGetShareProfileQuery();

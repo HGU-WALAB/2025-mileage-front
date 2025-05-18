@@ -1,5 +1,5 @@
-import { useGetShareProfileQuery } from '@/pages/profile/hooks/useGetShareProfileQuery';
 import { GithubGraph } from '../../components/GithubGraph';
+import { useGetShareProfileQuery } from '../../hooks/useGetShareProfileQuery';
 
 export const GithubGraphSection = () => {
   const { profile } = useGetShareProfileQuery();

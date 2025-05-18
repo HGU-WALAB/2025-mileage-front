@@ -1,6 +1,5 @@
 import { Flex, Header, Main, PageErrorFallback } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { ProfileSection } from '@/pages/profile/ProfilePage/components/ProfileSection';
 import { useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -8,6 +7,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { GithubGraphSection } from './components/GithubGraphSection';
 import { IntroduceSection } from './components/IntroduceSection';
 import { ProfileSection } from './components/ProfileSection';
+import { SectionGrid } from './components/SectionGrid';
 
 const ProfileSharePage = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
@@ -23,11 +23,19 @@ const ProfileSharePage = () => {
             </Suspense>
 
             <Flex.Row wrap={isMobile ? 'wrap' : 'nowrap'} gap="1rem">
-              <IntroduceSection />
+              <Suspense>
+                <IntroduceSection />
+              </Suspense>
 
-              <GithubGraphSection />
+              <Suspense>
+                <GithubGraphSection />
+              </Suspense>
             </Flex.Row>
           </ErrorBoundary>
+
+          <Flex.Row>
+            <SectionGrid />
+          </Flex.Row>
         </Flex.Column>
       </Main>
     </Flex.Row>
