@@ -33,9 +33,7 @@ const ProfileSharePage = () => {
             </Flex.Row>
           </ErrorBoundary>
 
-          <Flex.Row>
-            <SectionGrid />
-          </Flex.Row>
+          <SectionGrid />
         </Flex.Column>
 
         <Footer />
