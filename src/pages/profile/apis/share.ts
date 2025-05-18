@@ -14,5 +14,12 @@ export const getShareTechStack = async (id: string) => {
   );
   return response;
 };
+
+export const getShareTopProject = async (id: string) => {
+  const response = await http.get<ProjectResponse>(
+    `${ENDPOINT.SHARE}/${id}/projectTop`,
+  );
+  return response;
+};
   return response;
 };
