@@ -4,7 +4,7 @@ import { styled, useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
 import { AwardCountSection } from './AwardCountSection';
 import { MileageCountSection } from './MileageCountSection';
-import { SkillSection } from './SkillSection';
+import { TechStackSection } from './TechStackSection';
 import { TopProjectSection } from './TopProjectSection';
 
 export const SectionGrid = () => {
@@ -13,7 +13,7 @@ export const SectionGrid = () => {
   return (
     <S.Grid isMobile={isMobile}>
       <Suspense>
-        <SkillSection />
+        <TechStackSection />
       </Suspense>
 
       <Suspense>
