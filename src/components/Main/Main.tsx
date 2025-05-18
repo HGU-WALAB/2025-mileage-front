@@ -5,7 +5,9 @@ import {
 } from '@/constants/layoutSize';
 import { styled } from '@mui/material/styles';
 
-const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
+const Main = styled('main', {
+  shouldForwardProp: prop => prop !== 'open' && prop !== 'isMobile',
+})<{
   open?: boolean;
   isMobile?: boolean;
 }>(({ theme, isMobile }) => ({
