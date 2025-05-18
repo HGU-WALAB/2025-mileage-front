@@ -9,9 +9,12 @@ import { TopProjectSection } from './TopProjectSection';
 
 export const SectionGrid = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+
   return (
     <S.Grid isMobile={isMobile}>
-      <SkillSection />
+      <Suspense>
+        <SkillSection />
+      </Suspense>
 
       <Suspense>
         <TopProjectSection />

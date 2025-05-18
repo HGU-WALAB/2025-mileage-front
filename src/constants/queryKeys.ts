@@ -10,4 +10,7 @@ export const QUERY_KEYS = {
   semesterCapability: 'semesterCapability',
   award: 'award',
   project: 'project',
+  topProject: 'topProject',
+  profile: 'profile',
+  techStack: 'techStack',
 };
