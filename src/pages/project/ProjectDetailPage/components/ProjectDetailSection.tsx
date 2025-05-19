@@ -17,7 +17,13 @@ export const ProjectDetailSection = () => {
 
   return (
     <Flex.Column gap="2rem" padding={isMobile ? '' : '0 2rem'}>
-      <Flex.Row gap=".5rem" wrap={isMobile ? 'wrap' : 'nowrap'}>
+      <Flex
+        direction={isMobile ? 'column-reverse' : 'row'}
+        width="100%"
+        gap=".5rem"
+        justify="space-between"
+        wrap={isMobile ? 'wrap' : 'nowrap'}
+      >
         <Flex.Column gap="1rem" height="400px" justify="space-around">
           <Flex.Column gap=".25rem">
             <Heading as="h1">{project.name}</Heading>
@@ -65,7 +71,7 @@ export const ProjectDetailSection = () => {
         </Flex.Column>
 
         <S.MainImage src={`images/${project.thumbnail}`} alt="대표 이미지" />
-      </Flex.Row>
+      </Flex>
 
       <Flex.Column gap="4rem" margin="2rem 0 6rem">
         <Flex.Column gap=".5rem">
@@ -93,9 +99,9 @@ const S = {
   MainImage: styled('img')`
     background-color: ${({ theme }) => theme.palette.primary.light};
     border-radius: 0.75rem;
-    max-height: 400px;
+    max-height: 300px;
     object-fit: cover;
-    width: 100%;
+    width: 500px;
   `,
   LinkList: styled(Flex.Row)`
     a {

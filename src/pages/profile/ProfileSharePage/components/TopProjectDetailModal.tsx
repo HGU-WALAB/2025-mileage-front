@@ -113,9 +113,9 @@ const S = {
   MainImage: styled('img')`
     background-color: ${({ theme }) => theme.palette.primary.light};
     border-radius: 0.75rem;
-    max-height: 400px;
+    max-height: 300px;
     object-fit: cover;
-    width: 100%;
+    width: 500px;
   `,
   LinkList: styled(Flex.Row)`
     a {

@@ -22,20 +22,26 @@ export interface ProjectResponse {
 
 export interface ProjectFormValues {
   name: string;
-  role: string;
-  description: string;
-  content: string;
-  start_date: string;
-  end_date: string;
-  deployed_link: string;
-  github_link: string;
-  blog_link: string;
-  achievement: string;
-  techStack: string[];
-  thumbnail: FileList;
+  role: string | null;
+  description: string | null;
+  content: string | null;
+  start_date: string | null;
+  end_date: string | null;
+  deployed_link: string | null;
+  github_link: string | null;
+  blog_link: string | null;
+  achievement: string | null;
+  techStack: string[] | null;
+  thumbnail: FileList | null;
 }
 
 export interface PostProjectRequest {
   studentId: string;
+  formValues: ProjectFormValues;
+}
+
+export interface PatchProjectRequest {
+  studentId: string;
+  projectId: string;
   formValues: ProjectFormValues;
 }

@@ -12,7 +12,7 @@ const ProjectListPage = () => {
   useTrackPageView({ eventName: '[View] 프로젝트 조회 페이지' });
 
   return (
-    <Flex.Column margin="1rem" height="100%">
+    <Flex.Column margin="1rem" style={{ minHeight: '100%' }}>
       <Flex.Row justify="flex-end" align="center">
         <AddProjectButton />
       </Flex.Row>

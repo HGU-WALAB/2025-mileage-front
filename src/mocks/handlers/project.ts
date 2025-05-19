@@ -73,7 +73,7 @@ export const ProjectHandlers = [
         deployed_link,
         github_link,
         blog_link,
-        techStack,
+        techStack: { techStack },
         start_date,
         end_date,
         thumbnail: thumbnail ?? null,
@@ -82,6 +82,64 @@ export const ProjectHandlers = [
       projectStorage.update(prev => [...prev, newProject]);
 
       return HttpResponse.json(newProject, { status: 201 });
+    },
+  ),
+
+  http.patch(
+    BASE_URL + `${ENDPOINT.PROJECT}/:studentId/:projectId`,
+    async ({ request, params }) => {
+      const formData = await request.formData();
+
+      const name = formData.get('name') as string;
+      const role = formData.get('role') as string | null;
+      const description = formData.get('description') as string;
+      const content = formData.get('content') as string | null;
+      const achievement = formData.get('achievement') as string | null;
+      const thumbnail = formData.get('thumbnail') as string;
+      const deployed_link = formData.get('deployed_link') as string | null;
+      const github_link = formData.get('github_link') as string | null;
+      const blog_link = formData.get('blog_link') as string | null;
+      const start_date = formData.get('start_date') as string;
+      const end_date = formData.get('end_date') as string | null;
+      const techStack = JSON.parse(
+        formData.get('techStack') as string,
+      ).techStack;
+
+      const { projectId } = params;
+
+      const prev = projectStorage.getValue();
+      const existing = prev.find(p => String(p.projectId) === projectId);
+
+      if (!existing) {
+        return new Response(
+          JSON.stringify({ message: '프로젝트를 찾을 수 없습니다.' }),
+          { status: 404 },
+        );
+      }
+
+      const updatedProject: ProjectResponse = {
+        ...existing,
+        name,
+        role,
+        description,
+        content,
+        achievement,
+        deployed_link,
+        github_link,
+        blog_link,
+        techStack: { techStack: techStack },
+        start_date,
+        end_date,
+        thumbnail: thumbnail ?? null,
+      };
+
+      projectStorage.update(projects =>
+        projects.map(p =>
+          String(p.projectId) === projectId ? updatedProject : p,
+        ),
+      );
+
+      return HttpResponse.json(updatedProject, { status: 200 });
     },
   ),
 
