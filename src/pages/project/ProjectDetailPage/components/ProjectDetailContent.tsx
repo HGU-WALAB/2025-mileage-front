@@ -85,7 +85,13 @@ export const ProjectDetailContent = ({
           </Flex.Column>
         </Flex.Column>
 
-        <S.MainImage src={`images/${project.thumbnail}`} alt="대표 이미지" />
+        {project.thumbnail ? (
+          <S.MainImage src={`images/${project.thumbnail}`} alt="대표 이미지" />
+        ) : (
+          <S.ImagePlaceholder width="100%" justify="center" align="center">
+            이미지가 등록하지 않았어요 📷
+          </S.ImagePlaceholder>
+        )}
       </Flex>
 
       <Flex.Column gap="4rem" margin="2rem 0 6rem">
@@ -133,5 +139,14 @@ const S = {
     line-height: 1.8;
     margin-bottom: 1.25rem;
     white-space: pre-wrap;
+  `,
+  ImagePlaceholder: styled(Flex.Row)`
+    background-color: ${({ theme }) => theme.palette.grey[200]};
+    border-radius: 0.75rem;
+    color: ${({ theme }) => theme.palette.text.disabled};
+    font-size: 1rem;
+    max-height: 300px;
+    max-width: 500px;
+    text-align: center;
   `,
 };

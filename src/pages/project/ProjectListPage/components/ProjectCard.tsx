@@ -15,10 +15,19 @@ export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
 
   return (
     <S.Card width="100%" height="330px" onClick={handleClick}>
-      <S.Thumbnail
-        src={`/images/${project.thumbnail}`}
-        alt="프로젝트 대표 이미지"
-      />
+      {project.thumbnail ? (
+        <S.Thumbnail src={`images/${project.thumbnail}`} alt="대표 이미지" />
+      ) : (
+        <S.ImagePlaceholder
+          width="100%"
+          height="180px"
+          justify="center"
+          align="center"
+        >
+          이미지가 등록하지 않았어요 📷
+        </S.ImagePlaceholder>
+      )}
+
       <Flex.Column gap=".5rem" height="150px" padding="1rem">
         <Flex.Row>
           <Heading as={'h3'}>{project.name}</Heading>
@@ -68,5 +77,11 @@ const S = {
   DateText: styled(Text)`
     background-color: ${({ theme }) => theme.palette.grey100};
     padding: 0.125rem 0.5rem;
+  `,
+  ImagePlaceholder: styled(Flex.Row)`
+    background-color: ${({ theme }) => theme.palette.grey[200]};
+    color: ${({ theme }) => theme.palette.text.disabled};
+    font-size: 1rem;
+    text-align: center;
   `,
 };
