@@ -4,8 +4,8 @@ import { useGetProjectQuery } from '../../hooks/useGetProjectQuery';
 import { ProjectDetailContent } from './ProjectDetailContent';
 
 export const ProjectDetailSection = () => {
-  const { id } = useParams<{ id: string }>();
-  const { project } = useGetProjectQuery(id ?? '');
+  const { projectId } = useParams<{ projectId: string }>();
+  const { project } = useGetProjectQuery(projectId ?? '');
 
   return <ProjectDetailContent project={project} />;
 };

@@ -41,14 +41,13 @@ export const postProject = async ({
 };
 
 export const patchProject = async ({
-  studentId,
   projectId,
   formValues,
 }: PatchProjectRequest) => {
   const data = toFormData(formValues);
 
   const response = await http.patch<GenericFormData>(
-    `${ENDPOINT.PROJECT}/${studentId}/${projectId}`,
+    `${ENDPOINT.PROJECT}/${projectId}`,
     data,
     {
       headers: {

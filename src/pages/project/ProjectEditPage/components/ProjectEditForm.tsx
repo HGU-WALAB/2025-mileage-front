@@ -9,7 +9,6 @@ import {
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { TOAST_MESSAGES } from '@/constants/toastMessage';
-import { useAuthStore } from '@/stores';
 import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
@@ -25,8 +24,8 @@ export const ProjectEditForm = () => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
-  const { id } = useParams<{ id: string }>();
-  const { project } = useGetProjectQuery(id ?? '');
+  const { projectId } = useParams<{ projectId: string }>();
+  const { project } = useGetProjectQuery(projectId ?? '');
 
   const methods = useForm<ProjectFormValues>({
     defaultValues: {
@@ -45,15 +44,13 @@ export const ProjectEditForm = () => {
     },
   });
   const { control, handleSubmit } = methods;
-  const { user } = useAuthStore();
   const { patchProject } = usePatchProjectMutation();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
       await patchProject({
-        studentId: user.studentId,
-        projectId: id ?? '',
+        projectId: projectId ?? '',
         formValues,
       });
 

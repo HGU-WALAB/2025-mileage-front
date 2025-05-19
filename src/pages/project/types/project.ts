@@ -41,7 +41,6 @@ export interface PostProjectRequest {
 }
 
 export interface PatchProjectRequest {
-  studentId: string;
   projectId: string;
   formValues: ProjectFormValues;
 }
