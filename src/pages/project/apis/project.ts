@@ -17,14 +17,11 @@ export const getProjectList = async () => {
   return response;
 };
 
-export const postProject = async ({
-  studentId,
-  formValues,
-}: PostProjectRequest) => {
+export const postProject = async ({ formValues }: PostProjectRequest) => {
   const data = toFormData(formValues);
 
   const response = await http.post<GenericFormData>(
-    `${ENDPOINT.PROJECT}/${studentId}`,
+    `${ENDPOINT.PROJECT}`,
     data,
     {
       headers: {
@@ -33,6 +30,11 @@ export const postProject = async ({
     },
   );
 
+  return response;
+};
+
+export const deleteProject = async ({ projectId }: { projectId: string }) => {
+  const response = await http.delete(`${ENDPOINT.PROJECT}/${projectId}`);
   return response;
 };
 

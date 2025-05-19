@@ -43,47 +43,61 @@ export const ProjectHandlers = [
     return HttpResponse.json(project, { status: 200 });
   }),
 
-  http.post(
-    BASE_URL + `${ENDPOINT.PROJECT}/:studentId`,
-    async ({ request }) => {
-      const formData = await request.formData();
+  http.post(BASE_URL + `${ENDPOINT.PROJECT}`, async ({ request }) => {
+    const formData = await request.formData();
 
-      const name = formData.get('name') as string;
-      const role = formData.get('role') as string | null;
-      const description = formData.get('description') as string;
-      const content = formData.get('content') as string | null;
-      const achievement = formData.get('achievement') as string | null;
-      const thumbnail = formData.get('thumbnail') as string;
-      const deployed_link = formData.get('deployed_link') as string | null;
-      const github_link = formData.get('github_link') as string | null;
-      const blog_link = formData.get('blog_link') as string | null;
-      const start_date = formData.get('start_date') as string;
-      const end_date = formData.get('end_date') as string | null;
-      const techStack = JSON.parse(
-        formData.get('techStack') as string,
-      ).techStack;
+    const name = formData.get('name') as string;
+    const role = formData.get('role') as string | null;
+    const description = formData.get('description') as string;
+    const content = formData.get('content') as string | null;
+    const achievement = formData.get('achievement') as string | null;
+    const thumbnail = formData.get('thumbnail') as string;
+    const deployed_link = formData.get('deployed_link') as string | null;
+    const github_link = formData.get('github_link') as string | null;
+    const blog_link = formData.get('blog_link') as string | null;
+    const start_date = formData.get('start_date') as string;
+    const end_date = formData.get('end_date') as string | null;
+    const techStack = JSON.parse(formData.get('techStack') as string).techStack;
 
-      const newProject: ProjectResponse = {
-        projectId: Date.now(),
-        name,
-        role,
-        description,
-        content,
-        achievement,
-        deployed_link,
-        github_link,
-        blog_link,
-        techStack,
-        start_date,
-        end_date,
-        thumbnail: thumbnail ?? null,
-      };
+    const newProject: ProjectResponse = {
+      projectId: Date.now(),
+      name,
+      role,
+      description,
+      content,
+      achievement,
+      deployed_link,
+      github_link,
+      blog_link,
+      techStack,
+      start_date,
+      end_date,
+      thumbnail: thumbnail ?? null,
+    };
 
-      projectStorage.update(prev => [...prev, newProject]);
+    projectStorage.update(prev => [...prev, newProject]);
 
-      return HttpResponse.json(newProject, { status: 201 });
-    },
-  ),
+    return HttpResponse.json(newProject, { status: 201 });
+  }),
+
+  http.delete(BASE_URL + `${ENDPOINT.PROJECT}/:projectId`, ({ params }) => {
+    const { projectId } = params;
+    const { is500Error } = randomMswError();
+    if (is500Error) return Error500();
+
+    const project = projectStorage
+      .getValue()
+      .filter(p => p.projectId !== Number(projectId));
+
+    projectStorage.update(() => project);
+
+    return HttpResponse.json(
+      {
+        message: '프로젝트가 삭제되었습니다.',
+      },
+      { status: 200 },
+    );
+  }),
 
   http.patch(BASE_URL + `${ENDPOINT.PROJECT}/top`, async ({ request }) => {
     const { projectId } = (await request.json()) as { projectId: number };

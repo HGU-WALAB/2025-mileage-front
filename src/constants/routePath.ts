@@ -6,7 +6,7 @@ export const ROUTE_PATH = {
   archive: '/archive',
   award: '/archive/award',
   project: '/archive/project',
-  projectDetail: (id: number) => `/archive/project/${id}`,
+  projectDetail: (projectId: number) => `/archive/project/${projectId}`,
   newProject: '/archive/project/add',
   editProject: '/archive/project/edit',
   scholarship: '/scholarship/apply',

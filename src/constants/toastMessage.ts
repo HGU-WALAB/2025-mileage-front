@@ -16,6 +16,10 @@ export const TOAST_MESSAGES = {
     succeed: '프로젝트가 등록되었습니다!',
     failed: '등록 중 문제가 발생했어요. 다시 시도해주세요',
   },
+  deleteProject: {
+    succeed: '프로젝트를 삭제했습니다!',
+    failed: '프로젝트 삭제에 실패했습니다. 다시 시도해주세요',
+  },
   patchTopProject: {
     succeed: '대표 프로젝트가 수정되었습니다!',
     failed: '등록 중 문제가 발생했어요. 다시 시도해주세요',

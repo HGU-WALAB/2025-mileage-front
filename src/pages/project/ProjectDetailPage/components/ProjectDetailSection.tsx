@@ -12,8 +12,8 @@ import { useGetProjectQuery } from '../../hooks/useGetProjectQuery';
 
 export const ProjectDetailSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  const { id } = useParams<{ id: string }>();
-  const { project } = useGetProjectQuery(id ?? '');
+  const { projectId } = useParams<{ projectId: string }>();
+  const { project } = useGetProjectQuery(projectId ?? '');
 
   return (
     <Flex.Column gap="2rem" padding={isMobile ? '' : '0 2rem'}>
