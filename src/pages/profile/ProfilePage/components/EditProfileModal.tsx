@@ -11,22 +11,22 @@ import { styled, useMediaQuery, useTheme } from '@mui/material';
 
 import { useEditProfileForm } from '@profile/hooks/useEditProfileForm';
 import { ProfileResponse } from '@profile/types/profile';
-import { useOpenModal } from '@/hooks';
 
 interface Props {
-  profile: ProfileResponse;
+    open: boolean;
+    onClose: () => void;
+    profile: ProfileResponse;
 }
 
-export const EditProfileModal = ({ profile }: Props) => {
+export const EditProfileModal = ({ open, onClose, profile }: Props) => {
     const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
     const theme = useTheme();
-    const { open, toggleModal } = useOpenModal();
 
     const {
         job, selfDescription, githubLink, blogLink, linkedinLink, instagramLink, profileImage, handleSubmit,
     } = useEditProfileForm({
         profile,
-        toggleModal,
+        toggleModal: onClose,
     });
 
     const handleSubmitForm = (
@@ -38,7 +38,7 @@ export const EditProfileModal = ({ profile }: Props) => {
     return (
     <Modal
         open={open}
-        toggleModal={toggleModal}
+        toggleModal={onClose}
         size="large"
         hasCloseButton
         style={{
@@ -210,7 +210,7 @@ export const EditProfileModal = ({ profile }: Props) => {
             <Flex.Row justify="center" gap="2rem" margin="2rem 0 0">
             <S.CloseButton
                 label="닫기"
-                onClick={toggleModal}
+                onClick={onClose}
                 size="large"
                 color="grey"
             />
