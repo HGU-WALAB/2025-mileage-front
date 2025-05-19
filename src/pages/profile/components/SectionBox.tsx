@@ -26,5 +26,6 @@ const S = {
   Section: styled(Flex.Column)`
     border-radius: 1rem;
     ${boxShadow}
+    position: relative;
   `,
 };

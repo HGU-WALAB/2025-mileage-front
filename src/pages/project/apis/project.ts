@@ -3,7 +3,11 @@ import { http } from '@/apis/http';
 import { toFormData } from '@/utils/toFormData';
 import { GenericFormData } from 'axios';
 
-import { PostProjectRequest, ProjectResponse } from '../types/project';
+import {
+  PatchProjectRequest,
+  PostProjectRequest,
+  ProjectResponse,
+} from '../types/project';
 
 export const getProject = async ({ projectId }: { projectId: string }) => {
   const response = await http.get<ProjectResponse>(
@@ -25,6 +29,25 @@ export const postProject = async ({
 
   const response = await http.post<GenericFormData>(
     `${ENDPOINT.PROJECT}/${studentId}`,
+    data,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  );
+
+  return response;
+};
+
+export const patchProject = async ({
+  projectId,
+  formValues,
+}: PatchProjectRequest) => {
+  const data = toFormData(formValues);
+
+  const response = await http.patch<GenericFormData>(
+    `${ENDPOINT.PROJECT}/${projectId}`,
     data,
     {
       headers: {

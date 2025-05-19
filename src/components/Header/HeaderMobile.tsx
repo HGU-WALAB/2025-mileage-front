@@ -5,16 +5,20 @@ import { headerHeight } from '@/constants/layoutSize';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { styled, useTheme } from '@mui/material';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { matchPath, useLocation, useNavigate } from 'react-router-dom';
 
 import { usePostLogoutMutation } from '@auth/hooks/usePostLogoutMutation';
 
-const HeaderMobile = () => {
+const HeaderMobile = ({ headerTitle }: { headerTitle?: string }) => {
   const theme = useTheme();
   const navigate = useNavigate();
 
   const location = useLocation();
-  const title = headerItems[location.pathname];
+  const title =
+    headerTitle ??
+    Object.entries(headerItems).find(([pattern]) =>
+      matchPath(pattern, location.pathname),
+    )?.[1];
 
   const { mutate: logout } = usePostLogoutMutation();
   const handleLogout = () => {

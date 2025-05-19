@@ -4,11 +4,11 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { ProjectFormSkeleton } from '@/pages/project/components/ProjectFormSkeleton';
-import { ProjectAddForm } from './components/ProjectAddForm';
+import { ProjectFormSkeleton } from '../components/ProjectFormSkeleton';
+import { ProjectEditForm } from './components/ProjectEditForm';
 
-const ProjectAddPage = () => {
-  useTrackPageView({ eventName: '[View] 프로젝트 생성 페이지' });
+const ProjectEditPage = () => {
+  useTrackPageView({ eventName: '[View] 프로젝트 수정 페이지' });
 
   return (
     <QueryErrorResetBoundary>
@@ -21,7 +21,7 @@ const ProjectAddPage = () => {
               </DeferredComponent>
             }
           >
-            <ProjectAddForm />
+            <ProjectEditForm />
           </Suspense>
         </ErrorBoundary>
       )}
@@ -29,4 +29,4 @@ const ProjectAddPage = () => {
   );
 };
 
-export default ProjectAddPage;
+export default ProjectEditPage;

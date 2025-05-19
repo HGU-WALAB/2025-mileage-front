@@ -1,4 +1,10 @@
-import { BoxSkeleton, Flex, SectionErrorFallback, Title } from '@/components';
+import {
+  BoxSkeleton,
+  DeferredComponent,
+  Flex,
+  SectionErrorFallback,
+  Title,
+} from '@/components';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -15,7 +21,13 @@ export const EtcMileageSection = () => {
             FallbackComponent={SectionErrorFallback}
             onReset={reset}
           >
-            <Suspense fallback={<BoxSkeleton />}>
+            <Suspense
+              fallback={
+                <DeferredComponent>
+                  <BoxSkeleton />
+                </DeferredComponent>
+              }
+            >
               <EtcMileageTable />
             </Suspense>
           </ErrorBoundary>
