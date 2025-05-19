@@ -27,6 +27,10 @@ export const ProfileHandlers = [
     return HttpResponse.json(mockSkills, { status: 200 });
   }),
 
+  // http.patch(BASE_URL +   `${ENDPOINT.PROFILE}`, async ({ request }) => {
+  //   const techStack = request.
+  // }),
+
   http.patch(BASE_URL + `${ENDPOINT.PROFILE}`, async ({ request }) => {
     const formData = await request.formData();
 
