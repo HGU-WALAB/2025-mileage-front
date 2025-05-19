@@ -8,7 +8,6 @@ import {
 } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useAuthStore } from '@/stores';
 import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
@@ -41,14 +40,12 @@ export const ProjectAddForm = () => {
     },
   });
   const { control, handleSubmit } = methods;
-  const { user } = useAuthStore();
   const { postProject } = usePostProjectMutation();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
       await postProject({
-        studentId: user.studentId,
         formValues,
       });
 

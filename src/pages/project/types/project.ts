@@ -36,7 +36,6 @@ export interface ProjectFormValues {
 }
 
 export interface PostProjectRequest {
-  studentId: string;
   formValues: ProjectFormValues;
 }
 

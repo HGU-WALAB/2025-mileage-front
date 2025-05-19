@@ -69,7 +69,7 @@ export const ProjectDetailContent = ({
 
           <Flex.Column gap=".5rem">
             <Heading as="h3">🛠️ 기술 스택</Heading>
-            {project.techStack.techStack?.length !== 0 ? (
+            {project.techStack?.techStack?.length !== 0 ? (
               <Flex.Row
                 wrap="wrap"
                 gap=".5rem"
