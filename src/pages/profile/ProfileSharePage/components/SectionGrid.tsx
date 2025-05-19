@@ -21,11 +21,11 @@ export const SectionGrid = () => {
       </Suspense>
 
       <Suspense>
-        <MileageCountSection />
+        <AwardCountSection />
       </Suspense>
 
       <Suspense>
-        <AwardCountSection />
+        <MileageCountSection />
       </Suspense>
     </S.Grid>
   );

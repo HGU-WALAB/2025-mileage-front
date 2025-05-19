@@ -8,44 +8,49 @@ import {
 } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
+import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { TECH_OPTIONS } from '../../constants/techOptions';
-import { usePostProjectMutation } from '../../hooks/usePostProjectMutation';
+import { useGetProjectQuery } from '../../hooks/useGetProjectQuery';
+import { usePatchProjectMutation } from '../../hooks/usePatchProjectMutation';
 import { ProjectFormValues } from '../../types/project';
 
-export const ProjectAddForm = () => {
+export const ProjectEditForm = () => {
   const navigate = useNavigate();
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
+  const { projectId } = useParams<{ projectId: string }>();
+  const { project } = useGetProjectQuery(projectId ?? '');
+
   const methods = useForm<ProjectFormValues>({
     defaultValues: {
-      name: '',
-      role: '',
-      description: '',
-      content: '',
-      start_date: '',
-      end_date: '',
-      deployed_link: '',
-      github_link: '',
-      blog_link: '',
-      achievement: '',
-      techStack: [],
+      name: project.name,
+      role: project.role,
+      description: project.description,
+      content: project.content,
+      start_date: project.start_date,
+      end_date: project.end_date,
+      deployed_link: project.deployed_link,
+      github_link: project.github_link,
+      blog_link: project.blog_link,
+      achievement: project.achievement,
+      techStack: project.techStack.techStack,
       thumbnail: undefined,
     },
   });
   const { control, handleSubmit } = methods;
-  const { postProject } = usePostProjectMutation();
+  const { patchProject } = usePatchProjectMutation();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
-      await postProject({
+      await patchProject({
+        projectId: projectId ?? '',
         formValues,
       });
 

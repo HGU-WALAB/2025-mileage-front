@@ -4,7 +4,7 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { DeleteProjectButton } from './components/DeleteProjectButton';
+import { DeleteProjectSection } from './components/DeleteProjectSection';
 import { EditProjectButton } from './components/EditProjectButton';
 import { ProjectDetailSection } from './components/ProjectDetailSection';
 import { ProjectDetailSkeleton } from './components/ProjectDetailSkeleton';
@@ -21,7 +21,7 @@ const ProjectDetailPage = () => {
         padding="0 2rem .5rem"
       >
         <EditProjectButton />
-        <DeleteProjectButton />
+        <DeleteProjectSection />
       </Flex.Row>
 
       <QueryErrorResetBoundary>
