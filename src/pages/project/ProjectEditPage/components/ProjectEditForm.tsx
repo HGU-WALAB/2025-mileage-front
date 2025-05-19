@@ -41,7 +41,7 @@ export const ProjectEditForm = () => {
       blog_link: project.blog_link,
       achievement: project.achievement,
       techStack: project.techStack.techStack,
-      thumbnail: null,
+      thumbnail: undefined,
     },
   });
   const { control, handleSubmit } = methods;
