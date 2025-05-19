@@ -15,7 +15,13 @@ const useFileWithType = (type: FileTypes, initialValue: File | null = null) => {
   const [value, setValue] = useState<File | null>(initialValue);
 
   const handleChange = (e: File) => {
-    if (e.type === getFileAllowedType(type)) {
+    const allowedType = getFileAllowedType(type);
+
+    if (
+      allowedType === 'application/pdf'
+        ? e.type === allowedType
+        : e.type.startsWith(allowedType.split('/')[0] + '/')
+    ) {
       setValue(e);
     } else {
       toast.error(ERROR_MESSAGES.invalidFileType);
