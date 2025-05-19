@@ -1,48 +1,39 @@
-import { Flex, Title } from '@/components';
-import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { styled, useMediaQuery } from '@mui/material';
+import {
+  DeferredComponent,
+  Flex,
+  SectionErrorFallback,
+  Title,
+} from '@/components';
+import { QueryErrorResetBoundary } from '@tanstack/react-query';
+import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
-import { useGroupedAwardList } from '@award/hooks/useGroupedAwardList';
-
-import { AwardCountBox } from './AwardCountBox';
-import { AwardPageForwardButton } from './AwardPageForwardButton';
+import { AwardArchiveGrid } from './AwardArchiveGrid';
+import { AwardArchiveSkeleton } from './AwardArchiveSkeleton';
 
 export const AwardArchiveSection = () => {
-  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  const { groupedAwardList } = useGroupedAwardList();
-
   return (
     <Flex.Column as="section">
       <Title label="수상 내역" />
 
-      <S.GridLayout isMobile={isMobile}>
-        {groupedAwardList.map(group => (
-          <AwardCountBox
-            key={group.awardType}
-            awardType={group.awardType}
-            length={group.items.length}
-          />
-        ))}
-
-        <AwardPageForwardButton />
-      </S.GridLayout>
+      <QueryErrorResetBoundary>
+        {({ reset }) => (
+          <ErrorBoundary
+            FallbackComponent={SectionErrorFallback}
+            onReset={reset}
+          >
+            <Suspense
+              fallback={
+                <DeferredComponent>
+                  <AwardArchiveSkeleton />
+                </DeferredComponent>
+              }
+            >
+              <AwardArchiveGrid />
+            </Suspense>
+          </ErrorBoundary>
+        )}
+      </QueryErrorResetBoundary>
     </Flex.Column>
   );
-};
-
-const S = {
-  GridLayout: styled('div')<{ isMobile: boolean }>`
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: ${({ isMobile }) =>
-      isMobile ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)'};
-
-    ${({ isMobile }) =>
-      isMobile &&
-      `
-        & > *:last-of-type {
-          grid-column: span 2;
-        }
-      `}
-  `,
 };

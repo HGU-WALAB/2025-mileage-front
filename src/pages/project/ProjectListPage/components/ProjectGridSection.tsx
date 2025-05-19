@@ -27,7 +27,6 @@ const S = {
       isMobile ? 'repeat(1, 1fr)' : 'repeat(4, 1fr)'};
     height: fit-content;
     justify-items: center;
-    overflow-y: scroll;
     padding: 1rem 0;
   `,
 };
