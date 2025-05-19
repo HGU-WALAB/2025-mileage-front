@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
 import { TechStackBadge } from '../../components/TechStackBadge';
+import { EMPTY_MESSAGE } from '../../constants/system';
 import { ProjectResponse } from '../../types/project';
 
 export const ProjectDetailContent = ({
@@ -44,31 +45,43 @@ export const ProjectDetailContent = ({
 
           <Flex.Column gap=".25rem">
             <Heading as="h3">🧑‍💻 맡은 역할</Heading>
-            <Text>{project.role}</Text>
+            <Text>{project.role?.trim() || EMPTY_MESSAGE}</Text>
           </Flex.Column>
 
           <Flex.Column gap=".25rem">
             <Heading as="h3">🔗 관련 링크</Heading>
-            <S.LinkList gap="1rem">
-              {project.deployed_link && (
-                <a href={project.deployed_link}>서비스 바로가기</a>
-              )}
-              {project.github_link && <a href={project.github_link}>GitHub</a>}
-              {project.blog_link && <a href={project.blog_link}>Blog</a>}
-            </S.LinkList>
+            {project.deployed_link ||
+            project.github_link ||
+            project.blog_link ? (
+              <S.LinkList gap="1rem">
+                {project.deployed_link && (
+                  <a href={project.deployed_link}>서비스 바로가기</a>
+                )}
+                {project.github_link && (
+                  <a href={project.github_link}>GitHub</a>
+                )}
+                {project.blog_link && <a href={project.blog_link}>Blog</a>}
+              </S.LinkList>
+            ) : (
+              <Text>입력된 링크가 없습니다.</Text>
+            )}
           </Flex.Column>
 
           <Flex.Column gap=".5rem">
             <Heading as="h3">🛠️ 기술 스택</Heading>
-            <Flex.Row
-              wrap="wrap"
-              gap=".5rem"
-              style={{ maxHeight: '50px', overflow: 'hidden' }}
-            >
-              {project.techStack.techStack?.map((tech, index) => (
-                <TechStackBadge key={index} tech={tech} />
-              ))}
-            </Flex.Row>
+            {project.techStack.techStack?.length !== 0 ? (
+              <Flex.Row
+                wrap="wrap"
+                gap=".5rem"
+                style={{ maxHeight: '50px', overflow: 'hidden' }}
+              >
+                {project.techStack.techStack?.map((tech, index) => (
+                  <TechStackBadge key={index} tech={tech} />
+                ))}
+              </Flex.Row>
+            ) : (
+              <Text>{EMPTY_MESSAGE}</Text>
+            )}
           </Flex.Column>
         </Flex.Column>
 
@@ -78,19 +91,23 @@ export const ProjectDetailContent = ({
       <Flex.Column gap="4rem" margin="2rem 0 6rem">
         <Flex.Column gap=".5rem">
           <Heading as="h3">🧩 주요 기여 및 역할</Heading>
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            components={{
-              p: ({ children }) => <S.Paragraph>{children}</S.Paragraph>,
-            }}
-          >
-            {project.content}
-          </ReactMarkdown>
+          {project.content?.trim() ? (
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                p: ({ children }) => <S.Paragraph>{children}</S.Paragraph>,
+              }}
+            >
+              {project.content}
+            </ReactMarkdown>
+          ) : (
+            <Text>{EMPTY_MESSAGE}</Text>
+          )}
         </Flex.Column>
 
         <Flex.Column gap=".5rem">
           <Heading as="h3">🏆 성과</Heading>
-          <Text>{project.achievement}</Text>
+          <Text>{project.achievement?.trim() || EMPTY_MESSAGE}</Text>
         </Flex.Column>
       </Flex.Column>
     </Flex.Column>
@@ -102,8 +119,9 @@ const S = {
     background-color: ${({ theme }) => theme.palette.primary.light};
     border-radius: 0.75rem;
     max-height: 300px;
+    max-width: 500px;
     object-fit: cover;
-    width: 500px;
+    width: 100%;
   `,
   LinkList: styled(Flex.Row)`
     a {
