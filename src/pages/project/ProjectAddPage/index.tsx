@@ -4,6 +4,7 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { ProjectFormSkeleton } from '@/pages/project/components/ProjectFormSkeleton';
 import { ProjectAddForm } from './components/ProjectAddForm';
 
 const ProjectAddPage = () => {
@@ -16,7 +17,7 @@ const ProjectAddPage = () => {
           <Suspense
             fallback={
               <DeferredComponent>
-                {/* <ProjectCreateSkeleton /> */}
+                <ProjectFormSkeleton />
               </DeferredComponent>
             }
           >
