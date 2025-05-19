@@ -108,7 +108,7 @@ export const ProjectHandlers = [
   }),
 
   http.patch(
-    BASE_URL + `${ENDPOINT.PROJECT}/:studentId/:projectId`,
+    BASE_URL + `${ENDPOINT.PROJECT}/:projectId`,
     async ({ request, params }) => {
       const formData = await request.formData();
 

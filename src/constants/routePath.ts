@@ -8,7 +8,7 @@ export const ROUTE_PATH = {
   project: '/archive/project',
   projectDetail: (projectId: number) => `/archive/project/${projectId}`,
   newProject: '/archive/project/add',
-  editProject: (id: string) => `/archive/project/${id}/edit`,
+  editProject: (projectId: string) => `/archive/project/${projectId}/edit`,
   scholarship: '/scholarship/apply',
   profile: '/profile',
   profileShare: (id: string) => `/profile/${id}`,
