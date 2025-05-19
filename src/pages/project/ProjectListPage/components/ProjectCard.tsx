@@ -25,7 +25,7 @@ export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
         </Flex.Row>
 
         <Text style={{ fontSize: '.875rem' }}>
-          {getFormattedDateFullYear(project.start_date)}{' '}
+          {project.start_date && getFormattedDateFullYear(project.start_date)}{' '}
           {project.end_date
             ? `→ ${getFormattedDateFullYear(project.end_date)}`
             : '→ ing'}
