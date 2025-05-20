@@ -16,9 +16,7 @@ const ScholarshipApplyPage = () => {
 
   const [isAgree, setIsAgree] = useState(false);
   const { isApplied } = useGetIsAppliedScholarshipQuery();
-
   const { isScholarshipDuration } = useScholarshipDuration();
-  if (!isScholarshipDuration) return <NotScholarshipDurationSection />;
 
   return (
     <Flex.Column gap="1rem">
@@ -27,13 +25,19 @@ const ScholarshipApplyPage = () => {
       <Flex.Column margin="0 1rem" gap="1rem">
         <ProcessSection />
 
-        <ConsentSection
-          isAgree={isAgree}
-          handleAgree={setIsAgree}
-          isApplied={isApplied?.isApply ?? 0}
-        />
+        {isScholarshipDuration ? (
+          <>
+            <ConsentSection
+              isAgree={isAgree}
+              handleAgree={setIsAgree}
+              isApplied={isApplied?.isApply ?? 0}
+            />
 
-        <ApplySection isAgree={isAgree} />
+            <ApplySection isAgree={isAgree} />
+          </>
+        ) : (
+          <NotScholarshipDurationSection />
+        )}
 
         <FAQSection />
       </Flex.Column>
