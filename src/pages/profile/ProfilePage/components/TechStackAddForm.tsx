@@ -1,8 +1,9 @@
-import { Controller, useFormContext } from 'react-hook-form';
-import { Autocomplete, TextField } from '@mui/material';
-
 import { FormField } from '@/components';
-import { TECH_OPTIONS } from '../../constants/techOptions';
+import { Autocomplete, TextField } from '@mui/material';
+import { Controller, useFormContext } from 'react-hook-form';
+
+import { TECH_OPTIONS } from '@project/constants/techOptions';
+
 import { TechStack } from '../../types/profile';
 
 export const TechStackAddForm = () => {
@@ -20,7 +21,7 @@ export const TechStackAddForm = () => {
             options={TECH_OPTIONS}
             value={field.value ?? []}
             onChange={(_, value) => field.onChange(value)}
-            renderInput={(params) => (
+            renderInput={params => (
               <TextField {...params} placeholder="기술 스택" />
             )}
           />

@@ -1,7 +1,7 @@
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
-
 import { Suspense } from 'react';
+
 import { AwardCountSection } from './AwardCountSection';
 import { MileageCountSection } from './MileageCountSection';
 import { TechStackSection } from './TechStackSection';
