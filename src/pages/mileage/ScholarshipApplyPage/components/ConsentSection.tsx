@@ -46,7 +46,6 @@ const S = {
     flex-direction: row;
     gap: 1rem;
     justify-content: space-between;
-    margin: 0 1rem;
     padding: 1rem 1.5rem;
   `,
   ConsentText: styled(Text)`

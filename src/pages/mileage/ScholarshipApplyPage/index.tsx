@@ -6,8 +6,10 @@ import { useGetIsAppliedScholarshipQuery } from '../hooks/useGetIsAppliedScholar
 import { useScholarshipDuration } from '../hooks/useScholarshipDuration';
 import { ApplySection } from './components/ApplySection';
 import { ConsentSection } from './components/ConsentSection';
+import { FAQSection } from './components/FAQSection';
 import { MileageBannerSection } from './components/MileageBannerSection';
 import { NotScholarshipDurationSection } from './components/NotScholarshipDurationSection';
+import { ProcessSection } from './components/ProcessSection';
 
 const ScholarshipApplyPage = () => {
   useTrackPageView({ eventName: '[View] 장학금 신청 페이지' });
@@ -22,13 +24,19 @@ const ScholarshipApplyPage = () => {
     <Flex.Column gap="1rem">
       <MileageBannerSection />
 
-      <ConsentSection
-        isAgree={isAgree}
-        handleAgree={setIsAgree}
-        isApplied={isApplied?.isApply ?? 0}
-      />
+      <Flex.Column margin="0 1rem" gap="1rem">
+        <ProcessSection />
 
-      <ApplySection isAgree={isAgree} />
+        <ConsentSection
+          isAgree={isAgree}
+          handleAgree={setIsAgree}
+          isApplied={isApplied?.isApply ?? 0}
+        />
+
+        <ApplySection isAgree={isAgree} />
+
+        <FAQSection />
+      </Flex.Column>
     </Flex.Column>
   );
 };

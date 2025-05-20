@@ -3,9 +3,7 @@ import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useAuthStore } from '@/stores';
 
 import { CapabilitySection } from './components/CapabilitySection';
-import { FAQSection } from './components/FAQSection';
 import { NoAccessLogoutModal } from './components/NoAccessLogoutModal';
-import { ProcessSection } from './components/ProcessSection';
 import { ScholarshipDurationSection } from './components/ScholarshipDurationSection';
 import { ScholarshipStudentTypeSection } from './components/ScholarshipStudentTypeSection';
 
@@ -22,10 +20,6 @@ const DashboardPage = () => {
       </Flex.Row>
 
       <CapabilitySection />
-
-      <ProcessSection />
-
-      <FAQSection />
 
       {user.studentType === '기타' && <NoAccessLogoutModal />}
     </Flex.Column>
