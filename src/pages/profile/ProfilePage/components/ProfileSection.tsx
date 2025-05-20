@@ -1,11 +1,11 @@
 import { Flex } from '@/components';
+import { useOpenModal } from '@/hooks';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
 import { ProfileContent } from '../../components/ProfileContent';
 import { useGetProfileQuery } from '../../hooks/useGetProfileQuery';
 import { EditProfileModal } from './EditProfileModal';
-import { useOpenModal } from '@/hooks';
 
 export const ProfileSection = () => {
   const theme = useTheme();

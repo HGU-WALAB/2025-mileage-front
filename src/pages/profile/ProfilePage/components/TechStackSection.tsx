@@ -1,8 +1,9 @@
+import { useOpenModal } from '@/hooks';
 import { styled } from '@mui/material';
+
 import { GridSectionCard } from '../../components/GridSectionCard';
 import { TechStackContent } from '../../components/TechStackContent';
 import { useGetTechStackQuery } from '../../hooks/useGetTechStackQuery';
-import { useOpenModal } from '@/hooks';
 import { EditSkillModal } from './EditSkillModal';
 
 export const TechStackSection = () => {
@@ -34,4 +35,4 @@ const S = {
       color: ${({ theme }) => theme.palette.primary.dark};
     }
   `,
-}
+};

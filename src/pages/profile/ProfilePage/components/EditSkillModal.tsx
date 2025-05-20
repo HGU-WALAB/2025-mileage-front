@@ -1,11 +1,11 @@
 import { Button, Flex, Modal, Text } from '@/components';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 import { FormProvider } from 'react-hook-form';
 
-import { TechStackAddForm } from './TechStackAddForm';
 import { useEditTechStackForm } from '../../hooks/useEditTechStackForm';
 import { usePatchTechStackMutation } from '../../hooks/usePatchTechStackMutation';
-import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
+import { TechStackAddForm } from './TechStackAddForm';
 
 interface Props {
   open: boolean;
@@ -69,8 +69,8 @@ const S = {
     width: 200px;
   `,
   CancelButton: styled(Button)`
-    width: 200px;
     background-color: ${({ theme }) => theme.palette.grey300};
+    width: 200px;
 
     &:hover,
     &:active {

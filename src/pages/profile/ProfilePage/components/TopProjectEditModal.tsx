@@ -1,10 +1,11 @@
 import { Button, Flex, Heading, Modal, ToggleButton } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
-import { useGetProjectsQuery } from '@/pages/project/hooks/useGetProjectsQuery';
-import { usePatchTopProjectQuery } from '@/pages/project/hooks/usePatchTopProjectQuery';
-import { ProjectResponse } from '@/pages/project/types/project';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { useGetProjectsQuery } from '@project/hooks/useGetProjectsQuery';
+import { usePatchTopProjectQuery } from '@project/hooks/usePatchTopProjectQuery';
+import { ProjectResponse } from '@project/types/project';
 
 interface Props {
   open: boolean;
