@@ -4,6 +4,7 @@ import { styled, useMediaQuery } from '@mui/material';
 import { useGetProjectsQuery } from '@project/hooks/useGetProjectsQuery';
 import { ProjectCard } from '@project/ProjectListPage/components/ProjectCard';
 
+import { AddProjectCard } from './AddProjectCard';
 import { ProjectPageForwardButton } from './ProjectPageForwardButton';
 
 export const ProjectArchiveGrid = () => {
@@ -12,10 +13,13 @@ export const ProjectArchiveGrid = () => {
 
   return (
     <S.GridLayout isMobile={isMobile}>
-      {projects.slice(0, isMobile ? 2 : 3).map(project => (
-        <ProjectCard project={project} />
-      ))}
-
+      {projects.length === 0 ? (
+        <AddProjectCard />
+      ) : (
+        projects
+          .slice(0, isMobile ? 2 : 3)
+          .map(project => <ProjectCard project={project} />)
+      )}
       <ProjectPageForwardButton />
     </S.GridLayout>
   );
