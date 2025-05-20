@@ -19,6 +19,7 @@ export const QUERY_KEYS = {
   award: 'award',
 
   project: 'project',
+  projectThumbnail: 'projectThumbnail',
   topProject: 'topProject',
 
   profile: 'profile',
