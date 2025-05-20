@@ -16,7 +16,7 @@ export const CapabilityDetailContent = () => {
   const selectedCapabilityDetail = useMemo(
     () =>
       capabilityDetail.filter(
-        detail => detail.categoryName === selectedCapability,
+        detail => detail.capabilityName === selectedCapability,
       ),
     [selectedCapability, capabilityDetail],
   );
