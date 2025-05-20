@@ -1,5 +1,6 @@
 // icons
 import AlertBoxIcon from '@/assets/icons/alertBox.svg?react';
+import ArrowLeftIcon from '@/assets/icons/arrow-left.svg?react';
 import ArrowRightIcon from '@/assets/icons/arrow-right.svg?react';
 import AsteriskIcon from '@/assets/icons/asterisk.svg?react';
 import AwardListIcon from '@/assets/icons/awardList.svg?react';
@@ -58,6 +59,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export {
   AlertBoxIcon,
+  ArrowLeftIcon,
   ArrowRightIcon,
   AsteriskIcon,
   AwardListBlueIcon,

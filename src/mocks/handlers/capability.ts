@@ -27,11 +27,11 @@ export const CapabilityHandlers = [
     const url = new URL(req.request.url);
 
     const term = url.searchParams.get('term');
-    const studentType = url.searchParams.get('studentType');
+    const major = url.searchParams.get('major');
 
-    if (term && !studentType)
+    if (term && !major)
       return HttpResponse.json(mockCompareCapability1, { status: 200 });
-    if (studentType)
+    if (major)
       return HttpResponse.json(mockCompareCapability3, { status: 200 });
     return HttpResponse.json(mockCompareCapability2, { status: 200 });
   }),

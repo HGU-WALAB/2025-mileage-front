@@ -15,6 +15,7 @@ export const ControlledFormField = <T extends Record<string, any>>({
   rules,
   control,
   multiline = false,
+  direction = 'column',
 }: {
   name: Path<T>;
   label?: string;
@@ -22,6 +23,7 @@ export const ControlledFormField = <T extends Record<string, any>>({
   rules?: RegisterOptions<T, Path<T>>;
   control: Control<T>;
   multiline?: boolean;
+  direction?: 'column' | 'row';
 }) => {
   const {
     formState: { errors },
@@ -33,9 +35,15 @@ export const ControlledFormField = <T extends Record<string, any>>({
       control={control}
       rules={rules}
       render={({ field }) => (
-        <FormField direction="column">
+        <FormField direction={direction}>
           {label && (
-            <FormField.Label label={label} required={!!rules?.required} />
+            <FormField.Label
+              label={label}
+              required={!!rules?.required}
+              style={{
+                minWidth: '150px',
+              }}
+            />
           )}
           <FormField.Input
             {...field}

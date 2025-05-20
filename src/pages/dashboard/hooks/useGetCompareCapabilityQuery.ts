@@ -11,14 +11,14 @@ import {
 export const useGetCompareCapabilityQuery = ({
   term,
   entryYear,
-  studentType,
+  major,
 }: CompareCapabilityRequest) => {
   const { data, ...rest } = useSuspenseQuery<
     CompareCapabilityResponse[],
     AxiosError
   >({
-    queryKey: [QUERY_KEYS.compareCapability, term, entryYear, studentType],
-    queryFn: () => getCompareCapability({ term, entryYear, studentType }),
+    queryKey: [QUERY_KEYS.compareCapability, term, entryYear, major],
+    queryFn: () => getCompareCapability({ term, entryYear, major }),
   });
 
   return { compareCapability: data, ...rest };

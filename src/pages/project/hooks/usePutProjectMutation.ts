@@ -1,13 +1,13 @@
 import { QUERY_KEYS } from '@/constants/queryKeys';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { patchProject } from '../apis/project';
+import { putProject } from '../apis/project';
 
-export const usePatchProjectMutation = () => {
+export const usePutProjectMutation = () => {
   const queryClient = useQueryClient();
 
   const { mutateAsync, ...rest } = useMutation({
-    mutationFn: patchProject,
+    mutationFn: putProject,
     onSuccess: async () => {
       await queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.project],
@@ -15,5 +15,5 @@ export const usePatchProjectMutation = () => {
     },
   });
 
-  return { patchProject: mutateAsync, ...rest };
+  return { putProject: mutateAsync, ...rest };
 };

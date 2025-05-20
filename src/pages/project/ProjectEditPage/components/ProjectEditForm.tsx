@@ -15,9 +15,9 @@ import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import { usePutProjectMutation } from '@/pages/project/hooks/usePutProjectMutation';
 import { TECH_OPTIONS } from '../../constants/techOptions';
 import { useGetProjectQuery } from '../../hooks/useGetProjectQuery';
-import { usePatchProjectMutation } from '../../hooks/usePatchProjectMutation';
 import { ProjectFormValues } from '../../types/project';
 
 export const ProjectEditForm = () => {
@@ -44,12 +44,12 @@ export const ProjectEditForm = () => {
     },
   });
   const { control, handleSubmit } = methods;
-  const { patchProject } = usePatchProjectMutation();
+  const { putProject } = usePutProjectMutation();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
-      await patchProject({
+      await putProject({
         projectId: projectId ?? '',
         formValues,
       });
@@ -117,22 +117,31 @@ export const ProjectEditForm = () => {
             </Flex.Column>
 
             <FormField direction="column">
-              <FormField.Label label="프로젝트 링크" />
-              <Flex.Column width="100%">
+              <FormField.Label
+                label="프로젝트 링크"
+                style={{ marginBottom: '.5rem' }}
+              />
+              <Flex.Column width="100%" gap="1rem">
                 <ControlledFormField<ProjectFormValues>
                   name="deployed_link"
-                  placeholder="서비스 링크"
+                  label="서비스 링크"
+                  placeholder="https://walab.info/mileage/"
                   control={control}
+                  direction="row"
                 />
                 <ControlledFormField<ProjectFormValues>
                   name="github_link"
-                  placeholder="GitHub 링크"
+                  label="GitHub 링크"
+                  placeholder="https://github.com/HGU-WALAB/2025-mileage-front"
                   control={control}
+                  direction="row"
                 />
                 <ControlledFormField<ProjectFormValues>
                   name="blog_link"
-                  placeholder="블로그 링크"
+                  label="블로그 링크"
+                  placeholder="https://healim01.tistory.com/"
                   control={control}
+                  direction="row"
                 />
               </Flex.Column>
             </FormField>
@@ -225,5 +234,6 @@ const S = {
     margin: ${({ isMobile }) => (isMobile ? `0 auto` : `1rem auto`)};
     max-width: 1000px;
     padding: ${({ isMobile }) => (isMobile ? `1rem` : `2rem 4rem`)};
+    width: 100%;
   `,
 };

@@ -21,12 +21,12 @@ export const getCapability = async () => {
 export const getCompareCapability = async ({
   term = '',
   entryYear = '',
-  studentType = '',
+  major = '',
 }: CompareCapabilityRequest) => {
   const queryParams = new URLSearchParams({
     term,
     entryYear,
-    studentType,
+    major,
   });
 
   const response = await http.get<CompareCapabilityResponse[]>(

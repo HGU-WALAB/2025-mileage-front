@@ -38,7 +38,7 @@ export const ApplySection = ({ isAgree }: { isAgree: boolean }) => {
   };
 
   return (
-    <Flex.Row justify="center" margin="0 0 1rem">
+    <Flex.Row justify="center" margin="2rem 0">
       {isApplied?.isApply ? (
         <S.AppliedBox
           label="장학금 신청을 완료했습니다!"

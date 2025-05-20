@@ -32,9 +32,10 @@ export { default as Table } from './Table/Table';
 export { default as Tabs } from './Tabs/Tabs';
 export { default as Text } from './Text/Text';
 export { default as Title } from './Title/Title';
-export { default as ToggleButton } from './ToggleButton/ToggleButton';
 export { default as UploadButton } from './UploadButton/UploadButton';
 
+export * from './Button/BackButton';
+export * from './Button/ToggleButton';
 export * from './Deferred/DeferredComponent';
 export * from './Footer/Footer';
 export * from './FormField/ControlledFormField';
