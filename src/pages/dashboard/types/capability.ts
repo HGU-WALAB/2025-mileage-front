@@ -29,3 +29,18 @@ export interface SemesterCapabilityResponse {
   semester: string;
   userMilestoneCount: number;
 }
+
+export interface CapabilityDetailResponse {
+  capabilityId: number;
+  capabilityName: string;
+  subitemId: number;
+  subitemName: string;
+  semester: string;
+  description1: string;
+  done: boolean;
+}
+
+export interface ActivityRecommendResponse {
+  capabilityName: string;
+  suggestion: string[];
+}
