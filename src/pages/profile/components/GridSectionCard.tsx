@@ -20,8 +20,8 @@ const S = {
     justify-content: center;
     padding: 2rem;
     ${boxShadow};
-    width: 100%;
     position: relative;
+    width: 100%;
 
     &:hover,
     &:active {

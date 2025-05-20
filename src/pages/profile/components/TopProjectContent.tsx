@@ -16,11 +16,8 @@ export const TopProjectContent = ({
       {topProject ? (
         <>
           {thumbnail ? (
-            <S.Thumbnail
-              src={thumbnail}
-              alt="프로젝트 대표 이미지"
-            />
-          ) : ( 
+            <S.Thumbnail src={thumbnail} alt="프로젝트 대표 이미지" />
+          ) : (
             <S.ImagePlaceholder
               width="100%"
               height="180px"
@@ -61,9 +58,9 @@ const S = {
   `,
   ImagePlaceholder: styled(Flex.Row)`
     background-color: ${({ theme }) => theme.palette.grey[200]};
+    border-radius: 1rem;
     color: ${({ theme }) => theme.palette.text.disabled};
     font-size: 1rem;
     text-align: center;
-    border-radius: 1rem;
   `,
 };
