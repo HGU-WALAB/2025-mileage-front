@@ -16,3 +16,7 @@ export interface ProfileResponse {
 export interface TechStack {
   techStack: string[];
 }
+
+export interface ProfileImage {
+  image: Blob;
+}

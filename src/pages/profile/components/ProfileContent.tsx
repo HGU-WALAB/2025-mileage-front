@@ -4,7 +4,7 @@ import { styled, useTheme } from '@mui/material';
 
 import { ProfileResponse } from '../types/profile';
 
-export const ProfileContent = ({ profile }: { profile: ProfileResponse }) => {
+export const ProfileContent = ({ profile } : { profile: ProfileResponse }) => {
   const theme = useTheme();
 
   return (
