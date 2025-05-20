@@ -29,3 +29,15 @@ export interface SemesterCapabilityResponse {
   semester: string;
   userMilestoneCount: number;
 }
+
+export interface CapabilityDetailResponse {
+  capabilityId: number;
+  capabilityName: string;
+  subitemId: number;
+  subitemName: string;
+  categoryId: number;
+  categoryName: string;
+  semester: string;
+  description1: string;
+  done: boolean;
+}
