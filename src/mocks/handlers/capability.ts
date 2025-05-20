@@ -1,6 +1,7 @@
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
 import { mockCapability } from '@/mocks/fixtures/capability';
+import { mockCapabilityDetail } from '@/mocks/fixtures/capabilityDetail';
 import {
   mockCompareCapability1,
   mockCompareCapability2,
@@ -41,5 +42,12 @@ export const CapabilityHandlers = [
     if (is500Error) return Error500();
 
     return HttpResponse.json(mockSemesterCapability, { status: 200 });
+  }),
+
+  http.get(BASE_URL + `${ENDPOINT.MILEAGE}/detail`, () => {
+    const { is500Error } = randomMswError();
+    if (is500Error) return Error500();
+
+    return HttpResponse.json(mockCapabilityDetail, { status: 200 });
   }),
 ];
