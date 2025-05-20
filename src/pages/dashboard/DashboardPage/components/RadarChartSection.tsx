@@ -19,7 +19,7 @@ export const RadarChartSection = ({
     entryYear: compareOption.includes('entryYear')
       ? userInfo?.studentId.slice(1, 3)
       : undefined,
-    studentType: compareOption.includes('studentType') ? userInfo?.studentType : undefined,
+    major: compareOption.includes('major') ? userInfo?.major1 : undefined,
   });
 
   const capabilityData: RadarCapability[] = (capability ?? []).map(cap => {
