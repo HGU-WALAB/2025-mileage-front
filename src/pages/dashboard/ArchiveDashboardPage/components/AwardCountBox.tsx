@@ -9,9 +9,10 @@ import { AwardType } from '@award/types/award';
 interface Props {
   awardType: AwardType;
   length: number;
+  onClick: () => void;
 }
 
-export const AwardCountBox = ({ awardType, length }: Props) => {
+export const AwardCountBox = ({ awardType, length, onClick }: Props) => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const icon = awardType === '교내' ? <SchoolIcon /> : <BuildingIcon />;
 
@@ -24,6 +25,7 @@ export const AwardCountBox = ({ awardType, length }: Props) => {
       padding={isMobile ? '1rem' : '1.5rem'}
       gap="1rem"
       wrap="wrap"
+      onClick={onClick}
     >
       <Flex.Column justify="center" gap={'.5rem'}>
         <S.IconWrapper justify="center" align="center" isMobile={isMobile}>
