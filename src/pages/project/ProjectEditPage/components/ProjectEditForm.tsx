@@ -15,9 +15,9 @@ import { Controller, FormProvider, useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
+import { usePutProjectMutation } from '@/pages/project/hooks/usePutProjectMutation';
 import { TECH_OPTIONS } from '../../constants/techOptions';
 import { useGetProjectQuery } from '../../hooks/useGetProjectQuery';
-import { usePatchProjectMutation } from '../../hooks/usePatchProjectMutation';
 import { ProjectFormValues } from '../../types/project';
 
 export const ProjectEditForm = () => {
@@ -44,12 +44,12 @@ export const ProjectEditForm = () => {
     },
   });
   const { control, handleSubmit } = methods;
-  const { patchProject } = usePatchProjectMutation();
+  const { putProject } = usePutProjectMutation();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
-      await patchProject({
+      await putProject({
         projectId: projectId ?? '',
         formValues,
       });

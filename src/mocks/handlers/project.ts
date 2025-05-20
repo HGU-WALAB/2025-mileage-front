@@ -107,7 +107,7 @@ export const ProjectHandlers = [
     return HttpResponse.json(projectStorage, { status: 201 });
   }),
 
-  http.patch(
+  http.put(
     BASE_URL + `${ENDPOINT.PROJECT}/:projectId`,
     async ({ request, params }) => {
       const formData = await request.formData();
