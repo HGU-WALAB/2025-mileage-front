@@ -14,7 +14,7 @@ interface Props extends HTMLAttributes<HTMLButtonElement> {
   isRound?: boolean;
 }
 
-const ToggleButton = ({
+export const ToggleButton = ({
   label,
   value = '',
   variant = 'outlined',
@@ -72,5 +72,3 @@ const ToggleButton = ({
     </MuiButton>
   );
 };
-
-export default ToggleButton;

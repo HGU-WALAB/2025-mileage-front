@@ -234,5 +234,6 @@ const S = {
     margin: ${({ isMobile }) => (isMobile ? `0 auto` : `1rem auto`)};
     max-width: 1000px;
     padding: ${({ isMobile }) => (isMobile ? `1rem` : `2rem 4rem`)};
+    width: 100%;
   `,
 };
