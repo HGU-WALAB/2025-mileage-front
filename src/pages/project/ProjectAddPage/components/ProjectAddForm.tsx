@@ -112,22 +112,31 @@ export const ProjectAddForm = () => {
             </Flex.Column>
 
             <FormField direction="column">
-              <FormField.Label label="프로젝트 링크" />
-              <Flex.Column width="100%">
+              <FormField.Label
+                label="프로젝트 링크"
+                style={{ marginBottom: '.5rem' }}
+              />
+              <Flex.Column width="100%" gap="1rem">
                 <ControlledFormField<ProjectFormValues>
                   name="deployed_link"
-                  placeholder="서비스 링크"
+                  label="서비스 링크"
+                  placeholder="https://walab.info/mileage/"
                   control={control}
+                  direction="row"
                 />
                 <ControlledFormField<ProjectFormValues>
                   name="github_link"
-                  placeholder="GitHub 링크"
+                  label="GitHub 링크"
+                  placeholder="https://github.com/HGU-WALAB/2025-mileage-front"
                   control={control}
+                  direction="row"
                 />
                 <ControlledFormField<ProjectFormValues>
                   name="blog_link"
-                  placeholder="블로그 링크"
+                  label="블로그 링크"
+                  placeholder="https://healim01.tistory.com/"
                   control={control}
+                  direction="row"
                 />
               </Flex.Column>
             </FormField>
