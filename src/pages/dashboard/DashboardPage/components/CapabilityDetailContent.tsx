@@ -26,6 +26,7 @@ export const CapabilityDetailContent = () => {
       <S.CategoryOptions gap=".5rem">
         {capability.map(capa => (
           <ToggleButton
+            key={capa.capabilityName}
             size="small"
             label={capa.capabilityName}
             selected={capa.capabilityName === selectedCapability}
