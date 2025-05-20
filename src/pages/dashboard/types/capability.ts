@@ -39,3 +39,8 @@ export interface CapabilityDetailResponse {
   description1: string;
   done: boolean;
 }
+
+export interface ActivityRecommendResponse {
+  capabilityName: string;
+  suggestion: string[];
+}

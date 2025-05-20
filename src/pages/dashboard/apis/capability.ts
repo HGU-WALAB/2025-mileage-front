@@ -2,6 +2,7 @@ import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
 
 import {
+  ActivityRecommendResponse,
   CapabilityDetailResponse,
   CapabilityResponse,
   CompareCapabilityRequest,
@@ -47,6 +48,13 @@ export const getSemesterCapability = async () => {
 export const getCapabilityDetail = async () => {
   const response = await http.get<CapabilityDetailResponse[]>(
     `${ENDPOINT.MILEAGE}/detail`,
+  );
+  return response;
+};
+
+export const getActivityRecommend = async () => {
+  const response = await http.get<ActivityRecommendResponse>(
+    `${ENDPOINT.CAPABILITY}/suggest`,
   );
   return response;
 };
