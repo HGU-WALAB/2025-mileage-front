@@ -1,11 +1,17 @@
-import { BlogIcon, GithubIcon, InstagramIcon, LinkedInIcon } from '@/assets';
+import {
+  BlogIcon,
+  GithubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  UserImg,
+} from '@/assets';
 import { Flex, Heading } from '@/components';
 import { styled, useTheme } from '@mui/material';
 
-import { ProfileResponse } from '../types/profile';
 import { useGetProfileImageQuery } from '../hooks/useGetProfileQuery';
+import { ProfileResponse } from '../types/profile';
 
-export const ProfileContent = ({ profile } : { profile: ProfileResponse }) => {
+export const ProfileContent = ({ profile }: { profile: ProfileResponse }) => {
   const theme = useTheme();
   const { profileImage } = useGetProfileImageQuery(profile?.profile_image_url);
 
@@ -13,7 +19,7 @@ export const ProfileContent = ({ profile } : { profile: ProfileResponse }) => {
     <>
       <Flex.Row align="center" gap="5rem">
         <S.ProfileImg
-          src={profileImage ? profileImage : 'https://i0.wp.com/passivesills.com/wp-content/uploads/2020/06/User-Icon-Grey.png?ssl=1'}
+          src={profileImage ? profileImage : UserImg}
           alt="user profile image"
         />
         <Flex.Row
@@ -22,7 +28,9 @@ export const ProfileContent = ({ profile } : { profile: ProfileResponse }) => {
           gap=".25rem"
         >
           <Heading as="h1">{profile?.studentName} |</Heading>
-          <Heading as="h1">{profile?.job}</Heading>
+          <Heading as="h1">
+            {profile.job ? profile?.job : '희망 직군을 추가해주세요'}
+          </Heading>
         </Flex.Row>
       </Flex.Row>
 

@@ -21,6 +21,7 @@ const ProfilePage = () => {
       <Flex.Row justify="flex-end">
         <ShareProfileButton />
       </Flex.Row>
+
       <ErrorBoundary FallbackComponent={PageErrorFallback}>
         <ProfileSection />
 

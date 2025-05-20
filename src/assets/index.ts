@@ -50,6 +50,7 @@ import Img7 from '@/assets/imgs/7.png';
 import BackgroundImg from '@/assets/imgs/background.png';
 import EmptyBoxImg from '@/assets/imgs/emptyBox.svg?react';
 import MobileBackgroundImg from '@/assets/imgs/mobile-background.png';
+import UserImg from '@/assets/imgs/user.png';
 
 // mui
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -111,4 +112,5 @@ export {
   ThemeIcon,
   UserBlueIcon,
   UserIcon,
+  UserImg,
 };
