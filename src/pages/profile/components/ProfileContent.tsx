@@ -36,23 +36,26 @@ export const ProfileContent = ({ profile }: { profile: ProfileResponse }) => {
 
       <Flex.Row gap="1rem">
         <Flex.Column gap="1rem">
-          <S.LinkWrapper padding=".5rem 1rem">
+          <S.LinkWrapper padding=".5rem 1rem" disable={!profile?.github_link}>
             <S.Link
+              as={profile?.github_link ? 'a' : 'span'}
               href={profile?.github_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
-              noLink={!!profile?.github_link}
+              noLink={!profile?.github_link}
             >
               <GithubIcon />
               GitHub
             </S.Link>
           </S.LinkWrapper>
 
-          <S.LinkWrapper padding=".5rem 1rem">
+          <S.LinkWrapper padding=".5rem 1rem" disable={!profile?.blog_link}>
             <S.Link
+              as={profile?.blog_link ? 'a' : 'span'}
               href={profile?.blog_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
+              noLink={!profile?.blog_link}
             >
               <BlogIcon />
               Blog
@@ -61,22 +64,29 @@ export const ProfileContent = ({ profile }: { profile: ProfileResponse }) => {
         </Flex.Column>
 
         <Flex.Column gap="1rem">
-          <S.LinkWrapper padding=".5rem 1rem">
+          <S.LinkWrapper padding=".5rem 1rem" disable={!profile?.linkedin_link}>
             <S.Link
+              as={profile?.linkedin_link ? 'a' : 'span'}
               href={profile?.linkedin_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
+              noLink={!profile?.linkedin_link}
             >
               <LinkedInIcon />
               LinkedIn
             </S.Link>
           </S.LinkWrapper>
 
-          <S.LinkWrapper padding=".5rem 1rem">
+          <S.LinkWrapper
+            padding=".5rem 1rem"
+            disable={!profile?.instagram_link}
+          >
             <S.Link
+              as={profile?.instagram_link ? 'a' : 'span'}
               href={profile?.instagram_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
+              noLink={!profile?.instagram_link}
             >
               <InstagramIcon />
               Instagram
@@ -95,13 +105,21 @@ const S = {
     object-fit: cover;
     width: 120px;
   `,
-  LinkWrapper: styled(Flex.Column)`
-    background-color: ${({ theme }) => theme.palette.primary.light};
-    border: 1px solid ${({ theme }) => theme.palette.primary.dark};
+  LinkWrapper: styled(Flex.Column)<{ disable: boolean }>`
+    background-color: ${({ theme, disable }) =>
+      disable ? theme.palette.grey[200] : theme.palette.primary.light};
+    border: 1px solid
+      ${({ theme, disable }) =>
+        disable ? theme.palette.grey[400] : theme.palette.primary.main};
     border-radius: 0.4rem;
+    color: ${({ theme, disable }) =>
+      disable ? theme.palette.grey[400] : theme.palette.primary.main};
+
+    &:hover {
+      color: ${({ theme, disable }) => !disable && theme.palette.primary.dark};
+    }
   `,
   Link: styled('a')<{ noLink?: boolean }>`
-    color: ${({ theme }) => theme.palette.primary.dark};
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -113,9 +131,5 @@ const S = {
       `
        text-decoration: underline;
     `}
-
-    &:hover {
-      color: ${({ theme }) => theme.palette.primary.main};
-    }
   `,
 };
