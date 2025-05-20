@@ -5,7 +5,7 @@ import {
   LinkedInIcon,
   UserImg,
 } from '@/assets';
-import { Flex, Heading } from '@/components';
+import { Flex, Heading, Text } from '@/components';
 import { styled, useTheme } from '@mui/material';
 
 import { useGetProfileImageQuery } from '../hooks/useGetProfileQuery';
@@ -23,14 +23,19 @@ export const ProfileContent = ({ profile }: { profile: ProfileResponse }) => {
           alt="user profile image"
         />
         <Flex.Row
+          align="center"
           style={{ color: theme.palette.primary.main }}
           wrap="wrap"
-          gap=".25rem"
+          gap=".5rem"
         >
           <Heading as="h1">{profile?.studentName} |</Heading>
-          <Heading as="h1">
-            {profile.job ? profile?.job : '희망 직군을 추가해주세요'}
-          </Heading>
+          {profile.job ? (
+            <Heading as="h1">{profile.job}</Heading>
+          ) : (
+            <Text color={theme.palette.text.disabled}>
+              희망 직군을 추가해주세요
+            </Text>
+          )}
         </Flex.Row>
       </Flex.Row>
 
