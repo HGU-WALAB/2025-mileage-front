@@ -35,8 +35,6 @@ export interface CapabilityDetailResponse {
   capabilityName: string;
   subitemId: number;
   subitemName: string;
-  categoryId: number;
-  categoryName: string;
   semester: string;
   description1: string;
   done: boolean;
