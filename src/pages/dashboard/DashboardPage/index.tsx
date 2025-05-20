@@ -2,7 +2,7 @@ import { Flex } from '@/components';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useAuthStore } from '@/stores';
 
-import { ChartSection } from './components/ChartSection';
+import { CapabilitySection } from './components/CapabilitySection';
 import { FAQSection } from './components/FAQSection';
 import { NoAccessLogoutModal } from './components/NoAccessLogoutModal';
 import { ProcessSection } from './components/ProcessSection';
@@ -21,7 +21,7 @@ const DashboardPage = () => {
         <ScholarshipStudentTypeSection />
       </Flex.Row>
 
-      <ChartSection />
+      <CapabilitySection />
 
       <ProcessSection />
 
