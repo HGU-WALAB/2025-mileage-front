@@ -27,7 +27,7 @@ export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
           justify="center"
           align="center"
         >
-          이미지가 등록하지 않았어요 📷
+          이미지가 등록되지 않았어요 📷
         </S.ImagePlaceholder>
       )}
 
