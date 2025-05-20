@@ -47,6 +47,12 @@ export const patchProfile = async ({
 };
 
 export const patchTechStack = async (techStack : TechStack) => {
-  const response = await http.patch(`${ENDPOINT.PROFILE}/techStack`, techStack);
+  const response = await http.patch(`${ENDPOINT.PROFILE}/techStack`, techStack,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
   return response;
 };
