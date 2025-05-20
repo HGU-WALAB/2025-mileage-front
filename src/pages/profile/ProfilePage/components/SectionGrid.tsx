@@ -4,25 +4,28 @@ import { styled, useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
 import { AwardCountSection } from './AwardCountSection';
 import { MileageCountSection } from './MileageCountSection';
-import { SkillSection } from './SkillSection';
+import { TechStackSection } from './TechStackSection';
 import { TopProjectSection } from './TopProjectSection';
 
 export const SectionGrid = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+
   return (
     <S.Grid isMobile={isMobile}>
-      <SkillSection />
+      <Suspense>
+        <TechStackSection />
+      </Suspense>
 
       <Suspense>
         <TopProjectSection />
       </Suspense>
 
       <Suspense>
-        <MileageCountSection />
+        <AwardCountSection />
       </Suspense>
 
       <Suspense>
-        <AwardCountSection />
+        <MileageCountSection />
       </Suspense>
     </S.Grid>
   );

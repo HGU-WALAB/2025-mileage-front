@@ -10,5 +10,11 @@ export const QUERY_KEYS = {
   semesterCapability: 'semesterCapability',
   award: 'award',
   project: 'project',
+  topProject: 'topProject',
   profile: 'profile',
+  profileShare: 'profileShare',
+  techStack: 'techStack',
+  techStackShare: 'techStackShare',
+  mileageCountShare: 'mileageCountShare',
+  awardCountShare: 'awardCountShare',
 };

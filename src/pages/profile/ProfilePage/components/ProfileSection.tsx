@@ -1,12 +1,13 @@
 import { BlogIcon, GithubIcon, InstagramIcon, LinkedInIcon } from '@/assets';
 import { Flex, Heading } from '@/components';
+import { useOpenModal } from '@/hooks';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
 import { useGetUserInfoQuery } from '@auth/hooks/useGetUserInfoQuery';
-import { useOpenModal } from '@/hooks';
-import { EditProfileModal } from './EditProfileModal';
 import { useGetProfileQuery } from '@profile/hooks/useGetProfileQuery';
+
+import { EditProfileModal } from './EditProfileModal';
 
 export const ProfileSection = () => {
   const theme = useTheme();
@@ -14,7 +15,7 @@ export const ProfileSection = () => {
   const { profile } = useGetProfileQuery();
   const { open, toggleModal } = useOpenModal(false);
 
-  if(!profile) return null;
+  if (!profile) return null;
 
   return (
     <S.Section
@@ -28,14 +29,19 @@ export const ProfileSection = () => {
       margin="auto 0"
     >
       <Flex.Row align="center" gap="5rem">
-        <S.ProfileImg src={profile?.profile_image_url ? profile.profile_image_url : "https://i0.wp.com/passivesills.com/wp-content/uploads/2020/06/User-Icon-Grey.png?ssl=1"} alt="user profile image" />
+        <S.ProfileImg
+          src={
+            profile?.profile_image_url
+              ? profile.profile_image_url
+              : 'https://i0.wp.com/passivesills.com/wp-content/uploads/2020/06/User-Icon-Grey.png?ssl=1'
+          }
+          alt="user profile image"
+        />
         <Flex.Column style={{ color: theme.palette.primary.main }}>
           <Heading as="h1">
             {userInfo?.studentName} | {profile?.job}
           </Heading>
-          <Heading as="h3">
-            {profile?.self_description}
-          </Heading>
+          <Heading as="h3">{profile?.self_description}</Heading>
         </Flex.Column>
       </Flex.Row>
 
@@ -43,7 +49,7 @@ export const ProfileSection = () => {
         <Flex.Column style={{ color: theme.palette.primary.main }}>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={profile?.github_link}
+              href={profile?.github_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -54,7 +60,7 @@ export const ProfileSection = () => {
 
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={profile?.blog_link}
+              href={profile?.blog_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -67,7 +73,7 @@ export const ProfileSection = () => {
         <Flex.Column>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={profile?.linkedin_link}
+              href={profile?.linkedin_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -77,7 +83,7 @@ export const ProfileSection = () => {
           </S.LinkWrapper>
           <S.LinkWrapper padding=".5rem 1rem">
             <S.Link
-              href={profile?.instagram_link}
+              href={profile?.instagram_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -110,9 +116,8 @@ const S = {
     background-color: ${({ theme }) => theme.palette.primary.light};
     border: 1px solid ${({ theme }) => theme.palette.primary.dark};
     border-radius: 0.4rem;
-    margin-bottom: 0.5rem;
   `,
-  Link: styled('a')`
+  Link: styled('a')<{ noLink?: boolean }>`
     color: ${({ theme }) => theme.palette.primary.dark};
     cursor: pointer;
     display: flex;
@@ -120,7 +125,11 @@ const S = {
     font-weight: 500;
     gap: 0.5rem;
     justify-content: space-between;
-    text-decoration: underline;
+    ${({ noLink }) =>
+      !noLink &&
+      `
+       text-decoration: underline;
+    `}
 
     &:hover {
       color: ${({ theme }) => theme.palette.primary.main};

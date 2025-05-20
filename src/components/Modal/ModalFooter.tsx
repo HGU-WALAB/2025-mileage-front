@@ -9,18 +9,21 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 
 const ModalFooter = ({ position = 'end', children, ...props }: Props) => {
   return (
-    <Flex.Row
-      justify={
-        position === 'start'
-          ? 'flex-start'
-          : position === 'end'
-            ? 'flex-end'
-            : position
-      }
-      {...props}
-    >
-      <DialogActions>{children}</DialogActions>
-    </Flex.Row>
+    <DialogActions>
+      <Flex.Row
+        width="100%"
+        justify={
+          position === 'start'
+            ? 'flex-start'
+            : position === 'end'
+              ? 'flex-end'
+              : position
+        }
+        {...props}
+      >
+        {children}
+      </Flex.Row>
+    </DialogActions>
   );
 };
 

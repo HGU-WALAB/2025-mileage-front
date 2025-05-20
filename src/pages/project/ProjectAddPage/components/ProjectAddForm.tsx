@@ -8,7 +8,6 @@ import {
 } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useAuthStore } from '@/stores';
 import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
 import { Controller, FormProvider, useForm } from 'react-hook-form';
@@ -40,15 +39,13 @@ export const ProjectAddForm = () => {
       thumbnail: undefined,
     },
   });
-  const { control, register, handleSubmit } = methods;
-  const { user } = useAuthStore();
+  const { control, handleSubmit } = methods;
   const { postProject } = usePostProjectMutation();
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
 
   const onSubmit = async (formValues: ProjectFormValues) => {
     try {
       await postProject({
-        studentId: user.studentId,
         formValues,
       });
 
@@ -100,12 +97,7 @@ export const ProjectAddForm = () => {
                   name="start_date"
                   control={control}
                   render={({ field }) => (
-                    <FormField.Input
-                      type="date"
-                      {...field}
-                      fullWidth
-                      required
-                    />
+                    <FormField.Input type="date" {...field} fullWidth />
                   )}
                 />
                 -
@@ -121,18 +113,21 @@ export const ProjectAddForm = () => {
 
             <FormField direction="column">
               <FormField.Label label="프로젝트 링크" />
-              <Flex.Column width="100%" gap="1rem">
-                <FormField.Input
-                  {...register('deployed_link')}
+              <Flex.Column width="100%">
+                <ControlledFormField<ProjectFormValues>
+                  name="deployed_link"
                   placeholder="서비스 링크"
+                  control={control}
                 />
-                <FormField.Input
-                  {...register('github_link')}
+                <ControlledFormField<ProjectFormValues>
+                  name="github_link"
                   placeholder="GitHub 링크"
+                  control={control}
                 />
-                <FormField.Input
-                  {...register('blog_link')}
+                <ControlledFormField<ProjectFormValues>
+                  name="blog_link"
                   placeholder="블로그 링크"
+                  control={control}
                 />
               </Flex.Column>
             </FormField>
@@ -146,7 +141,7 @@ export const ProjectAddForm = () => {
                   <Autocomplete
                     multiple
                     options={TECH_OPTIONS}
-                    value={field.value}
+                    value={field.value ?? []}
                     onChange={(_, value) => field.onChange(value)}
                     renderInput={params => (
                       <FormField.Input {...params} placeholder="기술 스택" />

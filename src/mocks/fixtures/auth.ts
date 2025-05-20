@@ -1,8 +1,8 @@
 import { UserResponse } from '@auth/types/auth';
 
 export const mockUserData: UserResponse = {
-  studentId: '22000770',
-  studentName: '최혜림',
+  studentId: '22000000',
+  studentName: '김한동',
   studentEmail: 'HyelimChoi01@gmail.com',
   major1: '컴퓨터공학',
   major2: '경영학',

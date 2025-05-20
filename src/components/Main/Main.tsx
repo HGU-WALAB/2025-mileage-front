@@ -5,15 +5,18 @@ import {
 } from '@/constants/layoutSize';
 import { styled } from '@mui/material/styles';
 
-const Main = styled('main', { shouldForwardProp: prop => prop !== 'open' })<{
+const Main = styled('main', {
+  shouldForwardProp: prop => prop !== 'open' && prop !== 'isMobile',
+})<{
   open?: boolean;
-}>(({ theme }) => ({
+  isMobile?: boolean;
+}>(({ theme, isMobile }) => ({
   flexGrow: 1,
   transition: theme.transitions.create('margin', {
     easing: theme.transitions.easing.sharp,
     duration: theme.transitions.duration.leavingScreen,
   }),
-  height: globalMobileHeight,
+  height: isMobile ? globalMobileHeight : globalHeight,
   maxWidth: `100%`,
   margin: `.5rem`,
   backgroundColor: theme.palette.background.default,

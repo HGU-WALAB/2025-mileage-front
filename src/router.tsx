@@ -18,7 +18,9 @@ const ProjectDetailPage = React.lazy(
   () => import('@project/ProjectDetailPage'),
 );
 const ProjectAddPage = React.lazy(() => import('@project/ProjectAddPage'));
+const ProjectEditPage = React.lazy(() => import('@project/ProjectEditPage'));
 const ProfilePage = React.lazy(() => import('@profile/ProfilePage'));
+const ProfileSharePage = React.lazy(() => import('@profile/ProfileSharePage'));
 const LoginPage = React.lazy(() => import('@auth/LoginPage'));
 const ErrorPage = React.lazy(() => import('@etc/ErrorPage'));
 const NotFoundPage = React.lazy(() => import('@etc/NotFoundPage'));
@@ -58,12 +60,16 @@ const router = createBrowserRouter(
           element: <ProjectListPage />,
         },
         {
-          path: `${ROUTE_PATH.project}/:id`,
+          path: `${ROUTE_PATH.project}/:projectId`,
           element: <ProjectDetailPage />,
         },
         {
           path: ROUTE_PATH.newProject,
           element: <ProjectAddPage />,
+        },
+        {
+          path: `${ROUTE_PATH.project}/:projectId/edit`,
+          element: <ProjectEditPage />,
         },
         {
           path: ROUTE_PATH.scholarship,
@@ -85,6 +91,10 @@ const router = createBrowserRouter(
         {
           path: ROUTE_PATH.login,
           element: <LoginPage />,
+        },
+        {
+          path: `${ROUTE_PATH.profile}/:id`,
+          element: <ProfileSharePage />,
         },
       ],
     },

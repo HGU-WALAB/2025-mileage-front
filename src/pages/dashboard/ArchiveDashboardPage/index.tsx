@@ -1,39 +1,14 @@
-import { Flex, SectionErrorFallback } from '@/components';
-import { QueryErrorResetBoundary } from '@tanstack/react-query';
-import { Suspense } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import { Flex } from '@/components';
 
 import { AwardArchiveSection } from './components/AwardArchiveSection';
 import { ProjectArchiveSection } from './components/ProjectArchiveSection';
 
 const ArchiveDashboardPage = () => {
   return (
-    <Flex.Column margin="1rem" gap="5rem">
-      <QueryErrorResetBoundary>
-        {({ reset }) => (
-          <ErrorBoundary
-            FallbackComponent={SectionErrorFallback}
-            onReset={reset}
-          >
-            <Suspense>
-              <AwardArchiveSection />
-            </Suspense>
-          </ErrorBoundary>
-        )}
-      </QueryErrorResetBoundary>
+    <Flex.Column margin="1rem" gap="3rem">
+      <AwardArchiveSection />
 
-      <QueryErrorResetBoundary>
-        {({ reset }) => (
-          <ErrorBoundary
-            FallbackComponent={SectionErrorFallback}
-            onReset={reset}
-          >
-            <Suspense>
-              <ProjectArchiveSection />
-            </Suspense>
-          </ErrorBoundary>
-        )}
-      </QueryErrorResetBoundary>
+      <ProjectArchiveSection />
     </Flex.Column>
   );
 };
