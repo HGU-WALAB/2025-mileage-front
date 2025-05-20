@@ -15,11 +15,22 @@ export const TopProjectContent = ({
       <S.LabelText>대표 프로젝트</S.LabelText>
       {topProject ? (
         <>
-          <S.Thumbnail
-            src={thumbnail}
-            alt="프로젝트 대표 이미지"
-          />
-          <Heading as="h4">{topProject.name}</Heading>
+          {thumbnail ? (
+            <S.Thumbnail
+              src={thumbnail}
+              alt="프로젝트 대표 이미지"
+            />
+          ) : ( 
+            <S.ImagePlaceholder
+              width="100%"
+              height="180px"
+              justify="center"
+              align="center"
+            >
+              이미지가 등록되지 않았어요 📷
+            </S.ImagePlaceholder>
+          )}
+          <Heading as="h4">{topProject?.name}</Heading>
         </>
       ) : (
         <Flex.Column>대표 프로젝트가 아직 없어요!</Flex.Column>
@@ -47,5 +58,12 @@ const S = {
     font-size: 4rem;
     font-weight: 700;
     margin: 0;
+  `,
+  ImagePlaceholder: styled(Flex.Row)`
+    background-color: ${({ theme }) => theme.palette.grey[200]};
+    color: ${({ theme }) => theme.palette.text.disabled};
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 1rem;
   `,
 };

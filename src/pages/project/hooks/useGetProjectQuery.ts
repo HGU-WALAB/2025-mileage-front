@@ -29,7 +29,12 @@ export const useGetThumbnailQuery = (thumbnail: string | null) => {
     if (data) {
       const url = URL.createObjectURL(data);
       setObjectUrl(url);
-      return () => URL.revokeObjectURL(url);
+      return () => {
+        URL.revokeObjectURL(url);
+        setObjectUrl('');
+      };
+    } else {
+      setObjectUrl('');
     }
   }, [data]);
   
