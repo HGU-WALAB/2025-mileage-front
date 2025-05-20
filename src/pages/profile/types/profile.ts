@@ -17,10 +17,6 @@ export interface TechStack {
   techStack: string[];
 }
 
-export interface ProfileImage {
-  image: Blob;
-}
-
 export interface PatchSubmittedProfileRequest {
   job?: string;
   self_description?: string;

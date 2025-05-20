@@ -1,8 +1,9 @@
 import { ENDPOINT } from '@/apis/endPoint';
 import { http } from '@/apis/http';
 
-import { PatchSubmittedProfileRequest, ProfileImage, ProfileResponse, TechStack } from '../types/profile';
+import { PatchSubmittedProfileRequest, ProfileResponse, TechStack } from '../types/profile';
 import axios, { GenericFormData } from 'axios';
+import { BASE_URL } from '@/apis/config';
 
 export const getProfile = async () => {
   const response = await http.get<ProfileResponse>(`${ENDPOINT.PROFILE}`);
@@ -15,9 +16,13 @@ export const getTechStack = async () => {
 };
 
 export const getProfileImage = async (profileImageUrl: string) => {
-  const response = await http.get<ProfileImage>(`${ENDPOINT.PROFILE}${profileImageUrl}`);
+  if (!profileImageUrl) return null;
+  const response = await http.get<Blob>(`${BASE_URL}${ENDPOINT.PROFILE}/image/${profileImageUrl}`, {
+    responseType: 'blob',
+  });
   return response;
-}
+};
+
 export const patchProfile = async ({ 
   job,
   self_description,

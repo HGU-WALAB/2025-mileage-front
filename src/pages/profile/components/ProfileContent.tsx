@@ -3,15 +3,17 @@ import { Flex, Heading } from '@/components';
 import { styled, useTheme } from '@mui/material';
 
 import { ProfileResponse } from '../types/profile';
+import { useGetProfileImageQuery } from '../hooks/useGetProfileQuery';
 
 export const ProfileContent = ({ profile } : { profile: ProfileResponse }) => {
   const theme = useTheme();
+  const { profileImage } = useGetProfileImageQuery(profile?.profile_image_url);
 
   return (
     <>
       <Flex.Row align="center" gap="5rem">
         <S.ProfileImg
-          src={profile?.profile_image_url ?? ''}
+          src={profileImage ? profileImage : 'https://i0.wp.com/passivesills.com/wp-content/uploads/2020/06/User-Icon-Grey.png?ssl=1'}
           alt="user profile image"
         />
         <Flex.Row
