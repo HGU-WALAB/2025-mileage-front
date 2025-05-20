@@ -20,3 +20,14 @@ export interface TechStack {
 export interface ProfileImage {
   image: Blob;
 }
+export interface PatchSubmittedProfileRequest {
+  job?: string;
+  self_description?: string;
+
+  profile_image_url?: File;
+
+  github_link?: string;
+  blog_link?: string;
+  linkedin_link?: string;
+  instagram_link?: string;
+}
