@@ -10,7 +10,7 @@ export const useGetActivityRecommendQuery = () => {
     ActivityRecommendResponse,
     AxiosError
   >({
-    queryKey: [QUERY_KEYS.capabilityDetail],
+    queryKey: [QUERY_KEYS.activityRecommend],
     queryFn: () => getActivityRecommend(),
   });
 

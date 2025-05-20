@@ -5,19 +5,14 @@ import { styled } from '@mui/material';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { ActivityRecommendContent } from '@/pages/dashboard/DashboardPage/components/ActivityRecommendContent';
+import { ActivityRecommendContent } from './ActivityRecommendContent';
 
 export const ActivityRecommendSection = () => {
   return (
     <S.Container height="300px" width="100%" padding="1rem" gap=".5rem">
       <Heading as="h3">역량 강화 활동 추천</Heading>
 
-      <Flex.Row
-        height="90%"
-        width="100%"
-        justify="flex-start"
-        align="flex-start"
-      >
+      <Flex.Row height="90%" width="100%" justify="center" align="center">
         <ErrorBoundary FallbackComponent={ErrorBox}>
           <Suspense fallback={<LoadingIcon width={100} height={100} />}>
             <ActivityRecommendContent />

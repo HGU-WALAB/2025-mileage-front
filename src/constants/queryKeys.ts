@@ -14,6 +14,7 @@ export const QUERY_KEYS = {
   compareCapability: 'compareCapability',
   semesterCapability: 'semesterCapability',
   capabilityDetail: 'capabilityDetail',
+  activityRecommend: 'activityRecommend',
 
   award: 'award',
 
