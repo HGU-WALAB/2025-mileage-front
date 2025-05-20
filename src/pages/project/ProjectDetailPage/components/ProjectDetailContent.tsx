@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm';
 import { TechStackBadge } from '../../components/TechStackBadge';
 import { EMPTY_MESSAGE } from '../../constants/system';
 import { ProjectResponse } from '../../types/project';
+import { useGetThumbnailQuery } from '../../hooks/useGetProjectQuery';
 
 export const ProjectDetailContent = ({
   project,
@@ -15,6 +16,7 @@ export const ProjectDetailContent = ({
   project: ProjectResponse;
 }) => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+  const { thumbnail } = useGetThumbnailQuery(project?.thumbnail);
 
   return (
     <Flex.Column gap="2rem" padding={isMobile ? '' : '0 2rem'}>
@@ -86,10 +88,10 @@ export const ProjectDetailContent = ({
         </Flex.Column>
 
         {project.thumbnail ? (
-          <S.MainImage src={`images/${project.thumbnail}`} alt="대표 이미지" />
+          <S.MainImage src={thumbnail} alt="대표 이미지" />
         ) : (
           <S.ImagePlaceholder width="100%" justify="center" align="center">
-            이미지가 등록하지 않았어요 📷
+            이미지가 등록되지 않았어요 📷
           </S.ImagePlaceholder>
         )}
       </Flex>
