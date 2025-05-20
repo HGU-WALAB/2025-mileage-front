@@ -1,13 +1,16 @@
 import { Flex } from '@/components';
+import { useOpenModal } from '@/hooks';
 import { boxShadow } from '@/styles/common';
 import { styled, useTheme } from '@mui/material';
 
 import { ProfileContent } from '../../components/ProfileContent';
 import { useGetProfileQuery } from '../../hooks/useGetProfileQuery';
+import { EditProfileModal } from './EditProfileModal';
 
 export const ProfileSection = () => {
   const theme = useTheme();
   const { profile } = useGetProfileQuery();
+  const { open, toggleModal } = useOpenModal(false);
 
   return (
     <S.Section
@@ -22,7 +25,8 @@ export const ProfileSection = () => {
     >
       <ProfileContent profile={profile} />
 
-      <S.EditButton onClick={() => {}}>편집하기</S.EditButton>
+      <S.EditButton onClick={toggleModal}>편집하기</S.EditButton>
+      <EditProfileModal open={open} onClose={toggleModal} profile={profile} />
     </S.Section>
   );
 };

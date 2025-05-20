@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { TechStackBadge } from '../../components/TechStackBadge';
 import { ProjectResponse } from '../../types/project';
+import { useGetThumbnailQuery } from '../../hooks/useGetProjectQuery';
 
 export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
   const navigate = useNavigate();
@@ -13,10 +14,12 @@ export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
     navigate(ROUTE_PATH.projectDetail(project.projectId));
   };
 
+  const { thumbnail } = useGetThumbnailQuery(project?.thumbnail);
+
   return (
     <S.Card width="100%" height="330px" onClick={handleClick}>
       {project.thumbnail ? (
-        <S.Thumbnail src={`images/${project.thumbnail}`} alt="대표 이미지" />
+        <S.Thumbnail src={thumbnail} alt="대표 이미지" />
       ) : (
         <S.ImagePlaceholder
           width="100%"
@@ -24,7 +27,7 @@ export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
           justify="center"
           align="center"
         >
-          이미지가 등록하지 않았어요 📷
+          이미지가 등록되지 않았어요 📷
         </S.ImagePlaceholder>
       )}
 

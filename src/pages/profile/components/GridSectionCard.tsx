@@ -21,6 +21,7 @@ const S = {
     padding: 2rem;
     ${boxShadow};
     width: 100%;
+    position: relative;
 
     &:hover,
     &:active {
