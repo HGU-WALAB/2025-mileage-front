@@ -1,8 +1,9 @@
 import { Table } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { CapabilityDetailResponse } from '@/pages/dashboard/types/capability';
 import { THeader } from '@/types/table';
 import { useMediaQuery } from '@mui/material';
+
+import { CapabilityDetailResponse } from '../../types/capability';
 
 export const CapabilityDetailTable = ({
   capabilityList,
@@ -26,6 +27,6 @@ export const CapabilityDetailTable = ({
 
 const headerItems: THeader[] = [
   { text: '학기', value: 'semester', width: '100px' },
-  { text: '항목명', value: 'subitemName', width: '200px' },
+  { text: '항목명', value: 'subitemName', width: '300px' },
   { text: '내용', value: 'description1', width: '300px' },
 ];

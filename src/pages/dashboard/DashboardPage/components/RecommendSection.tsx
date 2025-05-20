@@ -2,8 +2,8 @@ import { Flex } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useMediaQuery } from '@mui/material';
 
+import { ActivityRecommendSection } from './ActivityRecommendSection';
 import { CapabilityDetailSection } from './CapabilityDetailSection';
-import { MileageHistoryChartSection } from './MileageHistoryChartSection';
 
 export const RecommendSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
@@ -18,7 +18,7 @@ export const RecommendSection = () => {
     >
       <CapabilityDetailSection />
 
-      <MileageHistoryChartSection />
+      <ActivityRecommendSection />
     </Flex.Row>
   );
 };

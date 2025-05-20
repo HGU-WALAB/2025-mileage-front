@@ -22,7 +22,7 @@ export const CapabilityDetailContent = () => {
   );
 
   return (
-    <Flex.Column justify="flex-start" gap=".5rem" height="100%">
+    <Flex.Column justify="flex-start" gap=".5rem" height="100%" width="100%">
       <S.CategoryOptions gap=".5rem">
         {capability.map(capa => (
           <ToggleButton
@@ -37,6 +37,7 @@ export const CapabilityDetailContent = () => {
 
       <Flex.Row
         height="85%"
+        width="100%"
         style={{ overflow: 'hidden', overflowX: 'scroll' }}
       >
         <CapabilityDetailTable capabilityList={selectedCapabilityDetail} />
