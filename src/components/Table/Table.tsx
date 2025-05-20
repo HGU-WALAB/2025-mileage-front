@@ -22,7 +22,7 @@ const Table = <T extends { [key: string]: any }>({
   bodyItems,
 }: Props<T>) => {
   return (
-    <TableContainer component={Paper} sx={{ boxShadow: 'none' }}>
+    <TableContainer component={Paper} sx={{ boxShadow: 'none', width: '100%' }}>
       <MuiTable sx={{ minWidth: 350 }} aria-label="table">
         <S.TableHead>
           <TableRow>
