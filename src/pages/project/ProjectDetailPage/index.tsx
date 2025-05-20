@@ -1,27 +1,38 @@
-import { DeferredComponent, Flex, PageErrorFallback } from '@/components';
+import {
+  BackButton,
+  DeferredComponent,
+  Flex,
+  PageErrorFallback,
+} from '@/components';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
+import { useMediaQuery } from '@mui/material';
 import { DeleteProjectSection } from './components/DeleteProjectSection';
 import { EditProjectButton } from './components/EditProjectButton';
 import { ProjectDetailSection } from './components/ProjectDetailSection';
 import { ProjectDetailSkeleton } from './components/ProjectDetailSkeleton';
 
 const ProjectDetailPage = () => {
+  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   useTrackPageView({ eventName: '[View] 프로젝트 디테일 페이지' });
 
   return (
     <Flex.Column margin="1rem">
       <Flex.Row
-        justify="flex-end"
+        justify="space-between"
         align="center"
         gap="1rem"
         padding="0 2rem .5rem"
       >
-        <EditProjectButton />
-        <DeleteProjectSection />
+        {!isMobile && <BackButton size="small" />}
+        <Flex.Row gap="1rem">
+          <EditProjectButton />
+          <DeleteProjectSection />
+        </Flex.Row>
       </Flex.Row>
 
       <QueryErrorResetBoundary>
