@@ -12,12 +12,7 @@ export const CapabilityDetailSection = () => {
     <S.Container height="300px" width="100%" padding="1rem" gap=".5rem">
       <Heading as="h3">나의 역량 상세 세부사항</Heading>
 
-      <Flex.Row
-        height="90%"
-        width="100%"
-        justify="flex-start"
-        align="flex-start"
-      >
+      <Flex.Row height="90%" width="100%" justify="center" align="center">
         <ErrorBoundary FallbackComponent={ErrorBox}>
           <Suspense fallback={<LoadingIcon width={100} height={100} />}>
             <CapabilityDetailContent />
