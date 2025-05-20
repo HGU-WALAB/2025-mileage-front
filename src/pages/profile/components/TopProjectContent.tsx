@@ -1,4 +1,5 @@
 import { Flex, Heading } from '@/components';
+import { useGetThumbnailQuery } from '@/pages/project/hooks/useGetProjectQuery';
 import { ProjectResponse } from '@/pages/project/types/project';
 import { styled } from '@mui/material';
 
@@ -7,19 +8,21 @@ export const TopProjectContent = ({
 }: {
   topProject: ProjectResponse | null;
 }) => {
+  const { thumbnail } = useGetThumbnailQuery(topProject?.thumbnail ?? '');
+
   return (
     <Flex.Column height="100%" gap="1rem" justify="center" align="center">
       <S.LabelText>대표 프로젝트</S.LabelText>
       {topProject ? (
         <>
           <S.Thumbnail
-            src={`/images/${topProject.thumbnail}`}
+            src={thumbnail}
             alt="프로젝트 대표 이미지"
           />
           <Heading as="h4">{topProject.name}</Heading>
         </>
       ) : (
-        <Flex.Column>대표 프로젝트를 아직 없어요!</Flex.Column>
+        <Flex.Column>대표 프로젝트가 아직 없어요!</Flex.Column>
       )}
     </Flex.Column>
   );
