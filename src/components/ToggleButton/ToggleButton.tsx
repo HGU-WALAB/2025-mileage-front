@@ -36,6 +36,10 @@ const ToggleButton = ({
       disabled={disabled}
       size={size}
       sx={{
+        whiteSpace: 'nowrap',
+        overflow: 'visible',
+        textOverflow: 'unset',
+        minWidth: 'fit-content',
         backgroundColor:
           variant === 'contained'
             ? selected
