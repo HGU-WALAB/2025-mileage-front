@@ -1,4 +1,4 @@
-import { ErrorBox } from '@/components';
+import { ErrorBox, Spinner } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
@@ -16,25 +16,49 @@ export const SectionGrid = () => {
   return (
     <S.Grid isMobile={isMobile}>
       <ErrorBoundary FallbackComponent={ErrorBox}>
-        <Suspense fallback={<GridSectionCard />}>
+        <Suspense
+          fallback={
+            <GridSectionCard>
+              <Spinner />
+            </GridSectionCard>
+          }
+        >
           <TechStackSection />
         </Suspense>
       </ErrorBoundary>
 
       <ErrorBoundary FallbackComponent={ErrorBox}>
-        <Suspense fallback={<GridSectionCard />}>
+        <Suspense
+          fallback={
+            <GridSectionCard>
+              <Spinner />
+            </GridSectionCard>
+          }
+        >
           <TopProjectSection />
         </Suspense>
       </ErrorBoundary>
 
       <ErrorBoundary FallbackComponent={ErrorBox}>
-        <Suspense fallback={<GridSectionCard />}>
+        <Suspense
+          fallback={
+            <GridSectionCard>
+              <Spinner />
+            </GridSectionCard>
+          }
+        >
           <AwardCountSection />
         </Suspense>
       </ErrorBoundary>
 
       <ErrorBoundary FallbackComponent={ErrorBox}>
-        <Suspense fallback={<GridSectionCard />}>
+        <Suspense
+          fallback={
+            <GridSectionCard>
+              <Spinner />
+            </GridSectionCard>
+          }
+        >
           <MileageCountSection />
         </Suspense>
       </ErrorBoundary>
