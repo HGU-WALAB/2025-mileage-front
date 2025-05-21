@@ -1,4 +1,4 @@
-import { Button, Flex, Modal, Text } from '@/components';
+import { Button, Flex, Modal } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery, useTheme } from '@mui/material';
 import { FormProvider } from 'react-hook-form';
@@ -40,10 +40,6 @@ export const EditSkillModal = ({ open, onClose, techStack }: Props) => {
       >
         <FormProvider {...methods}>
           <S.Form onSubmit={methods.handleSubmit(onSubmit)}>
-            <Text style={{ ...theme.typography.h6, marginBottom: '1rem' }}>
-              사용한 기술 스택
-            </Text>
-
             <TechStackAddForm />
 
             <Flex.Row justify="center" gap="1.5rem" margin="2rem 0 0">

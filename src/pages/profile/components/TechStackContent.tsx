@@ -9,7 +9,7 @@ export const TechStackContent = ({ techStack }: { techStack: string[] }) => {
     <Flex.Column height="100%" justify="center" align="center" gap="1.5rem">
       <S.LabelText>나의 스킬</S.LabelText>
       <Flex.Row justify="center" wrap="wrap" gap=".5rem" width="100%">
-        {techStack ? (
+        {techStack.length ? (
           techStack.map(skill => <TechStackBadge key={skill} tech={skill} />)
         ) : (
           <Text color={theme.palette.text.disabled}>

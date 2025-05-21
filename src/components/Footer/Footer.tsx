@@ -32,9 +32,8 @@ export const Footer = () => {
 
 const S = {
   Container: styled('footer')`
-    background-color: ${({ theme }) => theme.palette.grey[100]};
     border-top: 1px solid ${({ theme }) => theme.palette.grey[300]};
-    margin-top: auto;
+    margin-top: 2rem;
     padding: 2rem 1.5rem;
     width: 100%;
   `,

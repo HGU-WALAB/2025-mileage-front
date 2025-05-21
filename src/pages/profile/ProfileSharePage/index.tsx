@@ -19,11 +19,9 @@ const ProfileSharePage = () => {
       <Main open={false}>
         <Header headerTitle={'프로필'} />
 
-        <Flex.Column padding="1rem" gap="1rem">
-          <ErrorBoundary FallbackComponent={PageErrorFallback}>
-            <Suspense>
-              <ProfileSection />
-            </Suspense>
+        <ErrorBoundary FallbackComponent={PageErrorFallback}>
+          <Flex.Column padding="1rem" gap="1rem">
+            <ProfileSection />
 
             <Flex.Row wrap={isMobile ? 'wrap' : 'nowrap'} gap="1rem">
               <Suspense>
@@ -34,10 +32,10 @@ const ProfileSharePage = () => {
                 <GithubGraphSection />
               </Suspense>
             </Flex.Row>
-          </ErrorBoundary>
 
-          <SectionGrid />
-        </Flex.Column>
+            <SectionGrid />
+          </Flex.Column>
+        </ErrorBoundary>
 
         <Footer />
       </Main>

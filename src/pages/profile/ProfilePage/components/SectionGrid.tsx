@@ -2,6 +2,7 @@ import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
 
+import { GridSectionCard } from '../../components/GridSectionCard';
 import { AwardCountSection } from './AwardCountSection';
 import { MileageCountSection } from './MileageCountSection';
 import { TechStackSection } from './TechStackSection';
@@ -12,19 +13,19 @@ export const SectionGrid = () => {
 
   return (
     <S.Grid isMobile={isMobile}>
-      <Suspense>
+      <Suspense fallback={<GridSectionCard />}>
         <TechStackSection />
       </Suspense>
 
-      <Suspense>
+      <Suspense fallback={<GridSectionCard />}>
         <TopProjectSection />
       </Suspense>
 
-      <Suspense>
+      <Suspense fallback={<GridSectionCard />}>
         <AwardCountSection />
       </Suspense>
 
-      <Suspense>
+      <Suspense fallback={<GridSectionCard />}>
         <MileageCountSection />
       </Suspense>
     </S.Grid>

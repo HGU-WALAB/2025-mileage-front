@@ -5,6 +5,7 @@ import { useMediaQuery } from '@mui/material';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { Suspense } from 'react';
 import { GithubGraphSection } from './components/GithubGraphSection';
 import { IntroduceSection } from './components/IntroduceSection';
 import { ProfileSection } from './components/ProfileSection';
@@ -46,7 +47,9 @@ const ProfilePage = () => {
                 FallbackComponent={PageErrorFallback}
                 onReset={reset}
               >
-                <UserInfoSection />
+                <Suspense>
+                  <UserInfoSection />
+                </Suspense>
               </ErrorBoundary>
             )}
           </QueryErrorResetBoundary>
