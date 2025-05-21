@@ -8,7 +8,7 @@ import { getShareTopProject } from '../apis/share';
 export const useGetShareTopProjectQuery = () => {
   const { id } = useParams<{ id: string }>();
   const { data, ...rest } = useSuspenseQuery<ProjectResponse | null>({
-    queryKey: [QUERY_KEYS.topProject],
+    queryKey: [QUERY_KEYS.topProjectShare],
     queryFn: () => getShareTopProject(id ?? ''),
   });
 
