@@ -1,6 +1,8 @@
+import { ErrorBox } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { GridSectionCard } from '../../components/GridSectionCard';
 import { AwardCountSection } from './AwardCountSection';
@@ -13,21 +15,29 @@ export const SectionGrid = () => {
 
   return (
     <S.Grid isMobile={isMobile}>
-      <Suspense fallback={<GridSectionCard />}>
-        <TechStackSection />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorBox}>
+        <Suspense fallback={<GridSectionCard />}>
+          <TechStackSection />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<GridSectionCard />}>
-        <TopProjectSection />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorBox}>
+        <Suspense fallback={<GridSectionCard />}>
+          <TopProjectSection />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<GridSectionCard />}>
-        <AwardCountSection />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorBox}>
+        <Suspense fallback={<GridSectionCard />}>
+          <AwardCountSection />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense fallback={<GridSectionCard />}>
-        <MileageCountSection />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorBox}>
+        <Suspense fallback={<GridSectionCard />}>
+          <MileageCountSection />
+        </Suspense>
+      </ErrorBoundary>
     </S.Grid>
   );
 };

@@ -24,11 +24,17 @@ const ProfilePage = () => {
       </Flex.Row>
 
       <ErrorBoundary FallbackComponent={PageErrorFallback}>
-        <ProfileSection />
+        <Suspense>
+          <ProfileSection />
+        </Suspense>
 
-        <IntroduceSection />
+        <Suspense>
+          <IntroduceSection />
+        </Suspense>
 
-        <GithubGraphSection />
+        <Suspense>
+          <GithubGraphSection />
+        </Suspense>
       </ErrorBoundary>
 
       <Flex.Row
