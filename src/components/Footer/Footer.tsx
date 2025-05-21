@@ -10,9 +10,10 @@ export const Footer = () => {
           <S.Description>
             한동대학교 SW전공생을 위한 역량 모니터링 서비스
           </S.Description>
-          <S.Copyright>
+          <S.Text>
             © {new Date().getFullYear()} WALAB. All rights reserved.
-          </S.Copyright>
+          </S.Text>
+          <S.Text>Developed by 최혜림, 권채은, 황유민</S.Text>
         </Flex.Column>
 
         <Flex.Column align="flex-end" gap="0.3rem">
@@ -47,7 +48,7 @@ const S = {
     font-size: 0.9rem;
     margin: 0;
   `,
-  Copyright: styled('p')`
+  Text: styled('p')`
     color: ${({ theme }) => theme.palette.text.disabled};
     font-size: 0.75rem;
     margin: 0;
