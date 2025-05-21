@@ -5,6 +5,8 @@ import { useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { IntroduceSkeleton } from '../components/IntroduceSkeleton';
+import { ProfileSkeleton } from '../components/ProfileSkeleton';
 import { GithubGraphSection } from './components/GithubGraphSection';
 import { IntroduceSection } from './components/IntroduceSection';
 import { ProfileSection } from './components/ProfileSection';
@@ -21,10 +23,12 @@ const ProfileSharePage = () => {
 
         <ErrorBoundary FallbackComponent={PageErrorFallback}>
           <Flex.Column padding="1rem" gap="1rem">
-            <ProfileSection />
+            <Suspense fallback={<ProfileSkeleton />}>
+              <ProfileSection />
+            </Suspense>
 
             <Flex.Row wrap={isMobile ? 'wrap' : 'nowrap'} gap="1rem">
-              <Suspense>
+              <Suspense fallback={<IntroduceSkeleton />}>
                 <IntroduceSection />
               </Suspense>
 

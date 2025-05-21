@@ -1,10 +1,4 @@
-import {
-  DeferredComponent,
-  ErrorContent,
-  Flex,
-  Heading,
-  Spinner,
-} from '@/components';
+import { DeferredComponent, ErrorContent, Flex, Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 import { Suspense, useState } from 'react';
@@ -12,6 +6,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { CompareOptionButtonSection } from './CompareOptionButtonSection';
 import { RadarChartSection } from './RadarChartSection';
+import { LoadingIcon } from '@/assets';
 
 export const CompetencyAnalyzeChartSection = () => {
   const [compareOption, setCompareOption] = useState<string[]>([]);
@@ -32,7 +27,7 @@ export const CompetencyAnalyzeChartSection = () => {
           <Suspense
             fallback={
               <DeferredComponent>
-                <Spinner />
+                <LoadingIcon width={100} height={100} />
               </DeferredComponent>
             }
           >

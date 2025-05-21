@@ -3,9 +3,11 @@ import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useMediaQuery } from '@mui/material';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
+import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { Suspense } from 'react';
+import { IntroduceSkeleton } from '../components/IntroduceSkeleton';
+import { ProfileSkeleton } from '../components/ProfileSkeleton';
 import { GithubGraphSection } from './components/GithubGraphSection';
 import { IntroduceSection } from './components/IntroduceSection';
 import { ProfileSection } from './components/ProfileSection';
@@ -24,11 +26,11 @@ const ProfilePage = () => {
       </Flex.Row>
 
       <ErrorBoundary FallbackComponent={PageErrorFallback}>
-        <Suspense>
+        <Suspense fallback={<ProfileSkeleton />}>
           <ProfileSection />
         </Suspense>
 
-        <Suspense>
+        <Suspense fallback={<IntroduceSkeleton />}>
           <IntroduceSection />
         </Suspense>
 

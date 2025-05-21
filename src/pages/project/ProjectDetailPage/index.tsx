@@ -4,13 +4,13 @@ import {
   Flex,
   PageErrorFallback,
 } from '@/components';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
+import { useMediaQuery } from '@mui/material';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useMediaQuery } from '@mui/material';
 import { DeleteProjectSection } from './components/DeleteProjectSection';
 import { EditProjectButton } from './components/EditProjectButton';
 import { ProjectDetailSection } from './components/ProjectDetailSection';

@@ -14,6 +14,7 @@ export const DeleteProjectSection = () => {
   const { open, toggleModal } = useOpenModal();
 
   const { deleteProject } = useDeleteProjectMutation();
+
   const handleDeleteProject = async () => {
     await deleteProject({ projectId: projectId ?? '' });
     navigate(ROUTE_PATH.project);
