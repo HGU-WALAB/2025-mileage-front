@@ -1,6 +1,6 @@
 import {
   DeferredComponent,
-  ErrorBox,
+  ErrorContent,
   Flex,
   Heading,
   Spinner,
@@ -28,7 +28,7 @@ export const CompetencyAnalyzeChartSection = () => {
       </Flex>
 
       <Flex height="70%" width="100%" justify="center" align="center">
-        <ErrorBoundary FallbackComponent={ErrorBox}>
+        <ErrorBoundary FallbackComponent={ErrorContent}>
           <Suspense
             fallback={
               <DeferredComponent>

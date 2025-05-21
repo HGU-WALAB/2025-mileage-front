@@ -1,5 +1,5 @@
 import { LoadingIcon } from '@/assets';
-import { ErrorBox, Flex, Heading, LineChart } from '@/components';
+import { ErrorContent, Flex, Heading, LineChart } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 import { Suspense } from 'react';
@@ -13,7 +13,7 @@ export const MileageHistoryChartSection = () => {
     <S.Container height="300px" width="100%" padding="1rem" gap="1rem">
       <Heading as="h3">나의 누적 마일리지(건)</Heading>
       <Flex height="90%" width="100%" justify="center" align="center">
-        <ErrorBoundary FallbackComponent={ErrorBox}>
+        <ErrorBoundary FallbackComponent={ErrorContent}>
           <Suspense fallback={<LoadingIcon width={100} height={100} />}>
             <ChartSection />
           </Suspense>
