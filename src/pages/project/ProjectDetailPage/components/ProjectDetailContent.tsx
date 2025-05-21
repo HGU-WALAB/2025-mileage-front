@@ -7,8 +7,8 @@ import remarkGfm from 'remark-gfm';
 
 import { TechStackBadge } from '../../components/TechStackBadge';
 import { EMPTY_MESSAGE } from '../../constants/system';
-import { ProjectResponse } from '../../types/project';
 import { useGetThumbnailQuery } from '../../hooks/useGetProjectQuery';
+import { ProjectResponse } from '../../types/project';
 
 export const ProjectDetailContent = ({
   project,
@@ -47,7 +47,18 @@ export const ProjectDetailContent = ({
 
           <Flex.Column gap=".25rem">
             <Heading as="h3">🧑‍💻 맡은 역할</Heading>
-            <Text>{project.role?.trim() || EMPTY_MESSAGE}</Text>
+            {project.role?.trim() ? (
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  p: ({ children }) => <S.Paragraph>{children}</S.Paragraph>,
+                }}
+              >
+                {project.role}
+              </ReactMarkdown>
+            ) : (
+              <Text>{EMPTY_MESSAGE}</Text>
+            )}
           </Flex.Column>
 
           <Flex.Column gap=".25rem">
@@ -115,7 +126,18 @@ export const ProjectDetailContent = ({
 
         <Flex.Column gap=".5rem">
           <Heading as="h3">🏆 성과</Heading>
-          <Text>{project.achievement?.trim() || EMPTY_MESSAGE}</Text>
+          {project.achievement?.trim() ? (
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                p: ({ children }) => <S.Paragraph>{children}</S.Paragraph>,
+              }}
+            >
+              {project.achievement}
+            </ReactMarkdown>
+          ) : (
+            <Text>{EMPTY_MESSAGE}</Text>
+          )}
         </Flex.Column>
       </Flex.Column>
     </Flex.Column>

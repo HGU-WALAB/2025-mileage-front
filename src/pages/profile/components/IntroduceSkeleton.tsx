@@ -7,6 +7,7 @@ export const IntroduceSkeleton = () => {
   return (
     <Flex.Column
       width="100%"
+      height="150px"
       padding="1rem"
       gap="1rem"
       backgroundColor={theme.palette.variant.default}
