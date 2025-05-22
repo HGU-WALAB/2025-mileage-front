@@ -16,7 +16,8 @@ export const MileageCountSection = () => {
       <Flex.Column height="100%" justify="center" align="center">
         <S.LabelText>누적 마일리지 건수</S.LabelText>
         <S.MileageNumber>
-          {semesterCapability?.pop()?.userMilestoneCount ?? 0}
+          {semesterCapability[semesterCapability.length - 1]
+            ?.userMilestoneCount ?? 0}
         </S.MileageNumber>
       </Flex.Column>
     </GridSectionCard>

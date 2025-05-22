@@ -2,16 +2,18 @@ import { BuildingIcon, SchoolIcon } from '@/assets';
 import { Flex, Heading } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { boxShadow } from '@/styles/common';
-import { styled, useMediaQuery } from '@mui/material';
+import { styled, useMediaQuery, useTheme } from '@mui/material';
 
 import { AwardType } from '@award/types/award';
 
 interface Props {
   awardType: AwardType;
   length: number;
+  onClick: () => void;
 }
 
-export const AwardCountBox = ({ awardType, length }: Props) => {
+export const AwardCountBox = ({ awardType, length, onClick }: Props) => {
+  const theme = useTheme();
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const icon = awardType === '교내' ? <SchoolIcon /> : <BuildingIcon />;
 
@@ -24,18 +26,24 @@ export const AwardCountBox = ({ awardType, length }: Props) => {
       padding={isMobile ? '1rem' : '1.5rem'}
       gap="1rem"
       wrap="wrap"
+      onClick={onClick}
     >
       <Flex.Column justify="center" gap={'.5rem'}>
         <S.IconWrapper justify="center" align="center" isMobile={isMobile}>
           {icon}
         </S.IconWrapper>
 
-        <S.AwardText>{awardType}</S.AwardText>
+        <Heading as="h3" color={theme.palette.primary.main}>
+          {awardType}
+        </Heading>
       </Flex.Column>
 
-      <S.CountText as="h2" isMobile={isMobile}>
+      <Heading
+        as="h2"
+        style={{ fontSize: '2rem', color: theme.palette.primary.main }}
+      >
         {length} 개
-      </S.CountText>
+      </Heading>
     </S.Container>
   );
 };
@@ -58,15 +66,5 @@ const S = {
     padding: ${({ isMobile }) => (isMobile ? '.5rem' : '1rem')};
     width: ${({ isMobile }) => (isMobile ? '50px' : '70px')};
     ${boxShadow}
-  `,
-  AwardText: styled(Heading)`
-    color: ${({ theme }) => theme.palette.primary.main};
-    font-size: 1.5rem;
-    font-weight: bold;
-  `,
-  CountText: styled(Heading)<{ isMobile: boolean }>`
-    color: ${({ theme }) => theme.palette.primary.main};
-    font-size: ${({ isMobile }) => (isMobile ? '2rem' : '3rem')};
-    font-weight: bold;
   `,
 };

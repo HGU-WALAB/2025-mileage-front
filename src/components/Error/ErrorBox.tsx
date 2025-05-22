@@ -1,22 +1,28 @@
-import { EmptyBoxImg } from '@/assets';
-import { Flex, Heading } from '@/components';
-import { getErrorMessage } from '@/utils/getErrorMessage';
-import { useTheme } from '@mui/material';
+import { ErrorContent, Flex } from '@/components';
+import { boxShadow } from '@/styles/common';
+import { styled } from '@mui/material';
 import { AxiosError } from 'axios';
 
-const ErrorBox = ({ error }: { error: AxiosError }) => {
-  const theme = useTheme();
+export const ErrorBox = ({ error }: { error: AxiosError }) => {
   return (
-    <Flex.Column gap="1rem" align="center">
-      <EmptyBoxImg width={75} height={75} />
-      <Heading
-        as="h2"
-        style={{ fontSize: '1rem', color: theme.palette.grey300 }}
-      >
-        {getErrorMessage(String(error.response?.status))}
-      </Heading>
-    </Flex.Column>
+    <S.Section
+      width="100%"
+      height="250px"
+      justify="center"
+      align="center"
+      padding="2rem"
+    >
+      <ErrorContent error={error} />
+    </S.Section>
   );
 };
 
-export default ErrorBox;
+const S = {
+  Section: styled(Flex.Column)`
+    background-color: ${({ theme }) => theme.palette.variant.default};
+    border-radius: 1rem;
+    cursor: pointer;
+    ${boxShadow};
+    position: relative;
+  `,
+};

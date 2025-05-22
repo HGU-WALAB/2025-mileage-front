@@ -5,6 +5,13 @@ import { captureException } from '@sentry/react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+const forceRedirectToLogin = () => {
+  useAuthStore.getState().logout();
+
+  // 강제 리다이렉트
+  window.location.pathname = '/mileage/';
+};
+
 const axiosInstance = axios.create({
   baseURL: BASE_URL,
   withCredentials: true,
@@ -18,10 +25,11 @@ axiosInstance.interceptors.response.use(
     }
 
     if (error.response && error.response.status === 401) {
-      useAuthStore.getState().logout();
       toast.error(TOAST_MESSAGES.failedAuth, {
         toastId: 'auth-error-toast',
       });
+
+      forceRedirectToLogin();
     }
 
     return Promise.reject(error);

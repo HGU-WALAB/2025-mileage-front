@@ -10,7 +10,12 @@ import { ROUTE_PATH } from '@/constants/routePath';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
-import { Controller, FormProvider, useForm } from 'react-hook-form';
+import {
+  Controller,
+  FieldErrors,
+  FormProvider,
+  useForm,
+} from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -57,13 +62,22 @@ export const ProjectAddForm = () => {
     }
   };
 
+  const onError = (errors: FieldErrors<ProjectFormValues>) => {
+    const firstError = Object.values(errors)[0];
+    if (firstError?.message) {
+      toast.error(firstError.message.toString());
+    } else {
+      toast.error(TOAST_MESSAGES.addProject.failed);
+    }
+  };
+
   return (
     <S.Container isMobile={isMobile}>
       <Typography variant="body1" color="text.secondary" mb={3}>
         나의 멋진 프로젝트를 공유해봐요!
       </Typography>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         <FormProvider {...methods}>
           <Flex.Column gap="2rem">
             <ControlledFormField<ProjectFormValues>

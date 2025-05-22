@@ -1,7 +1,10 @@
+import { ErrorBox, Spinner } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 
+import { GridSectionCard } from '../../components/GridSectionCard';
 import { AwardCountSection } from './AwardCountSection';
 import { MileageCountSection } from './MileageCountSection';
 import { TechStackSection } from './TechStackSection';
@@ -12,21 +15,53 @@ export const SectionGrid = () => {
 
   return (
     <S.Grid isMobile={isMobile}>
-      <Suspense>
-        <TechStackSection />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorBox}>
+        <Suspense
+          fallback={
+            <GridSectionCard>
+              <Spinner />
+            </GridSectionCard>
+          }
+        >
+          <TechStackSection />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense>
-        <TopProjectSection />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorBox}>
+        <Suspense
+          fallback={
+            <GridSectionCard>
+              <Spinner />
+            </GridSectionCard>
+          }
+        >
+          <TopProjectSection />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense>
-        <AwardCountSection />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorBox}>
+        <Suspense
+          fallback={
+            <GridSectionCard>
+              <Spinner />
+            </GridSectionCard>
+          }
+        >
+          <AwardCountSection />
+        </Suspense>
+      </ErrorBoundary>
 
-      <Suspense>
-        <MileageCountSection />
-      </Suspense>
+      <ErrorBoundary FallbackComponent={ErrorBox}>
+        <Suspense
+          fallback={
+            <GridSectionCard>
+              <Spinner />
+            </GridSectionCard>
+          }
+        >
+          <MileageCountSection />
+        </Suspense>
+      </ErrorBoundary>
     </S.Grid>
   );
 };

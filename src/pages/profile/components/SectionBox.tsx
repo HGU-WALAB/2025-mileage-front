@@ -5,9 +5,10 @@ import { PropsWithChildren } from 'react';
 
 interface Props extends PropsWithChildren {
   height?: string;
+  minHeight?: string;
 }
 
-export const SectionBox = ({ height, children }: Props) => {
+export const SectionBox = ({ height, minHeight, children }: Props) => {
   const theme = useTheme();
   return (
     <S.Section
@@ -16,6 +17,7 @@ export const SectionBox = ({ height, children }: Props) => {
       padding="1rem"
       backgroundColor={theme.palette.variant.default}
       wrap="wrap"
+      style={{ minHeight: minHeight }}
     >
       {children}
     </S.Section>
@@ -26,6 +28,8 @@ const S = {
   Section: styled(Flex.Column)`
     border-radius: 1rem;
     ${boxShadow}
+    overflow: hidden;
+    overflow-y: scroll;
     position: relative;
   `,
 };

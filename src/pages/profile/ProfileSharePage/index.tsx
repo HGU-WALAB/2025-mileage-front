@@ -1,29 +1,34 @@
 import { Flex, Footer, Header, Main, PageErrorFallback } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
+import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
 import { useMediaQuery } from '@mui/material';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
+import { IntroduceSkeleton } from '../components/IntroduceSkeleton';
+import { ProfileSkeleton } from '../components/ProfileSkeleton';
 import { GithubGraphSection } from './components/GithubGraphSection';
 import { IntroduceSection } from './components/IntroduceSection';
 import { ProfileSection } from './components/ProfileSection';
 import { SectionGrid } from './components/SectionGrid';
 
 const ProfileSharePage = () => {
+  useTrackPageView({ eventName: '[View] 공유 프로필 페이지' });
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
+
   return (
     <Flex.Row justify="center">
       <Main open={false}>
         <Header headerTitle={'프로필'} />
 
-        <Flex.Column padding="1rem" gap="1rem">
-          <ErrorBoundary FallbackComponent={PageErrorFallback}>
-            <Suspense>
+        <ErrorBoundary FallbackComponent={PageErrorFallback}>
+          <Flex.Column padding="1rem" gap="1rem">
+            <Suspense fallback={<ProfileSkeleton />}>
               <ProfileSection />
             </Suspense>
 
             <Flex.Row wrap={isMobile ? 'wrap' : 'nowrap'} gap="1rem">
-              <Suspense>
+              <Suspense fallback={<IntroduceSkeleton />}>
                 <IntroduceSection />
               </Suspense>
 
@@ -31,10 +36,10 @@ const ProfileSharePage = () => {
                 <GithubGraphSection />
               </Suspense>
             </Flex.Row>
-          </ErrorBoundary>
 
-          <SectionGrid />
-        </Flex.Column>
+            <SectionGrid />
+          </Flex.Column>
+        </ErrorBoundary>
 
         <Footer />
       </Main>

@@ -1,5 +1,4 @@
-import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { styled, useMediaQuery } from '@mui/material';
+import { styled } from '@mui/material';
 
 import { useGetProjectsQuery } from '../../hooks/useGetProjectsQuery';
 import { EmptyProjectSection } from './EmptyProjectSection';
@@ -7,11 +6,10 @@ import { ProjectCard } from './ProjectCard';
 
 export const ProjectGridSection = () => {
   const { projects } = useGetProjectsQuery();
-  const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
 
   if (!projects.length) return <EmptyProjectSection />;
   return (
-    <S.Grid isMobile={isMobile}>
+    <S.Grid>
       {projects.map(project => (
         <ProjectCard key={project.projectId} project={project} />
       ))}
@@ -20,13 +18,24 @@ export const ProjectGridSection = () => {
 };
 
 const S = {
-  Grid: styled('div')<{ isMobile: boolean }>`
+  Grid: styled('div')`
     display: grid;
     gap: 1rem;
-    grid-template-columns: ${({ isMobile }) =>
-      isMobile ? 'repeat(1, 1fr)' : 'repeat(4, 1fr)'};
+    grid-template-columns: repeat(4, 1fr);
     height: fit-content;
     justify-items: center;
     padding: 1rem 0;
+
+    @media (width <= 1400px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (width <= 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (width <= 600px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   `,
 };

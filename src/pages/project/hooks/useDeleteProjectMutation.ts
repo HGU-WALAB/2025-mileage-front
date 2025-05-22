@@ -14,6 +14,10 @@ export const useDeleteProjectMutation = () => {
       await queryClient.invalidateQueries({
         queryKey: [QUERY_KEYS.project],
       });
+      await queryClient.invalidateQueries({
+        queryKey: [QUERY_KEYS.topProject],
+      });
+
       toast.success(TOAST_MESSAGES.deleteProject.succeed);
     },
     onError: () => {

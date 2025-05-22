@@ -5,8 +5,8 @@ import { styled } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import { TechStackBadge } from '../../components/TechStackBadge';
-import { ProjectResponse } from '../../types/project';
 import { useGetThumbnailQuery } from '../../hooks/useGetProjectQuery';
+import { ProjectResponse } from '../../types/project';
 
 export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
   const navigate = useNavigate();
@@ -31,7 +31,7 @@ export const ProjectCard = ({ project }: { project: ProjectResponse }) => {
         </S.ImagePlaceholder>
       )}
 
-      <Flex.Column gap=".5rem" height="150px" padding="1rem">
+      <Flex.Column gap=".5rem" height="150px" padding=".5rem 1rem">
         <Flex.Row>
           <Heading as={'h3'}>{project.name}</Heading>
         </Flex.Row>

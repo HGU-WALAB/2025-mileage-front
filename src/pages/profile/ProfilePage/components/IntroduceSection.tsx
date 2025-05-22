@@ -6,7 +6,7 @@ export const IntroduceSection = () => {
   const { profile } = useGetProfileQuery();
 
   return (
-    <SectionBox height="150px">
+    <SectionBox height="150px" minHeight="150px">
       <IntroduceContent introduce={profile.self_description} />
     </SectionBox>
   );

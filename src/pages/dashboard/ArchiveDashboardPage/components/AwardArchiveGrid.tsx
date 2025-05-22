@@ -1,22 +1,36 @@
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 
+import { AWARD_TYPES } from '@award/constants/awardTypeLabels';
 import { useGroupedAwardList } from '@award/hooks/useGroupedAwardList';
 
+import { ROUTE_PATH } from '@/constants/routePath';
+import { useNavigate } from 'react-router-dom';
 import { AwardCountBox } from './AwardCountBox';
 import { AwardPageForwardButton } from './AwardPageForwardButton';
 
 export const AwardArchiveGrid = () => {
+  const navigate = useNavigate();
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const { groupedAwardList } = useGroupedAwardList();
 
+  const filledAwardList = AWARD_TYPES.map(type => {
+    const found = groupedAwardList.find(g => g.awardType === type);
+    return found ?? { awardType: type, items: [] };
+  });
+
   return (
     <S.GridLayout isMobile={isMobile}>
-      {groupedAwardList.map(group => (
+      {filledAwardList.map(group => (
         <AwardCountBox
           key={group.awardType}
           awardType={group.awardType}
           length={group.items.length}
+          onClick={() =>
+            navigate(
+              `${ROUTE_PATH.award}?awardType=${group.awardType}&awardYear=전체`,
+            )
+          }
         />
       ))}
 

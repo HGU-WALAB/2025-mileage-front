@@ -21,6 +21,7 @@ export const QUERY_KEYS = {
   project: 'project',
   projectThumbnail: 'projectThumbnail',
   topProject: 'topProject',
+  topProjectShare: 'topProjectShare',
   TopProjectThumbnail: 'topProjectThumbnail',
 
   profile: 'profile',

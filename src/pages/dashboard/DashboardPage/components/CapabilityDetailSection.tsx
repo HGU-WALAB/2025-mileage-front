@@ -1,5 +1,5 @@
 import { LoadingIcon } from '@/assets';
-import { ErrorBox, Flex, Heading } from '@/components';
+import { ErrorContent, Flex, Heading } from '@/components';
 import { boxShadow } from '@/styles/common';
 import { styled } from '@mui/material';
 import { Suspense } from 'react';
@@ -13,7 +13,7 @@ export const CapabilityDetailSection = () => {
       <Heading as="h3">나의 역량 상세 세부사항</Heading>
 
       <Flex.Row height="90%" width="100%" justify="center" align="center">
-        <ErrorBoundary FallbackComponent={ErrorBox}>
+        <ErrorBoundary FallbackComponent={ErrorContent}>
           <Suspense fallback={<LoadingIcon width={100} height={100} />}>
             <CapabilityDetailContent />
           </Suspense>

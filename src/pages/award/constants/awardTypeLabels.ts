@@ -14,3 +14,5 @@ export const awardTypeLabels = [
     value: '교외',
   },
 ];
+
+export const AWARD_TYPES = ['교내', '교외'] as const;

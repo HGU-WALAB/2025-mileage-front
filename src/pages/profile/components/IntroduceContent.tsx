@@ -1,4 +1,4 @@
-import { Flex, Heading } from '@/components';
+import { Flex, Heading, Text } from '@/components';
 import { styled, useTheme } from '@mui/material';
 
 export const IntroduceContent = ({
@@ -15,7 +15,13 @@ export const IntroduceContent = ({
 
       <S.Content height="100%" align="center" gap="1rem">
         <S.Bar />
-        {introduce}
+        {introduce ? (
+          introduce
+        ) : (
+          <Text color={theme.palette.text.disabled}>
+            자기소개를 추가해주세요
+          </Text>
+        )}
       </S.Content>
     </Flex.Column>
   );

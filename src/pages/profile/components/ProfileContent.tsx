@@ -1,50 +1,66 @@
-import { BlogIcon, GithubIcon, InstagramIcon, LinkedInIcon } from '@/assets';
-import { Flex, Heading } from '@/components';
+import {
+  BlogIcon,
+  GithubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  UserImg,
+} from '@/assets';
+import { Flex, Heading, Text } from '@/components';
 import { styled, useTheme } from '@mui/material';
 
-import { ProfileResponse } from '../types/profile';
 import { useGetProfileImageQuery } from '../hooks/useGetProfileQuery';
+import { ProfileResponse } from '../types/profile';
 
-export const ProfileContent = ({ profile } : { profile: ProfileResponse }) => {
+export const ProfileContent = ({ profile }: { profile: ProfileResponse }) => {
   const theme = useTheme();
   const { profileImage } = useGetProfileImageQuery(profile?.profile_image_url);
 
   return (
     <>
-      <Flex.Row align="center" gap="5rem">
+      <Flex.Row align="center" gap="3rem">
         <S.ProfileImg
-          src={profileImage ? profileImage : 'https://i0.wp.com/passivesills.com/wp-content/uploads/2020/06/User-Icon-Grey.png?ssl=1'}
+          src={profileImage ? profileImage : UserImg}
           alt="user profile image"
         />
         <Flex.Row
+          align="center"
           style={{ color: theme.palette.primary.main }}
           wrap="wrap"
-          gap=".25rem"
+          gap=".5rem"
         >
           <Heading as="h1">{profile?.studentName} |</Heading>
-          <Heading as="h1">{profile?.job}</Heading>
+          {profile.job ? (
+            <Heading as="h1">{profile.job}</Heading>
+          ) : (
+            <Text color={theme.palette.text.disabled}>
+              희망 직군을 추가해주세요
+            </Text>
+          )}
         </Flex.Row>
       </Flex.Row>
 
       <Flex.Row gap="1rem">
         <Flex.Column gap="1rem">
-          <S.LinkWrapper padding=".5rem 1rem">
+          <S.LinkWrapper padding=".5rem 1rem" disable={!profile?.github_link}>
             <S.Link
+              as={profile?.github_link ? 'a' : 'span'}
               href={profile?.github_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
-              noLink={!!profile?.github_link}
+              noLink={!profile?.github_link}
             >
               <GithubIcon />
               GitHub
             </S.Link>
           </S.LinkWrapper>
 
-          <S.LinkWrapper padding=".5rem 1rem">
+          <S.LinkWrapper padding=".5rem 1rem" disable={!profile?.blog_link}>
             <S.Link
+              as={profile?.blog_link ? 'a' : 'span'}
               href={profile?.blog_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
+              noLink={!profile?.blog_link}
             >
               <BlogIcon />
               Blog
@@ -53,22 +69,29 @@ export const ProfileContent = ({ profile } : { profile: ProfileResponse }) => {
         </Flex.Column>
 
         <Flex.Column gap="1rem">
-          <S.LinkWrapper padding=".5rem 1rem">
+          <S.LinkWrapper padding=".5rem 1rem" disable={!profile?.linkedin_link}>
             <S.Link
+              as={profile?.linkedin_link ? 'a' : 'span'}
               href={profile?.linkedin_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
+              noLink={!profile?.linkedin_link}
             >
               <LinkedInIcon />
               LinkedIn
             </S.Link>
           </S.LinkWrapper>
 
-          <S.LinkWrapper padding=".5rem 1rem">
+          <S.LinkWrapper
+            padding=".5rem 1rem"
+            disable={!profile?.instagram_link}
+          >
             <S.Link
+              as={profile?.instagram_link ? 'a' : 'span'}
               href={profile?.instagram_link ?? ''}
               target="_blank"
               rel="noopener noreferrer"
+              noLink={!profile?.instagram_link}
             >
               <InstagramIcon />
               Instagram
@@ -87,13 +110,21 @@ const S = {
     object-fit: cover;
     width: 120px;
   `,
-  LinkWrapper: styled(Flex.Column)`
-    background-color: ${({ theme }) => theme.palette.primary.light};
-    border: 1px solid ${({ theme }) => theme.palette.primary.dark};
+  LinkWrapper: styled(Flex.Column)<{ disable: boolean }>`
+    background-color: ${({ theme, disable }) =>
+      disable ? theme.palette.grey[200] : theme.palette.primary.light};
+    border: 1px solid
+      ${({ theme, disable }) =>
+        disable ? theme.palette.grey[400] : theme.palette.primary.main};
     border-radius: 0.4rem;
+    color: ${({ theme, disable }) =>
+      disable ? theme.palette.grey[400] : theme.palette.primary.main};
+
+    &:hover {
+      color: ${({ theme, disable }) => !disable && theme.palette.primary.dark};
+    }
   `,
   Link: styled('a')<{ noLink?: boolean }>`
-    color: ${({ theme }) => theme.palette.primary.dark};
     cursor: pointer;
     display: flex;
     flex-direction: row;
@@ -105,9 +136,5 @@ const S = {
       `
        text-decoration: underline;
     `}
-
-    &:hover {
-      color: ${({ theme }) => theme.palette.primary.main};
-    }
   `,
 };

@@ -31,5 +31,6 @@ const S = {
     );
     font-size: ${({ isMobile }) => (isMobile ? '2.5rem' : '3rem')};
     font-weight: 700;
+    text-align: center;
   `,
 };
