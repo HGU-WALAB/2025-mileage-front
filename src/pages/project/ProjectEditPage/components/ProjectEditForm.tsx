@@ -231,7 +231,7 @@ export const ProjectEditForm = () => {
             </FormField>
 
             <Flex.Row justify="center" margin="2rem 0 0">
-              <Button label="추가하기" type="submit" size="large" />
+              <Button label="수정하기" type="submit" size="large" />
             </Flex.Row>
           </Flex.Column>
         </FormProvider>

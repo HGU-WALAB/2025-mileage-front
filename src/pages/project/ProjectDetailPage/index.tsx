@@ -23,10 +23,10 @@ const ProjectDetailPage = () => {
   return (
     <Flex.Column margin="1rem">
       <Flex.Row
-        justify="space-between"
+        justify={isMobile ? 'flex-end' : 'space-between'}
         align="center"
         gap="1rem"
-        padding="0 2rem .5rem"
+        padding={isMobile ? '0 .5rem .5rem' : '0 2rem .5rem'}
       >
         {!isMobile && <BackButton size="small" />}
         <Flex.Row gap="1rem">

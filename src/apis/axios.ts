@@ -9,7 +9,7 @@ const forceRedirectToLogin = () => {
   useAuthStore.getState().logout();
 
   // 강제 리다이렉트
-  window.location.href = 'https://walab.info/mileage/';
+  window.location.pathname = '/mileage/';
 };
 
 const axiosInstance = axios.create({

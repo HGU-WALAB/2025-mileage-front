@@ -17,7 +17,7 @@ export const ProfileContent = ({ profile }: { profile: ProfileResponse }) => {
 
   return (
     <>
-      <Flex.Row align="center" gap="5rem">
+      <Flex.Row align="center" gap="3rem">
         <S.ProfileImg
           src={profileImage ? profileImage : UserImg}
           alt="user profile image"
