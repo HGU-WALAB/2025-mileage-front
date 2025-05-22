@@ -11,7 +11,12 @@ import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { Autocomplete, styled, Typography, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
-import { Controller, FormProvider, useForm } from 'react-hook-form';
+import {
+  Controller,
+  FieldErrors,
+  FormProvider,
+  useForm,
+} from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
@@ -54,11 +59,20 @@ export const ProjectEditForm = () => {
         formValues,
       });
 
-      toast.success(TOAST_MESSAGES.addProject.succeed);
+      toast.success(TOAST_MESSAGES.editProject.succeed);
       navigate(ROUTE_PATH.project);
     } catch (error) {
-      toast.error(TOAST_MESSAGES.addProject.failed);
+      toast.error(TOAST_MESSAGES.editProject.failed);
       console.error(error);
+    }
+  };
+
+  const onError = (errors: FieldErrors<ProjectFormValues>) => {
+    const firstError = Object.values(errors)[0];
+    if (firstError?.message) {
+      toast.error(firstError.message.toString());
+    } else {
+      toast.error(TOAST_MESSAGES.editProject.failed);
     }
   };
 
@@ -68,7 +82,7 @@ export const ProjectEditForm = () => {
         나의 멋진 프로젝트를 공유해봐요!
       </Typography>
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, onError)}>
         <FormProvider {...methods}>
           <Flex.Column gap="2rem">
             <ControlledFormField<ProjectFormValues>
