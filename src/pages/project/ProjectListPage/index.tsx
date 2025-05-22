@@ -4,14 +4,14 @@ import {
   Flex,
   PageErrorFallback,
 } from '@/components';
+import { ROUTE_PATH } from '@/constants/routePath';
+import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { useTrackPageView } from '@/service/amplitude/useTrackPageView';
+import { useMediaQuery } from '@mui/material';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { ROUTE_PATH } from '@/constants/routePath';
-import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
-import { useMediaQuery } from '@mui/material';
 import { ProjectGridSkeleton } from '../components/ProjectGridSkeleton';
 import { AddProjectButton } from './components/AddProjectButton';
 import { ProjectGridSection } from './components/ProjectGridSection';

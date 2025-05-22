@@ -19,7 +19,7 @@ export const ProjectDetailContent = ({
   const { thumbnail } = useGetThumbnailQuery(project?.thumbnail);
 
   return (
-    <Flex.Column gap="2rem" padding={isMobile ? '' : '0 2rem'}>
+    <Flex.Column width="100%" gap="2rem" padding={isMobile ? '' : '0 2rem'}>
       <Flex
         direction={isMobile ? 'column-reverse' : 'row'}
         width="100%"
