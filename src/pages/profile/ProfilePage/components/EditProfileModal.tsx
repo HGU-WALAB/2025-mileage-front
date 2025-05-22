@@ -100,7 +100,7 @@ export const EditProfileModal = ({ open, onClose, profile }: Props) => {
 
           <FormField direction={isMobile ? 'column' : 'row'}>
             <FormField.Label
-              label={'직업'}
+              label={'희망직무'}
               style={{
                 flexShrink: 0,
                 width: '150px',
@@ -109,7 +109,7 @@ export const EditProfileModal = ({ open, onClose, profile }: Props) => {
             />
             <Flex.Column width="100%">
               <FormField.Input
-                placeholder={'직업을 입력해주세요'}
+                placeholder={'희망 직무를 입력해주세요'}
                 fullWidth
                 value={job.value}
                 onChange={job.handleChange}
