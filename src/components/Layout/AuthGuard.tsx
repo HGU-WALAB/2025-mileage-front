@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 
 const AuthGuard = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
-  const { isLogin } = useAuthStore();
+  const isLogin = useAuthStore(state => state.isLogin);
 
   useEffect(() => {
     if (!isLogin) {
-      return navigate(ROUTE_PATH.login);
+      navigate(ROUTE_PATH.login, { replace: true });
     }
   }, [navigate, isLogin]);
 
