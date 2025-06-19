@@ -54,7 +54,7 @@ const ButtonGroup = ({
     <Flex.Column gap="1rem">
       <Flex.Row align="center" justify="center">
         <Button
-          label="버튼"
+          label="small"
           variant={variant}
           size="small"
           disabled={disabled}
@@ -63,7 +63,7 @@ const ButtonGroup = ({
       </Flex.Row>
       <Flex.Row align="center" justify="center">
         <Button
-          label="버튼"
+          label="medium"
           variant={variant}
           size="medium"
           disabled={disabled}
@@ -72,7 +72,7 @@ const ButtonGroup = ({
       </Flex.Row>
       <Flex.Row align="center" justify="center">
         <Button
-          label="버튼"
+          label="large button"
           variant={variant}
           size="large"
           disabled={disabled}
@@ -81,7 +81,7 @@ const ButtonGroup = ({
       </Flex.Row>
       <Flex.Row align="center" justify="center">
         <Button
-          label="버튼"
+          label="full"
           variant={variant}
           size="full"
           disabled={disabled}
