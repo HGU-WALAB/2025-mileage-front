@@ -36,3 +36,27 @@ export const globalStyle = css`
     margin: 0;
   }
 `;
+
+export const globalStorybookStyle = css`
+  ${restCss}
+
+  html {
+    font-size: 100%;
+  }
+
+  body {
+    line-height: normal;
+    overflow-y: auto;
+    min-height: 100vh;
+    background: none; /* ❌ 배경 제거 */
+  }
+
+  div {
+    box-sizing: border-box;
+  }
+
+  h3 {
+    vertical-align: bottom;
+    margin: 0;
+  }
+`;

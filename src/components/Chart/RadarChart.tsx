@@ -1,4 +1,4 @@
-import { useTheme, styled } from '@mui/material';
+import { styled, useTheme } from '@mui/material';
 import { ResponsiveRadar } from '@nivo/radar';
 
 import { RadarCapability } from '@dashboard/types/capability';
@@ -53,7 +53,11 @@ const RadarChart = ({ data }: { data: RadarCapability[] }) => {
             }}
           >
             <strong>역량: </strong>
-            {Number(point.data[0].formattedValue).toFixed(1)}%
+            {point.data.map(data => (
+              <p>
+                {data.id} : {Number(data.value).toFixed(0)}%
+              </p>
+            ))}
           </div>
         )}
       />
@@ -65,7 +69,7 @@ export default RadarChart;
 
 const S = {
   RadarChartWrapper: styled('div')`
-    width: 100%;
     height: 120%;
-  `
-}
+    width: 100%;
+  `,
+};
