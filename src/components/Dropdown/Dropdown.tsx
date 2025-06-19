@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { HTMLAttributes } from 'react';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props extends HTMLAttributes<HTMLDivElement> {
   label?: string;
   // TODO: 제너릭으로 확장 가능
   items: string[];
