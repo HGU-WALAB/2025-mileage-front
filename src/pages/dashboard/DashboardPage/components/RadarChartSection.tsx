@@ -36,8 +36,12 @@ export const RadarChartSection = ({
     return {
       capabilityId: cap.capabilityId,
       capabilityName: cap.capabilityName,
-      '나의 마일리지': myMileagePercent,
-      '비교 대상 평균 마일리지': otherMileagePercent,
+      '나의 마일리지':
+        cap.capabilityId === 1 ? myMileagePercent : myMileagePercent * 1.5,
+      '비교 대상 평균 마일리지':
+        cap.capabilityId === 1
+          ? otherMileagePercent
+          : otherMileagePercent * 1.5,
     };
   });
 
