@@ -9,7 +9,7 @@ const forceRedirectToLogin = () => {
   useAuthStore.getState().logout();
 
   // 강제 리다이렉트
-  window.location.pathname = '/mileage/';
+  window.location.pathname = '/milestone25/';
 };
 
 const axiosInstance = axios.create({

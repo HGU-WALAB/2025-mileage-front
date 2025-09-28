@@ -16,7 +16,7 @@ export default defineConfig({
     }),
   ],
 
-  base: '/mileage/',
+  base: '/milestone25/',
 
   build: {
     sourcemap: true,

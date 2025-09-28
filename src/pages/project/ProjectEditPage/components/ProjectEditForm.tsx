@@ -139,7 +139,7 @@ export const ProjectEditForm = () => {
                 <ControlledFormField<ProjectFormValues>
                   name="deployed_link"
                   label="서비스 링크"
-                  placeholder="https://walab.info/mileage/"
+                  placeholder="http://walab.handong.edu/milestone25/"
                   control={control}
                   direction="row"
                 />

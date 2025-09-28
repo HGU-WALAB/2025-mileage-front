@@ -20,6 +20,7 @@ export const getProfileImage = async (profileImageUrl: string) => {
   const response = await http.get<Blob>(`${BASE_URL}${ENDPOINT.PROFILE}/image/${profileImageUrl}`, {
     responseType: 'blob',
   });
+  console.log("getProfileImage", response);
   return response;
 };
 

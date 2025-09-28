@@ -100,7 +100,7 @@ const router = createBrowserRouter(
     },
   ],
   {
-    basename: '/mileage/',
+    basename: '/milestone25/',
   },
 );
 
