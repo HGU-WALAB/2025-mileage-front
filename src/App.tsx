@@ -32,22 +32,29 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => {
+// AppContent 컴포넌트를 분리하여 QueryClientProvider 내부에서 훅 사용
+const AppContent = () => {
   const themeMode = useThemeStore(state => state.themeMode);
 
   return (
+    <ThemeProvider theme={themeMode === 'dark' ? darkTheme : lightTheme}>
+      <Global styles={globalStyle} />
+      <ToastContainer
+        autoClose={2000}
+        position="top-center"
+        hideProgressBar={true}
+        className="custom-toast-container"
+      />
+      <CssBaseline />
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  );
+};
+
+const App = () => {
+  return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={themeMode === 'dark' ? darkTheme : lightTheme}>
-        <Global styles={globalStyle} />
-        <ToastContainer
-          autoClose={2000}
-          position="top-center"
-          hideProgressBar={true}
-          className="custom-toast-container"
-        />
-        <CssBaseline />
-        <RouterProvider router={router} />
-      </ThemeProvider>
+      <AppContent />
     </QueryClientProvider>
   );
 };
