@@ -45,6 +45,14 @@ const rotate = keyframes`
 const MaintenancePage = ({ status }: MaintenancePageProps) => {
   const theme = useTheme();
 
+  // 서버에서 받은 데이터 로그 출력
+  console.log('점검 페이지 표시 데이터:', {
+    maintenanceMode: status.maintenanceMode,
+    message: status.message,
+    estimatedTime: status.estimatedTime,
+    isAllowedUser: status.isAllowedUser,
+  });
+
   return (
     <Flex.Column
       justify="center"
@@ -52,7 +60,8 @@ const MaintenancePage = ({ status }: MaintenancePageProps) => {
       width="100vw"
       height="100vh"
       style={{
-        background: `linear-gradient(135deg, ${theme.palette.blue300} 0%, ${theme.palette.purple300} 100%)`,
+        backdropFilter: 'blur(1.875rem)',
+        backgroundColor: getOpacityColor(theme.palette.white, 0.1),
         position: 'relative',
         overflow: 'hidden',
       }}
@@ -66,8 +75,9 @@ const MaintenancePage = ({ status }: MaintenancePageProps) => {
           width: '100px',
           height: '100px',
           borderRadius: '50%',
-          background: `linear-gradient(45deg, ${theme.palette.white}, ${getOpacityColor(theme.palette.blue400, 0.3)})`,
+          background: `linear-gradient(45deg, ${getOpacityColor(theme.palette.white, 0.2)}, ${getOpacityColor(theme.palette.primary.light, 0.3)})`,
           animation: `${float} 3s ease-in-out infinite`,
+          backdropFilter: 'blur(10px)',
         }}
       />
       <div
@@ -78,8 +88,9 @@ const MaintenancePage = ({ status }: MaintenancePageProps) => {
           width: '60px',
           height: '60px',
           borderRadius: '50%',
-          background: `linear-gradient(45deg, ${theme.palette.pink300}, ${getOpacityColor(theme.palette.purple500, 0.4)})`,
+          background: `linear-gradient(45deg, ${getOpacityColor(theme.palette.secondary.light, 0.2)}, ${getOpacityColor(theme.palette.white, 0.3)})`,
           animation: `${float} 2.5s ease-in-out infinite reverse`,
+          backdropFilter: 'blur(10px)',
         }}
       />
       <div
@@ -90,8 +101,9 @@ const MaintenancePage = ({ status }: MaintenancePageProps) => {
           width: '80px',
           height: '80px',
           borderRadius: '50%',
-          background: `linear-gradient(45deg, ${theme.palette.green300}, ${getOpacityColor(theme.palette.blue500, 0.3)})`,
+          background: `linear-gradient(45deg, ${getOpacityColor(theme.palette.primary.main, 0.2)}, ${getOpacityColor(theme.palette.secondary.main, 0.3)})`,
           animation: `${float} 4s ease-in-out infinite`,
+          backdropFilter: 'blur(10px)',
         }}
       />
 
@@ -160,45 +172,52 @@ const MaintenancePage = ({ status }: MaintenancePageProps) => {
           🔧 시스템 점검 중
         </Typography>
 
-        {/* 점검 메시지 */}
-        {status.message && (
+        {/* 점검 메시지 - 서버에서 받은 메시지 우선 표시 */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            maxWidth: '400px',
+            marginBottom: '1rem',
+          }}
+        >
           <Typography
             variant="body1"
             style={{
               color: theme.palette.text.primary,
               textAlign: 'center',
               lineHeight: 1.6,
-              maxWidth: '400px',
-              marginBottom: '1rem',
+              fontWeight: 500,
+              whiteSpace: 'pre-line', // \n을 줄바꿈으로 처리
+              width: '100%',
             }}
           >
-            {status.message}
+            {status.message || '🔨 시스템 점검 중입니다.\n잠시만 기다려주세요.'}
           </Typography>
-        )}
+        </div>
 
-        {/* 예상 완료 시간 */}
-        {status.estimatedTime && (
-          <Flex.Row
-            align="center"
-            gap="0.5rem"
+        {/* 예상 완료 시간 - 서버에서 받은 시간 우선 표시 */}
+        <Flex.Row
+          align="center"
+          gap="0.5rem"
+          style={{
+            backgroundColor: getOpacityColor(theme.palette.primary.light, 0.1),
+            padding: '0.75rem 1.5rem',
+            borderRadius: '20px',
+            border: `1px solid ${getOpacityColor(theme.palette.primary.main, 0.2)}`,
+          }}
+        >
+          <Typography
+            variant="body2"
             style={{
-              backgroundColor: getOpacityColor(theme.palette.primary.light, 0.1),
-              padding: '0.75rem 1.5rem',
-              borderRadius: '20px',
-              border: `1px solid ${getOpacityColor(theme.palette.primary.main, 0.2)}`,
+              color: theme.palette.primary.main,
+              fontWeight: 600,
             }}
           >
-            <Typography
-              variant="body2"
-              style={{
-                color: theme.palette.primary.main,
-                fontWeight: 600,
-              }}
-            >
-              ⏰ 예상 완료 시간: {status.estimatedTime}
-            </Typography>
-          </Flex.Row>
-        )}
+            ⏰ 예상 완료 시간: {status.estimatedTime || '30분 후'}
+          </Typography>
+        </Flex.Row>
 
         {/* 안내 메시지 */}
         <Typography
@@ -210,7 +229,7 @@ const MaintenancePage = ({ status }: MaintenancePageProps) => {
             maxWidth: '350px',
           }}
         >
-          잠시만 기다려주세요. 점검이 완료되면 자동으로 페이지가 새로고침됩니다.
+          문의: 22100548@handong.ac.kr 이유현
         </Typography>
 
         {/* 프로그레스 바 */}
@@ -246,8 +265,9 @@ const MaintenancePage = ({ status }: MaintenancePageProps) => {
           width: '200px',
           height: '200px',
           borderRadius: '50%',
-          background: `radial-gradient(circle, ${getOpacityColor(theme.palette.primary.light, 0.2)}, transparent)`,
+          background: `radial-gradient(circle, ${getOpacityColor(theme.palette.white, 0.1)}, transparent)`,
           animation: `${float} 6s ease-in-out infinite`,
+          backdropFilter: 'blur(10px)',
         }}
       />
     </Flex.Column>
