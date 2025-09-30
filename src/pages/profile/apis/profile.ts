@@ -16,11 +16,11 @@ export const getTechStack = async () => {
 };
 
 export const getProfileImage = async (profileImageUrl: string) => {
+  console.log("getProfileImage", profileImageUrl);
   if (!profileImageUrl) return null;
   const response = await http.get<Blob>(`${BASE_URL}${ENDPOINT.PROFILE}/image/${profileImageUrl}`, {
     responseType: 'blob',
   });
-  console.log("getProfileImage", response);
   return response;
 };
 
@@ -42,6 +42,8 @@ export const patchProfile = async ({
     instagram_link,
     profile_image_url,
   });
+
+  console.log("patchProfile", data);
 
   const response = await http.patch<GenericFormData>(
     `${ENDPOINT.PROFILE}`,
