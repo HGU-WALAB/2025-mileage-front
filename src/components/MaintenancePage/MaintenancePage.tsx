@@ -3,6 +3,7 @@ import { Typography, CircularProgress, useTheme } from '@mui/material';
 import { Flex } from '@/components';
 import { getOpacityColor } from '@/utils/getOpacityColor';
 import { keyframes } from '@emotion/react';
+import { BackgroundImg } from '@/assets';
 
 interface MaintenancePageProps {
   status: MaintenanceStatus;
@@ -60,6 +61,10 @@ const MaintenancePage = ({ status }: MaintenancePageProps) => {
       width="100vw"
       height="100vh"
       style={{
+        backgroundImage: `url(${BackgroundImg})`,
+        backgroundPosition: 'center center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
         backdropFilter: 'blur(1.875rem)',
         backgroundColor: getOpacityColor(theme.palette.white, 0.1),
         position: 'relative',
