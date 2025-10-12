@@ -43,7 +43,7 @@ export const useMaintenanceCheck = () => {
     };
     
     checkMaintenance();
-    const interval = setInterval(checkMaintenance, 60000);
+    const interval = setInterval(checkMaintenance, 60000 * 10);
     
     return () => clearInterval(interval);
   }, [isLoggedIn, userInfo, userInfoLoading]); // 로그인 상태와 사용자 정보가 변경될 때마다 체크
