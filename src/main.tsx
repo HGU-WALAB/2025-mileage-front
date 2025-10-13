@@ -12,7 +12,7 @@ async function enableMocking() {
   await worker.start({
     onUnhandledRequest: 'warn',
     serviceWorker: {
-      url: '/mileage/mockServiceWorker.js',
+      url: '/milestone25/mockServiceWorker.js',
     },
   });
 }

@@ -2,6 +2,7 @@ import { AuthHandlers } from '@/mocks/handlers/auth';
 import { AwardHandlers } from '@/mocks/handlers/award';
 import { CapabilityHandlers } from '@/mocks/handlers/capability';
 import { CommonHandlers } from '@/mocks/handlers/common';
+import { MaintenanceHandlers } from '@/mocks/handlers/maintenance';
 import { MileageHandlers } from '@/mocks/handlers/mileage';
 import { ProfileHandlers } from '@/mocks/handlers/profile';
 import { ProjectHandlers } from '@/mocks/handlers/project';
@@ -18,4 +19,5 @@ export const handlers = [
   ...ProfileHandlers,
   ...ShareHandlers,
   ...CommonHandlers,
+  ...MaintenanceHandlers,
 ];
