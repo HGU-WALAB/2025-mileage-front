@@ -9,11 +9,6 @@ export const ProjectArchiveCardSkeleton = () => {
         <Skeleton variant="rounded" width={60} height={24} style={{ borderRadius: '16px' }} />
       </S.Header>
 
-      <S.OwnerSection>
-        <Skeleton variant="circular" width={16} height={16} />
-        <Skeleton variant="text" width="70%" height={16} />
-      </S.OwnerSection>
-
       <S.RepositorySection>
         <Skeleton variant="circular" width={16} height={16} />
         <Skeleton variant="text" width="50%" height={16} />
@@ -23,11 +18,6 @@ export const ProjectArchiveCardSkeleton = () => {
         <Skeleton variant="circular" width={16} height={16} />
         <Skeleton variant="text" width="60%" height={16} />
       </S.DateSection>
-
-      <S.ActivitySection>
-        <Skeleton variant="circular" width={16} height={16} />
-        <Skeleton variant="text" width="80%" height={16} />
-      </S.ActivitySection>
 
       <S.TechStackSection>
         {Array.from({ length: 3 }).map((_, i) => (

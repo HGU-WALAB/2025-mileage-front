@@ -1,3 +1,7 @@
+/**
+ * 안 쓰는 코드
+ */
+
 import { ArrowRightIcon, ComputerIcon } from '@/assets';
 import { Flex, Text } from '@/components';
 import { ROUTE_PATH } from '@/constants/routePath';
