@@ -98,27 +98,55 @@ export const ProjectHandlers = [
     const blog_link = formData.get('blog_link');
     const start_date = formData.get('start_date');
     const end_date = formData.get('end_date');
-    const techStack = JSON.parse(formData.get('techStack') as string).techStack;
+    const github_id = formData.get('github_id');
+    const other_links = formData.get('other_links');
+    
+    // techStack 처리 (새로운 API 스펙)
+    let techStack;
+    try {
+      const techStackValue = formData.get('techStack') as string;
+      techStack = JSON.parse(techStackValue);
+    } catch {
+      techStack = formData.get('techStack');
+    }
 
-    projectStorage.update(prev =>
-      prev.concat({
-        projectId: prev.length + 1,
-        name,
-        role,
-        description,
-        content,
-        achievement,
-        deployed_link,
-        github_link,
-        blog_link,
-        techStack: { techStack },
-        start_date,
-        end_date,
-        thumbnail: thumbnail instanceof File ? thumbnail.name : null,
-      } as ProjectResponse),
+    const newProject = {
+      projectId: projectStorage.getValue().length + 1,
+      name,
+      role,
+      description,
+      content,
+      achievement,
+      deployed_link,
+      github_link,
+      blog_link,
+      techStack: Array.isArray(techStack) ? { techStack } : techStack,
+      start_date,
+      end_date,
+      thumbnail: thumbnail instanceof File ? thumbnail.name : null,
+    } as ProjectResponse;
+
+    projectStorage.update(prev => prev.concat(newProject));
+
+    // 프로젝트 아카이브 데이터도 업데이트
+    if (github_id && github_link) {
+      const repositoryName = github_link.toString().split('/').pop() || null;
+      const archiveProject = {
+        projectId: newProject.projectId,
+        projectName: name as string,
+        status: 'active' as const,
+        startDate: start_date as string,
+        repositoryName,
+        techStack: Array.isArray(techStack) ? techStack : [],
+      };
+      
+      projectArchiveStorage.update(prev => prev.concat(archiveProject));
+    }
+
+    return HttpResponse.json(
+      { message: '프로젝트가 등록되었습니다.' },
+      { status: 201 }
     );
-
-    return HttpResponse.json(projectStorage, { status: 201 });
   }),
 
   http.put(
