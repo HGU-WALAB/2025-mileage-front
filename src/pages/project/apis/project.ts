@@ -9,6 +9,7 @@ import {
   PostProjectRequest,
   ProjectResponse,
 } from '../types/project';
+import { ProjectArchiveResponse } from '../types/projectArchive';
 
 export const getProject = async ({ projectId }: { projectId: string }) => {
   const response = await http.get<ProjectResponse>(
@@ -77,5 +78,11 @@ export const getTopProject = async () => {
 
 export const patchTopProject = async ({ projectId }: { projectId: number }) => {
   const response = await http.patch(`${ENDPOINT.PROJECT}/top`, { projectId });
+  return response;
+};
+
+// 프로젝트 아카이브 조회 API
+export const getProjectArchiveList = async () => {
+  const response = await http.get<ProjectArchiveResponse[]>(`${ENDPOINT.PROJECT}?archive=true`);
   return response;
 };

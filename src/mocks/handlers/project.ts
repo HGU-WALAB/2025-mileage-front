@@ -1,11 +1,13 @@
 import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
 import { mockProjectList } from '@/mocks/fixtures/projectList';
+import { mockProjectArchiveList } from '@/mocks/fixtures/projectArchiveList';
 import { Error500, randomMswError } from '@/utils/mswError';
 import { LiveStorage } from '@mswjs/storage';
 import { http, HttpResponse } from 'msw';
 
 import { ProjectResponse } from '@project/types/project';
+import { ProjectArchiveResponse } from '@project/types/projectArchive';
 
 const projectStorage = new LiveStorage<ProjectResponse[]>(
   'projectList',
@@ -15,6 +17,11 @@ const projectStorage = new LiveStorage<ProjectResponse[]>(
 const topProjectStorage = new LiveStorage<ProjectResponse>(
   'topProject',
   mockProjectList[0],
+);
+
+const projectArchiveStorage = new LiveStorage<ProjectArchiveResponse[]>(
+  'projectArchiveList',
+  mockProjectArchiveList,
 );
 
 export const ProjectHandlers = [
@@ -52,9 +59,16 @@ export const ProjectHandlers = [
     );
   }),
 
-  http.get(BASE_URL + `${ENDPOINT.PROJECT}`, () => {
+  http.get(BASE_URL + `${ENDPOINT.PROJECT}`, ({ request }) => {
     const { is500Error } = randomMswError();
     if (is500Error) return Error500();
+
+    const url = new URL(request.url);
+    const isArchive = url.searchParams.get('archive') === 'true';
+
+    if (isArchive) {
+      return HttpResponse.json(projectArchiveStorage.getValue(), { status: 200 });
+    }
 
     return HttpResponse.json(projectStorage.getValue(), { status: 200 });
   }),

@@ -9,21 +9,13 @@ export const AddProjectCard = () => {
   return (
     <S.Card
       width="100%"
-      height="330px"
+      height="280px"
+      padding="1.25rem"
+      gap="0.75rem"
       onClick={() => navigate(ROUTE_PATH.newProject)}
     >
-      <S.Placeholder
-        width="100%"
-        height="180px"
-        justify="center"
-        align="center"
-      >
-        📁 새 프로젝트 만들기
-      </S.Placeholder>
-
       <Flex.Column
-        height="150px"
-        padding="1rem"
+        height="auto"
         justify="center"
         align="center"
         gap="0.5rem"
@@ -34,6 +26,14 @@ export const AddProjectCard = () => {
         <Text as="p" color="grey">
           첫 번째 프로젝트를 추가해보세요!
         </Text>
+        <S.Placeholder
+          width="100%"
+          height="120px"
+          justify="center"
+          align="center"
+        >
+          📁 새 프로젝트 만들기
+        </S.Placeholder>
       </Flex.Column>
     </S.Card>
   );
@@ -42,15 +42,22 @@ export const AddProjectCard = () => {
 const S = {
   Card: styled(Flex.Column)`
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    max-width: 360px;
+    width: 100%;
+    height: 280px;
     overflow: hidden;
     transition: box-shadow 0.2s ease;
 
+    @media (max-width: 900px) {
+      height: 260px;
+      padding: 1rem !important;
+      gap: 0.5rem !important;
+    }
+
     &:hover,
     &:active {
-      box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     }
   `,
   Placeholder: styled(Flex.Row)`

@@ -1,26 +1,26 @@
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { styled, useMediaQuery } from '@mui/material';
 
-import { useGetProjectsQuery } from '@project/hooks/useGetProjectsQuery';
-import { ProjectCard } from '@project/ProjectListPage/components/ProjectCard';
+import { useGetProjectArchiveQuery } from '../hooks/useGetProjectArchiveQuery';
+import { ProjectArchiveCard } from './ProjectArchiveCard';
 
 import { AddProjectCard } from './AddProjectCard';
 import { ProjectPageForwardButton } from './ProjectPageForwardButton';
 
 export const ProjectArchiveGrid = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
-  const { projects } = useGetProjectsQuery();
+  const { projects } = useGetProjectArchiveQuery();
 
   return (
     <S.GridLayout isMobile={isMobile}>
       {projects.length === 0 ? (
         <AddProjectCard />
       ) : (
-        projects
-          .slice(0, isMobile ? 2 : 3)
-          .map(project => <ProjectCard project={project} />)
+        projects.map(project => (
+          <ProjectArchiveCard key={project.projectId} project={project} />
+        ))
       )}
-      <ProjectPageForwardButton />
+      {/* <ProjectPageForwardButton /> */}
     </S.GridLayout>
   );
 };
@@ -30,14 +30,20 @@ const S = {
     display: grid;
     gap: 1rem;
     grid-template-columns: ${({ isMobile }) =>
-      isMobile ? 'repeat(1, 1fr)' : 'repeat(4, 1fr)'};
+      isMobile ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'};
+    justify-items: center;
+    padding: 1rem 0;
 
-    ${({ isMobile }) =>
-      isMobile &&
-      `
-        & > *:last-of-type {
-          order: -1;
-        }
-      `}
+    @media (width <= 1400px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (width <= 1100px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (width <= 600px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
   `,
 };

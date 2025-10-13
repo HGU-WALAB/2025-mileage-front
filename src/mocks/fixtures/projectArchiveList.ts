@@ -1,0 +1,68 @@
+import { ProjectArchiveResponse } from '@project/types/projectArchive';
+
+export const mockProjectArchiveList: ProjectArchiveResponse[] = [
+  {
+    projectId: 1,
+    projectName: 'AI Analytics Dashboard',
+    status: 'inactive',
+    startDate: '2024-01-20',
+    repositoryName: 'ai-dashboard',
+    techStack: ['Python', 'FastAPI', 'React', 'TypeScript'],
+  },
+  {
+    projectId: 2,
+    projectName: 'Toaster Booth',
+    status: 'finished',
+    startDate: '2024-02-01',
+    repositoryName: 'toaster-booth',
+    techStack: ['React', 'TypeScript', 'Vite', 'TailwindCSS', 'Supabase'],
+  },
+  {
+    projectId: 3,
+    projectName: '마일스톤 시스템',
+    status: 'active',
+    startDate: '2024-11-01',
+    repositoryName: 'milestone-system',
+    techStack: ['React', 'Zustand', 'TanStack Query', 'Emotion', 'MSW'],
+  },
+  {
+    projectId: 4,
+    projectName: '방끗: 자취 체크리스트 서비스',
+    status: 'finished',
+    startDate: '2024-08-01',
+    repositoryName: 'bangkkeut',
+    techStack: ['Next.js', 'TypeScript', 'Zustand', 'Emotion', 'MSW'],
+  },
+  {
+    projectId: 5,
+    projectName: 'Curio Quest',
+    status: 'inactive',
+    startDate: '2023-07-31',
+    repositoryName: 'curio-quest',
+    techStack: ['React', 'TypeScript', 'React Router', 'Firebase'],
+  },
+  {
+    projectId: 6,
+    projectName: 'ITABLE',
+    status: 'active',
+    startDate: '2023-09-01',
+    repositoryName: 'hanspace',
+    techStack: ['React', 'TypeScript', 'Recoil', 'Styled-Components', 'Kakao Auth'],
+  },
+  {
+    projectId: 7,
+    projectName: '코드잽',
+    status: 'finished',
+    startDate: '2024-05-15',
+    repositoryName: 'devlogme',
+    techStack: ['React', 'Next.js', 'TailwindCSS', 'Gray-Matter', 'Vercel'],
+  },
+  {
+    projectId: 8,
+    projectName: '오늘뭐먹지?',
+    status: 'inactive',
+    startDate: '2023-06-01',
+    repositoryName: 'todayeat',
+    techStack: ['Vue.js', 'TypeScript', 'SCSS'],
+  },
+];

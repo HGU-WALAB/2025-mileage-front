@@ -8,7 +8,7 @@ import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { Suspense } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 
-import { ProjectGridSkeleton } from '@project/components/ProjectGridSkeleton';
+import { ProjectArchiveGridSkeleton } from './ProjectArchiveGridSkeleton';
 
 import { ProjectArchiveGrid } from './ProjectArchiveGrid';
 
@@ -26,7 +26,7 @@ export const ProjectArchiveSection = () => {
             <Suspense
               fallback={
                 <DeferredComponent>
-                  <ProjectGridSkeleton />
+                  <ProjectArchiveGridSkeleton />
                 </DeferredComponent>
               }
             >
