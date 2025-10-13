@@ -17,9 +17,9 @@ import {
 import { toast } from 'react-toastify';
 
 import { TOAST_MESSAGES } from '@/constants/toastMessage';
-import { TECH_OPTIONS } from '../../constants/techOptions';
-import { ProjectArchiveAddFormValues } from '../../types/projectArchiveAdd';
-import { usePostProjectArchiveAddMutation } from '../../hooks/usePostProjectArchiveAddMutation';
+import { TECH_OPTIONS } from '../constants/techOptions';
+import { ProjectArchiveAddFormValues } from '../types/projectArchiveAdd';
+import { usePostProjectArchiveAddMutation } from '../hooks/usePostProjectArchiveAddMutation';
 import { PlusIcon } from '@/assets';
 
 interface Props {

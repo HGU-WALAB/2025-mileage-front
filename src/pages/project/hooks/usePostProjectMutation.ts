@@ -1,3 +1,6 @@
+/**
+ * 안 쓰는 코드
+ */
 import { QUERY_KEYS } from '@/constants/queryKeys';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 

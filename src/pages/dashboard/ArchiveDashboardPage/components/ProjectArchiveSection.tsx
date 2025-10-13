@@ -14,7 +14,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 
 import { ProjectArchiveGridSkeleton } from './ProjectArchiveGridSkeleton';
 import { ProjectArchiveGrid } from './ProjectArchiveGrid';
-import { ProjectArchiveAddModal } from './ProjectArchiveAdd';
+import { ProjectArchiveAddModal } from '@project/ProjectArchiveAdd';
 
 export const ProjectArchiveSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
