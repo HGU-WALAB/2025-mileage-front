@@ -63,10 +63,10 @@ export const ProjectArchiveCard = ({ project }: Props) => {
       </S.DateSection>
 
       <S.TechStackSection>
-        {project.techStack.slice(0, 3).map((tech, index) => (
+        {project.techStack.slice(0, 4).map((tech, index) => (
           <S.TechBadge key={index}>{tech}</S.TechBadge>
         ))}
-        {project.techStack.length > 3 && (
+        {project.techStack.length > 4 && (
           <S.TechBadge>+{project.techStack.length - 3} more</S.TechBadge>
         )}
       </S.TechStackSection>

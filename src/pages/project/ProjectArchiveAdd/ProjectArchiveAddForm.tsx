@@ -20,7 +20,7 @@ import { TOAST_MESSAGES } from '@/constants/toastMessage';
 import { TECH_OPTIONS } from '../constants/techOptions';
 import { ProjectArchiveAddFormValues } from '../types/projectArchiveAdd';
 import { usePostProjectArchiveAddMutation } from '../hooks/usePostProjectArchiveAddMutation';
-import { PlusIcon } from '@/assets';
+import { PlusIcon, AsteriskIcon } from '@/assets';
 
 interface Props {
   toggleModal: () => void;
@@ -109,8 +109,11 @@ export const ProjectArchiveAddForm = ({ toggleModal }: Props) => {
             />
           </S.InputContainer>
 
-          <Flex.Column gap="0.5rem">
-            <Text>기술 스택 *</Text>
+          <Flex.Column gap="0.5rem" style={{ paddingBottom: '1rem' }}>
+            <Flex.Row gap="0.25rem">
+              <Text>기술 스택</Text>
+              <AsteriskIcon />
+            </Flex.Row>
             <Controller
               name="techStack"
               control={control}
@@ -139,8 +142,11 @@ export const ProjectArchiveAddForm = ({ toggleModal }: Props) => {
             />
           </S.InputContainer>
 
-          <Flex.Column gap="0.5rem">
-            <Text>프로젝트 시작일 *</Text>
+          <Flex.Column gap="0.5rem" style={{ paddingBottom: '1rem' }}>
+            <Flex.Row gap="0.25rem">
+              <Text>프로젝트 시작일</Text>
+              <AsteriskIcon />
+            </Flex.Row>
             <Controller
               name="start_date"
               control={control}
@@ -170,9 +176,9 @@ export const ProjectArchiveAddForm = ({ toggleModal }: Props) => {
           </S.InputContainer>
 
           <S.InputContainer>
-            <Flex.Column gap="0.5rem">
+            <Flex.Column gap="0.5rem" style={{ paddingBottom: '1rem' }}>
               <Flex.Row justify="space-between" align="center">
-                <Text>기타 링크 추가하기</Text>
+                <Text style={{ margin: 0 }}>기타 링크 추가하기</Text>
                 {fields.length < 4 && (
                   <S.AddButton onClick={handleAddLink} type="button">
                     <PlusIcon width={16} height={16} />
