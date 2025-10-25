@@ -92,6 +92,14 @@ const S = {
     height: 280px;
     transition: box-shadow 0.2s ease;
 
+    @media (max-width: 1400px) and (min-width: 901px) {
+      height: 320px;
+    }
+
+    @media (max-width: 1200px) and (min-width: 901px) {
+      height: 340px;
+    }
+
     @media (max-width: 900px) {
       height: 260px;
       padding: 1rem;

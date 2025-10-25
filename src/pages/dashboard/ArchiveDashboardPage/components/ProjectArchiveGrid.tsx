@@ -28,7 +28,7 @@ export const ProjectArchiveGrid = () => {
 const S = {
   GridLayout: styled('div')<{ isMobile: boolean }>`
     display: grid;
-    gap: 1rem;
+    gap: 1.5rem;
     grid-template-columns: ${({ isMobile }) =>
       isMobile ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)'};
     justify-items: center;

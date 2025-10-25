@@ -53,6 +53,19 @@ export const ProjectArchiveAddForm = ({ toggleModal }: Props) => {
 
   const onSubmit = async (formValues: ProjectArchiveAddFormValues) => {
     try {
+      // 기타 링크 validation: 라벨과 URL 중 하나만 채워진 경우 체크
+      if (formValues.other_links && formValues.other_links.length > 0) {
+        for (const link of formValues.other_links) {
+          const hasLabel = link.label && link.label.trim() !== '';
+          const hasUrl = link.url && link.url.trim() !== '';
+          
+          if ((hasLabel && !hasUrl) || (!hasLabel && hasUrl)) {
+            toast.error('기타 링크의 라벨과 URL을 모두 입력해주세요.');
+            return;
+          }
+        }
+      }
+
       await postProjectArchiveAdd({
         formValues,
       });
