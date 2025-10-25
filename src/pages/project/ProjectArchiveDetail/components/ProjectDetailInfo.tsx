@@ -11,62 +11,6 @@ interface Props {
   projectDetail: ProjectDetailResponse;
 }
 
-const InfoContainer = styled('div')`
-  display: flex;
-  gap: 2rem;
-  width: 100%;
-  
-  @media (max-width: 900px) {
-    flex-direction: column;
-  }
-`;
-
-const LeftColumn = styled('div')`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-`;
-
-const RightColumn = styled('div')`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-`;
-
-const SectionCard = styled('div')`
-  background: white;
-  padding: 0.5rem;
-`;
-
-const ProjectImage = styled('div')`
-  width: 100%;
-  height: 200px;
-  background: #f5f5f5;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed #ddd;
-  position: relative;
-`;
-
-const EditIcon = styled('div')`
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  background: white;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-`;
-
 const ProjectDetailInfo = ({ projectDetail }: Props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [techStack, setTechStack] = useState<string[]>(projectDetail.techStack);
@@ -133,7 +77,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
     <InfoContainer>
       <LeftColumn>
         <SectionCard>
-          <FormField direction="column" style={{ gap: '1rem' }}>
+          <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="프로젝트 이름" required />
             <FormField.Input
               value={isEditing ? name : projectDetail.name}
@@ -146,7 +90,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
         </SectionCard>
 
         <SectionCard>
-          <FormField direction="column" style={{ gap: '1rem' }}>
+          <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="프로젝트 소개" />
             <FormField.Input
               value={isEditing ? description : projectDetail.description}
@@ -161,7 +105,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
         </SectionCard>
 
         <SectionCard>
-          <FormField direction="column" style={{ gap: '1rem' }}>
+          <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="기술 스택" required />
             {isEditing ? (
               <Autocomplete
@@ -196,7 +140,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
         </SectionCard>
 
         <SectionCard>
-          <FormField direction="column" style={{ gap: '1rem' }}>
+          <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="내 역할" />
             <FormField.Input
               value={isEditing ? role : projectDetail.role}
@@ -209,7 +153,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
         </SectionCard>
 
         <SectionCard>
-          <FormField direction="column" style={{ gap: '1rem' }}>
+          <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="프로젝트 시작일" required />
             <FormField.Input
               type="date"
@@ -222,7 +166,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
         </SectionCard>
 
         <SectionCard>
-          <FormField direction="column" style={{ gap: '1rem' }}>
+          <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="깃허브 ID" />
             <FormField.Input
               value={isEditing ? githubId : projectDetail.github_id}
@@ -342,3 +286,59 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
 };
 
 export default ProjectDetailInfo;
+
+const InfoContainer = styled('div')`
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
+`;
+
+const LeftColumn = styled('div')`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+`;
+
+const RightColumn = styled('div')`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
+
+const SectionCard = styled('div')`
+  background: white;
+  padding: 0.5rem;
+`;
+
+const ProjectImage = styled('div')`
+  width: 100%;
+  height: 200px;
+  background: #f5f5f5;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #ddd;
+  position: relative;
+`;
+
+const EditIcon = styled('div')`
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  background: white;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+`;

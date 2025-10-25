@@ -1,20 +1,6 @@
 import { Flex, Text } from '@/components';
 import { styled } from '@mui/material';
 
-const LogsContainer = styled('div')`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-`;
-
-const LogCard = styled('div')`
-  background: white;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-`;
-
 const ProjectDetailLogs = () => {
   return (
     <LogsContainer>
@@ -33,3 +19,17 @@ const ProjectDetailLogs = () => {
 };
 
 export default ProjectDetailLogs;
+
+const LogsContainer = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+`;
+
+const LogCard = styled('div')`
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+`;

@@ -4,7 +4,7 @@ import { getProjectDetail } from '../apis/project';
 import ProjectDetailOverview from './ProjectDetailOverview.tsx';
 import ProjectDetailSettings from './ProjectDetailSettings.tsx';
 import ProjectDetailLogs from './ProjectDetailLogs.tsx';
-import { Tabs } from '@/components';
+import { Heading, Tabs } from '@/components';
 import { TabItem } from '@/types/tab';
 import { useState } from 'react';
 import { Flex, Text, Button } from '@/components';
@@ -69,7 +69,7 @@ const ProjectDetailPage = () => {
       minHeight: '100vh'
     }}>
       {/* Header */}
-      <Flex.Column gap="1.5rem">
+      <Flex.Column gap="2rem">
         {/* 뒤로가기 버튼 */}
         <Button
           label="뒤로가기"
@@ -88,7 +88,7 @@ const ProjectDetailPage = () => {
         <Flex.Row justify="space-between" align="flex-start">
           <Flex.Column gap="0.5rem">
             <Flex.Row gap="1rem" align="center">
-              <Text as="h3" bold style={{ fontSize: '1.5rem' }}>{projectDetail.name}</Text>
+              <Heading as="h3" style={{ fontSize: '1.5rem' }}>{projectDetail.name}</Heading>
               <div
                 style={{
                   padding: '4px 12px',
