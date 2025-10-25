@@ -2,12 +2,14 @@ import { BASE_URL } from '@/apis/config';
 import { ENDPOINT } from '@/apis/endPoint';
 import { mockProjectList } from '@/mocks/fixtures/projectList';
 import { mockProjectArchiveList } from '@/mocks/fixtures/projectArchiveList';
+import { mockProjectDetail } from '@/mocks/fixtures/projectDetail';
 import { Error500, randomMswError } from '@/utils/mswError';
 import { LiveStorage } from '@mswjs/storage';
 import { http, HttpResponse } from 'msw';
 
 import { ProjectResponse } from '@project/types/project';
 import { ProjectArchiveResponse } from '@project/types/projectArchive';
+import { ProjectDetailResponse } from '@project/types/projectDetail';
 
 const projectStorage = new LiveStorage<ProjectResponse[]>(
   'projectList',
@@ -22,6 +24,11 @@ const topProjectStorage = new LiveStorage<ProjectResponse>(
 const projectArchiveStorage = new LiveStorage<ProjectArchiveResponse[]>(
   'projectArchiveList',
   mockProjectArchiveList,
+);
+
+const projectDetailStorage = new LiveStorage<ProjectDetailResponse>(
+  'projectDetail',
+  mockProjectDetail,
 );
 
 export const ProjectHandlers = [
@@ -75,13 +82,33 @@ export const ProjectHandlers = [
 
   http.get(BASE_URL + `${ENDPOINT.PROJECT}/:projectId`, ({ params }) => {
     const { projectId } = params;
+    console.log('MSW: Project detail request for projectId:', projectId);
     const { is500Error } = randomMswError();
     if (is500Error) return Error500();
 
-    const project = projectStorage
-      .getValue()
-      .find(p => p.projectId === Number(projectId));
-    return HttpResponse.json(project, { status: 200 });
+    // 프로젝트 상세보기 API는 새로운 형식으로 응답
+    const baseProjectDetail = projectDetailStorage.getValue();
+    
+    // projectId에 따라 다른 데이터를 반환
+    const modifiedProjectDetail = {
+      ...baseProjectDetail,
+      projectId: Number(projectId),
+      name: `Project ${projectId}`,
+      description: `This is the description for Project ${projectId}`,
+      github_id: `user${projectId}`,
+      github_link: `https://github.com/user${projectId}/project${projectId}`,
+      other_links: [
+        { label: 'Demo', url: `https://demo${projectId}.example.com` },
+        { label: 'Blog', url: `https://blog${projectId}.example.com` }
+      ],
+      thumbnail_url: `https://example.com/thumbnail${projectId}.png`,
+      status: 'ongoing' as const,
+      regdate: new Date().toISOString(),
+      moddate: new Date().toISOString()
+    };
+
+    console.log('MSW: Returning project detail:', modifiedProjectDetail);
+    return HttpResponse.json(modifiedProjectDetail, { status: 200 });
   }),
 
   http.post(BASE_URL + `${ENDPOINT.PROJECT}`, async ({ request }) => {
@@ -194,6 +221,85 @@ export const ProjectHandlers = [
       );
 
       return HttpResponse.json(projectStorage, { status: 200 });
+    },
+  ),
+
+  // 프로젝트 상세보기 수정 API (PATCH)
+  http.patch(
+    BASE_URL + `${ENDPOINT.PROJECT}/:projectId`,
+    async ({ request, params }) => {
+      const formData = await request.formData();
+
+      const name = formData.get('name');
+      const description = formData.get('description');
+      const techStack = formData.get('techStack');
+      const role = formData.get('role');
+      const start_date = formData.get('start_date');
+      const github_id = formData.get('github_id');
+      const github_link = formData.get('github_link');
+      const other_links = formData.get('other_links');
+      const thumbnail = formData.get('thumbnail');
+
+      const { projectId } = params;
+
+      // techStack 파싱
+      let parsedTechStack: string[] = [];
+      try {
+        parsedTechStack = JSON.parse(techStack as string);
+      } catch {
+        parsedTechStack = [];
+      }
+
+      // other_links 파싱
+      let parsedOtherLinks: Array<{ label: string; url: string }> = [];
+      try {
+        parsedOtherLinks = JSON.parse(other_links as string);
+      } catch {
+        parsedOtherLinks = [];
+      }
+
+      projectDetailStorage.update(prev => ({
+        ...prev,
+        name: name as string,
+        description: description as string,
+        techStack: parsedTechStack,
+        role: role as string,
+        start_date: start_date as string,
+        github_id: github_id as string,
+        github_link: github_link as string,
+        other_links: parsedOtherLinks,
+        thumbnail_url: thumbnail instanceof File ? URL.createObjectURL(thumbnail) : prev.thumbnail_url,
+        moddate: new Date().toISOString(),
+      }));
+
+      return HttpResponse.json(
+        { message: '프로젝트가 수정되었습니다.' },
+        { status: 201 }
+      );
+    },
+  ),
+
+  // 프로젝트 상태 수정 API (PATCH)
+  http.patch(
+    BASE_URL + `${ENDPOINT.PROJECT}/:projectId/status`,
+    async ({ request, params }) => {
+      const { status } = await request.json() as { status: 'ongoing' | 'stopped' | 'finished' };
+      const { projectId } = params;
+
+      const { is500Error } = randomMswError();
+      if (is500Error) return Error500();
+
+      // projectDetailStorage에서 상태 업데이트
+      projectDetailStorage.update(prev => ({
+        ...prev,
+        status,
+        moddate: new Date().toISOString(),
+      }));
+
+      return HttpResponse.json(
+        { message: '프로젝트 상태가 수정되었습니다.' },
+        { status: 200 }
+      );
     },
   ),
 

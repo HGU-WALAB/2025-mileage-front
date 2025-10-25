@@ -15,7 +15,7 @@ const ScholarshipApplyPage = React.lazy(
 const AwardArchivePage = React.lazy(() => import('@award/AwardArchivePage'));
 const ProjectListPage = React.lazy(() => import('@project/ProjectListPage'));
 const ProjectDetailPage = React.lazy(
-  () => import('@project/ProjectDetailPage'),
+  () => import('@project/ProjectArchiveDetail/ProjectDetailPage'),
 );
 const ProjectAddPage = React.lazy(() => import('@project/ProjectAddPage'));
 const ProjectEditPage = React.lazy(() => import('@project/ProjectEditPage'));

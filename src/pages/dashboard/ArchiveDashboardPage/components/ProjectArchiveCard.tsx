@@ -3,12 +3,19 @@ import { GithubIcon, UserIcon } from '@/assets';
 import { ProjectArchiveResponse } from '@project/types/projectArchive';
 import { styled } from '@mui/material';
 import { getFormattedDateFullYear } from '@/utils/getDate';
+import { useNavigate } from 'react-router-dom';
+import { ROUTE_PATH } from '@/constants/routePath';
 
 interface Props {
   project: ProjectArchiveResponse;
 }
 
 export const ProjectArchiveCard = ({ project }: Props) => {
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`${ROUTE_PATH.project}/${project.projectId}`);
+  };
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':
@@ -72,7 +79,7 @@ export const ProjectArchiveCard = ({ project }: Props) => {
       </S.TechStackSection>
 
       <S.ActionSection>
-        <S.ViewDetailsButton>프로젝트 더보기</S.ViewDetailsButton>
+        <S.ViewDetailsButton onClick={handleViewDetails}>프로젝트 더보기</S.ViewDetailsButton>
         <S.CopyButton>
           <S.CopyIcon>📊</S.CopyIcon>
         </S.CopyButton>

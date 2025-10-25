@@ -10,6 +10,7 @@ import {
   ProjectResponse,
 } from '../types/project';
 import { ProjectArchiveResponse } from '../types/projectArchive';
+import { ProjectDetailResponse, PatchProjectDetailRequest, PatchProjectStatusRequest, PatchProjectStatusResponse } from '../types/projectDetail';
 
 export const getProject = async ({ projectId }: { projectId: string }) => {
   const response = await http.get<ProjectResponse>(
@@ -84,5 +85,51 @@ export const patchTopProject = async ({ projectId }: { projectId: number }) => {
 // 프로젝트 아카이브 조회 API
 export const getProjectArchiveList = async () => {
   const response = await http.get<ProjectArchiveResponse[]>(`${ENDPOINT.PROJECT}?archive=true`);
+  return response;
+};
+
+// 프로젝트 상세보기 조회 API
+export const getProjectDetail = async ({ projectId }: { projectId: string }) => {
+  const response = await http.get<ProjectDetailResponse>(
+    `${ENDPOINT.PROJECT}/${projectId}`,
+  );
+  return response;
+};
+
+// 프로젝트 상세보기 수정 API
+export const patchProjectDetail = async ({
+  projectId,
+  formValues,
+}: PatchProjectDetailRequest) => {
+  const data = toFormData(formValues);
+
+  const response = await http.patch<GenericFormData>(
+    `${ENDPOINT.PROJECT}/${projectId}`,
+    data,
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    },
+  );
+
+  return response;
+};
+
+// 프로젝트 상태 수정 API
+export const patchProjectStatus = async ({
+  projectId,
+  status,
+}: PatchProjectStatusRequest) => {
+  const response = await http.patch<PatchProjectStatusResponse>(
+    `${ENDPOINT.PROJECT}/${projectId}/status`,
+    { status } as any,
+    {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    },
+  );
+
   return response;
 };
