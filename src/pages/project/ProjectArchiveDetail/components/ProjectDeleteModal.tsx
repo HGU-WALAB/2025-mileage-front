@@ -1,5 +1,5 @@
 import { ProjectDetailResponse } from '../../types/projectDetail';
-import { Text, Button, Input, Modal, Heading } from '@/components';
+import { Button, Input, Modal, Heading } from '@/components';
 import { styled } from '@mui/material';
 import { useState } from 'react';
 
@@ -8,13 +8,14 @@ interface Props {
   open: boolean;
   onClose: () => void;
   onConfirm: () => void;
+  isDeleting?: boolean;
 }
 
 
-const ProjectDeleteModal = ({ projectDetail, open, onClose, onConfirm }: Props) => {
+const ProjectDeleteModal = ({ projectDetail, open, onClose, onConfirm, isDeleting = false }: Props) => {
   const [deleteConfirmation, setDeleteConfirmation] = useState('');
   
-  const isDeleteButtonDisabled = deleteConfirmation !== projectDetail.name;
+  const isDeleteButtonDisabled = deleteConfirmation !== projectDetail.name || isDeleting;
 
   const handleConfirm = () => {
     if (deleteConfirmation === projectDetail.name) {
@@ -57,7 +58,7 @@ const ProjectDeleteModal = ({ projectDetail, open, onClose, onConfirm }: Props) 
           </ConfirmationSection>
           
           <DeleteConfirmButton
-            label="프로젝트 삭제하기"
+            label={isDeleting ? "삭제 중..." : "프로젝트 삭제하기"}
             onClick={handleConfirm}
             disabled={isDeleteButtonDisabled}
             style={{ width: '100%', height: '2.8rem' }}

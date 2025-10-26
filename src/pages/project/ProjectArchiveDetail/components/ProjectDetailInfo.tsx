@@ -15,6 +15,8 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
   const [isEditing, setIsEditing] = useState(false);
   const [techStack, setTechStack] = useState<string[]>(projectDetail.techStack);
   const [otherLinks, setOtherLinks] = useState<Array<{ label: string; url: string }>>(projectDetail.other_links);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   
   const queryClient = useQueryClient();
 
@@ -33,6 +35,21 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
     },
   });
 
+  const handleImageSelect = () => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = (e) => {
+      const file = (e.target as HTMLInputElement).files?.[0];
+      if (file) {
+        setSelectedFile(file);
+        const url = URL.createObjectURL(file);
+        setPreviewUrl(url);
+      }
+    };
+    input.click();
+  };
+
   const handleSave = () => {
     const formValues: ProjectDetailFormValues = {
       name,
@@ -43,7 +60,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
       github_id: githubId,
       github_link: githubLink,
       other_links: otherLinks,
-      thumbnail: null,
+      thumbnail: selectedFile ? [selectedFile] as any : null,
     };
 
     mutation.mutate({
@@ -56,10 +73,14 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
     setIsEditing(false);
     setTechStack(projectDetail.techStack);
     setOtherLinks(projectDetail.other_links);
+    setPreviewUrl(null);
+    setSelectedFile(null);
   };
 
   const addOtherLink = () => {
-    setOtherLinks([...otherLinks, { label: '', url: '' }]);
+    if (otherLinks.length < 4) {
+      setOtherLinks([...otherLinks, { label: '', url: '' }]);
+    }
   };
 
   const updateOtherLink = (index: number, field: 'label' | 'url', value: string) => {
@@ -71,6 +92,11 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
   const removeOtherLink = (index: number) => {
     const newLinks = otherLinks.filter((_, i) => i !== index);
     setOtherLinks(newLinks);
+  };
+
+  const handleImageRemove = () => {
+    setSelectedFile(null);
+    setPreviewUrl(null);
   };
 
   return (
@@ -181,16 +207,52 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
 
       <RightColumn>
         <SectionCard>
-          <ProjectImage>
-            <div style={{ color: '#979797', fontSize: '0.875rem' }}>
-              📷 프로젝트 이미지
-            </div>
-            {isEditing && (
-              <EditIcon>
-                ✏️
-              </EditIcon>
-            )}
-          </ProjectImage>
+          {isEditing ? (
+            <Flex.Column gap="0.5rem">
+              <Text style={{ fontSize: '0.875rem', fontWeight: '500' }}>프로젝트 이미지</Text>
+              <Flex.Row gap="0.5rem">
+                <Button
+                  label="파일 선택하기"
+                  variant="outlined"
+                  onClick={handleImageSelect}
+                  type="button"
+                  style={{ width: 'fit-content' }}
+                />
+                <Button
+                  label="파일 삭제하기"
+                  variant="outlined"
+                  onClick={handleImageRemove}
+                  type="button"
+                  style={{ 
+                    width: 'fit-content',
+                    color: '#ff4444',
+                    borderColor: '#ff4444'
+                  }}
+                />
+              </Flex.Row>
+              
+              {previewUrl && (
+                <ImagePreview>
+                  <img
+                    src={previewUrl}
+                    alt="프로젝트 이미지 미리보기"
+                  />
+                </ImagePreview>
+              )}
+              
+              {!previewUrl && (
+                <ImagePlaceholder>
+                  <Text style={{ color: '#999', fontSize: '0.875rem' }}>이미지를 선택해주세요</Text>
+                </ImagePlaceholder>
+              )}
+            </Flex.Column>
+          ) : (
+            <ProjectImage>
+              <div style={{ color: '#979797', fontSize: '0.875rem' }}>
+                📷 프로젝트 이미지
+              </div>
+            </ProjectImage>
+          )}
         </SectionCard>
 
         <SectionCard>
@@ -238,6 +300,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
                 variant="outlined"
                 onClick={addOtherLink}
                 size="medium"
+                disabled={otherLinks.length >= 4}
               />
             </Flex.Column>
           ) : (
@@ -341,4 +404,35 @@ const EditIcon = styled('div')`
   justify-content: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+`;
+
+const ImagePreview = styled('div')`
+  width: 100%;
+  height: 200px;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+`;
+
+const ImagePlaceholder = styled('div')`
+  width: 100%;
+  height: 200px;
+  border: 1px dashed #ddd;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fafafa;
+  transition: border-color 0.2s ease;
+  
+  &:hover {
+    border-color: #999;
+  }
 `;
