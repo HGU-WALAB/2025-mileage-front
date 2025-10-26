@@ -174,7 +174,7 @@ const SectionCard = styled('div')`
 
 const ProjectImage = styled('div')`
   width: 100%;
-  height: 200px;
+  height: 250px;
   background: #f5f5f5;
   border-radius: 0.5rem;
   display: flex;

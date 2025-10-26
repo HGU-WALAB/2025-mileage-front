@@ -6,6 +6,8 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { patchProjectDetail } from '../../apis/project';
 import useInput from '@/hooks/useInput';
 import { TECH_OPTIONS } from '../../constants/techOptions';
+import { toast } from 'react-toastify';
+import { TOAST_MESSAGES } from '@/constants/toastMessage';
 
 interface Props {
   projectDetail: ProjectDetailResponse;
@@ -51,6 +53,30 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
   };
 
   const handleSave = () => {
+    // 필수 필드 검증
+    if (!name.trim()) {
+      toast.error('프로젝트 이름을 입력해주세요.');
+      return;
+    }
+    
+    if (techStack.length === 0) {
+      toast.error('기술 스택을 선택해주세요.');
+      return;
+    }
+
+    // 기타 링크 검증: 라벨과 URL 중 하나만 채워진 경우 체크
+    if (otherLinks && otherLinks.length > 0) {
+      for (const link of otherLinks) {
+        const hasLabel = link.label && link.label.trim() !== '';
+        const hasUrl = link.url && link.url.trim() !== '';
+        
+        if ((hasLabel && !hasUrl) || (!hasLabel && hasUrl)) {
+          toast.error('기타 링크의 라벨과 URL을 모두 입력해주세요.');
+          return;
+        }
+      }
+    }
+
     const formValues: ProjectDetailFormValues = {
       name,
       description,
@@ -113,7 +139,9 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
+          </SectionCard>
 
+          <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="프로젝트 소개" />
             <FormField.Input
@@ -126,7 +154,9 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
+        </SectionCard>
 
+          <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="기술 스택" required />
             {isEditing ? (
@@ -159,6 +189,9 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               </Flex.Row>
             )}
           </FormField>
+          </SectionCard>
+
+          <SectionCard>
 
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="내 역할" />
@@ -170,7 +203,9 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
+          </SectionCard>
 
+          <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="프로젝트 시작일" required />
             <FormField.Input
@@ -181,7 +216,9 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
-
+          </SectionCard>
+          
+          <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="깃허브 ID" />
             <FormField.Input
@@ -256,7 +293,9 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
+          </SectionCard>
 
+          <SectionCard>
           <Text as="h6" bold style={{ marginBottom: '0rem' }}>기타 링크</Text>
           {isEditing ? (
             <Flex.Column gap="0.5rem">
@@ -301,7 +340,9 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               ))}
             </Flex.Column>
           )}
+        </SectionCard>
 
+        <SectionCard>
           {isEditing ? (
             <Flex.Row gap="1rem">
               <Button
@@ -361,15 +402,15 @@ const RightColumn = styled('div')`
 `;
 
 const SectionCard = styled('div')`
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* gap: 1.5rem; */
   width: 100%;
   background: white;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #E5E5E5;
+  /* border-radius: 0.5rem; */
+  padding: 0.5rem;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  /* border: 1px solid #E5E5E5; */
 `;
 
 const ProjectImage = styled('div')`

@@ -242,18 +242,20 @@ export const ProjectHandlers = [
 
       const { projectId } = params;
 
-      // techStack 파싱
+      // techStack 파싱 - toFormData가 { techStack: [...] } 형태로 보내므로
       let parsedTechStack: string[] = [];
       try {
-        parsedTechStack = JSON.parse(techStack as string);
+        const parsed = JSON.parse(techStack as string);
+        parsedTechStack = parsed.techStack || parsed;
       } catch {
         parsedTechStack = [];
       }
 
-      // other_links 파싱
+      // other_links 파싱 - toFormData가 { other_links: [...] } 형태로 보내므로
       let parsedOtherLinks: Array<{ label: string; url: string }> = [];
       try {
-        parsedOtherLinks = JSON.parse(other_links as string);
+        const parsed = JSON.parse(other_links as string);
+        parsedOtherLinks = parsed.other_links || parsed;
       } catch {
         parsedOtherLinks = [];
       }
