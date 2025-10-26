@@ -10,6 +10,8 @@ import { useState } from 'react';
 import { Flex, Text, Button } from '@/components';
 import { ArrowLeftIcon } from '@/assets';
 import { useNavigate } from 'react-router-dom';
+import NotFoundPage from '@/pages/etc/NotFoundPage';
+import ErrorPage from '@/pages/etc/ErrorPage';
 
 const ProjectDetailPage = () => {
   const { projectId } = useParams<{ projectId: string }>();
@@ -29,16 +31,16 @@ const ProjectDetailPage = () => {
   ];
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div></div>;
   }
 
   if (error) {
     console.error('Project detail error:', error);
-    return <div>Error loading project: {error.message}</div>;
+    return <ErrorPage />;
   }
 
   if (!projectDetail) {
-    return <div>Project not found</div>;
+    return <NotFoundPage />;
   }
 
   const handleBack = () => {
