@@ -113,9 +113,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
-        </SectionCard>
 
-        <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="프로젝트 소개" />
             <FormField.Input
@@ -128,9 +126,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
-        </SectionCard>
 
-        <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="기술 스택" required />
             {isEditing ? (
@@ -163,9 +159,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               </Flex.Row>
             )}
           </FormField>
-        </SectionCard>
 
-        <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="내 역할" />
             <FormField.Input
@@ -176,9 +170,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
-        </SectionCard>
 
-        <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="프로젝트 시작일" required />
             <FormField.Input
@@ -189,9 +181,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
-        </SectionCard>
 
-        <SectionCard>
           <FormField direction="column" style={{ gap: '0.5rem' }}>
             <FormField.Label label="깃허브 ID" />
             <FormField.Input
@@ -266,10 +256,8 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               style={{ width: '100%' }}
             />
           </FormField>
-        </SectionCard>
 
-        <SectionCard>
-          <Text as="h6" bold style={{ marginBottom: '1rem' }}>기타 링크</Text>
+          <Text as="h6" bold style={{ marginBottom: '0rem' }}>기타 링크</Text>
           {isEditing ? (
             <Flex.Column gap="0.5rem">
               {otherLinks.map((link, index) => (
@@ -313,9 +301,7 @@ const ProjectDetailInfo = ({ projectDetail }: Props) => {
               ))}
             </Flex.Column>
           )}
-        </SectionCard>
 
-        <SectionCard>
           {isEditing ? (
             <Flex.Row gap="1rem">
               <Button
@@ -375,13 +361,20 @@ const RightColumn = styled('div')`
 `;
 
 const SectionCard = styled('div')`
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
   background: white;
-  padding: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #E5E5E5;
 `;
 
 const ProjectImage = styled('div')`
   width: 100%;
-  height: 200px;
+  height: 250px;
   background: #f5f5f5;
   border-radius: 0.5rem;
   display: flex;
@@ -408,7 +401,7 @@ const EditIcon = styled('div')`
 
 const ImagePreview = styled('div')`
   width: 100%;
-  height: 200px;
+  height: 250px;
   border: 1px solid #e0e0e0;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -423,7 +416,7 @@ const ImagePreview = styled('div')`
 
 const ImagePlaceholder = styled('div')`
   width: 100%;
-  height: 200px;
+  height: 250px;
   border: 1px dashed #ddd;
   border-radius: 0.5rem;
   display: flex;

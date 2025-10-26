@@ -5,14 +5,12 @@ const ProjectDetailLogs = () => {
   return (
     <LogsContainer>
       <LogCard>
-        <Flex.Column gap="1rem" align="center" style={{ padding: '2rem' }}>
-          <Text as="h6" color="grey500">
-            로그가 없습니다
+        <EmptyState>
+          <Text style={{ fontSize: '1rem', color: '#64748b', marginBottom: '0.5rem' }}>
+          프로젝트 활동 로그가 여기에 표시됩니다. <br />
+          로그를 추가하여 프로젝트 활동을 기록할 수 있어요
           </Text>
-          <Text color="grey400">
-            프로젝트 활동 로그가 여기에 표시됩니다.
-          </Text>
-        </Flex.Column>
+        </EmptyState>
       </LogCard>
     </LogsContainer>
   );
@@ -29,7 +27,26 @@ const LogsContainer = styled('div')`
 
 const LogCard = styled('div')`
   background: white;
+  border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  width: 100%;
+`;
+
+const EmptyState = styled('div')`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background: #F8F9FA;
+  border-radius: 0.5rem;
+  border: 2px dashed #DEE2E6;
+  color: #64748b;
+  font-size: 0.875rem;
+  text-align: center;
+  line-height: 1.6;
+  min-height: 200px;
+  width: 100%;
 `;

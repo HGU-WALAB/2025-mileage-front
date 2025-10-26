@@ -1,12 +1,27 @@
 import { ProjectDetailResponse } from '../types/projectDetail';
 import { Flex, Text } from '@/components';
 import { styled } from '@mui/material';
+import { useQuery } from '@tanstack/react-query';
+import { getGitHubActivityData } from '../apis/github';
+import GitHubActivityDashboard from './components/GitHubActivityDashboard';
 
 interface Props {
   projectDetail: ProjectDetailResponse;
 }
 
 const ProjectDetailOverview = ({ projectDetail }: Props) => {
+  // GitHub Activity 데이터 가져오기
+  const { 
+    data: githubActivityData, 
+    isLoading: isGitHubLoading, 
+    error: githubError 
+  } = useQuery({
+    queryKey: ['githubActivity', projectDetail.github_link],
+    queryFn: () => getGitHubActivityData(projectDetail.github_link),
+    enabled: !!projectDetail.github_link,
+    staleTime: 5 * 60 * 1000, // 5분
+  });
+
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('ko-KR', {
       year: 'numeric',
@@ -54,25 +69,12 @@ const ProjectDetailOverview = ({ projectDetail }: Props) => {
 
         {/* GitHub Activity Dashboard 섹션 */}
         <SectionCard>
-          <Text as="h6" bold style={{ marginBottom: '1rem' }}>
-            GitHub Activity Dashboard
-          </Text>
-          
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: '2rem',
-            background: '#f8f9fa',
-            borderRadius: '0.5rem',
-            border: '2px dashed #dee2e6',
-            color: '#6c757d',
-            fontSize: '0.875rem',
-            textAlign: 'center',
-            lineHeight: '1.5'
-          }}>
-            레파지토리 링크를 추가하면 더 많은 정보를 확인할 수 있어요
-          </div>
+          <GitHubActivityDashboard
+            githubLink={projectDetail.github_link} //레포 링크를 의미함
+            githubActivityData={githubActivityData || null}
+            isLoading={isGitHubLoading}
+            error={githubError?.message || null}
+          />
         </SectionCard>
       </LeftColumn>
 
@@ -105,9 +107,9 @@ const ProjectDetailOverview = ({ projectDetail }: Props) => {
             깃허브 정보
           </Text>
           <Flex.Column gap="0.5rem">
-            <Flex.Row justify="space-between">
-              <Text color="grey500">Repository:</Text>
-              <Text style={{ maxWidth: '150px', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <Flex.Row justify="space-between" align="flex-start">
+              <Text color="grey500" style={{ minWidth: '80px', flexShrink: 0 }}>Repository:</Text>
+              <Text style={{ wordBreak: 'break-all' }}>
                 {projectDetail.github_link}
               </Text>
             </Flex.Row>
