@@ -12,6 +12,7 @@ interface Props {
 }
 
 const GitHubActivityDashboard = ({ githubLink, githubActivityData, isLoading, error }: Props) => {
+  const isMobile = useMediaQuery(`(max-width: ${MAX_RESPONSIVE_WIDTH}px)`);
 
   if (isLoading) {
     return (
@@ -193,8 +194,8 @@ const WeeklyCommitsChart = ({ data }: { data: { week: string; commits: number }[
       <LineChartSvg viewBox="0 0 650 400" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id="commitsGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.2"/>
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.2"/>
+            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3"/>
+            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.3"/>
           </linearGradient>
         </defs>
         

@@ -25,31 +25,31 @@ const createMockContributors = (): GitHubContributor[] => [
   {
     login: 'LYH513',
     contributions: 1200,
-    avatar_url: '/src/assets/imgs/user.png',
+    avatar_url: 'https://cdn.dailyvet.co.kr/wp-content/uploads/2024/05/15231647/20240515ceva_experts4.jpg',
     html_url: 'https://github.com/LYH513',
   },
   {
     login: 'Giljjang',
     contributions: 800,
-    avatar_url: '/src/assets/imgs/user.png',
+    avatar_url: 'https://cdn.dailyvet.co.kr/wp-content/uploads/2024/05/15231647/20240515ceva_experts4.jpg',
     html_url: 'https://github.com/Giljjang',
   },
   {
     login: 'developer1',
     contributions: 600,
-    avatar_url: '/src/assets/imgs/user.png',
+    avatar_url: 'https://cdn.dailyvet.co.kr/wp-content/uploads/2024/05/15231647/20240515ceva_experts4.jpg',
     html_url: 'https://github.com/developer1',
   },
   {
     login: 'developer2',
     contributions: 400,
-    avatar_url: '/src/assets/imgs/user.png',
+    avatar_url: 'https://cdn.dailyvet.co.kr/wp-content/uploads/2024/05/15231647/20240515ceva_experts4.jpg',
     html_url: 'https://github.com/developer2',
   },
   {
     login: 'developer3',
     contributions: 200,
-    avatar_url: '/src/assets/imgs/user.png',
+    avatar_url: 'https://cdn.dailyvet.co.kr/wp-content/uploads/2024/05/15231647/20240515ceva_experts4.jpg',
     html_url: 'https://github.com/developer3',
   },
 ];
