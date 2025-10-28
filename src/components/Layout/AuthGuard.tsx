@@ -11,10 +11,10 @@ const AuthGuard = ({ children }: { children: React.ReactNode }) => {
   const { maintenanceStatus, isLoading } = useMaintenanceCheck();
 
   useEffect(() => {
-    console.log('AuthGuard 상태:', { isLoading, maintenanceStatus, isLogin });
+    // console.log('AuthGuard 상태:', { isLoading, maintenanceStatus, isLogin });
     // 점검 상태를 확인 중이거나 점검 모드가 아닐 때만 로그인 체크
     if (!isLoading && !maintenanceStatus?.maintenanceMode && !isLogin) {
-      console.log('로그인 페이지로 이동');
+      // console.log('로그인 페이지로 이동');
       navigate(ROUTE_PATH.login, { replace: true });
     }
   }, [navigate, isLogin, isLoading, maintenanceStatus]);

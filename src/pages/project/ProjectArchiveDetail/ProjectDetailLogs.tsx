@@ -1,4 +1,4 @@
-import { Flex, Text } from '@/components';
+import { Text } from '@/components';
 import { styled } from '@mui/material';
 
 const ProjectDetailLogs = () => {

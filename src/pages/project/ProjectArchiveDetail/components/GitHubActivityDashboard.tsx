@@ -1,7 +1,5 @@
-import { Flex, Text, Button } from '@/components';
+import { Text } from '@/components';
 import { styled } from '@mui/material';
-import { useMediaQuery } from '@mui/material';
-import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { GitHubActivityData } from '../../types/github';
 
 interface Props {
@@ -12,7 +10,6 @@ interface Props {
 }
 
 const GitHubActivityDashboard = ({ githubLink, githubActivityData, isLoading, error }: Props) => {
-  const isMobile = useMediaQuery(`(max-width: ${MAX_RESPONSIVE_WIDTH}px)`);
 
   if (isLoading) {
     return (
@@ -223,7 +220,7 @@ const WeeklyCommitsChart = ({ data }: { data: { week: string; commits: number }[
         ))}
         
         {/* 세로 그리드 라인 */}
-        {data.map((item, index) => {
+        {data.map((_, index) => {
           const x = 70 + (index * 510) / (data.length - 1);
           return (
             <line
@@ -512,9 +509,6 @@ const GitHubButton = styled('button')`
   }
 `;
 
-const GitHubIcon = styled('span')`
-  font-size: 1rem;
-`;
 
 const LoadingState = styled('div')`
   display: flex;

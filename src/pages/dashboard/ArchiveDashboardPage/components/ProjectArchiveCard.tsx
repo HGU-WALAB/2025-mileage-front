@@ -1,5 +1,5 @@
 import { Flex, Text, Heading } from '@/components';
-import { GithubIcon, UserIcon } from '@/assets';
+import { GithubIcon } from '@/assets';
 import { ProjectArchiveResponse } from '@project/types/projectArchive';
 import { styled } from '@mui/material';
 import { getFormattedDateFullYear } from '@/utils/getDate';
@@ -16,18 +16,6 @@ export const ProjectArchiveCard = ({ project }: Props) => {
   const handleViewDetails = () => {
     navigate(`${ROUTE_PATH.project}/${project.projectId}`);
   };
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'active':
-        return '#4CAF50'; // 녹색
-      case 'inactive':
-        return '#9E9E9E'; // 회색
-      case 'finished':
-        return '#2196F3'; // 파란색
-      default:
-        return '#9E9E9E';
-    }
-  };
 
   const getStatusText = (status: string) => {
     switch (status) {
@@ -42,13 +30,6 @@ export const ProjectArchiveCard = ({ project }: Props) => {
     }
   };
 
-  const getDaysAgo = (startDate: string) => {
-    const start = new Date(startDate);
-    const now = new Date();
-    const diffTime = Math.abs(now.getTime() - start.getTime());
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
-  };
 
   return (
     <S.Card>
@@ -70,10 +51,10 @@ export const ProjectArchiveCard = ({ project }: Props) => {
       </S.DateSection>
 
       <S.TechStackSection>
-        {project.techStack.slice(0, 4).map((tech, index) => (
+        {Array.isArray(project.techStack) && project.techStack.slice(0, 4).map((tech, index) => (
           <S.TechBadge key={index}>{tech}</S.TechBadge>
         ))}
-        {project.techStack.length > 4 && (
+        {Array.isArray(project.techStack) && project.techStack.length > 4 && (
           <S.TechBadge>+{project.techStack.length - 3} more</S.TechBadge>
         )}
       </S.TechStackSection>

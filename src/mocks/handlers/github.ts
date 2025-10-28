@@ -1,4 +1,3 @@
-import { Error500, randomMswError } from '@/utils/mswError';
 import { http, HttpResponse } from 'msw';
 import {
   GitHubRepository,
@@ -144,7 +143,7 @@ export const GitHubHandlers = [
   }),
 
   // GitHub 기여자 목록
-  http.get('https://api.github.com/repos/:owner/:repo/contributors', ({ params }) => {
+  http.get('https://api.github.com/repos/:owner/:repo/contributors', () => {
     const contributors = createMockContributors();
     return HttpResponse.json(contributors, { status: 200 });
   }),

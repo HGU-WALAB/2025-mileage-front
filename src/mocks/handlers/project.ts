@@ -126,7 +126,6 @@ export const ProjectHandlers = [
     const start_date = formData.get('start_date');
     const end_date = formData.get('end_date');
     const github_id = formData.get('github_id');
-    const other_links = formData.get('other_links');
     
     // techStack 처리 (새로운 API 스펙)
     let techStack;
@@ -164,7 +163,7 @@ export const ProjectHandlers = [
         status: 'active' as const,
         startDate: start_date as string,
         repositoryName,
-        techStack: Array.isArray(techStack) ? techStack : [],
+        techStack: Array.isArray(techStack) ? techStack : (techStack?.techStack || []),
       };
       
       projectArchiveStorage.update(prev => prev.concat(archiveProject));
@@ -227,7 +226,7 @@ export const ProjectHandlers = [
   // 프로젝트 상세보기 수정 API (PATCH)
   http.patch(
     BASE_URL + `${ENDPOINT.PROJECT}/:projectId`,
-    async ({ request, params }) => {
+    async ({ request }) => {
       const formData = await request.formData();
 
       const name = formData.get('name');
@@ -239,8 +238,6 @@ export const ProjectHandlers = [
       const github_link = formData.get('github_link');
       const other_links = formData.get('other_links');
       const thumbnail = formData.get('thumbnail');
-
-      const { projectId } = params;
 
       // techStack 파싱 - toFormData가 { techStack: [...] } 형태로 보내므로
       let parsedTechStack: string[] = [];
@@ -284,9 +281,8 @@ export const ProjectHandlers = [
   // 프로젝트 상태 수정 API (PATCH)
   http.patch(
     BASE_URL + `${ENDPOINT.PROJECT}/:projectId/status`,
-    async ({ request, params }) => {
+    async ({ request }) => {
       const { status } = await request.json() as { status: 'ongoing' | 'stopped' | 'finished' };
-      const { projectId } = params;
 
       const { is500Error } = randomMswError();
       if (is500Error) return Error500();
@@ -304,6 +300,7 @@ export const ProjectHandlers = [
       );
     },
   ),
+
 
   http.delete(BASE_URL + `${ENDPOINT.PROJECT}/:projectId`, ({ params }) => {
     const { projectId } = params;

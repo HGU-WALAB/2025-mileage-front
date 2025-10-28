@@ -1,5 +1,5 @@
 import { ProjectDetailResponse } from '../../types/projectDetail';
-import { Text, Button, Heading } from '@/components';
+import { Button, Heading } from '@/components';
 import { styled } from '@mui/material';
 import { useState } from 'react';
 import { useMutation, useQueryClient } from '@tanstack/react-query';

@@ -28,10 +28,10 @@ export const useMaintenanceCheck = () => {
     const checkMaintenance = async () => {
       setIsLoading(true);
       try {
-        console.log('점검 상태 확인 시작 - 사용자 이메일:', userInfo.studentEmail);
+        // console.log('점검 상태 확인 시작 - 사용자 이메일:', userInfo.studentEmail);
         // 사용자 이메일을 포함해서 점검 상태 확인
         const status = await getMaintenanceStatus(userInfo.studentEmail);
-        console.log('점검 상태 응답:', status);
+        // console.log('점검 상태 응답:', status);
         setMaintenanceStatus(status);
       } catch (error) {
         console.error('점검 상태 확인 실패:', error);

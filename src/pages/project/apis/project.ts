@@ -21,6 +21,7 @@ export const getProject = async ({ projectId }: { projectId: string }) => {
 
 export const getProjectList = async () => {
   const response = await http.get<ProjectResponse[]>(`${ENDPOINT.PROJECT}`);
+  console.log('getProjectList', response);
   return response;
 };
 

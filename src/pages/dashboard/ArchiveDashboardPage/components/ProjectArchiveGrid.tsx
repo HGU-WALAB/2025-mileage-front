@@ -5,7 +5,6 @@ import { useGetProjectArchiveQuery } from '../hooks/useGetProjectArchiveQuery';
 import { ProjectArchiveCard } from './ProjectArchiveCard';
 
 import { AddProjectCard } from './AddProjectCard';
-import { ProjectPageForwardButton } from './ProjectPageForwardButton';
 
 export const ProjectArchiveGrid = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);

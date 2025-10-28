@@ -7,7 +7,6 @@ import { patchProjectDetail } from '../../apis/project';
 import useInput from '@/hooks/useInput';
 import { TECH_OPTIONS } from '../../constants/techOptions';
 import { toast } from 'react-toastify';
-import { TOAST_MESSAGES } from '@/constants/toastMessage';
 
 interface Props {
   projectDetail: ProjectDetailResponse;
@@ -425,20 +424,6 @@ const ProjectImage = styled('div')`
   position: relative;
 `;
 
-const EditIcon = styled('div')`
-  position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
-  background: white;
-  border-radius: 50%;
-  width: 2rem;
-  height: 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-`;
 
 const ImagePreview = styled('div')`
   width: 100%;
