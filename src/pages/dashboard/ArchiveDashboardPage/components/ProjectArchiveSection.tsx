@@ -2,10 +2,7 @@ import {
   DeferredComponent,
   Flex,
   SectionErrorFallback,
-  Title,
 } from '@/components';
-import { PlusIcon } from '@/assets';
-import { Button } from '@/components';
 import { MAX_RESPONSIVE_WIDTH } from '@/constants/system';
 import { QueryErrorResetBoundary } from '@tanstack/react-query';
 import { useMediaQuery } from '@mui/material';
@@ -15,10 +12,17 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ProjectArchiveGridSkeleton } from './ProjectArchiveGridSkeleton';
 import { ProjectArchiveGrid } from './ProjectArchiveGrid';
 import { ProjectArchiveAddModal } from '@project/ProjectArchiveAdd';
+import { MobileProjectArchiveHeader } from './MobileProjectArchiveHeader';
+import { DesktopProjectArchiveHeader } from './DesktopProjectArchiveHeader';
 
 export const ProjectArchiveSection = () => {
   const isMobile = useMediaQuery(MAX_RESPONSIVE_WIDTH);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  
+  // 정렬 상태 관리
+  const [statusFilter, setStatusFilter] = useState('전체');
+  const [languageFilter, setLanguageFilter] = useState('전체');
+  const [sortOrder, setSortOrder] = useState('최신순');
 
   const handleOpenModal = () => {
     setIsModalOpen(true);
@@ -30,15 +34,27 @@ export const ProjectArchiveSection = () => {
 
   return (
     <Flex.Column as="section">
-      <Flex.Row justify="space-between" align="center" margin="0 0 1rem 0">
-        <Title label="프로젝트" />
-        <Button
-          label={isMobile ? "추가" : "새 프로젝트 추가하기"}
-          size="medium"
-          icon={PlusIcon}
-          onClick={handleOpenModal}
+      {isMobile ? (
+        <MobileProjectArchiveHeader
+          statusFilter={statusFilter}
+          setStatusFilter={setStatusFilter}
+          languageFilter={languageFilter}
+          setLanguageFilter={setLanguageFilter}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
+          onOpenModal={handleOpenModal}
         />
-      </Flex.Row>
+      ) : (
+        <DesktopProjectArchiveHeader
+          statusFilter={statusFilter}
+          setStatusFilter={setStatusFilter}
+          languageFilter={languageFilter}
+          setLanguageFilter={setLanguageFilter}
+          sortOrder={sortOrder}
+          setSortOrder={setSortOrder}
+          onOpenModal={handleOpenModal}
+        />
+      )}
 
       <QueryErrorResetBoundary>
         {({ reset }) => (

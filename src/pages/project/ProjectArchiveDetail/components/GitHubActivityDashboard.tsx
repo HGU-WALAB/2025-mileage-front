@@ -43,10 +43,10 @@ const GitHubActivityDashboard = ({ githubLink, githubActivityData, isLoading, er
       <DashboardContainer>
         <EmptyState>
           <Text style={{ fontSize: '1rem', color: '#64748b', marginBottom: '0.5rem' }}>
-            레파지토리 링크를 추가해주세요
+            레포지토리 링크를 추가해주세요
           </Text>
           <Text style={{ fontSize: '0.875rem', color: '#9ca3af' }}>
-            레파지토리 링크를 추가하면 더 많은 정보를 확인할 수 있어요
+            레포지토리 링크를 추가하면 더 많은 정보를 확인할 수 있어요
           </Text>
         </EmptyState>
       </DashboardContainer>
@@ -148,7 +148,7 @@ const GitHubActivityDashboard = ({ githubLink, githubActivityData, isLoading, er
         <RepositoryInfoCard>
           <CardHeader>
             <Text as="h6" bold style={{ fontSize: '1rem', color: '#2c3e50' }}>
-              레파지토리 정보
+            레포지토리 정보
             </Text>
           </CardHeader>
           <RepositoryInfo>
@@ -172,7 +172,7 @@ const GitHubActivityDashboard = ({ githubLink, githubActivityData, isLoading, er
           <GitHubButton
             onClick={() => window.open(githubLink, '_blank')}
           >
-            레파지토리 바로가기
+            레포지토리 바로가기
           </GitHubButton>
         </RepositoryInfoCard>
       </DashboardContent>

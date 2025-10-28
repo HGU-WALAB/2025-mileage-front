@@ -42,7 +42,7 @@ export const ProjectArchiveCard = ({ project }: Props) => {
 
       <S.RepositorySection>
         <GithubIcon width={16} height={16} />
-        <Text>{project.repositoryName}</Text>
+        <Text>{project.repositoryName || '레포지토리를 추가해보세요'}</Text>
       </S.RepositorySection>
 
       <S.DateSection>

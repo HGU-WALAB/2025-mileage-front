@@ -119,7 +119,7 @@ const ProjectDetailPage = () => {
             label="리포트 생성하기"
             variant="contained"
             color="blue"
-            size="medium"
+            size="large"
           />
         </Flex.Row>
       </Flex.Column>
